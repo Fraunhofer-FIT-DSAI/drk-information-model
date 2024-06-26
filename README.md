@@ -9,7 +9,7 @@
 # How-To (DRK IM Development Process)
 
 ## Goals
-- This code repository aims to enable collaboration among domain experts (Use Case (UC) partners) and Semantic Web experts (FIT) to develop the DRK IM. 
+- This code repository aims to enable collaboration among domain experts (Use Case (UC) partners) and Semantic Web experts (FIT DRK IM Group) to develop the DRK IM. 
 - Here, we aim to create extensible semantic schemas (metadata templates) and application profiles (constraints: mandatory, recommended, and optional) for data sources from the DRK use cases.
 
 ## Prerequisite
@@ -18,22 +18,29 @@
 
 ## Steps
 
+![DRK-IM-Development-Process](images/drk-im-dev-process.png)
+
 1. **Identification of concepts, properties, and relationships**
-- For one/more data sources, (preferably) a UC partner creates a new issue and specifies new concepts, properties and/or application profiles (constraints) to be added to the DRK IM.
+- **Actors**: UC partners (domain experts), with support from FIT DRK IM Group (Semantic Web experts), if required.
+- For one/more data sources, (preferably) **a UC partner creates a new GitHub issue** and specifies new concepts, properties and/or application profiles (constraints) to be added to the DRK IM.
 - Preferable format: A graph (or JSON) that specifies the concepts, properties, and their interrelationships. A link to Miro, Mural, draw.io, or lucidchart board is also welcome. Where possible, the UC partner suggests existing ontologies or vocabularies where these concepts are defined. Even semantic descriptions in TTL/TRIG/JSON-LD format can be entered.
 
 2. **Semantic modelling**
-- The DRK IM group reviews and creates semantic descriptions and constraints (SHACL shapes) preferably based on the ontologies identified in the DRK IM layers diagram (see below).
+- **Actors**: FIT DRK IM Group.
+- The **DRK IM group reviews and creates semantic descriptions and constraints** (SHACL shapes) preferably based on the ontologies identified in the DRK IM layers diagram (see below).
 - If certain concepts/properties do not exist in any of the existing ontologies, they are defined in the DRK ontology.
 
 3. **Iterative review, feedback, and revision**
-- The UC partners review the semantic descriptions and constraints, and they are updated in an iterative manner together with the DRK IM group. 
-- Once final, they are merged as a pull request with the DRK IM repository’s `main` branch.
+- **Actors**: UC partners and FIT DRK IM Group.
+- The UC partners review the semantic descriptions and constraints, and they are **updated in an iterative manner** together with the DRK IM group. 
+- Once final, they are **merged as a pull request** with the DRK IM repository’s `main` branch.
 
 4. **Release**
+- **Actors**: FIT DRK IM Group.
 - The DRK IM release snapshots will follow the SemVer versioning specification.
 
 5. **Knowledge graph creation / registration of data sources as assets**
+- **Actors**: UC partners, with support from FIT DRK IM Group, if required.
 - For creating semantic metadata for the data sources which is required for their registration as assets, the schemas and application profiles from the DRK IM can be used.
 - This registration of data sources happens through EDC’s user interface or API.
 - This forms the DRK Knowledge Graph (DRK KG).
@@ -52,3 +59,4 @@ DRK IM focuses on the interoperability aspects within the Technical and Semantic
 To facilitate both the modular representation and FAIRness (Findability, Accessibility, Interoperability, and Reusability) of information, the DRK IM is structured into layers, as illustrated in the following figure. These layers are realized using the existing ontologies and vocabularies.
 
 ![DRK IM Layers](images/drk-im-layers.png)
+(Graphic: Rohit Deshmukh, Daham Mohammed Mustafa/Fraunhofer FIT)
