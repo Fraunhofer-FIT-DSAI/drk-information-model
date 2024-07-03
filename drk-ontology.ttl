@@ -1,0 +1,20 @@
+# Persistent Identifier (PID) to the namespace for DRK Ontology
+@prefix drk: <https://w3id.org/drk/> .
+# PID to the namespace for DRK Knowledge Graph that stores DRK Resources
+@prefix drkr: <https://w3id.org/drk/resources/> .
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+
+<https://w3id.org/drk/>
+    rdf:type owl:Ontology ;
+    dct:title "Datenraum Kultur Ontologie"@de ;
+    dct:title "Culture Data Space Ontology"@en ;
+    rdfs:label "Datenraum Kultur Ontologie"@de ;
+    rdfs:label "Culture Data Space Ontology"@en ;
+    vann:preferredNamespacePrefix "drk" ;
+    vann:preferredNamespaceUri "https://w3id.org/drk/" ;
+.
