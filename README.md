@@ -86,3 +86,33 @@ To facilitate both the modular representation and FAIRness (Findability, Accessi
 
 ![DRK IM Layers](images/drk-im-layers.png)
 (Graphic: Rohit Deshmukh, Daham Mohammed Mustafa/Fraunhofer FIT)
+
+# Glossary
+
+Digital Asset (subset: "Data Asset")
+- A digital resource or offering, owned by an organisation that it intends to share to generate revenue or in the public interest (data altruism).
+- Examples: Datasets, APIs, tools (SaaP), documents, files, web pages, etc.
+
+Data Asset
+- A data resource or offering, owned by an organisation that it intends to share to generate revenue or in the public interest (data altruism).
+- Data Asset is a subset of Digital Asset. 
+- Examples: Data API: Theater Showtimes API, Dataset: Museum Collection Dataset, File/Document: An art exhibition flyer in PDF format.
+- In the Datenraum Kultur (DRK) project, we are mostly working with (Data) Assets / Data Sources in the form of datasets and APIs. An asset is described using metadata that enables its discovery.
+
+Metadata 
+- Metadata is data that provides information about other data.
+- It includes details such as the origin, context, content, structure, and accessibility information associated with the data, helping to facilitate understanding, discovery, and retrieval.
+- Example: For a book, metadata might include details such as ISBN, title, author(s), description, publication date, publisher, genre, language, etc.
+- In the Datenraum Kultur (DRK) project, metadata for an asset includes information such as its name, description, URL at which the asset can be accessed, provider organization, URL to documentation, access and usage policies, culture domain specific information based on the nature of the asset, etc.
+
+Content data
+- Content data refers to the actual data provided by an asset.
+- In a dataspace, Content data is exchanged directly between participants in a peer-to-peer manner.
+- A data consumer discovers an asset by using its metadata and then invokes the URL from its metadata to retrieve the asset's content data.
+- In the context of HTTP-based data APIs, content data is often referred to as "data payload" or "response body".
+
+Data model
+- A data model is a structured representation of data that defines data elements (fields/classes), their properties, interrelationships and constraints.
+- A schema is a more concrete representation of a data model.
+- Data models are often represented using UML Class Diagrams or Entity Relationship (ER) Diagrams. For a more concrete representation, a JSON Schema as a part of an OpenAPI spec is often used.
+- Example: [Data model of LinkSmart Service Catalog](https://github.com/linksmart/service-catalog/wiki/API-Documentation) (a service registry for Web Services) represented using a UML Class Diagram. Its OpenAPI specification [Swagger UI](https://linksmart.eu/swagger-ui/dist/?url=https://raw.githubusercontent.com/linksmart/service-catalog/master/apidoc/swagger.json#/) [JSON](https://raw.githubusercontent.com/linksmart/service-catalog/master/apidoc/swagger.json) captures its schema. On [Swagger UI](https://linksmart.eu/swagger-ui/dist/?url=https://raw.githubusercontent.com/linksmart/service-catalog/master/apidoc/swagger.json#/) page, see the "Service" schema under "Schemas".
