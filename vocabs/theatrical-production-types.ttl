@@ -1,0 +1,52 @@
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms:      <http://purl.org/dc/terms/> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf:         <http://purl.org/vocommons/voaf#> .
+@prefix wikidata:     <https://www.wikidata.org/wiki/> .
+@prefix vann:         <http://purl.org/vocab/vann/> .
+@prefix tprod:        <http://w3id.org/drk/vocabs/theatrical-production-types#> .
+
+<http://w3id.org/drk/vocabs/theatrical-production-types>
+    a                             voaf:Vocabulary ;
+    dcterms:title                 "Theatrical Production Types Vocabulary"@en ;
+    dcterms:description           "A controlled vocabulary for listing and describing theatrical production types."@en ;
+    voaf:hasVersion               "0.0.1" ;
+    vann:preferredNamespacePrefix "tprod" ;
+    vann:preferredNamespaceUri    "http://w3id.org/drk/vocabs/theatrical-production-types#" .
+
+tprod:WorldPremiere
+    a               skos:Concept ;
+    rdfs:label      "World Premiere"@en, "Uraufführung"@de ;
+    skos:exactMatch wikidata:Q2500107 ;
+    skos:altLabel   "World Première"@en, "Weltpremiere"@de, "Welturaufführung"@de ;
+    rdfs:comment    "The first public performance of a theatrical creative work such as a play, opera, ballet, etc., in the world."@en ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/World_Premiere> .
+
+tprod:Revival
+    a               skos:Concept ;
+    rdfs:label      "Revival"@en, "Wiederaufnahme (Theater)"@de ;
+    skos:exactMatch wikidata:Q2568341 ;
+    rdfs:comment    "A new production (restaging) of an old play or similar creative work."@en ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Revival_(theatre)> .
+
+tprod:LanguagePremiere
+    a               skos:Concept ;
+    rdfs:label      "Language Premiere"@en, "Sprachpremiere"@de ;
+    skos:altLabel   "Language Première"@en, "Sprache Uraufführung"@de ;
+    skos:exactMatch wikidata:Q40248002 ;
+    rdfs:comment    "The first performance of a play or similar creative work in a particular language."@en .
+
+tprod:LocalPremiere
+    a               skos:Concept ;
+    rdfs:label      "Local Premiere"@en, "Lokale Premiere"@de ;
+    skos:altLabel   "Local Première"@en ;
+    skos:exactMatch wikidata:Q40249084 ;
+    rdfs:comment    "The first performance of a play or similar creative work in a particular local area."@en .
+
+tprod:CountryPremiere
+    a               skos:Concept ;
+    rdfs:label      "Country Premiere"@en, "Länderpremiere"@de ;
+    skos:altLabel   "Country Première"@en ;
+    skos:exactMatch wikidata:Q40248880 ;
+    rdfs:comment    "The first performance of a play or similar creative work in a particular country."@en .
