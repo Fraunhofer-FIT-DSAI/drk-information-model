@@ -1,145 +1,65 @@
 # Persistent Identifier (PID) to the namespace for DRK Ontology
-@prefix drk: <https://w3id.org/drk/> .
-# PID to the namespace for DRK Knowledge Graph that stores DRK Resources
-@prefix drkr: <https://w3id.org/drk/resources/> .
+@prefix drk:     <http://w3id.org/drk/ontology/> .
 
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix vann: <http://purl.org/vocab/vann/> .
-@prefix schema: <https://schema.org/> .
-@prefix ids: <https://w3id.org/idsa/core/> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix vann:    <http://purl.org/vocab/vann/> .
+@prefix schema:  <https://schema.org/> .
+@prefix ids:     <https://w3id.org/idsa/core/> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix voaf:    <http://purl.org/vocommons/voaf#> .
 
-<https://w3id.org/drk/>
-    rdf:type owl:Ontology ;
-    dct:title "Datenraum Kultur Ontologie"@de ;
-    dct:title "Culture Data Space Ontology"@en ;
-    rdfs:label "Datenraum Kultur Ontologie"@de ;
-    rdfs:label "Culture Data Space Ontology"@en ;
+<http://w3id.org/drk/ontology/>
+    rdf:type                      owl:Ontology, voaf:Vocabulary ;
+    dct:title                     "Culture Data Space Ontology"@en ;
+    dct:title                     "Datenraum Kultur Ontologie"@de ;
+    rdfs:label                    "Culture Data Space Ontology"@en ;
+    rdfs:label                    "Datenraum Kultur Ontologie"@de ;
     vann:preferredNamespacePrefix "drk" ;
-    vann:preferredNamespaceUri "https://w3id.org/drk/" ;
+    vann:preferredNamespaceUri    "http://w3id.org/drk/ontology/" ;
 .
 
 drk:MovieTheater
-    rdf:type owl:Class ;
-    rdfs:subClassOf schema:MovieTheater ;
-.
+    rdf:type        owl:Class ;
+    rdfs:subClassOf schema:MovieTheater .
 
 drk:PerformingArtsTheater
-    rdf:type owl:Class ;
-    rdfs:subClassOf schema:PerformingArtsTheater ;
-# schema:name "<Literal>" ;
-    # schema:address [
-    #	a schema:PostalAddress ;
-    #	schema:streetAddress "<Literal>" ;
-    #	schema:postalCode "<Literal>" ;
-    #	schema:addressLocality "<Literal>" ;
-    #	schema:addressCountry "<Literal>" ;
-    #] ;
-    # schema:event drk:Event ;
-.
-
-# Theater Company (that produces CreativeWork)
-
+    rdf:type        owl:Class ;
+    rdfs:subClassOf schema:PerformingArtsTheater .
 
 # CreativeWork: Play, Movie, Drama, Opera, Music Concert…
 drk:CreativeWork
-    rdf:type owl:Class ;
-    rdfs:subClassOf schema:CreativeWork ;  # ndficore:CreativeWork / gnd:Work / cidoc-crm:E12_Production
-.
+    rdf:type        owl:Class ;
+    rdfs:subClassOf schema:CreativeWork .  # ndficore:CreativeWork / gnd:Work / cidoc-crm:E12_Production
 
 drk:Play
-    rdf:type owl:Class ;
-    rdfs:subClassOf schema:Play, drk:CreativeWork ;
-.
+    rdf:type        owl:Class ;
+    rdfs:subClassOf schema:Play, drk:CreativeWork .
 
 drk:Event
-    rdf:type owl:Class ;
-    rdfs:subClassOf schema:Event ;     # nfdicore:Event / gnd:ConferenceOrEvent ?
-    # drk:about <drk:CreativeWork> ;
-.
+    rdf:type        owl:Class ;
+    rdfs:subClassOf schema:Event .     # nfdicore:Event / gnd:ConferenceOrEvent ?
 
 # Event --- about ---> CreativeWork
 drk:about
-    rdf:type owl:ObjectProperty ;
+    rdf:type           owl:ObjectProperty ;
     rdfs:subPropertyOf schema:about ;
-    rdfs:domain drk:Event ;
-    rdfs:range drk:CreativeWork ;
-.
+    rdfs:domain        drk:Event ;
+    rdfs:range         drk:CreativeWork .
 
 # Theater Showtimes API for getting schedule of movies, plays, concerts, etc.
 drk:ShowTimesAPI
-    rdf:type owl:Class ;
-    rdfs:subClassOf dcat:DataService, ids:DataResource ;
-.
+    rdf:type        owl:Class ;
+    rdfs:subClassOf dcat:DataService, ids:DataResource .
 
 drk:hasShowTimesAPI
-    rdf:type owl:ObjectProperty ;
-    rdfs:domain drk:PerformingArtsTheater;
-    rdfs:range drk:ShowTimesAPI;
-.
+    rdf:type    owl:ObjectProperty ;
+    rdfs:domain drk:PerformingArtsTheater ;
+    rdfs:range  drk:ShowTimesAPI .
 
 # Theater Showtimes dataset for historical schedule of movies, plays, concerts, etc. at a particular theater
 drk:ShowTimesArchives
-    rdf:type owl:Class ;
-    rdfs:subClassOf dcat:Dataset, ids:DataResource ;
-.
-
-
-### DRK resources / DRK Knowledge Graph instances
-## Domain-specific
-# Theater instance
-drkr:DE_Staatstheater_Augsburg
-    a drk:PerformingArtsTheater ;
-    schema:name "Staatstheater Augsburg" ;
-    schema:address [
-          a schema:PostalAddress ;
-          schema:streetAddress "Provinostr. 52" ;
-          schema:postalCode "86153" ;
-          schema:addressLocality "Augsburg" ;
-          schema:addressCountry "Germany" ;
-      ] ;
-    schema:event drkr:June_2024_Hedwig_and_the_Angry_Inch_Play  ;
-    drk:hasShowTimesAPI drkr:AugsburgStaatstheaterShowtimesAPI
-.
-
-# Event instance
-drkr:June_2024_Hedwig_and_the_Angry_Inch_Play
-    a drk:Event ;
-    drk:about drkr:Hedwig_and_the_Angry_Inch_Play ;
-    # StartDate, EndDate
-    schema:startDate "2024-06-24T19:00:00Z" ;
-    schema:endDate "2024-06-24T21:00:00Z" ;
-    schema:duration "PT1H30M" ;
-    # TODO: add url, locations, offers
-.
-
-# CreativeWork – Play instance
-drkr:Hedwig_and_the_Angry_Inch_Play
-    a drk:Play ;
-    schema:name "Hedwig and the Angry Inch"@en ;
-    schema:description "Hedwig, die Queen des Glamrock…"@de ;
-# schema:description "Hedwig, die Queen des Glamrock, kommt auf ihrer Tournee in Augsburg vorbei! Gemeinsam mit ihrer Band The Angry Inch gibt sie eines ihrer mitreißenden Konzerte. Zwischen den Songs, die – mal Rocknummer, mal Country-Ballade – von ihrem Leben und der Suche nach der eigenen Identität erzählen, kommt sie dem Publikum so nah wie nie.\\nDiese Show sollten Sie nicht verpassen!"@de ;
-    schema:genre "Rock-Musical" ;
-.
-
-## Domain-agnostic
-# Theater showtimes API instance (IDS IM)  This will be chnaged to Gaia-X style
-drkr:AugsburgStaatstheaterShowtimesAPI
-    a drk:ShowTimesAPI ;
-    dct:title "AugsburgStaatstheater Showtimes API" ;
-    dct:description "Theater Showtimes Data API for Augsburg State Theater"@en ;
-    dcat:keyword "DataSource"@en, "DataProvider"@en, "TheaterShowtimes"@en ;
-    ids:resourceEndpoint [
-          a ids:GenericEndpoint ;
-          ids:endpointInformation "This is the open access API endpoint for Augsburg State Theater showtimes."@en ;
-          ids:endpointDocumentation <https://peret.github.io/uc3-openapi/> ;
-          ids:accessURL <https://staatstheater-augsburg.de/drk> ;
-      ];
-    ids:representation [
-          a ids:DataRepresentation ;
-          dcat:mediaType <https://www.iana.org/assignments/media-types/application/json> ;
-      ]
-.
+    rdf:type        owl:Class ;
+    rdfs:subClassOf dcat:Dataset, ids:DataResource .
