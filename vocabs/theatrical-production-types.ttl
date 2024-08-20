@@ -25,28 +25,28 @@ tprod:WorldPremiere
 
 tprod:Revival
     a               skos:Concept ;
-    rdfs:label      "Revival"@en, "Wiederaufnahme (Theater)"@de ;
+    rdfs:label      "Revival"@en, "Wiederaufnahme"@de ;
     skos:exactMatch wikidata:Q2568341 ;
     rdfs:comment    "A new production (restaging) of an old play or similar creative work."@en ;
     rdfs:seeAlso    <https://en.wikipedia.org/wiki/Revival_(theatre)> .
 
 tprod:LanguagePremiere
     a               skos:Concept ;
-    rdfs:label      "Language Premiere"@en, "Sprachpremiere"@de ;
-    skos:altLabel   "Language Première"@en, "Sprache Uraufführung"@de ;
+    rdfs:label      "Language Premiere"@en, "Erstaufführung (in einer bestimmten Sprache)"@de ;
+    skos:altLabel   "Language Première"@en ;
     skos:exactMatch wikidata:Q40248002 ;
     rdfs:comment    "The first performance of a play or similar creative work in a particular language."@en .
 
 tprod:LocalPremiere
     a               skos:Concept ;
-    rdfs:label      "Local Premiere"@en, "Lokale Premiere"@de ;
+    rdfs:label      "Local Premiere"@en, "Erstaufführung (in Bezug auf einen Ort oder eine Region)"@de ;
     skos:altLabel   "Local Première"@en ;
     skos:exactMatch wikidata:Q40249084 ;
     rdfs:comment    "The first performance of a play or similar creative work in a particular local area."@en .
 
 tprod:CountryPremiere
     a               skos:Concept ;
-    rdfs:label      "Country Premiere"@en, "Länderpremiere"@de ;
+    rdfs:label      "Country Premiere"@en, "Erstaufführung (in einem bestimmten Land)"@de ;
     skos:altLabel   "Country Première"@en ;
     skos:exactMatch wikidata:Q40248880 ;
     rdfs:comment    "The first performance of a play or similar creative work in a particular country."@en .

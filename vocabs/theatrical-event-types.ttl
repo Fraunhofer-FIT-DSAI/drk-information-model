@@ -24,7 +24,7 @@ tevent:LastPerformance
 tevent:Premiere
     a               skos:Concept ;
     rdfs:label      "Première"@en, "Premiere"@de ;
-    skos:altLabel   "Premiere"@en, "Neuinszenierung"@de, "Erstaufführung"@de ;
+    skos:altLabel   "Premiere"@en ;
     skos:exactMatch wikidata:Q204854 ;
     rdfs:comment    "The first public performance of a theatrical creative work, such as a play, dance, or musical composition."@en ;
     rdfs:seeAlso    <https://en.wikipedia.org/wiki/Premiere> .
