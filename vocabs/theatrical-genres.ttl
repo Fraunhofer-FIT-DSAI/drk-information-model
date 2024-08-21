@@ -53,12 +53,12 @@ tgenres:GameTheater
     rdfs:comment
                "A genre of theater that integrates elements of game design, often involving audience participation."@en .
 
-tgenres:RadioPlay
+tgenres:LiveRadioPlay
     a               skos:Concept ;
-    rdfs:label      "Radio Play"@en, "Hörspiel"@de ;
-    skos:altLabel "Radio Drama"@en, "Audio Drama"@en, "Audio Play"@en ;
-    skos:exactMatch gndkg:4025435-5 ;
-    rdfs:comment    "A dramatized, purely acoustic performance, typically broadcast on radio."@en ;
+    rdfs:label      "Live Radio Play"@en, "Live-Hörspiel"@de ;
+    skos:altLabel   "Live Radio Drama"@en, "Live Audio Drama"@en, "Live Audio Play"@en "Livehörspiel"@de ;
+    skos:closeMatch gndkg:4025435-5 ;
+    rdfs:comment    "A dramatized, purely acoustic performance, performed in front of a live audience."@en ;
     rdfs:seeAlso <https://en.wikipedia.org/wiki/Radio_drama> .
 
 tgenres:ImprovisationalTheater
