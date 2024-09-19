@@ -33,14 +33,6 @@ tgenres:Ballet
     rdfs:comment    "A theatrical dance in which a formal academic dance technique—the danse d’école—is combined with other artistic elements such as music, costume, and stage scenery."@en ;
     rdfs:seeAlso <https://en.wikipedia.org/wiki/Ballet>, <https://www.britannica.com/art/ballet> .
 
-tgenres:Cadenza
-    a               skos:Concept ;
-    rdfs:label      "Cadenza"@en, "Kadenz"@de ;
-    skos:exactMatch gndkg:7623027-2 ;
-    # Defining source: https://en.wikipedia.org/wiki/Cadenza
-    rdfs:comment    """An improvised or written-out ornamental passage played or sung by a soloist(s), usually in a "free" rhythmic style, and often allowing virtuosic display."""@en ;
-    rdfs:seeAlso <https://en.wikipedia.org/wiki/Cadenza> .
-
 tgenres:Concert
     a               skos:Concept ;
     rdfs:label      "Concert"@en, "Konzert"@de ;
@@ -61,12 +53,12 @@ tgenres:GameTheater
     rdfs:comment
                "A genre of theater that integrates elements of game design, often involving audience participation."@en .
 
-tgenres:RadioPlay
+tgenres:LiveRadioPlay
     a               skos:Concept ;
-    rdfs:label      "Radio Play"@en, "Hörspiel"@de ;
-    skos:altLabel "Radio Drama"@en, "Audio Drama"@en, "Audio Play"@en ;
-    skos:exactMatch gndkg:4025435-5 ;
-    rdfs:comment    "A dramatized, purely acoustic performance, typically broadcast on radio."@en ;
+    rdfs:label      "Live Radio Play"@en, "Live-Hörspiel"@de ;
+    skos:altLabel   "Live Radio Drama"@en, "Live Audio Drama"@en, "Live Audio Play"@en "Livehörspiel"@de ;
+    skos:closeMatch gndkg:4025435-5 ;
+    rdfs:comment    "A dramatized, purely acoustic performance, performed in front of a live audience."@en ;
     rdfs:seeAlso <https://en.wikipedia.org/wiki/Radio_drama> .
 
 tgenres:ImprovisationalTheater
@@ -96,9 +88,9 @@ tgenres:KabarettComedy
     rdfs:label   "Cabaret Comedy"@en, "Kabarett-Comedy"@de ;
     rdfs:comment "A genre that blends cabaret-style performances with comedic elements."@en .
 
-tgenres:ChamberConcert
+tgenres:ChamberMusicConcert
     a            skos:Concept ;
-    rdfs:label   "Chamber Concert"@en, "Kammerkonzert"@de ;
+    rdfs:label   "Chamber Music Concert"@en, "Kammerkonzert"@de ;
     skos:exactMatch gndkg:7727959-1, kanzaki:Chamber_Music ;
     rdfs:comment "A genre featuring chamber music concert, typically performed by a small group of musicians."@en .
 
@@ -146,11 +138,6 @@ tgenres:Operetta
     rdfs:comment    "A genre of light opera, with spoken dialogue, songs, and dances."@en ;
     rdfs:seeAlso <https://en.wikipedia.org/wiki/Operetta> .
 
-# TODO check1: Is the reference to <https://en.wikipedia.org/wiki/Performance_art> correct here?
-# Criteria: If <https://en.wikipedia.org/wiki/Performance_art> provides more information about <tgenres:Performance>, then the reference is correct.
-# TODO check2: Is the German label "Performance"@de correct?
-# TODO check3: Is it right to say `tgenres:Performance skos:exactMatch gndkg:4173750-7` ?
-# Criteria: The property skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. If it's not an exact match but a close match, we can use the property `skos:closeMatch`. It is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications.
 tgenres:Performance
     a          skos:Concept ;
     rdfs:label "Performance"@en, "Performance"@de ;
@@ -165,15 +152,6 @@ tgenres:PhysicalTheatre
     rdfs:label   "Physical Theater"@en, "Physical Theatre"@de ;
     rdfs:comment "A genre that focuses on physical movement and body language as the primary means of storytelling."@en ;
     rdfs:seeAlso <https://en.wikipedia.org/wiki/Physical_theatre> .
-
-# TODO: check the German label.
-tgenres:Podcast
-    a          skos:Concept ;
-    rdfs:label "Podcast"@en, "Podcast"@de ;
-    skos:exactMatch gndkg:7527248-9 ;
-    rdfs:comment
-               "A genre where audio content is distributed as a series of episodes, often available for download or streaming."@en ;
-    rdfs:seeAlso <https://en.wikipedia.org/wiki/Podcast> .
 
 tgenres:PuppetTheater
     a            skos:Concept ;
@@ -208,11 +186,9 @@ tgenres:StagedConcert
     rdfs:label   "Staged Concert"@en, "Szenisches Konzert"@de ;
     rdfs:comment "A concert that incorporates theatrical elements such as staging and choreography."@en .
 
-# TODO check: Is the use of `skos:exactMatch gndkg:4184451-8` correct here?
-# Criteria: The property skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. If it's not an exact match but a close match, we can use the property `skos:closeMatch`. It is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications.
 tgenres:Dance
     a            skos:Concept ;
-    rdfs:label   "Dance"@en, "Tanz"@de ;
+    rdfs:label   "Dance"@en, "Tanztheater"@de ;
     skos:exactMatch gndkg:4184451-8 ;
     rdfs:comment "A genre that uses movement to express ideas or tell a story."@en .
 
