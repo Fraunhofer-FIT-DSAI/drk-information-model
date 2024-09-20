@@ -58,7 +58,7 @@ tgenres:GameTheater
 tgenres:LiveRadioPlay
     a             skos:Concept ;
     rdfs:label    "Live Radio Play"@en, "Live-Hörspiel"@de ;
-    skos:altLabel "Live Radio Drama"@en, "Live Audio Drama"@en, "Live Audio Play"@en "Livehörspiel"@de ;
+    skos:altLabel "Live Radio Drama"@en, "Live Audio Drama"@en, "Live Audio Play"@en, "Livehörspiel"@de ;
     skos:closeMatch gndkg:4025435-5 ;
     rdfs:comment    "A dramatized, purely acoustic performance, performed in front of a live audience."@en ;
     rdfs:seeAlso <https://en.wikipedia.org/wiki/Radio_drama> .
