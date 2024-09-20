@@ -11,6 +11,8 @@
     a                             voaf:Vocabulary ;
     dcterms:title                 "Theatrical Production Types Vocabulary"@en ;
     dcterms:description           "A controlled vocabulary for listing and describing theatrical production types."@en ;
+    rdfs:label                    "Theatrical Production Types Vocabulary"@en ;
+    rdfs:comment                  "A controlled vocabulary for listing and describing theatrical production types."@en ;
     voaf:hasVersion               "0.0.1" ;
     vann:preferredNamespacePrefix "tprod" ;
     vann:preferredNamespaceUri    "http://w3id.org/drk/vocabs/theatrical-production-types#" .
