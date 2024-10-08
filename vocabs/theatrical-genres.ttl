@@ -6,7 +6,7 @@
 @prefix gndkg:        <http://d-nb.info/gnd/> .
 @prefix kanzaki:      <http://www.kanzaki.com/ns/music#> .
 @prefix dbo:          <http://dbpedia.org/ontology/> .
-@prefix wikidata:     <https://www.wikidata.org/wiki/> .
+@prefix wikidata:     <https://www.wikidata.org/entity/> .
 @prefix vann:         <http://purl.org/vocab/vann/> .
 @prefix tgenres:      <http://w3id.org/drk/vocabs/theatrical-genres#> .
 
