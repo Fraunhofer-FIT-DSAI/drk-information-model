@@ -1,0 +1,79 @@
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms:      <http://purl.org/dc/terms/> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf:         <http://purl.org/vocommons/voaf#> .
+@prefix vann:         <http://purl.org/vocab/vann/> .
+@prefix dbr:          <https://dbpedia.org/resource/> .
+@prefix wikidata:     <https://www.wikidata.org/entity/> .
+@prefix ppfa:         <http://w3id.org/drk/vocabs/personal-profile-for-accessibility#> .
+
+ppfa:
+    a                             voaf:Vocabulary, skos:ConceptScheme ;
+    dcterms:title                 "Personal Profile for Accessibility Vocabulary"@en ;
+    dcterms:description           "A controlled vocabulary for identifying and describing personal profiles from a disability perspective, aimed at facilitating accessibility."@en ;
+    rdfs:label                    "Personal Profile for Accessibility Vocabulary"@en ;
+    rdfs:comment                  "A controlled vocabulary for identifying and describing personal profiles from a disability perspective, aimed at facilitating accessibility."@en ;
+    voaf:hasVersion               "0.0.1" ;
+    vann:preferredNamespacePrefix "ppfa" ;
+    vann:preferredNamespaceUri    "http://w3id.org/drk/vocabs/personal-profile-for-accessibility#" ;
+    dcterms:source                <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/#personalprofile> ;
+    rdfs:seeAlso                  <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
+
+# See also ppfa:visualImpairment
+ppfa:blindness
+    a               skos:Concept ;
+    skos:inScheme   ppfa: ;
+    rdfs:label      "Blindness"@en ;
+    rdfs:comment    "A term that describes the profile of a person who is blind."@en ;
+    skos:closeMatch wikidata:Q10874 .
+
+ppfa:guideDog
+    a               skos:Concept ;
+    skos:inScheme   ppfa: ;
+    rdfs:label      "Guide Dog"@en ;
+    rdfs:comment    "A term that describes the profile of a person who needs a guide dog."@en ;
+    skos:closeMatch dbr:Guide_dog, wikidata:Q38782 .
+
+ppfa:hearingImpairment
+    a               skos:Concept ;
+    skos:inScheme   ppfa: ;
+    rdfs:label      "Hearing Impairment"@en ;
+    rdfs:comment    "A term that describes the profile of a person who has a hearing impairment."@en ;
+    skos:closeMatch dbr:Hearing_impairment, wikidata:Q16035842 .
+
+ppfa:learningImpairment
+    a               skos:Concept ;
+    skos:inScheme   ppfa: ;
+    rdfs:label      "Learning Impairment"@en ;
+    rdfs:comment    "A term that describes the profile of a person who has a learning impairment."@en ;
+    skos:closeMatch dbr:Learning_impairment .
+
+ppfa:mobilityImpairment
+    a               skos:Concept ;
+    skos:inScheme   ppfa: ;
+    rdfs:label      "Mobility Impairment"@en ;
+    rdfs:comment    "A term that describes the profile of a person who has a mobility impairment."@en ;
+    skos:closeMatch dbr:Mobility_impairment, wikidata:Q3317681 .
+
+ppfa:muteness
+    a               skos:Concept ;
+    skos:inScheme   ppfa: ;
+    rdfs:label      "Muteness"@en ;
+    rdfs:comment    "A term that describes the profile of a person who is unable to speak."@en ;
+    skos:closeMatch dbr:Muteness, wikidata:Q671776 .
+
+# See also ppfa:blindness
+ppfa:visualImpairment
+    a               skos:Concept ;
+    skos:inScheme   ppfa: ;
+    rdfs:label      "Visual Impairment"@en ;
+    rdfs:comment    "A term that describes the profile of a person who has a visual impairment."@en ;
+    skos:exactMatch dbr:Visual_impairment, wikidata:Q737460 .
+
+ppfa:wheelchair
+    a               skos:Concept ;
+    skos:inScheme   ppfa: ;
+    rdfs:label      "Wheelchair"@en ;
+    rdfs:comment    "A term that describes the profile of a person who uses a wheelchair."@en ;
+    skos:closeMatch dbr:Wheelchair, wikidata:Q191931 .
