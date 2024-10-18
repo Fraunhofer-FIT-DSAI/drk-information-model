@@ -1,65 +1,343 @@
-# Persistent Identifier (PID) to the namespace for DRK Ontology
-@prefix drk:     <http://w3id.org/drk/ontology/> .
+@prefix drk:          <http://w3id.org/drk/ontology/> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:          <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms:      <http://purl.org/dc/terms/> .
+@prefix vann:         <http://purl.org/vocab/vann/> .
+@prefix schema:       <https://schema.org/> .
+@prefix dbo:          <https://dbpedia.org/ontology/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+@prefix ids:          <https://w3id.org/idsa/core/> .
+@prefix dcat:         <http://www.w3.org/ns/dcat#> .
+@prefix voaf:         <http://purl.org/vocommons/voaf#> .
 
-@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix owl:     <http://www.w3.org/2002/07/owl#> .
-@prefix dct:     <http://purl.org/dc/terms/> .
-@prefix vann:    <http://purl.org/vocab/vann/> .
-@prefix schema:  <https://schema.org/> .
-@prefix ids:     <https://w3id.org/idsa/core/> .
-@prefix dcat:    <http://www.w3.org/ns/dcat#> .
-@prefix voaf:    <http://purl.org/vocommons/voaf#> .
-
-<http://w3id.org/drk/ontology/>
-    rdf:type                      owl:Ontology, voaf:Vocabulary ;
-    dct:title                     "Culture Data Space Ontology"@en ;
-    dct:title                     "Datenraum Kultur Ontologie"@de ;
+drk:
+    a                             owl:Ontology, voaf:Vocabulary ;
     rdfs:label                    "Culture Data Space Ontology"@en ;
     rdfs:label                    "Datenraum Kultur Ontologie"@de ;
+    rdfs:comment                  "An ontology for the data space for culture."@en ;
+    dcterms:title                 "Culture Data Space Ontology"@en ;
+    dcterms:title                 "Datenraum Kultur Ontologie"@de ;
+    dcterms:description           "An ontology for the data space for culture."@en ;
     vann:preferredNamespacePrefix "drk" ;
-    vann:preferredNamespaceUri    "http://w3id.org/drk/ontology/" ;
+    vann:preferredNamespaceUri    "http://w3id.org/drk/ontology/"
 .
 
-drk:MovieTheater
-    rdf:type        owl:Class ;
-    rdfs:subClassOf schema:MovieTheater .
+# The drk:Role class represents a role in a creative work or event.
+# It connects the role to its performer.
+# It extends schema:Role class.
+# Its subclasses include 'drk:CharacterPerformanceRole' and 'drk:ProductionRole'.
+drk:Role
+    a               owl:Class ;
+    rdfs:subClassOf schema:Role ;
+    rdfs:label      "Role"@en ;
+    rdfs:comment    "A class that links a role to its performer. Roles can, in general, be of various types such as character roles, production roles, event roles, onstage roles, offstage or behind-the-scenes roles. Examples of role names include creator, writer, playwright, actor, protagonist, puppeteer, singer, cameo, costume designer, stage designer, choreographer, makeup artist, understudy, funder, sponsor, etc. Performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI) in a creative work or during an event."@en .
 
+# The drk:performer property specifies the performer of a role in a creative work or event.
+# Performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI) in a creative work or during an event.
+drk:performer
+    a            rdf:Property, owl:ObjectProperty ;
+    rdfs:domain  drk:Role ;
+    rdfs:range   [ a           rdfs:Class ;
+                   owl:unionOf ( schema:Person schema:Organization dbo:Animal schema:Thing ) ] ;
+    rdfs:label   "Performer"@en ;
+    rdfs:comment "A property that specifies the performer of a role in a creative work or during an event."@en .
+
+# The drk:CharacterPerformanceRole class links a character role to its performer.
+drk:CharacterPerformanceRole
+    a               owl:Class ;
+    rdfs:subClassOf drk:Role ;
+    rdfs:label      "Character Performance Role Class"@en ;
+    rdfs:comment    "A class that links a character role to its performer. Characters can be from a creative work such as a Play. Examples of characters include Romeo (from Romeo and Juliet by William Shakespeare; characterType: Person), Alexander Hamilton (from Hamilton musical by Lin-Manuel Miranda; characterType: Person), Simba (from The Lion King; characterType: Animal), Kermit the Frog (from The Muppet Show; characterType: Puppet), WALL-E (from Pixar's WALL-E movie; characterType: Robot), Puck (from A Midsummer Night's Dream by William Shakespeare; characterType: Imaginary Entity (Fairy)), the flying Magic Carpet (from Aladdin; characterType: Inanimate Object), etc. Performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI) in a creative work or during an event."@en .
+
+# The drk:characterName property specifies the name of a character in a creative work or during an event.
+drk:characterName
+    a            rdf:Property, owl:ObjectProperty ;
+    rdfs:domain  drk:CharacterPerformanceRole ;
+    rdfs:range   schema:Text ;
+    rdfs:label   "Character Name"@en ;
+    rdfs:comment "A property that specifies the name of a character in a creative work or during an event."@en .
+
+# The drk:characterType property specifies the type of a character in a creative work or during an event.
+# The character type values would be URIs from the DRK controlled vocabulary 'theatrical character types': `http://w3id.org/drk/vocabs/theatrical-character-types#`.
+# Examples of character types include person, animal, organization, puppet, robot, inanimate object, imaginary entity, etc.
+drk:characterType
+    a            rdf:Property, owl:ObjectProperty ;
+    rdfs:domain  drk:CharacterPerformanceRole ;
+    rdfs:range   schema:URL ;    # The value would be an URI from the DRK 'theatrical character types' vocabulary.
+    rdfs:label   "Character Type"@en ;
+    rdfs:comment "A property that specifies the type of a character in a creative work or during an event."@en .
+
+# The drk:ProductionRole class links a production role to its performer.
+# Production roles can, in general, include creator roles, non-character roles, offstage or behind-the-scenes roles.
+# Examples of production roles include creator, writer, playwright, costume designer, stage designer, choreographer, makeup artist, understudy, usher, funder, sponsor, etc.
+drk:ProductionRole
+    a               owl:Class ;
+    rdfs:subClassOf drk:Role ;
+    rdfs:label      "Production Role"@en ;
+    rdfs:comment    "A class that links a production role to its performer. Production roles can, in general, include creator roles, non-character roles, offstage or behind-the-scenes roles. Examples of production roles include creator, writer, playwright, costume designer, stage designer, choreographer, makeup artist, understudy, usher, funder, sponsor, etc."@en .
+
+# The drk:PlayProduction class includes every stage of Play Production from writing, planning, and casting, to rehearsal, except for the presentation of work, i.e., Event.
+# Event is modelled using another class: drk:TheaterEvent.
+# It extends schema:CreativeWork class.
+drk:PlayProduction
+    a               owl:Class ;
+    rdfs:subClassOf schema:CreativeWork ;
+    rdfs:label      "Play Production"@en ;
+    rdfs:comment    "A class that includes all stages of Play Production from writing, planning, casting, and staging to rehearsal, but excludes the final presentation or performance, which is modeled as an Event using the drk:TheaterEvent class."@en .
+
+# The drk:productionType property specifies the production type of a creative work, such as 'World Premiere', 'Language Premiere', etc.
+# The production type values would be URIs from the DRK controlled vocabulary 'theatrical production types': `http://w3id.org/drk/vocabs/theatrical-production-types#`.
+drk:productionType
+    a           rdf:Property, owl:ObjectProperty ;
+    rdfs:domain drk:PlayProduction ;
+    rdfs:range  schema:URL ;    # The value would be an URI from the DRK 'theatrical production types' vocabulary.
+    rdfs:label  "Production Type"@en ;
+    rdfs:comment
+                "A property that specifies the production type of a creative work, such as 'World Premiere', 'Language Premiere', etc."@en .
+
+# The drk:characterRole property specifies the characters and roles played by them in a theatrical play.
+# It enables specifying characterName, characterType and roleName.
+# characterName examples: Romeo, Simba, WALL-E, etc.
+# characterType: Provided by DRK controlled vocabulary theatrical character types (persons, animals, puppets, robots, inanimate objects, imaginary entities).
+# roleName examples (corresponding to character roles): actor, protagonist, puppeteer, cameo, singer, etc.
+# Note: This property is comparable to schema:character, but it allows for specifying characters and their roles in greater detail than schema:character by incorporating character names, types, and role names.
+drk:characterRole
+    a            rdf:Property, owl:ObjectProperty ;
+    rdfs:domain  drk:PlayProduction ;
+    rdfs:range   drk:CharacterPerformanceRole ;
+    rdfs:label   "Character Role"@en ;
+    rdfs:comment "A property that is used to specify the characters and the roles played by them in a theatrical play. For example, the role of 'Romeo' in 'Romeo and Juliet' by William Shakespeare is a character role."@en .
+
+# The drk:creatorRole property specifies the names of creator roles involved in a play's production and the performers of these roles.
+# roleName examples (corresponding to creator roles): creator, writer, playwright, makeup artist, understudy, funder, sponsor, etc.
+# performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI).
+# Note: Use this property instead of schema:character
+drk:creatorRole
+    a           rdf:Property, owl:ObjectProperty ;
+    rdfs:domain drk:PlayProduction ;
+    rdfs:range  drk:ProductionRole ;
+    rdfs:label  "Creator Role"@en ;
+    rdfs:comment
+                "A property that is used to specify the names of creator roles involved in a play's production that are not characters in the play. For example, William Shakespeare performed the roles of playwright and creator in the production of his play 'Romeo and Juliet'."@en .
+
+# The drk:TheaterEvent describes the presentation of a theatrical creative work such as a play.
+# For example, the premiere performance of the play 'Hedwig and the Angry Inch' on 15.9.2023 at Staatstheater Augsburg: https://staatstheater-augsburg.de/hedwig_and_the_angry_inch.
+# It extends schema:TheaterEvent class.
+# drk:TheaterEvent can be linked to drk:PlayProduction using the property 'schema:workPerformed'.
+# Theater Events can be presented to an audience at a physical location, a virtual location, or in a hybrid manner.
+drk:TheaterEvent
+    a               owl:Class ;
+    rdfs:subClassOf schema:TheaterEvent ;
+    rdfs:label      "Theater Event"@en ;
+    rdfs:comment    "A class that describes the presentation of a theatrical creative work such as a play."@en .
+
+# The drk:intermissionCount property specifies the number of intermissions or breaks during an Event.
+# Note: rdfs:domain is schema:Event.
+drk:intermissionCount
+    a            rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain  schema:Event ;
+    rdfs:range   schema:Integer ;
+    rdfs:label   "Intermission Count"@en ;
+    rdfs:comment "A property that specifies the number of intermissions or breaks during an Event."@en .
+
+# The drk:subtitleLanguage specifies the languages in which subtitles or captions are available during an Event.
+# Currently, schema:subtitleLanguage is not applicable on schema:Event (or schema:TheaterEvent), but only on some specific types such as BroadcastEvent, ScreeningEvent.
+drk:subtitleLanguage
+    a           rdf:Property, owl:ObjectProperty ;
+    rdfs:domain schema:TheaterEvent ;
+    rdfs:range  schema:Language ;
+    rdfs:label  "Subtitle Language"@en ;
+    rdfs:comment
+                "A property that specifies the languages in which subtitles or captions are available during a Theatrical Event."@en .
+
+# The drk:characterPerformanceRole property is used to specify and link the details of characters in a creative work such as a play to the respective performers and the roles played by them.
+drk:characterPerformanceRole
+    a           rdf:Property, owl:ObjectProperty ;
+    rdfs:domain schema:TheaterEvent ;
+    rdfs:range  drk:CharacterPerformanceRole ;
+    rdfs:label  "Character Performance Role Property"@en ;
+    rdfs:comment
+                "A property that is used to specify and link the details of characters in a creative work such as a play to the respective performers and the roles played by them."@en .
+
+# The drk:eventRole property is used to link the production roles in an event that features theatrical work such as a play to its performers.
+# Event roles are (mostly off-stage) production roles that are performed during the preparation or performance of an Event. These are mostly the "non-character" roles, i.e., they are not linked to any characters in the play.
+# Examples include director, costume designer, stage manager, set/stage designer, lighting designer, sound designer, sound engineer, technical director, makeup artist, choreographer, understudy, usher, production manager, producer, funder, sponsor, front of house manager, etc.
+drk:eventRole
+    a           rdf:Property, owl:ObjectProperty ;
+    rdfs:domain schema:TheaterEvent ;
+    rdfs:range  drk:ProductionRole ;
+    rdfs:label  "Event Role Property"@en ;
+    rdfs:comment
+                "A property that is used to link the production roles in an event that features theatrical work such as a play to its performers. Event roles are (mostly off-stage) production roles that are performed during the preparation or performance of an Event. Examples include director, costume designer, stage manager, set/stage designer, lighting designer, sound designer, sound engineer, technical director, makeup artist, choreographer, understudy, usher, production manager, producer, funder, sponsor, front of house manager, etc."@en .
+
+# The drk:eventType property specifies theatrical event types such as Premiere, Last Performance, Guest Performance, etc.
+# Note: Use DRK controlled vocabulary: theatrical event types: `http://w3id.org/drk/vocabs/theatrical-event-types#`
+drk:eventType
+    a           rdf:Property, owl:ObjectProperty ;
+    rdfs:domain schema:TheaterEvent ;
+    rdfs:range  schema:URL ;
+    rdfs:label  "Event Type"@en ;
+    rdfs:comment
+                "A property that specifies theatrical event types such as Premiere, Last Performance, Guest Performance, etc."@en .
+
+# The drk:Place class describes a physical place or location, with additional details about the accessibility features available at the place.
+drk:Place
+    a               owl:Class ;
+    rdfs:subClassOf schema:Place ;
+    rdfs:label      "Place"@en ;
+    rdfs:comment    "A class that describes a physical place or location. The drk:Place class extends schema:Place to describe the accessibility features available at the place."@en .
+
+# The drk:PerformingArtsTheater class describes a place such as a building, a group of buildings, or an event site that is designated for organizing theatrical events such as plays.
 drk:PerformingArtsTheater
-    rdf:type        owl:Class ;
-    rdfs:subClassOf schema:PerformingArtsTheater .
+    a               owl:Class ;
+    rdfs:subClassOf schema:PerformingArtsTheater, drk:Place ;
+    rdfs:label      "Performing Arts Theater"@en ;
+    rdfs:comment    "A place such as a building, a group of buildings, or an event site that is designated for organizing theatrical events such as plays."@en .
 
-# CreativeWork: Play, Movie, Drama, Opera, Music Concert…
-drk:CreativeWork
-    rdf:type        owl:Class ;
-    rdfs:subClassOf schema:CreativeWork .  # ndficore:CreativeWork / gnd:Work / cidoc-crm:E12_Production
+# The drk:hasAccessibilityFeature property is used to describe the physical (and sometimes human-rated) accessibility features of a physical place.
+drk:hasAccessibilityFeature
+    a           rdf:Property, owl:ObjectProperty ;
+    rdfs:domain schema:Place ;
+    rdfs:range  drk:PlaceAccessibilityFeature ;
+    rdfs:label  "Has Accessibility Feature Property"@en ;
+    rdfs:comment
+                "A property that is used to describe the physical (and sometimes human-rated) accessibility of a physical place."@en .
 
-drk:Play
-    rdf:type        owl:Class ;
-    rdfs:subClassOf schema:Play, drk:CreativeWork .
+# The drk:PlaceAccessibilityFeature class describes the physical (and sometimes human-rated) accessibility of a physical place.
+drk:PlaceAccessibilityFeature
+    a              owl:Class ;
+    rdfs:label     "Place Accessibility Feature Class"@en ;
+    rdfs:comment   "A class that describes the physical (and sometimes human-rated) accessibility of a physical place."@en ;
+    dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
-drk:Event
-    rdf:type        owl:Class ;
-    rdfs:subClassOf schema:Event .     # nfdicore:Event / gnd:ConferenceOrEvent ?
+# The drk:animalPolicy property is used to describe the policies of a place concerning bringing animals along.
+drk:animalPolicy
+    a            rdf:Property, owl:ObjectProperty ;
+    rdfs:domain  drk:PlaceAccessibilityFeature ;
+    rdfs:range   drk:AnimalPolicy ;
+    rdfs:label   "Animal Policy Property"@en ;
+    rdfs:comment "A property that is used to describe the policies of a place concerning bringing animals along."@en ;
+    dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
-# Event --- about ---> CreativeWork
-drk:about
-    rdf:type           owl:ObjectProperty ;
-    rdfs:subPropertyOf schema:about ;
-    rdfs:domain        drk:Event ;
-    rdfs:range         drk:CreativeWork .
+# The drk:accessibleWith property is used to specify with what disability profile can a person access the given place.
+# The personal disability profile values would be URIs from the DRK controlled vocabulary 'Personal Profile for Accessibility': `http://w3id.org/drk/vocabs/personal-profile-for-accessibility#`.
+drk:accessibleWith
+    a           rdf:Property, owl:ObjectProperty ;
+    rdfs:domain drk:PlaceAccessibilityFeature ;
+    rdfs:range  schema:URL ;
+    rdfs:label  "Accessible With Personal (Disability) Profile Property"@en ;
+    rdfs:comment
+                "A property that is used to specify with what disability profile can a person access the given place. For example, the place owner or an external agency might specify that the given place can be comfortably accessed by a person who uses a wheelchair, or who has a visual impairment."@en ;
+    dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
-# Theater Showtimes API for getting schedule of movies, plays, concerts, etc.
-drk:ShowTimesAPI
-    rdf:type        owl:Class ;
-    rdfs:subClassOf dcat:DataService, ids:DataResource .
+# The drk:wheelchairPlaces property is used to describe the presence of reserved spots for wheelchairs at a place.
+drk:wheelchairPlaces
+    a            rdf:Property, owl:ObjectProperty ;
+    rdfs:domain  drk:PlaceAccessibilityFeature ;
+    rdfs:range   drk:WheelchairPlaces ;
+    rdfs:label   "Wheelchair Places Property"@en ;
+    rdfs:comment "A property that is used to describe the presence of reserved spots for wheelchairs at a place."@en ;
+    dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
-drk:hasShowTimesAPI
-    rdf:type    owl:ObjectProperty ;
-    rdfs:domain drk:PerformingArtsTheater ;
-    rdfs:range  drk:ShowTimesAPI .
+# The drk:accessibilityDescription property can be used to provide a human-readable description of facilities at a place concerning accessibility.
+# For example, whether the given place is accessible with a wheelchair, or with a guide dog, does the place offer all the necessary facilities for access by a person who has a visual impairment, is the place equipped with 'accessible toilets', etc.
+drk:accessibilityDescription
+    a           rdf:Property, owl:ObjectProperty ;
+    rdfs:domain drk:PlaceAccessibilityFeature ;
+    rdfs:range  schema:Text ;
+    rdfs:label  "Accessibility Description"@en ;
+    rdfs:comment
+                "A property that can be used to provide a human-readable description of facilities at a place concerning accessibility. For example, whether the given place is accessible with a wheelchair, or with a guide dog, does the place offer all the necessary facilities for access by a person who has a visual impairment, is the place equipped with 'accessible toilets', etc."@en ;
+    dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
-# Theater Showtimes dataset for historical schedule of movies, plays, concerts, etc. at a particular theater
-drk:ShowTimesArchives
-    rdf:type        owl:Class ;
-    rdfs:subClassOf dcat:Dataset, ids:DataResource .
+# The drk:AnimalPolicy class describes the policies of a place concerning bringing animals along.
+# The drk:AnimalPolicy class has properties: drk:allowsDogs, drk:allowsServiceAnimals, drk:allowsAssistanceDogs, drk:allowsGuideDogs.
+# drk:allowsAssistanceDogs is a rdfs:subPropertyOf both drk:allowsDogs and drk:allowsServiceAnimals.
+# drk:allowsGuideDogs is a rdfs:subPropertyOf drk:allowsAssistanceDogs.
+# This means: If a place allows people to bring Dogs and/or Service Animals, it can be inferred that it allows Assistance Dogs and Guide Dogs as well. If a place allows people to bring Assistance Dogs, it can be inferred that it allows Guide Dogs as well. If a place does not allow people to bring Guide Dogs, it can be inferred that it does not allow Dogs, Service Animals, and Assistance Dogs either.
+drk:AnimalPolicy
+    a              owl:Class ;
+    rdfs:label     "Animal Policy Class"@en ;
+    rdfs:comment   "A class that describes the policies of a place concerning bringing animals along."@en ;
+    dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
+
+# The drk:allowsDogs property describes if the place allows visitors to bring dogs in general.
+drk:allowsDogs
+    a            rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain  drk:AnimalPolicy ;
+    rdfs:range   schema:Boolean ;
+    rdfs:label   "Allows Dogs"@en ;
+    rdfs:comment "A property that describes if the place allows visitors to bring dogs in general."@en ;
+    dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
+
+# The drk:allowsServiceAnimals property describes if the place allows visitors to bring service animals along.
+# A Service Animal is an animal that has been trained to assist a disabled person (source: https://en.wikipedia.org/wiki/Service_animal).
+# While dogs are the most common service animals, other animals (like miniature horses, ferrets, parrots, and monkeys) may also serve in this role, depending upon regional regulations.
+drk:allowsServiceAnimals
+    a           rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain drk:AnimalPolicy ;
+    rdfs:range  schema:Boolean ;
+    rdfs:label  "Allows Service Animals"@en ;
+    rdfs:comment
+                "A property that describes if the place allows visitors to bring service animals along. A Service Animal is an animal that has been trained to assist a disabled person (source: https://en.wikipedia.org/wiki/Service_animal). While dogs are the most common service animals, other animals (like miniature horses, ferrets, parrots, and monkeys) may also serve in this role, depending upon regional regulations."@en ;
+    dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
+
+# The drk:allowsAssistanceDogs property describes if the place allows visitors to bring assistance/service dogs.
+# An assistance/service dog is a dog that receives specialized training to aid an individual with a disability in navigating everyday life (source: https://en.wikipedia.org/wiki/Assistance_dog).
+# Assistance/Service dogs are a specific category of service animals.
+drk:allowsAssistanceDogs
+    a                  rdf:Property, owl:DatatypeProperty ;
+    rdfs:subPropertyOf drk:allowsDogs, drk:allowsServiceAnimals ;
+    rdfs:domain        drk:AnimalPolicy ;
+    rdfs:range         schema:Boolean ;
+    rdfs:label         "Allows Assistance/Service Dogs"@en ;
+    rdfs:comment       "A property that describes if the place allows visitors to bring assistance/service dogs. Assistance dogs, also referred to as a service dogs, are a specific type of service animals that receive specialized training to aid an individual with a disability in navigating everyday life (source: https://en.wikipedia.org/wiki/Assistance_dog)."@en ;
+    dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
+
+# The drk:allowsGuideDogs property describes if the place allows visitors to bring guide dogs.
+# Guide dogs are a specialized type of assistance dogs, trained to lead individuals who are blind or visually impaired around obstacles (source: https://en.wikipedia.org/wiki/Guide_dog).
+drk:allowsGuideDogs
+    a                  rdf:Property, owl:DatatypeProperty ;
+    rdfs:subPropertyOf drk:allowsAssistanceDogs ;
+    rdfs:domain        drk:AnimalPolicy ;
+    rdfs:range         schema:Boolean ;
+    rdfs:label         "Allows Guide Dogs"@en ;
+    rdfs:comment       "A property that describes if the place allows visitors to bring guide dogs. Guide dogs are a specialized type of assistance dogs, trained to lead individuals who are blind or visually impaired around obstacles (source: https://en.wikipedia.org/wiki/Guide_dog)."@en ;
+    dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
+
+# The drk:WheelchairPlaces class describes the availability of reserved spots for wheelchairs at a place.
+drk:WheelchairPlaces
+    a              owl:Class ;
+    rdfs:label     "Wheelchair Places"@en ;
+    rdfs:comment   "A class that describes the presence of reserved spots for wheelchairs at a place."@en ;
+    dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
+
+# The drk:count property specifies the number of designated places for wheelchairs, for example, in a theater place or a cinema hall.
+drk:count
+    a           rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain drk:WheelchairPlaces ;
+    rdfs:range  schema:Integer ;
+    rdfs:label  "Wheelchair Places Count Property"@en ;
+    rdfs:comment
+                "A property that specifies the number of designated places for wheelchairs, for example, in a theater place or a cinema hall."@en ;
+    dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
+
+# The drk:hasSpaceForAssistant property specifies whether the place has additional space for a wheelchair assistant.
+drk:hasSpaceForAssistant
+    a            rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain  drk:WheelchairPlaces ;
+    rdfs:range   schema:Boolean ;
+    rdfs:label   "Has Space For Wheelchair Assistant Property"@en ;
+    rdfs:comment "A property that specifies whether the place has additional space for a wheelchair assistant."@en ;
+    dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
+
+# The drk:wheelchairUserCapacity property specifies the number of people using a wheelchair that can be accommodated at the same time. This property should be used when there is no designated space for wheelchair users (i.e., drk:count), but the number is known.
+drk:wheelchairUserCapacity
+    a           rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain drk:WheelchairPlaces ;
+    rdfs:range  schema:Integer ;
+    rdfs:label  "Wheelchair User Capacity Property"@en ;
+    rdfs:comment
+                "A property that specifies the number of people using a wheelchair that can be accommodated at the same time. This property should be used when there is no designated space for wheelchair users, but the number is known."@en ;
+    dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
