@@ -1,6 +1,16 @@
 # DRK Information Model
 **Datenraum Kultur Information Model (DRK IM)**: The DRK IM is a Semantic Information Model that aims to define formal specifications of concepts, relationships, and constraints (application profiles) within the culture dataspace. This formalization provides a structured framework for understanding and organizing information within the DRK project. In addition, this forms a basis for representing information in DRK in the form of a Knowledge Graph (DRK KG) with more advanced querying, inference, and reasoning capabilities.
 
+# DRK IM Contents
+- The DRK Ontology
+- Extensible semantic schemas (metadata templates) and their visual models (in the form of editable UML class diagrams)
+- Application profiles (constraints: mandatory, recommended, optional - in the form of SHACL shapes)
+- Controlled vocabularies for representing enumerations
+- Templates for access and usage policies (in the form of ODRL policy templates/examples)
+- Example instances
+- Competency questions for scoping and validating the information model and modeling discussions (in the form of Issues and comments)
+- Documentation (currently, in the form of README files)
+
 # Naming Conventions
 - **Directories and files**: All small letters, separated by hyphens (-). Example: `drk-ontology.ttl`
 - **Prefixes**: In DRK Ontology, we use https://prefix.cc/ to abbreviate URIs
