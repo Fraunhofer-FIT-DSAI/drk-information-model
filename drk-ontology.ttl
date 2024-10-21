@@ -13,12 +13,12 @@
 
 drk:
     a                             owl:Ontology, voaf:Vocabulary ;
-    rdfs:label                    "Culture Data Space Ontology"@en ;
-    rdfs:label                    "Datenraum Kultur Ontologie"@de ;
-    rdfs:comment                  "An ontology for the data space for culture."@en ;
-    dcterms:title                 "Culture Data Space Ontology"@en ;
-    dcterms:title                 "Datenraum Kultur Ontologie"@de ;
-    dcterms:description           "An ontology for the data space for culture."@en ;
+    rdfs:label                    "Culture Dataspace (DRK) Ontology"@en ;
+    rdfs:label                    "Datenraum Kultur (DRK) Ontologie"@de ;
+    rdfs:comment                  "The DRK ontology is designed for the cultural dataspace, providing extensible semantic concepts, properties, and their interrelationships for modeling metadata related to theaters, theatrical productions, and their showtimes."@en ;
+    dcterms:title                 "Culture Dataspace (DRK) Ontology"@en ;
+    dcterms:title                 "Datenraum Kultur (DRK) Ontologie"@de ;
+    dcterms:description           "The DRK ontology is designed for the cultural dataspace, providing extensible semantic concepts, properties, and their interrelationships for modeling metadata related to theaters, theatrical productions, and their showtimes."@en ;
     vann:preferredNamespacePrefix "drk" ;
     vann:preferredNamespaceUri    "http://w3id.org/drk/ontology/"
 .
