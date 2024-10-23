@@ -1,0 +1,86 @@
+{
+  "CC0": {
+    "@context": "http://www.w3.org/ns/odrl.jsonld",
+    "@type": "Set",
+    "uid": "http://example.com/policy:cc0",
+    "permission": [{"action": "use"}]
+  },
+  
+  "CC BY": {
+    "@context": "http://www.w3.org/ns/odrl.jsonld",
+    "@type": "Set",
+    "uid": "http://example.com/policy:cc-by",
+    "permission": [{
+      "action": "use",
+      "duty": [{"action": "attribute"}]
+    }]
+  },
+  "CC BY-SA": {
+    "@context": "http://www.w3.org/ns/odrl.jsonld",
+    "@type": "Set",
+    "uid": "http://example.com/policy:cc-by-sa",
+    "permission": [{
+      "action": "use",
+      "duty": [
+        {"action": "attribute"},
+        {"action": "shareAlike"}
+      ]
+    }]
+  },
+  "CC BY-ND": {
+    "@context": "http://www.w3.org/ns/odrl.jsonld",
+    "@type": "Set",
+    "uid": "http://example.com/policy:cc-by-nd",
+    "permission": [{
+      "action": "use",
+      "duty": [{"action": "attribute"}]
+    }],
+    "prohibition": [{"action": "modify"}]
+  },
+  "CC BY-NC": {
+    "@context": "http://www.w3.org/ns/odrl.jsonld",
+    "@type": "Set",
+    "uid": "http://example.com/policy:cc-by-nc",
+    "permission": [{
+      "action": "use",
+      "duty": [{"action": "attribute"}],
+      "constraint": [{
+        "leftOperand": "purpose",
+        "operator": "neq",
+        "rightOperand": "commercial"
+      }]
+    }]
+  },
+  "CC BY-NC-SA": {
+    "@context": "http://www.w3.org/ns/odrl.jsonld",
+    "@type": "Set",
+    "uid": "http://example.com/policy:cc-by-nc-sa",
+    "permission": [{
+      "action": "use",
+      "duty": [
+        {"action": "attribute"},
+        {"action": "shareAlike"}
+      ],
+      "constraint": [{
+        "leftOperand": "purpose",
+        "operator": "neq",
+        "rightOperand": "commercial"
+      }]
+    }]
+  },
+  "CC BY-NC-ND": {
+    "@context": "http://www.w3.org/ns/odrl.jsonld",
+    "@type": "Set",
+    "uid": "http://example.com/policy:cc-by-nc-nd",
+    "permission": [{
+      "action": "use",
+      "duty": [{"action": "attribute"}],
+      "constraint": [{
+        "leftOperand": "purpose",
+        "operator": "neq",
+        "rightOperand": "commercial"
+      }]
+    }],
+    "prohibition": [{"action": "modify"}]
+  }
+}
