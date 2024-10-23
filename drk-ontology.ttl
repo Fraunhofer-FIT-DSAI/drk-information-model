@@ -133,16 +133,6 @@ drk:TheaterEvent
     rdfs:label      "Theater Event"@en ;
     rdfs:comment    "A class that describes the presentation of a theatrical creative work such as a play."@en .
 
-# The drk:workPerformed property links drk:TheaterEvent to drk:PlayProduction.
-# It is a sub property of schema:workPerformed.
-drk:workPerformed
-    a                  rdf:Property, owl:ObjectProperty ;
-    rdfs:subPropertyOf schema:workPerformed ;
-    rdfs:domain        drk:TheaterEvent ;
-    rdfs:range         drk:PlayProduction ;
-    rdfs:label         "Work Performed"@en ;
-    rdfs:comment       "A property that is used to specify the play production work (drk:PlayProduction) to be presented at an event (drk:TheaterEvent)."@en .
-
 # The drk:intermissionCount property specifies the number of intermissions or breaks during an Event.
 # Note: rdfs:domain is schema:Event.
 drk:intermissionCount
