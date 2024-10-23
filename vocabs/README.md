@@ -1,7 +1,8 @@
 # Controlled Vocabularies for Representing Enumerations
 
 - For modeling Enumerations (ENUMs) in semantic metadata schemas (and later using them while instantiating these
-  metadata models in the DRK Knowledge Graph), it would be preferable use URIs from existing controlled vocabularies (preferably standard-based), instead of plain string literals.
+  metadata models in the DRK Knowledge Graph), it would be preferable use URIs from existing controlled vocabularies (
+  preferably standard-based), instead of plain string literals.
 - In case there are no existing vocabularies for a given ENUM-type, new ones can be created and defined under the DRK
   IM's vocabulary namespace: `http://w3id.org/drk/vocabs/`
 - Examples
@@ -49,7 +50,8 @@ drkr:Hedwig_and_the_Angry_Inch_Event_20241228
 
 - Title: OMG's **ISO 3166-1** Country Codes Vocabulary
 - Description: A controlled vocabulary for countries based on _ISO 3166-1, Codes for the representation of names of
-  countries and their subdivisions–Part 1: Country codes_. Together with standardized country names the ISO 3166-1 alpha-2 and alpha-2 parts of this standard provide two-letter and three-letter country codes respectively.
+  countries and their subdivisions–Part 1: Country codes_. Together with standardized country names the ISO 3166-1
+  alpha-2 and alpha-2 parts of this standard provide two-letter and three-letter country codes respectively.
 - [Link to homepage](https://www.omg.org/spec/LCC/1.2/About-LCC)
 - [Link to TTL representation](https://www.omg.org/spec/LCC/20211101/Countries/ISO3166-1-CountryCodes.ttl)
 - Namespace: `https://www.omg.org/spec/LCC/Countries/ISO3166-1-CountryCodes/`
@@ -83,9 +85,12 @@ drkr:DE_Staatstheater_Augsburg_Address
 ## Country Subdivision (States/Provinces) Vocabulary
 
 - Title: OMG's **ISO 3166-2** Country Subdivision Region Codes Vocabulary
-- Description: A controlled vocabulary for country subdivisions based on _ISO 3166-2, Codes for the representation of names of countries and their subdivisions – Part 2: Country subdivision code_. OMG's vocabulary homepage provides links to the TTL representations of subdivision codes for each country.
+- Description: A controlled vocabulary for country subdivisions based on _ISO 3166-2, Codes for the representation of
+  names of countries and their subdivisions – Part 2: Country subdivision code_. OMG's vocabulary homepage provides
+  links to the TTL representations of subdivision codes for each country.
 - [Link to homepage](https://www.omg.org/spec/LCC/1.2/About-LCC)
-- For example: [Link to Germany's (DE) subdivision codes in TTL format](https://www.omg.org/spec/LCC/Countries/Regions/ISO3166-2-SubdivisionCodes-DE.ttl)
+- For
+  example: [Link to Germany's (DE) subdivision codes in TTL format](https://www.omg.org/spec/LCC/Countries/Regions/ISO3166-2-SubdivisionCodes-DE.ttl)
 - Namespace: `https://www.omg.org/spec/LCC/Countries/Regions/ISO3166-2-SubdivisionCodes-<replace_with_country_code>/`
 - Term example: `https://www.omg.org/spec/LCC/Countries/Regions/ISO3166-2-SubdivisionCodes-DE/Bayern`
   OR `lcc-3166-2-de:Bayern`
@@ -215,6 +220,33 @@ drkr:CharacterRoleHedwig
     drk:characterName "Hedwig Robinson"@en ;
     drk:characterType tchar:Person ;
     schema:roleName   "Actor"@en, "Protagonist"@en, "Narrator"@en, "Singer"@en .
+```
+
+## Personal Profile for Accessibility Vocabulary
+
+- Title: DRK Personal Profile for Accessibility Vocabulary
+- [Link to TTL representation](personal-profile-for-accessibility.ttl)
+- Namespace: `http://w3id.org/drk/vocabs/personal-profile-for-accessibility#`
+- Term example: `http://w3id.org/drk/vocabs/personal-profile-for-accessibility#blindness` OR `ppfa:blindness`
+- Usage example:
+
+```turtle
+
+@prefix rdf:             <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:            <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix drk:             <https://w3id.org/drk/ontology/> .
+@prefix drkr:            <https://w3id.org/drk/resources/> .
+@prefix schema:          <https://schema.org/> .
+@prefix ppfa:            <http://w3id.org/drk/vocabs/personal-profile-for-accessibility#> .
+
+drkr:DE_Augsburg_STAugsburg_Place
+    a                           drk:PerformingArtsTheater ;
+    schema:name                 "Staatstheater Augsburg - brecht stage im Gaswerk"@en ;
+    drk:hasAccessibilityFeature [ a                  drk:PlaceAccessibilityFeature ;
+                                  drk:accessibleWith ppfa:wheelchair, ppfa:mobilityImpairment ;
+                                  drk:accessibleWith ppfa:blindness, ppfa:visualImpairment ; ] ;
+    schema:latitude             48.3874688 ;
+    schema:longitude            10.8597226 .
 ```
 
 ---
