@@ -103,11 +103,12 @@ drk:productionType
 # roleName examples (corresponding to character roles): actor, protagonist, puppeteer, cameo, singer, etc.
 # Note: This property is comparable to schema:character, but it allows for specifying characters and their roles in greater detail than schema:character by incorporating character names, types, and role names.
 drk:characterRole
-    a            rdf:Property, owl:ObjectProperty ;
-    rdfs:domain  drk:PlayProduction ;
-    rdfs:range   drk:CharacterPerformanceRole ;
-    rdfs:label   "Character Role"@en ;
-    rdfs:comment "A property that is used to specify the characters and the roles played by them in a theatrical play. For example, the role of 'Romeo' in 'Romeo and Juliet' by William Shakespeare is a character role."@en .
+    a           rdf:Property, owl:ObjectProperty ;
+    rdfs:domain drk:PlayProduction ;
+    rdfs:range  drk:CharacterPerformanceRole ;
+    rdfs:label  "Character Role"@en ;
+    rdfs:comment
+                "A property that is used to specify the characters and the roles played by them in a theatrical play. For example, the role of 'Romeo' in 'Romeo and Juliet' by William Shakespeare is a character role."@en .
 
 # The drk:creatorRole property specifies the names of creator roles involved in a play's production and the performers of these roles.
 # roleName examples (corresponding to creator roles): creator, writer, playwright, makeup artist, understudy, funder, sponsor, etc.
@@ -131,6 +132,16 @@ drk:TheaterEvent
     rdfs:subClassOf schema:TheaterEvent ;
     rdfs:label      "Theater Event"@en ;
     rdfs:comment    "A class that describes the presentation of a theatrical creative work such as a play."@en .
+
+# The drk:workPerformed property links drk:TheaterEvent to drk:PlayProduction.
+# It is a sub property of schema:workPerformed.
+drk:workPerformed
+    a                  rdf:Property, owl:ObjectProperty ;
+    rdfs:subPropertyOf schema:workPerformed ;
+    rdfs:domain        drk:TheaterEvent ;
+    rdfs:range         drk:PlayProduction ;
+    rdfs:label         "Work Performed"@en ;
+    rdfs:comment       "A property that is used to specify the play production work (drk:PlayProduction) to be presented at an event (drk:TheaterEvent)."@en .
 
 # The drk:intermissionCount property specifies the number of intermissions or breaks during an Event.
 # Note: rdfs:domain is schema:Event.
@@ -213,42 +224,40 @@ drk:PlaceAccessibilityFeature
 
 # The drk:animalPolicy property is used to describe the policies of a place concerning bringing animals along.
 drk:animalPolicy
-    a            rdf:Property, owl:ObjectProperty ;
-    rdfs:domain  drk:PlaceAccessibilityFeature ;
-    rdfs:range   drk:AnimalPolicy ;
-    rdfs:label   "Animal Policy Property"@en ;
-    rdfs:comment "A property that is used to describe the policies of a place concerning bringing animals along."@en ;
+    a              rdf:Property, owl:ObjectProperty ;
+    rdfs:domain    drk:PlaceAccessibilityFeature ;
+    rdfs:range     drk:AnimalPolicy ;
+    rdfs:label     "Animal Policy Property"@en ;
+    rdfs:comment   "A property that is used to describe the policies of a place concerning bringing animals along."@en ;
     dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
 # The drk:accessibleWith property is used to specify with what disability profile can a person access the given place.
 # The personal disability profile values would be URIs from the DRK controlled vocabulary 'Personal Profile for Accessibility': `http://w3id.org/drk/vocabs/personal-profile-for-accessibility#`.
 drk:accessibleWith
-    a           rdf:Property, owl:ObjectProperty ;
-    rdfs:domain drk:PlaceAccessibilityFeature ;
-    rdfs:range  schema:URL ;
-    rdfs:label  "Accessible With Personal (Disability) Profile Property"@en ;
-    rdfs:comment
-                "A property that is used to specify with what disability profile can a person access the given place. For example, the place owner or an external agency might specify that the given place can be comfortably accessed by a person who uses a wheelchair, or who has a visual impairment."@en ;
+    a              rdf:Property, owl:ObjectProperty ;
+    rdfs:domain    drk:PlaceAccessibilityFeature ;
+    rdfs:range     schema:URL ;
+    rdfs:label     "Accessible With Personal (Disability) Profile Property"@en ;
+    rdfs:comment   "A property that is used to specify with what disability profile can a person access the given place. For example, the place owner or an external agency might specify that the given place can be comfortably accessed by a person who uses a wheelchair, or who has a visual impairment."@en ;
     dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
 # The drk:wheelchairPlaces property is used to describe the presence of reserved spots for wheelchairs at a place.
 drk:wheelchairPlaces
-    a            rdf:Property, owl:ObjectProperty ;
-    rdfs:domain  drk:PlaceAccessibilityFeature ;
-    rdfs:range   drk:WheelchairPlaces ;
-    rdfs:label   "Wheelchair Places Property"@en ;
-    rdfs:comment "A property that is used to describe the presence of reserved spots for wheelchairs at a place."@en ;
+    a              rdf:Property, owl:ObjectProperty ;
+    rdfs:domain    drk:PlaceAccessibilityFeature ;
+    rdfs:range     drk:WheelchairPlaces ;
+    rdfs:label     "Wheelchair Places Property"@en ;
+    rdfs:comment   "A property that is used to describe the presence of reserved spots for wheelchairs at a place."@en ;
     dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
 # The drk:accessibilityDescription property can be used to provide a human-readable description of facilities at a place concerning accessibility.
 # For example, whether the given place is accessible with a wheelchair, or with a guide dog, does the place offer all the necessary facilities for access by a person who has a visual impairment, is the place equipped with 'accessible toilets', etc.
 drk:accessibilityDescription
-    a           rdf:Property, owl:ObjectProperty ;
-    rdfs:domain drk:PlaceAccessibilityFeature ;
-    rdfs:range  schema:Text ;
-    rdfs:label  "Accessibility Description"@en ;
-    rdfs:comment
-                "A property that can be used to provide a human-readable description of facilities at a place concerning accessibility. For example, whether the given place is accessible with a wheelchair, or with a guide dog, does the place offer all the necessary facilities for access by a person who has a visual impairment, is the place equipped with 'accessible toilets', etc."@en ;
+    a              rdf:Property, owl:ObjectProperty ;
+    rdfs:domain    drk:PlaceAccessibilityFeature ;
+    rdfs:range     schema:Text ;
+    rdfs:label     "Accessibility Description"@en ;
+    rdfs:comment   "A property that can be used to provide a human-readable description of facilities at a place concerning accessibility. For example, whether the given place is accessible with a wheelchair, or with a guide dog, does the place offer all the necessary facilities for access by a person who has a visual impairment, is the place equipped with 'accessible toilets', etc."@en ;
     dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
 # The drk:AnimalPolicy class describes the policies of a place concerning bringing animals along.
@@ -264,23 +273,22 @@ drk:AnimalPolicy
 
 # The drk:allowsDogs property describes if the place allows visitors to bring dogs in general.
 drk:allowsDogs
-    a            rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain  drk:AnimalPolicy ;
-    rdfs:range   schema:Boolean ;
-    rdfs:label   "Allows Dogs"@en ;
-    rdfs:comment "A property that describes if the place allows visitors to bring dogs in general."@en ;
+    a              rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain    drk:AnimalPolicy ;
+    rdfs:range     schema:Boolean ;
+    rdfs:label     "Allows Dogs"@en ;
+    rdfs:comment   "A property that describes if the place allows visitors to bring dogs in general."@en ;
     dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
 # The drk:allowsServiceAnimals property describes if the place allows visitors to bring service animals along.
 # A Service Animal is an animal that has been trained to assist a disabled person (source: https://en.wikipedia.org/wiki/Service_animal).
 # While dogs are the most common service animals, other animals (like miniature horses, ferrets, parrots, and monkeys) may also serve in this role, depending upon regional regulations.
 drk:allowsServiceAnimals
-    a           rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain drk:AnimalPolicy ;
-    rdfs:range  schema:Boolean ;
-    rdfs:label  "Allows Service Animals"@en ;
-    rdfs:comment
-                "A property that describes if the place allows visitors to bring service animals along. A Service Animal is an animal that has been trained to assist a disabled person (source: https://en.wikipedia.org/wiki/Service_animal). While dogs are the most common service animals, other animals (like miniature horses, ferrets, parrots, and monkeys) may also serve in this role, depending upon regional regulations."@en ;
+    a              rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain    drk:AnimalPolicy ;
+    rdfs:range     schema:Boolean ;
+    rdfs:label     "Allows Service Animals"@en ;
+    rdfs:comment   "A property that describes if the place allows visitors to bring service animals along. A Service Animal is an animal that has been trained to assist a disabled person (source: https://en.wikipedia.org/wiki/Service_animal). While dogs are the most common service animals, other animals (like miniature horses, ferrets, parrots, and monkeys) may also serve in this role, depending upon regional regulations."@en ;
     dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
 # The drk:allowsAssistanceDogs property describes if the place allows visitors to bring assistance/service dogs.
@@ -293,7 +301,7 @@ drk:allowsAssistanceDogs
     rdfs:range         schema:Boolean ;
     rdfs:label         "Allows Assistance/Service Dogs"@en ;
     rdfs:comment       "A property that describes if the place allows visitors to bring assistance/service dogs. Assistance dogs, also referred to as a service dogs, are a specific type of service animals that receive specialized training to aid an individual with a disability in navigating everyday life (source: https://en.wikipedia.org/wiki/Assistance_dog)."@en ;
-    dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
+    dcterms:source     <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
 # The drk:allowsGuideDogs property describes if the place allows visitors to bring guide dogs.
 # Guide dogs are a specialized type of assistance dogs, trained to lead individuals who are blind or visually impaired around obstacles (source: https://en.wikipedia.org/wiki/Guide_dog).
@@ -304,7 +312,7 @@ drk:allowsGuideDogs
     rdfs:range         schema:Boolean ;
     rdfs:label         "Allows Guide Dogs"@en ;
     rdfs:comment       "A property that describes if the place allows visitors to bring guide dogs. Guide dogs are a specialized type of assistance dogs, trained to lead individuals who are blind or visually impaired around obstacles (source: https://en.wikipedia.org/wiki/Guide_dog)."@en ;
-    dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
+    dcterms:source     <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
 # The drk:WheelchairPlaces class describes the availability of reserved spots for wheelchairs at a place.
 drk:WheelchairPlaces
@@ -315,29 +323,27 @@ drk:WheelchairPlaces
 
 # The drk:count property specifies the number of designated places for wheelchairs, for example, in a theater place or a cinema hall.
 drk:count
-    a           rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain drk:WheelchairPlaces ;
-    rdfs:range  schema:Integer ;
-    rdfs:label  "Wheelchair Places Count Property"@en ;
-    rdfs:comment
-                "A property that specifies the number of designated places for wheelchairs, for example, in a theater place or a cinema hall."@en ;
+    a              rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain    drk:WheelchairPlaces ;
+    rdfs:range     schema:Integer ;
+    rdfs:label     "Wheelchair Places Count Property"@en ;
+    rdfs:comment   "A property that specifies the number of designated places for wheelchairs, for example, in a theater place or a cinema hall."@en ;
     dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
 # The drk:hasSpaceForAssistant property specifies whether the place has additional space for a wheelchair assistant.
 drk:hasSpaceForAssistant
-    a            rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain  drk:WheelchairPlaces ;
-    rdfs:range   schema:Boolean ;
-    rdfs:label   "Has Space For Wheelchair Assistant Property"@en ;
-    rdfs:comment "A property that specifies whether the place has additional space for a wheelchair assistant."@en ;
+    a              rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain    drk:WheelchairPlaces ;
+    rdfs:range     schema:Boolean ;
+    rdfs:label     "Has Space For Wheelchair Assistant Property"@en ;
+    rdfs:comment   "A property that specifies whether the place has additional space for a wheelchair assistant."@en ;
     dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
 # The drk:wheelchairUserCapacity property specifies the number of people using a wheelchair that can be accommodated at the same time. This property should be used when there is no designated space for wheelchair users (i.e., drk:count), but the number is known.
 drk:wheelchairUserCapacity
-    a           rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain drk:WheelchairPlaces ;
-    rdfs:range  schema:Integer ;
-    rdfs:label  "Wheelchair User Capacity Property"@en ;
-    rdfs:comment
-                "A property that specifies the number of people using a wheelchair that can be accommodated at the same time. This property should be used when there is no designated space for wheelchair users, but the number is known."@en ;
+    a              rdf:Property, owl:DatatypeProperty ;
+    rdfs:domain    drk:WheelchairPlaces ;
+    rdfs:range     schema:Integer ;
+    rdfs:label     "Wheelchair User Capacity Property"@en ;
+    rdfs:comment   "A property that specifies the number of people using a wheelchair that can be accommodated at the same time. This property should be used when there is no designated space for wheelchair users, but the number is known."@en ;
     dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
