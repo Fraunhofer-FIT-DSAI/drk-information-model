@@ -63,101 +63,98 @@ drkr:DE_Augsburg_STAugsburg
 # It includes every stage of Play Production from writing, planning, and casting, to rehearsal, except for the presentation of work (i.e., drk:TheaterEvent).
 # Play Production naming scheme used here: <ISO3166-1 Country code>_<(Shortened) Theater company name>_<(Shortened) Play Production name>
 drkr:DE_STAugsburg_HedwigAngryInch
-    a                          drk:PlayProduction ;
-    schema:name                "Hedwig and the Angry Inch"@en ;
-    schema:alternativeHeadline "Musical by John Cameron Mitchell (book) and Stephen Trask (music and lyrics)"@en,
-                               "Musical von John Cameron Mitchell (Buch) und Stephen Trask (Musik und Gesangstexte)"@de ;
-    schema:abstract            """The cult rock musical "Hedwig and the Angry Inch" went from being an off-Broadway insider tip to a hit on Broadway itself within just a few years. In 2023, Hedwig, the "worldwide ignored Queen of Glam Rock," finally conquered the hearts of the Augsburg audience - with long-time acting ensemble member Thomas Prazak in charge. The live music is provided by Stefan Leibold, Jonas Horche, Tilman Herpichböhm and Niklas Rehle as the band "The Angry Inch"."""@en,
-                               """Das Kult-Rockmusical "Hedwig and the Angry Inch" wurde innerhalb weniger Jahre vom Off-Broadway-Geheimtipp zu einem Hit am Broadway selbst. 2023 erobert Hedwig, die "weltweit ignorierte Queen of Glamrock" endlich auch die Herzen des Augsburger Publikums – mit dem langjährigen Schauspiel-Ensemble-Mitglied Thomas Prazak in der Hauptrolle. Die Live-Musik steuern Stefan Leibold, Jonas Horche, Tilman Herpichböhm und Niklas Rehle als Band "The Angry Inch" bei."""@de ;
-    schema:description         """
+    a                           drk:PlayProduction ;
+    schema:name                 "Hedwig and the Angry Inch"@en ;
+    schema:alternativeHeadline  "Musical by John Cameron Mitchell (book) and Stephen Trask (music and lyrics)"@en,
+                                "Musical von John Cameron Mitchell (Buch) und Stephen Trask (Musik und Gesangstexte)"@de ;
+    schema:abstract             """The cult rock musical "Hedwig and the Angry Inch" went from being an off-Broadway insider tip to a hit on Broadway itself within just a few years. In 2023, Hedwig, the "worldwide ignored Queen of Glam Rock," finally conquered the hearts of the Augsburg audience - with long-time acting ensemble member Thomas Prazak in charge. The live music is provided by Stefan Leibold, Jonas Horche, Tilman Herpichböhm and Niklas Rehle as the band "The Angry Inch"."""@en,
+                                """Das Kult-Rockmusical "Hedwig and the Angry Inch" wurde innerhalb weniger Jahre vom Off-Broadway-Geheimtipp zu einem Hit am Broadway selbst. 2023 erobert Hedwig, die "weltweit ignorierte Queen of Glamrock" endlich auch die Herzen des Augsburger Publikums – mit dem langjährigen Schauspiel-Ensemble-Mitglied Thomas Prazak in der Hauptrolle. Die Live-Musik steuern Stefan Leibold, Jonas Horche, Tilman Herpichböhm und Niklas Rehle als Band "The Angry Inch" bei."""@de ;
+    schema:description          """
     Songs in English with German dialogues
     Hedwig, the queen of glam rock, is coming to Augsburg on her tour! She is giving one of her rousing concerts with her band The Angry Inch. Between the songs - sometimes rock numbers, sometimes country ballads - that tell of her life and the search for her own identity, she comes closer to the audience than ever before.
     You shouldn't miss this show!
     The musical, which premiered in New York in 1998, has written a unique success story.
 
-    First shown off-Broadway, with John Cameron Mitchell as Hedwig, it moved on to the screen just a few years later and was adapted into a film. The work was also successful internationally, both as a play and as a film. In 2014, the premiere on Broadway finally followed, with Neil Patrick Harris as the lead actor, which won four Tony Awards. This is just the latest proof of the cult status that the rock musical and its main character, the drag queen Hedwig, have achieved."""@en,
-                               """
+    First shown off-Broadway, with John Cameron Mitchell as Hedwig, it moved on to the screen just a few years later and was adapted into a film. The work was also successful internationally, both as a play and as a film. In 2014, the premiere on Broadway finally followed, with Neil Patrick Harris as the lead actor, which won four Tony Awards. This is just the latest proof of the cult status that the rock musical and its main character, the drag queen Hedwig, have achieved."""@en, """
                                Songs in englischer Sprache mit deutschen Dialogen
                                Hedwig, die Queen des Glamrock, kommt auf ihrer Tournee in Augsburg vorbei! Gemeinsam mit ihrer Band The Angry Inch gibt sie eines ihrer mitreißenden Konzerte. Zwischen den Songs, die – mal Rocknummer, mal Country-Ballade – von ihrem Leben und der Suche nach der eigenen Identität erzählen, kommt sie dem Publikum so nah wie nie.
                                Diese Show sollten Sie nicht verpassen!
                                Das Musical, das 1998 in New York uraufgeführt wurde, hat eine einmalige Erfolgsgeschichte geschrieben.
 
                                Zuerst am Off-Broadway gezeigt, mit John Cameron Mitchell als Hedwig, wanderte es nur wenige Jahre später weiter auf die Leinwand und wurde als Film adaptiert. Auch international feierte das Werk Erfolge, sowohl als Theaterstück wie auch als Film. 2014 folgte schließlich dann die Premiere am Broadway, Hauptdarsteller damals war Neil Patrick Harris, die mit vier Tony-Awards ausgezeichnet wurde. Dies ist nur der letzte Beweis für den Kultstatus, den das Rockmusical und seine Hauptfigur, die Dragqueen Hedwig, erlangt hat."""@de ;
-    schema:genre               tgenres:Musical ;
-    drk:productionType         tprod:Revival ;
-    schema:accessibilitySummary
-                               """Please note that strobe lighting is used in this production.
+    schema:genre                tgenres:Musical ;
+    drk:productionType          tprod:Revival ;
+    schema:accessibilitySummary """Please note that strobe lighting is used in this production.
                                Within the stage text, psychological violence is thematised and portrayed in individual scenes.
-                               For this reason, we recommend school and group bookings from the age of 14. As a general rule, teachers know their groups best. If you have any questions, please contact us."""@en,
-                               """Bitte beachten Sie, dass bei dieser Inszenierung Stroboskoplicht zum Einsatz kommt.
+                               For this reason, we recommend school and group bookings from the age of 14. As a general rule, teachers know their groups best. If you have any questions, please contact us."""@en, """Bitte beachten Sie, dass bei dieser Inszenierung Stroboskoplicht zum Einsatz kommt.
                                Innerhalb des Bühnentextes wird psychische Gewalt thematisiert und in einzelnen Szenen dargestellt.
                                Aus diesem Grund empfehlen wir Schul- und Gruppenbuchungen ab 14 Jahren. Grundsätzlich gilt: Pädagog:innen kennen ihre Gruppen am besten. Bei Fragen kontaktieren Sie uns bitte."""@de ;
-    schema:inLanguage          lang:de ;
-    schema:audience            [ a                      schema:PeopleAudience ;
-                                 schema:suggestedMinAge 14 ; # same as "14"^^xsd:integer
-                               ] ;
-    drk:characterRole          drkr:CharacterRoleHedwig, drkr:CharacterRoleYitzhak, drkr:CharacterRoleTommy ;
-    drk:creatorRole            [ a               drk:ProductionRole ;
-                                 schema:roleName "Author"@en, "Book Author"@en, "Playwright"@en, "Librettist"@en ;
-                                 drk:performer   [ a             schema:Person ;
-                                                   schema:name   "John Cameron Mitchell" ;
-                                                   schema:sameAs wikidata:Q443995 ; ] ] ;
-    drk:creatorRole            [ a               drk:ProductionRole ;
-                                 schema:roleName "Music Composer"@en, "Lyrics Author"@en ;
-                                 drk:performer   [ a             schema:Person ;
-                                                   schema:name   "Stephen Trask" ;
-                                                   schema:sameAs wikidata:Q111572 ; ] ] ;
-    drk:creatorRole            [ a               drk:ProductionRole ;
-                                 schema:roleName "Director"@en, "Inszenierung"@de ;
-                                 drk:performer   [ a                 schema:Person ;
-                                                   schema:givenName  "Cornelia" ;
-                                                   schema:familyName "Maschner" ;
-                                                   schema:name       "Cornelia Maschner" ; ] ] ;
-    drk:creatorRole            [ a               drk:ProductionRole ;
-                                 schema:roleName "Music Director"@en, "Musikalische Leitung"@de, "Band Member"@en,
-                                                 "Bandmitglied"@de ;
-                                 drk:performer   [ a           schema:Person ;
-                                                   schema:name "Stefan Leibold" ; ] ] ;
-    drk:creatorRole            [ a               drk:ProductionRole ;
-                                 schema:roleName "Stage and Costumes Designer"@en, "Bühnen- und Kostümbildnerin"@de ;
-                                 drk:performer   [ a           schema:Person ;
-                                                   schema:name "Lisa Geller" ; ] ] ;
-    drk:creatorRole            [ a               drk:ProductionRole ;
-                                 schema:roleName "Video Director"@en, "Video-Regisseur"@de ;
-                                 drk:performer   [ a           schema:Person ;
-                                                   schema:name "Pius Neumaier" ; ] ] ;
-    drk:creatorRole            [ a               drk:ProductionRole ;
-                                 schema:roleName "Lighting Designer"@en, "Lichtdesigner"@de ;
-                                 drk:performer   [ a           schema:Person ;
-                                                   schema:name "Moritz Fettinger" ; ] ] ;
-    drk:creatorRole            [ a               drk:ProductionRole ;
-                                 schema:roleName "Dramaturg"@en, "Dramaturgin"@de ;
-                                 drk:performer   [ a           schema:Person ;
-                                                   schema:name "Sarah Mössner" ; ] ] ;
-    drk:creatorRole            [ a               drk:ProductionRole ;
-                                 schema:roleName "Band Member"@en, "Bandmitglied"@de ;
-                                 drk:performer   [ a           schema:Person ;
-                                                   schema:name "Jonas Horche" ; ] ] ;
-    drk:creatorRole            [ a               drk:ProductionRole ;
-                                 schema:roleName "Band Member"@en, "Bandmitglied"@de ;
-                                 drk:performer   [ a           schema:Person ;
-                                                   schema:name "Tilman Herpichböhm" ; ] ] ;
-    drk:creatorRole            [ a               drk:ProductionRole ;
-                                 schema:roleName "Band Member"@en, "Bandmitglied"@de ;
-                                 drk:performer   [ a           schema:Person ;
-                                                   schema:name "Niklas Rehle" ; ] ] ;
-    drk:creatorRole            [ a               drk:ProductionRole ;
-                                 schema:roleName "Costume Provider"@en ;
-                                 drk:performer   [ a             schema:Organization ;
-                                                   schema:name   "Replace_with_Organizations_name" ;
-                                                   schema:sameAs <Replace_with_Organizations_Website_URL> ] ] ;
-    drk:creatorRole            [ a               drk:ProductionRole ;
-                                 schema:roleName "Sponsor"@en, "Funder"@en ;
-                                 drk:performer   [ a             schema:Organization ;
-                                                   schema:name   "Replace_with_Organizations_name" ;
-                                                   schema:sameAs <Replace_with_Organizations_Website_URL> ] ] ;
-    schema:isBasedOn           wikidata:Q13424058, gnd-kg:1150192992,
-                               <http://dbpedia.org/resource/Hedwig_and_the_Angry_Inch_(musical)> .
+    schema:inLanguage           lang:de ;
+    schema:audience             [ a                      schema:PeopleAudience ;
+                                  schema:suggestedMinAge 14 ; # same as "14"^^xsd:integer
+                                ] ;
+    drk:characterRole           drkr:CharacterRoleHedwig, drkr:CharacterRoleYitzhak, drkr:CharacterRoleTommy ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Author"@en, "Book Author"@en, "Playwright"@en, "Librettist"@en ;
+                                  drk:performer   [ a             schema:Person ;
+                                                    schema:name   "John Cameron Mitchell" ;
+                                                    schema:sameAs wikidata:Q443995 ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Music Composer"@en, "Lyrics Author"@en ;
+                                  drk:performer   [ a             schema:Person ;
+                                                    schema:name   "Stephen Trask" ;
+                                                    schema:sameAs wikidata:Q111572 ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Director"@en, "Inszenierung"@de ;
+                                  drk:performer   [ a                 schema:Person ;
+                                                    schema:givenName  "Cornelia" ;
+                                                    schema:familyName "Maschner" ;
+                                                    schema:name       "Cornelia Maschner" ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Music Director"@en, "Musikalische Leitung"@de, "Band Member"@en,
+                                                  "Bandmitglied"@de ;
+                                  drk:performer   [ a           schema:Person ;
+                                                    schema:name "Stefan Leibold" ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Stage and Costumes Designer"@en, "Bühnen- und Kostümbildnerin"@de ;
+                                  drk:performer   [ a           schema:Person ;
+                                                    schema:name "Lisa Geller" ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Video Director"@en, "Video-Regisseur"@de ;
+                                  drk:performer   [ a           schema:Person ;
+                                                    schema:name "Pius Neumaier" ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Lighting Designer"@en, "Lichtdesigner"@de ;
+                                  drk:performer   [ a           schema:Person ;
+                                                    schema:name "Moritz Fettinger" ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Dramaturg"@en, "Dramaturgin"@de ;
+                                  drk:performer   [ a           schema:Person ;
+                                                    schema:name "Sarah Mössner" ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Band Member"@en, "Bandmitglied"@de ;
+                                  drk:performer   [ a           schema:Person ;
+                                                    schema:name "Jonas Horche" ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Band Member"@en, "Bandmitglied"@de ;
+                                  drk:performer   [ a           schema:Person ;
+                                                    schema:name "Tilman Herpichböhm" ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Band Member"@en, "Bandmitglied"@de ;
+                                  drk:performer   [ a           schema:Person ;
+                                                    schema:name "Niklas Rehle" ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Costume Provider"@en ;
+                                  drk:performer   [ a             schema:Organization ;
+                                                    schema:name   "Staatstheater (State Theater) Augsburg"@en ;
+                                                    schema:sameAs drkr:DE_Augsburg_STAugsburg ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Sponsor"@en, "Funder"@en ;
+                                  drk:performer   [ a             schema:Organization ;
+                                                    schema:name   "Staatstheater (State Theater) Augsburg"@en ;
+                                                    schema:sameAs drkr:DE_Augsburg_STAugsburg ] ] ;
+    schema:isBasedOn            wikidata:Q13424058, gnd-kg:1150192992,
+                                <http://dbpedia.org/resource/Hedwig_and_the_Angry_Inch_(musical)> .
 
 drkr:CharacterRoleHedwig
     a                 drk:CharacterPerformanceRole ;
@@ -293,13 +290,13 @@ drkr:HedwigAngryInch_Event_20241228
     drk:eventRole                [ a               drk:ProductionRole ;
                                    schema:roleName "Costume Provider"@en ;
                                    drk:performer   [ a             schema:Organization ;
-                                                     schema:name   "Replace_with_Organizations_name" ;
-                                                     schema:sameAs <Replace_with_Organizations_Website_URL> ] ] ;
+                                                     schema:name   "Staatstheater (State Theater) Augsburg"@en ;
+                                                     schema:sameAs drkr:DE_Augsburg_STAugsburg ] ] ;
     drk:eventRole                [ a               drk:ProductionRole ;
                                    schema:roleName "Sponsor"@en, "Funder"@en ;
                                    drk:performer   [ a             schema:Organization ;
-                                                     schema:name   "Replace_with_Organizations_name" ;
-                                                     schema:sameAs <Replace_with_Organizations_Website_URL> ] ] ;
+                                                     schema:name   "Staatstheater (State Theater) Augsburg"@en ;
+                                                     schema:sameAs drkr:DE_Augsburg_STAugsburg ] ] ;
     drk:eventType                tevent:LastPerformance ;
     schema:eventStatus           schema:EventScheduled ;
 .
