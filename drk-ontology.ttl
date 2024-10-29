@@ -5,11 +5,11 @@
 @prefix dcterms:      <http://purl.org/dc/terms/> .
 @prefix vann:         <http://purl.org/vocab/vann/> .
 @prefix schema:       <https://schema.org/> .
-@prefix dbo:          <https://dbpedia.org/ontology/> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 @prefix ids:          <https://w3id.org/idsa/core/> .
 @prefix dcat:         <http://www.w3.org/ns/dcat#> .
 @prefix voaf:         <http://purl.org/vocommons/voaf#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
 
 drk:
     a                             owl:Ontology, voaf:Vocabulary ;
@@ -17,9 +17,53 @@ drk:
     rdfs:comment                  "The DRK ontology is designed for the cultural dataspace, providing extensible semantic concepts, properties, and their interrelationships for modeling metadata related to theaters, theatrical productions, and their showtimes."@en ;
     dcterms:title                 "Culture Dataspace (DRK) Ontology"@en, "Datenraum Kultur (DRK) Ontologie"@de ;
     dcterms:description           "The DRK ontology is designed for the cultural dataspace, providing extensible semantic concepts, properties, and their interrelationships for modeling metadata related to theaters, theatrical productions, and their showtimes."@en ;
+    dcterms:hasVersion            "0.0.1"^^xsd:string ;
     vann:preferredNamespacePrefix "drk" ;
     vann:preferredNamespaceUri    "http://w3id.org/drk/ontology/"
 .
+
+# The drk:Character class represents a character in a creative work or during an event.
+drk:Character
+    a            owl:Class, rdfs:Class ;
+    rdfs:label   "Character"@en ;
+    rdfs:comment """A class that represents a character in a creative work such as a Play.
+    Examples of characters include:
+    Romeo (from Romeo and Juliet by William Shakespeare; character type: Person),
+    Alexander Hamilton (from Hamilton musical by Lin-Manuel Miranda; character type: Person),
+    Simba (from The Lion King; character type: Animal),
+    Kermit the Frog (from The Muppet Show; character type: Puppet),
+    WALL-E (from Pixar's WALL-E movie; character type: Robot),
+    Puck (from A Midsummer Night's Dream by William Shakespeare; character type: Imaginary Entity/Fairy),
+    the flying Magic Carpet (from Aladdin; character type: Inanimate Object), etc."""@en .
+
+# The drk:characterType property specifies the type of a character in a creative work or during an event.
+# Examples of character types include person, animal, organization, puppet, robot, inanimate object, imaginary entity, etc.
+# Values should be an URIs from a controlled vocabulary such as DRK Character Types Vocabulary: `http://w3id.org/drk/vocabs/character-types#`.
+drk:characterType
+    a           rdf:Property, owl:ObjectProperty ;
+    rdfs:domain drk:Character ;
+    rdfs:range  skos:Concept ;
+    rdfs:label  "Character Type"@en ;
+    rdfs:comment
+                "A property that specifies the type of a character in a creative work or during an event. Examples of character types include person, animal, organization, puppet, robot, inanimate object, imaginary entity, etc."@en .
+
+# The drk:Performer class specifies the performer of a role in a creative work or event.
+drk:Performer
+    a          owl:Class, rdfs:Class ;
+    rdfs:label "Role"@en ;
+    rdfs:comment
+               "A class that specifies the performer of a role in a creative work or event. Performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI)."@en .
+
+# The drk:performerType property specifies the type of performer that performs a role in a creative work or event.
+# Examples of performer types include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI).
+# Values should be an URIs from a controlled vocabulary such as DRK Performer Types Vocabulary: `http://w3id.org/drk/vocabs/performer-types#`.
+drk:performerType
+    a           rdf:Property, owl:ObjectProperty ;
+    rdfs:domain drk:Performer ;
+    rdfs:range  skos:Concept ;
+    rdfs:label  "Performer Type"@en ;
+    rdfs:comment
+                "A property that specifies the type of performer that performs a role in a creative work or event. Examples of performer types include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI)."@en .
 
 # The drk:Role class represents a role in a creative work or event.
 # It connects the role to its performer.
@@ -29,42 +73,28 @@ drk:Role
     a               owl:Class, rdfs:Class ;
     rdfs:subClassOf schema:Role ;
     rdfs:label      "Role"@en ;
-    rdfs:comment    "A class that links a role to its performer. Roles can, in general, be of various types such as character roles, production roles, event roles, onstage roles, offstage or behind-the-scenes roles. Examples of role names include creator, writer, playwright, actor, protagonist, puppeteer, singer, cameo, costume designer, stage designer, choreographer, makeup artist, understudy, funder, sponsor, etc. Performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI) in a creative work or during an event."@en .
+    rdfs:comment    """A class that links a role to its performer.
+    Roles can, in general, be of various types such as character roles, production roles, event roles, onstage roles, offstage or behind-the-scenes roles.
+    Examples of role names include creator, writer, playwright, actor, protagonist, puppeteer, singer, cameo, costume designer, stage designer, choreographer, makeup artist, understudy, funder, sponsor, etc.
+    Performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI) in a creative work or during an event."""@en .
 
-# The drk:performer property specifies the performer of a role in a creative work or event.
-# Performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI) in a creative work or during an event.
+# The drk:performer property is used to specify the performer of a role in a creative work or event.
 drk:performer
     a            rdf:Property, owl:ObjectProperty ;
     rdfs:domain  drk:Role ;
-    rdfs:range   [ a           rdfs:Class ;
-                   owl:unionOf ( schema:Person schema:Organization dbo:Animal schema:Thing ) ] ;
+    rdfs:range   drk:Performer ;
     rdfs:label   "Performer"@en ;
-    rdfs:comment "A property that specifies the performer of a role in a creative work or during an event."@en .
+    rdfs:comment "A property that is used to specify the performer of a role in a creative work or event."@en .
 
 # The drk:CharacterPerformanceRole class links a character role to its performer.
 drk:CharacterPerformanceRole
     a               owl:Class, rdfs:Class ;
     rdfs:subClassOf drk:Role ;
     rdfs:label      "Character Performance Role Class"@en ;
-    rdfs:comment    "A class that links a character role to its performer. Characters can be from a creative work such as a Play. Examples of characters include Romeo (from Romeo and Juliet by William Shakespeare; characterType: Person), Alexander Hamilton (from Hamilton musical by Lin-Manuel Miranda; characterType: Person), Simba (from The Lion King; characterType: Animal), Kermit the Frog (from The Muppet Show; characterType: Puppet), WALL-E (from Pixar's WALL-E movie; characterType: Robot), Puck (from A Midsummer Night's Dream by William Shakespeare; characterType: Imaginary Entity (Fairy)), the flying Magic Carpet (from Aladdin; characterType: Inanimate Object), etc. Performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI) in a creative work or during an event."@en .
-
-# The drk:characterName property specifies the name of a character in a creative work or during an event.
-drk:characterName
-    a            rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain  drk:CharacterPerformanceRole ;
-    rdfs:range   xsd:string ;
-    rdfs:label   "Character Name"@en ;
-    rdfs:comment "A property that specifies the name of a character in a creative work or during an event."@en .
-
-# The drk:characterType property specifies the type of a character in a creative work or during an event.
-# The character type values would be URIs from the DRK controlled vocabulary 'theatrical character types': `http://w3id.org/drk/vocabs/theatrical-character-types#`.
-# Examples of character types include person, animal, organization, puppet, robot, inanimate object, imaginary entity, etc.
-drk:characterType
-    a            rdf:Property, owl:ObjectProperty ;
-    rdfs:domain  drk:CharacterPerformanceRole ;
-    rdfs:range   schema:URL ;    # The value would be an URI from the DRK 'theatrical character types' vocabulary.
-    rdfs:label   "Character Type"@en ;
-    rdfs:comment "A property that specifies the type of a character in a creative work or during an event."@en .
+    rdfs:comment    """A class that links a character role to its performer.
+    Characters can be from a creative work such as a Play.
+    Examples of characters include Romeo (from Romeo and Juliet by William Shakespeare; characterType: Person), Alexander Hamilton (from Hamilton musical by Lin-Manuel Miranda; characterType: Person), Simba (from The Lion King; characterType: Animal), Kermit the Frog (from The Muppet Show; characterType: Puppet), WALL-E (from Pixar's WALL-E movie; characterType: Robot), Puck (from A Midsummer Night's Dream by William Shakespeare; characterType: Imaginary Entity (Fairy)), the flying Magic Carpet (from Aladdin; characterType: Inanimate Object), etc.
+    Performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI) in a creative work or during an event."""@en .
 
 # The drk:ProductionRole class links a production role to its performer.
 # Production roles can, in general, include creator roles, non-character roles, offstage or behind-the-scenes roles.
@@ -73,7 +103,9 @@ drk:ProductionRole
     a               owl:Class, rdfs:Class ;
     rdfs:subClassOf drk:Role ;
     rdfs:label      "Production Role"@en ;
-    rdfs:comment    "A class that links a production role to its performer. Production roles can, in general, include creator roles, non-character roles, offstage or behind-the-scenes roles. Examples of production roles include creator, writer, playwright, costume designer, stage designer, choreographer, makeup artist, understudy, usher, funder, sponsor, etc."@en .
+    rdfs:comment    """A class that links a production role to its performer.
+    Production roles can, in general, include creator roles, non-character roles, offstage or behind-the-scenes roles.
+    Examples of production roles include creator, writer, playwright, costume designer, stage designer, choreographer, makeup artist, understudy, usher, funder, sponsor, etc."""@en .
 
 # The drk:PlayProduction class includes every stage of Play Production from writing, planning, and casting, to rehearsal, except for the presentation of work, i.e., Event.
 # Event is modelled using another class: drk:TheaterEvent.
