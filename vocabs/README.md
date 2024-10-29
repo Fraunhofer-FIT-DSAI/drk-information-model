@@ -222,6 +222,41 @@ drkr:CharacterRoleHedwig
     schema:roleName   "Actor"@en, "Protagonist"@en, "Narrator"@en, "Singer"@en .
 ```
 
+## Performer Types Vocabulary
+
+- Title: DRK Performer Types Vocabulary
+- [Link to TTL representation](performer-types.ttl)
+- Namespace: `http://w3id.org/drk/vocabs/performer-types#`
+- Term example: `http://w3id.org/drk/vocabs/performer-types#CGI` OR `tperf:CGI`
+- Usage example:
+
+```turtle
+
+@prefix rdf:             <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:            <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix drk:             <https://w3id.org/drk/ontology/> .
+@prefix drkr:            <https://w3id.org/drk/resources/> .
+@prefix schema:          <https://schema.org/> .
+@prefix tchar:           <http://w3id.org/drk/vocabs/theatrical-character-types#> .
+@prefix tperf:           <http://w3id.org/drk/vocabs/performer-types#> .
+
+drkr:Hedwig_and_the_Angry_Inch_Play_Augsburg
+    a               drk:PlayProduction ;
+    drk:creatorRole [ a                 drk:ProductionRole ;
+                      schema:roleName   "Sponsor"@en, "Funder"@en ;
+                      drk:performerName "Staatstheater (State Theater) Augsburg"@en ;
+                      drk:performerType tperf:Organization ] .
+
+drkr:Hedwig_and_the_Angry_Inch_Event_20241228
+    a                          drk:TheaterEvent ;
+    drk:characterPerformerRole [ a                 drk:CharacterPerformerRole ;
+                                 drk:characterName "Hedwig Robinson"@en ;
+                                 drk:characterType tchar:Person ;
+                                 schema:roleName   "Actor"@en, "Protagonist"@en, "Narrator"@en, "Singer"@en ;
+                                 drk:performerName "Thomas Prazak"@en ;
+                                 drk:performerType tperf:Person ] .
+```
+
 ## Personal Profile for Accessibility Vocabulary
 
 - Title: DRK Personal Profile for Accessibility Vocabulary
