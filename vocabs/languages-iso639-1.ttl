@@ -5,6 +5,7 @@
 @prefix voaf:         <http://purl.org/vocommons/voaf#> .
 @prefix schema:       <https://schema.org/> .
 @prefix vann:         <http://purl.org/vocab/vann/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 @prefix loclang:      <http://id.loc.gov/vocabulary/iso639-1/> .
 @prefix lang:         <https://w3id.org/drk/vocabs/languages-iso639-1#> .
 
@@ -14,7 +15,7 @@ lang:
     dcterms:description           "A controlled vocabulary for languages based on ISO 639-1. Each language in this vocabulary is defined as an instance of the `schema:Language` class. ISO 639-1:2002 is the first part of the ISO 639 series of international standards for language codes, providing two-character codes for languages. This standard covers the world's major languages and is widely used across the web."@en ;
     rdfs:label                    "Languages Vocabulary Based on ISO639-1"@en ;
     rdfs:comment                  "A controlled vocabulary for languages based on ISO 639-1. Each language in this vocabulary is defined as an instance of the `schema:Language` class. ISO 639-1:2002 is the first part of the ISO 639 series of international standards for language codes, providing two-character codes for languages. This standard covers the world's major languages and is widely used across the web."@en ;
-    voaf:hasVersion               "1.0.0" ;
+    dcterms:hasVersion            "0.0.1"^^xsd:string ;
     vann:preferredNamespacePrefix "lang" ;
     vann:preferredNamespaceUri    "https://w3id.org/drk/vocabs/languages-iso639-1#" ;
     dcterms:source                loclang: ;

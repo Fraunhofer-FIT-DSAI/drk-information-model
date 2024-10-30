@@ -5,6 +5,7 @@
 @prefix voaf:     <http://purl.org/vocommons/voaf#> .
 @prefix wikidata: <https://www.wikidata.org/entity/> .
 @prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 @prefix tevent:   <http://w3id.org/drk/vocabs/theatrical-event-types#> .
 
 tevent:
@@ -13,7 +14,7 @@ tevent:
     dcterms:description           "A controlled vocabulary for listing and describing theatrical event types."@en ;
     rdfs:label                    "Theatrical Event Types Vocabulary"@en ;
     rdfs:comment                  "A controlled vocabulary for listing and describing theatrical event types."@en ;
-    voaf:hasVersion               "0.0.1" ;
+    dcterms:hasVersion            "0.0.1"^^xsd:string ;
     vann:preferredNamespacePrefix "tevent" ;
     vann:preferredNamespaceUri    "http://w3id.org/drk/vocabs/theatrical-event-types#" .
 

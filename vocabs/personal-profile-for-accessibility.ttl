@@ -6,6 +6,7 @@
 @prefix vann:         <http://purl.org/vocab/vann/> .
 @prefix dbr:          <https://dbpedia.org/resource/> .
 @prefix wikidata:     <https://www.wikidata.org/entity/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 @prefix ppfa:         <http://w3id.org/drk/vocabs/personal-profile-for-accessibility#> .
 
 ppfa:
@@ -14,7 +15,7 @@ ppfa:
     dcterms:description           "A controlled vocabulary for identifying and describing personal profiles from a disability perspective, aimed at facilitating accessibility."@en ;
     rdfs:label                    "Personal Profile for Accessibility Vocabulary"@en ;
     rdfs:comment                  "A controlled vocabulary for identifying and describing personal profiles from a disability perspective, aimed at facilitating accessibility."@en ;
-    voaf:hasVersion               "0.0.1" ;
+    dcterms:hasVersion            "0.0.1"^^xsd:string ;
     vann:preferredNamespacePrefix "ppfa" ;
     vann:preferredNamespaceUri    "http://w3id.org/drk/vocabs/personal-profile-for-accessibility#" ;
     dcterms:source                <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/#personalprofile> ;

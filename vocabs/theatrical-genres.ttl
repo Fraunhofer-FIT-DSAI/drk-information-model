@@ -8,6 +8,7 @@
 @prefix dbo:          <http://dbpedia.org/ontology/> .
 @prefix wikidata:     <https://www.wikidata.org/entity/> .
 @prefix vann:         <http://purl.org/vocab/vann/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 @prefix tgenres:      <http://w3id.org/drk/vocabs/theatrical-genres#> .
 
 tgenres:
@@ -16,17 +17,17 @@ tgenres:
     dcterms:description           "A controlled vocabulary for listing and describing theatrical genres."@en ;
     rdfs:label                    "Theatrical Genres Vocabulary"@en ;
     rdfs:comment                  "A controlled vocabulary for listing and describing theatrical genres."@en ;
-    voaf:hasVersion               "0.0.1" ;
+    dcterms:hasVersion            "0.0.1"^^xsd:string ;
     rdfs:seeAlso                  wikidata:Q7777573, <https://en.wikipedia.org/wiki/Category:Theatrical_genres> ;
     vann:preferredNamespacePrefix "tgenres" ;
     vann:preferredNamespaceUri    "http://w3id.org/drk/vocabs/theatrical-genres#" .
 
 tgenres:Audiowalk
-    a            skos:Concept ;
-    skos:inScheme   tgenres: ;
-    rdfs:label   "Audiowalk"@en, "Audiowalk"@de ;
-    rdfs:comment "A guided walk with an audio commentary that leads participants through a physical space."@en ;
-    rdfs:seeAlso <https://de.wikipedia.org/wiki/Audiowalk> .
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Audiowalk"@en, "Audiowalk"@de ;
+    rdfs:comment  "A guided walk with an audio commentary that leads participants through a physical space."@en ;
+    rdfs:seeAlso  <https://de.wikipedia.org/wiki/Audiowalk> .
 
 tgenres:Ballet
     a               skos:Concept ;
@@ -47,27 +48,26 @@ tgenres:Concert
     rdfs:seeAlso    <https://en.wikipedia.org/wiki/Concert> .
 
 tgenres:DigitalTheater
-    a            skos:Concept ;
-    skos:inScheme   tgenres: ;
-    rdfs:label   "Digital Theater"@en ;
-    rdfs:comment "A genre of theater that incorporates digital technology in its production or presentation."@en ;
-    rdfs:seeAlso <https://en.wikipedia.org/wiki/Digital_theatre> .
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Digital Theater"@en ;
+    rdfs:comment  "A genre of theater that incorporates digital technology in its production or presentation."@en ;
+    rdfs:seeAlso  <https://en.wikipedia.org/wiki/Digital_theatre> .
 
 tgenres:GameTheater
-    a          skos:Concept ;
-    skos:inScheme   tgenres: ;
-    rdfs:label "Game Theater"@en ;
-    rdfs:comment
-               "A genre of theater that integrates elements of game design, often involving audience participation."@en .
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Game Theater"@en ;
+    rdfs:comment  "A genre of theater that integrates elements of game design, often involving audience participation."@en .
 
 tgenres:LiveRadioPlay
-    a             skos:Concept ;
+    a               skos:Concept ;
     skos:inScheme   tgenres: ;
-    rdfs:label    "Live Radio Play"@en, "Live-Hörspiel"@de ;
-    skos:altLabel "Live Radio Drama"@en, "Live Audio Drama"@en, "Live Audio Play"@en, "Livehörspiel"@de ;
+    rdfs:label      "Live Radio Play"@en, "Live-Hörspiel"@de ;
+    skos:altLabel   "Live Radio Drama"@en, "Live Audio Drama"@en, "Live Audio Play"@en, "Livehörspiel"@de ;
     rdfs:comment    "A dramatized, purely acoustic performance, performed in front of a live audience."@en ;
     skos:closeMatch gndkg:4025435-5 ;
-    rdfs:seeAlso <https://en.wikipedia.org/wiki/Radio_drama> .
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Radio_drama> .
 
 tgenres:ImprovisationalTheater
     a               skos:Concept ;
@@ -79,10 +79,10 @@ tgenres:ImprovisationalTheater
     rdfs:seeAlso    <https://en.wikipedia.org/wiki/Improvisational_theatre> .
 
 tgenres:Installation
-    a            skos:Concept ;
-    skos:inScheme   tgenres: ;
-    rdfs:label   "Installation"@en ;
-    rdfs:comment "An art form that uses three-dimensional works designed to transform the perception of a space."@en .
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Installation"@en ;
+    rdfs:comment  "An art form that uses three-dimensional works designed to transform the perception of a space."@en .
 
 tgenres:Cabaret
     a               skos:Concept ;
@@ -93,10 +93,10 @@ tgenres:Cabaret
     rdfs:seeAlso    <https://en.wikipedia.org/wiki/Cabaret> .
 
 tgenres:KabarettComedy
-    a            skos:Concept ;
-    skos:inScheme   tgenres: ;
-    rdfs:label   "Cabaret Comedy"@en, "Kabarett-Comedy"@de ;
-    rdfs:comment "A genre that blends cabaret-style performances with comedic elements."@en .
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Cabaret Comedy"@en, "Kabarett-Comedy"@de ;
+    rdfs:comment  "A genre that blends cabaret-style performances with comedic elements."@en .
 
 tgenres:ChamberMusicConcert
     a               skos:Concept ;
@@ -106,16 +106,16 @@ tgenres:ChamberMusicConcert
     skos:exactMatch gndkg:7727959-1, kanzaki:Chamber_Music .
 
 tgenres:LecturePerformance
-    a            skos:Concept ;
-    skos:inScheme   tgenres: ;
-    rdfs:label   "Lecture Performance"@en, "Lecture Performance"@de ;
-    rdfs:comment "A hybrid genre that combines the delivery of a lecture with performance art."@en .
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Lecture Performance"@en, "Lecture Performance"@de ;
+    rdfs:comment  "A hybrid genre that combines the delivery of a lecture with performance art."@en .
 
 tgenres:Reading
-    a            skos:Concept ;
-    skos:inScheme   tgenres: ;
-    rdfs:label   "Reading"@en, "Lesung"@de ;
-    rdfs:comment "A public event where literature is read aloud to an audience."@en .
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Reading"@en, "Lesung"@de ;
+    rdfs:comment  "A public event where literature is read aloud to an audience."@en .
 
 tgenres:Musical
     a               skos:Concept ;
@@ -134,11 +134,11 @@ tgenres:MusicTheater
     rdfs:seeAlso    <https://en.wikipedia.org/wiki/Music_theatre> .
 
 tgenres:ObjectTheater
-    a            skos:Concept ;
-    skos:inScheme   tgenres: ;
-    rdfs:label   "Object Theater"@en, "Objekttheater"@de ;
-    rdfs:comment "A genre of theater where everyday objects are used as primary elements in performance."@en ;
-    rdfs:seeAlso <https://wepa.unima.org/en/object-theatre> .
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Object Theater"@en, "Objekttheater"@de ;
+    rdfs:comment  "A genre of theater where everyday objects are used as primary elements in performance."@en ;
+    rdfs:seeAlso  <https://wepa.unima.org/en/object-theatre> .
 
 tgenres:Opera
     a               skos:Concept ;
@@ -165,18 +165,18 @@ tgenres:Performance
     rdfs:seeAlso    <https://en.wikipedia.org/wiki/Performance_art> .
 
 tgenres:PhysicalTheatre
-    a            skos:Concept ;
-    skos:inScheme   tgenres: ;
-    rdfs:label   "Physical Theater"@en, "Physical Theatre"@de ;
-    rdfs:comment "A genre that focuses on physical movement and body language as the primary means of storytelling."@en ;
-    rdfs:seeAlso <https://en.wikipedia.org/wiki/Physical_theatre> .
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Physical Theater"@en, "Physical Theatre"@de ;
+    rdfs:comment  "A genre that focuses on physical movement and body language as the primary means of storytelling."@en ;
+    rdfs:seeAlso  <https://en.wikipedia.org/wiki/Physical_theatre> .
 
 tgenres:PuppetTheater
-    a            skos:Concept ;
-    skos:inScheme   tgenres: ;
-    rdfs:label   "Puppet Theater"@en, "Puppentheater"@de ;
-    rdfs:comment "A form of theater where puppets, rather than live actors, are the main performers."@en ;
-    rdfs:seeAlso <https://en.wikipedia.org/wiki/Puppetry> .
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Puppet Theater"@en, "Puppentheater"@de ;
+    rdfs:comment  "A form of theater where puppets, rather than live actors, are the main performers."@en ;
+    rdfs:seeAlso  <https://en.wikipedia.org/wiki/Puppetry> .
 
 tgenres:SymphonyConcert
     a               skos:Concept ;
@@ -204,10 +204,10 @@ tgenres:StagedReading
     rdfs:seeAlso    <https://en.wikipedia.org/wiki/Stage_reading> .
 
 tgenres:StagedConcert
-    a            skos:Concept ;
-    skos:inScheme   tgenres: ;
-    rdfs:label   "Staged Concert"@en, "Szenisches Konzert"@de ;
-    rdfs:comment "A concert that incorporates theatrical elements such as staging and choreography."@en .
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Staged Concert"@en, "Szenisches Konzert"@de ;
+    rdfs:comment  "A concert that incorporates theatrical elements such as staging and choreography."@en .
 
 tgenres:Dance
     a               skos:Concept ;
@@ -225,15 +225,14 @@ tgenres:OutdoorTheater
     skos:exactMatch wikidata:Q11183017 .
 
 tgenres:Workshop
-    a          skos:Concept ;
-    skos:inScheme   tgenres: ;
-    rdfs:label "Workshop"@en ;
-    rdfs:comment
-               "A genre of educational performance or interactive event where participants learn or practice skills."@en .
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Workshop"@en ;
+    rdfs:comment  "A genre of educational performance or interactive event where participants learn or practice skills."@en .
 
 tgenres:ContemporaryDance
-    a            skos:Concept ;
-    skos:inScheme   tgenres: ;
-    rdfs:label   "Contemporary Dance"@en, "Zeitgenössischer Tanz"@de ;
-    rdfs:comment "A genre of dance that draws on various styles and techniques to create modern movement vocabulary."@en ;
-    rdfs:seeAlso <https://en.wikipedia.org/wiki/Contemporary_dance> .
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Contemporary Dance"@en, "Zeitgenössischer Tanz"@de ;
+    rdfs:comment  "A genre of dance that draws on various styles and techniques to create modern movement vocabulary."@en ;
+    rdfs:seeAlso  <https://en.wikipedia.org/wiki/Contemporary_dance> .
