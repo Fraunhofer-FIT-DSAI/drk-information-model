@@ -168,7 +168,7 @@ drk:TheaterEvent
 drk:intermissionCount
     a            rdf:Property, owl:DatatypeProperty ;
     rdfs:domain  schema:Event ;
-    rdfs:range   schema:Integer ;
+    rdfs:range   xsd:nonNegativeInteger ;
     rdfs:label   "Intermission Count"@en ;
     rdfs:comment "A property that specifies the number of intermissions or breaks during an Event."@en .
 
@@ -295,7 +295,7 @@ drk:AnimalPolicy
 drk:allowsDogs
     a              rdf:Property, owl:DatatypeProperty ;
     rdfs:domain    drk:AnimalPolicy ;
-    rdfs:range     schema:Boolean ;
+    rdfs:range     xsd:boolean ;
     rdfs:label     "Allows Dogs"@en ;
     rdfs:comment   "A property that describes if the place allows visitors to bring dogs in general."@en ;
     dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
@@ -306,7 +306,7 @@ drk:allowsDogs
 drk:allowsServiceAnimals
     a              rdf:Property, owl:DatatypeProperty ;
     rdfs:domain    drk:AnimalPolicy ;
-    rdfs:range     schema:Boolean ;
+    rdfs:range     xsd:boolean ;
     rdfs:label     "Allows Service Animals"@en ;
     rdfs:comment   "A property that describes if the place allows visitors to bring service animals along. A Service Animal is an animal that has been trained to assist a disabled person (source: https://en.wikipedia.org/wiki/Service_animal). While dogs are the most common service animals, other animals (like miniature horses, ferrets, parrots, and monkeys) may also serve in this role, depending upon regional regulations."@en ;
     dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
@@ -318,7 +318,7 @@ drk:allowsAssistanceDogs
     a                  rdf:Property, owl:DatatypeProperty ;
     rdfs:subPropertyOf drk:allowsDogs, drk:allowsServiceAnimals ;
     rdfs:domain        drk:AnimalPolicy ;
-    rdfs:range         schema:Boolean ;
+    rdfs:range         xsd:boolean ;
     rdfs:label         "Allows Assistance/Service Dogs"@en ;
     rdfs:comment       "A property that describes if the place allows visitors to bring assistance/service dogs. Assistance dogs, also referred to as a service dogs, are a specific type of service animals that receive specialized training to aid an individual with a disability in navigating everyday life (source: https://en.wikipedia.org/wiki/Assistance_dog)."@en ;
     dcterms:source     <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
@@ -329,7 +329,7 @@ drk:allowsGuideDogs
     a                  rdf:Property, owl:DatatypeProperty ;
     rdfs:subPropertyOf drk:allowsAssistanceDogs ;
     rdfs:domain        drk:AnimalPolicy ;
-    rdfs:range         schema:Boolean ;
+    rdfs:range         xsd:boolean ;
     rdfs:label         "Allows Guide Dogs"@en ;
     rdfs:comment       "A property that describes if the place allows visitors to bring guide dogs. Guide dogs are a specialized type of assistance dogs, trained to lead individuals who are blind or visually impaired around obstacles (source: https://en.wikipedia.org/wiki/Guide_dog)."@en ;
     dcterms:source     <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
@@ -345,7 +345,7 @@ drk:WheelchairPlaces
 drk:count
     a              rdf:Property, owl:DatatypeProperty ;
     rdfs:domain    drk:WheelchairPlaces ;
-    rdfs:range     schema:Integer ;
+    rdfs:range     xsd:nonNegativeInteger ;
     rdfs:label     "Wheelchair Places Count Property"@en ;
     rdfs:comment   "A property that specifies the number of designated places for wheelchairs, for example, in a theater place or a cinema hall."@en ;
     dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
@@ -354,7 +354,7 @@ drk:count
 drk:hasSpaceForAssistant
     a              rdf:Property, owl:DatatypeProperty ;
     rdfs:domain    drk:WheelchairPlaces ;
-    rdfs:range     schema:Boolean ;
+    rdfs:range     xsd:boolean ;
     rdfs:label     "Has Space For Wheelchair Assistant Property"@en ;
     rdfs:comment   "A property that specifies whether the place has additional space for a wheelchair assistant."@en ;
     dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
@@ -363,7 +363,7 @@ drk:hasSpaceForAssistant
 drk:wheelchairUserCapacity
     a              rdf:Property, owl:DatatypeProperty ;
     rdfs:domain    drk:WheelchairPlaces ;
-    rdfs:range     schema:Integer ;
+    rdfs:range     xsd:nonNegativeInteger ;
     rdfs:label     "Wheelchair User Capacity Property"@en ;
     rdfs:comment   "A property that specifies the number of people using a wheelchair that can be accommodated at the same time. This property should be used when there is no designated space for wheelchair users, but the number is known."@en ;
     dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
