@@ -14,7 +14,6 @@
 @prefix voaf:                  <http://purl.org/vocommons/voaf#> .
 @prefix wikidata:              <https://www.wikidata.org/entity/> .
 @prefix gnd-kg:                <https://d-nb.info/gnd/> .
-@prefix dbr:                   <http://dbpedia.org/resource/> .
 @prefix lcc-3166-1:            <https://www.omg.org/spec/LCC/Countries/ISO3166-1-CountryCodes/> .
 @prefix lcc-3166-2-de:         <https://www.omg.org/spec/LCC/Countries/Regions/ISO3166-2-SubdivisionCodes-DE/> .
 @prefix lang:                  <https://w3id.org/drk/vocabs/languages-iso639-1#> .
@@ -24,6 +23,7 @@
 @prefix ppfa:                  <http://w3id.org/drk/vocabs/personal-profile-for-accessibility#> .
 @prefix tevent:                <http://w3id.org/drk/vocabs/theatrical-event-types#> .
 @prefix fibo-fnd-acc-4217:     <https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/ISO4217-CurrencyCodes/> .
+@prefix tperf:                 <http://w3id.org/drk/vocabs/performer-types#> .
 
 # Note: This is just an example and it may not be factually correct.
 
@@ -96,83 +96,97 @@ drkr:DE_STAugsburg_HedwigAngryInch
     drk:characterRole           drkr:CharacterRoleHedwig, drkr:CharacterRoleYitzhak, drkr:CharacterRoleTommy ;
     drk:creatorRole             [ a               drk:ProductionRole ;
                                   schema:roleName "Author"@en, "Book Author"@en, "Playwright"@en, "Librettist"@en ;
-                                  drk:performer   [ a             schema:Person ;
-                                                    schema:name   "John Cameron Mitchell" ;
-                                                    schema:sameAs wikidata:Q443995 ; ] ] ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "John Cameron Mitchell" ;
+                                                    drk:performerType tperf:Person ;
+                                                    schema:sameAs     wikidata:Q443995 ; ] ] ;
     drk:creatorRole             [ a               drk:ProductionRole ;
                                   schema:roleName "Music Composer"@en, "Lyrics Author"@en ;
-                                  drk:performer   [ a             schema:Person ;
-                                                    schema:name   "Stephen Trask" ;
-                                                    schema:sameAs wikidata:Q111572 ; ] ] ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Stephen Trask" ;
+                                                    drk:performerType tperf:Person ;
+                                                    schema:sameAs     wikidata:Q111572 ; ] ] ;
     drk:creatorRole             [ a               drk:ProductionRole ;
                                   schema:roleName "Director"@en, "Inszenierung"@de ;
-                                  drk:performer   [ a                 schema:Person ;
-                                                    schema:givenName  "Cornelia" ;
-                                                    schema:familyName "Maschner" ;
-                                                    schema:name       "Cornelia Maschner" ; ] ] ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Cornelia Maschner" ;
+                                                    drk:performerType tperf:Person ; ] ] ;
     drk:creatorRole             [ a               drk:ProductionRole ;
                                   schema:roleName "Music Director"@en, "Musikalische Leitung"@de, "Band Member"@en,
                                                   "Bandmitglied"@de ;
-                                  drk:performer   [ a           schema:Person ;
-                                                    schema:name "Stefan Leibold" ; ] ] ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Stefan Leibold" ;
+                                                    drk:performerType tperf:Person ; ] ] ;
     drk:creatorRole             [ a               drk:ProductionRole ;
                                   schema:roleName "Stage and Costumes Designer"@en, "Bühnen- und Kostümbildnerin"@de ;
-                                  drk:performer   [ a           schema:Person ;
-                                                    schema:name "Lisa Geller" ; ] ] ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Lisa Geller" ;
+                                                    drk:performerType tperf:Person ; ] ] ;
     drk:creatorRole             [ a               drk:ProductionRole ;
                                   schema:roleName "Video Director"@en, "Video-Regisseur"@de ;
-                                  drk:performer   [ a           schema:Person ;
-                                                    schema:name "Pius Neumaier" ; ] ] ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Pius Neumaier" ;
+                                                    drk:performerType tperf:Person ; ] ] ;
     drk:creatorRole             [ a               drk:ProductionRole ;
                                   schema:roleName "Lighting Designer"@en, "Lichtdesigner"@de ;
-                                  drk:performer   [ a           schema:Person ;
-                                                    schema:name "Moritz Fettinger" ; ] ] ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Moritz Fettinger" ;
+                                                    drk:performerType tperf:Person ; ] ] ;
     drk:creatorRole             [ a               drk:ProductionRole ;
                                   schema:roleName "Dramaturg"@en, "Dramaturgin"@de ;
-                                  drk:performer   [ a           schema:Person ;
-                                                    schema:name "Sarah Mössner" ; ] ] ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Sarah Mössner" ;
+                                                    drk:performerType tperf:Person ; ] ] ;
     drk:creatorRole             [ a               drk:ProductionRole ;
                                   schema:roleName "Band Member"@en, "Bandmitglied"@de ;
-                                  drk:performer   [ a           schema:Person ;
-                                                    schema:name "Jonas Horche" ; ] ] ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Jonas Horche" ;
+                                                    drk:performerType tperf:Person ; ] ] ;
     drk:creatorRole             [ a               drk:ProductionRole ;
                                   schema:roleName "Band Member"@en, "Bandmitglied"@de ;
-                                  drk:performer   [ a           schema:Person ;
-                                                    schema:name "Tilman Herpichböhm" ; ] ] ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Tilman Herpichböhm" ;
+                                                    drk:performerType tperf:Person ; ] ] ;
     drk:creatorRole             [ a               drk:ProductionRole ;
                                   schema:roleName "Band Member"@en, "Bandmitglied"@de ;
-                                  drk:performer   [ a           schema:Person ;
-                                                    schema:name "Niklas Rehle" ; ] ] ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Niklas Rehle" ;
+                                                    drk:performerType tperf:Person ; ] ] ;
     drk:creatorRole             [ a               drk:ProductionRole ;
                                   schema:roleName "Costume Provider"@en ;
-                                  drk:performer   [ a             schema:Organization ;
-                                                    schema:name   "Staatstheater (State Theater) Augsburg"@en ;
-                                                    schema:sameAs drkr:DE_Augsburg_STAugsburg ] ] ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Staatstheater (State Theater) Augsburg"@en ;
+                                                    schema:sameAs     drkr:DE_Augsburg_STAugsburg ;
+                                                    drk:performerType tperf:Organization ; ] ] ;
     drk:creatorRole             [ a               drk:ProductionRole ;
                                   schema:roleName "Sponsor"@en, "Funder"@en ;
-                                  drk:performer   [ a             schema:Organization ;
-                                                    schema:name   "Staatstheater (State Theater) Augsburg"@en ;
-                                                    schema:sameAs drkr:DE_Augsburg_STAugsburg ] ] ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Staatstheater (State Theater) Augsburg"@en ;
+                                                    schema:sameAs     drkr:DE_Augsburg_STAugsburg ;
+                                                    drk:performerType tperf:Organization ; ] ] ;
     schema:isBasedOn            wikidata:Q13424058, gnd-kg:1150192992,
                                 <http://dbpedia.org/resource/Hedwig_and_the_Angry_Inch_(musical)> .
 
 drkr:CharacterRoleHedwig
-    a                 drk:CharacterPerformanceRole ;
-    drk:characterName "Hedwig Robinson"@en ;
-    drk:characterType tchar:Person ;
-    schema:roleName   "Actor"@en, "Protagonist"@en, "Narrator"@en, "Singer"@en .
+    a               drk:CharacterPerformanceRole ;
+    schema:roleName "Actor"@en, "Protagonist"@en, "Narrator"@en, "Singer"@en ;
+    drk:character   [ a                 drk:Character ;
+                      schema:name       "Hedwig Robinson"@en ;
+                      drk:characterType tchar:Person ] .
 
 drkr:CharacterRoleYitzhak
-    a                 drk:CharacterPerformanceRole ;
-    drk:characterName "Yitzhak"@en ;
-    drk:characterType tchar:Person ;
-    schema:roleName   "Actor"@en .
+    a               drk:CharacterPerformanceRole ;
+    schema:roleName "Actor"@en ;
+    drk:character   [ a                 drk:Character ;
+                      schema:name       "Yitzhak"@en ;
+                      drk:characterType tchar:Person ] .
 
 drkr:CharacterRoleTommy
-    a                 drk:CharacterPerformanceRole ;
-    drk:characterName "Tommy"@en ;
-    drk:characterType tchar:Person ;
-    schema:roleName   "Actor"@en .
+    a               drk:CharacterPerformanceRole ;
+    schema:roleName "Actor"@en ;
+    drk:character   [ a                 drk:Character ;
+                      schema:name       "Tommy"@en ;
+                      drk:characterType tchar:Person ] .
 
 ####################################################################
 # Instance of drk:PerformingArtsTheater.
@@ -250,81 +264,101 @@ drkr:HedwigAngryInch_Event_20241228
                                  drkr:CharacterPerformanceRoleTommy ;
     drk:eventRole                [ a               drk:ProductionRole ;
                                    schema:roleName "Director"@en, "Inszenierung"@de ;
-                                   drk:performer   [ a                 schema:Person ;
-                                                     schema:givenName  "Cornelia" ;
-                                                     schema:familyName "Maschner" ;
-                                                     schema:name       "Cornelia Maschner" ; ] ] ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Cornelia Maschner" ;
+                                                     drk:performerType tperf:Person ;
+                                                     schema:sameAs     <https://staatstheater-augsburg.de/cornelia_maschner> ] ] ;
     drk:eventRole                [ a               drk:ProductionRole ;
                                    schema:roleName "Music Director"@en, "Musikalische Leitung"@de, "Band Member"@en,
                                                    "Bandmitglied"@de ;
-                                   drk:performer   [ a           schema:Person ;
-                                                     schema:name "Stefan Leibold" ; ] ] ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Stefan Leibold" ;
+                                                     drk:performerType tperf:Person ;
+                                                     schema:sameAs     <https://staatstheater-augsburg.de/stefan_leibold> ] ] ;
     drk:eventRole                [ a               drk:ProductionRole ;
                                    schema:roleName "Stage and Costumes Designer"@en, "Bühnen- und Kostümbildnerin"@de ;
-                                   drk:performer   [ a           schema:Person ;
-                                                     schema:name "Lisa Geller" ; ] ] ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Lisa Geller" ;
+                                                     drk:performerType tperf:Person ;
+                                                     schema:sameAs     <https://staatstheater-augsburg.de/lisa_geller> ] ] ;
     drk:eventRole                [ a               drk:ProductionRole ;
                                    schema:roleName "Video Director"@en, "Video-Regisseur"@de ;
-                                   drk:performer   [ a           schema:Person ;
-                                                     schema:name "Pius Neumaier" ; ] ] ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Pius Neumaier" ;
+                                                     drk:performerType tperf:Person ;
+                                                     schema:sameAs     <https://staatstheater-augsburg.de/pius_neumaier> ] ] ;
     drk:eventRole                [ a               drk:ProductionRole ;
                                    schema:roleName "Lighting Designer"@en, "Lichtdesigner"@de ;
-                                   drk:performer   [ a           schema:Person ;
-                                                     schema:name "Moritz Fettinger" ; ] ] ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Moritz Fettinger" ;
+                                                     drk:performerType tperf:Person ] ] ;
     drk:eventRole                [ a               drk:ProductionRole ;
                                    schema:roleName "Dramaturg"@en, "Dramaturgin"@de ;
-                                   drk:performer   [ a           schema:Person ;
-                                                     schema:name "Sarah Mössner" ; ] ] ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Sarah Mössner" ;
+                                                     drk:performerType tperf:Person ;
+                                                     schema:sameAs     <https://staatstheater-augsburg.de/sarah_moessner> ] ] ;
     drk:eventRole                [ a               drk:ProductionRole ;
                                    schema:roleName "Band Member"@en, "Bandmitglied"@de ;
-                                   drk:performer   [ a           schema:Person ;
-                                                     schema:name "Jonas Horche" ; ] ] ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Jonas Horche" ;
+                                                     drk:performerType tperf:Person ] ] ;
     drk:eventRole                [ a               drk:ProductionRole ;
                                    schema:roleName "Band Member"@en, "Bandmitglied"@de ;
-                                   drk:performer   [ a           schema:Person ;
-                                                     schema:name "Tilman Herpichböhm" ; ] ] ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Tilman Herpichböhm" ;
+                                                     drk:performerType tperf:Person ] ] ;
     drk:eventRole                [ a               drk:ProductionRole ;
                                    schema:roleName "Band Member"@en, "Bandmitglied"@de ;
-                                   drk:performer   [ a           schema:Person ;
-                                                     schema:name "Niklas Rehle" ; ] ] ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Niklas Rehle" ;
+                                                     drk:performerType tperf:Person ] ] ;
     drk:eventRole                [ a               drk:ProductionRole ;
                                    schema:roleName "Costume Provider"@en ;
-                                   drk:performer   [ a             schema:Organization ;
-                                                     schema:name   "Staatstheater (State Theater) Augsburg"@en ;
-                                                     schema:sameAs drkr:DE_Augsburg_STAugsburg ] ] ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Staatstheater (State Theater) Augsburg"@en ;
+                                                     drk:performerType tperf:Organization ;
+                                                     schema:sameAs     drkr:DE_Augsburg_STAugsburg ] ] ;
     drk:eventRole                [ a               drk:ProductionRole ;
                                    schema:roleName "Sponsor"@en, "Funder"@en ;
-                                   drk:performer   [ a             schema:Organization ;
-                                                     schema:name   "Staatstheater (State Theater) Augsburg"@en ;
-                                                     schema:sameAs drkr:DE_Augsburg_STAugsburg ] ] ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Staatstheater (State Theater) Augsburg"@en ;
+                                                     drk:performerType tperf:Organization ;
+                                                     schema:sameAs     drkr:DE_Augsburg_STAugsburg ] ] ;
     drk:eventType                tevent:LastPerformance ;
     schema:eventStatus           schema:EventScheduled ;
 .
 
 drkr:CharacterPerformanceRoleHedwig
-    a                 drk:CharacterPerformanceRole ;
-    drk:characterName "Hedwig Robinson"@en ;
-    drk:characterType tchar:Person ;
-    schema:roleName   "Actor"@en, "Protagonist"@en, "Narrator"@en, "Singer"@en ;
-    drk:performer     [ a             schema:Person ;
-                        schema:name   "Thomas Prazak" ;
-                        schema:sameAs wikidata:Q18631797 ] .
+    a               drk:CharacterPerformanceRole ;
+    schema:roleName "Actor"@en, "Protagonist"@en, "Narrator"@en, "Singer"@en ;
+    drk:character   [ a                 drk:Character ;
+                      schema:name       "Hedwig Robinson"@en ;
+                      drk:characterType tchar:Person ] ;
+    drk:performer   [ a                 drk:Performer ;
+                      schema:name       "Thomas Prazak" ;
+                      drk:performerType tperf:Person ;
+                      schema:sameAs     wikidata:Q18631797 ] .
 
 drkr:CharacterPerformanceRoleYitzhak
-    a                 drk:CharacterPerformanceRole ;
-    drk:characterName "Yitzhak"@en ;
-    drk:characterType tchar:Person ;
-    schema:roleName   "Actor"@en ;
-    drk:performer     [ a           schema:Person ;
-                        schema:name "Mirjam Birkl" ] .
+    a               drk:CharacterPerformanceRole ;
+    schema:roleName "Actor"@en ;
+    drk:character   [ a                 drk:Character ;
+                      schema:name       "Yitzhak"@en ;
+                      drk:characterType tchar:Person ] ;
+    drk:performer   [ a                 drk:Performer ;
+                      schema:name       "Mirjam Birkl" ;
+                      drk:performerType tperf:Person ] .
 
 drkr:CharacterPerformanceRoleTommy
-    a                 drk:CharacterPerformanceRole ;
-    drk:characterName "Tommy"@en ;
-    drk:characterType tchar:Person ;
-    schema:roleName   "Actor"@en ;
-    drk:performer     [ a           schema:Person ;
-                        schema:name "Luca Skupin" ] .
+    a               drk:CharacterPerformanceRole ;
+    schema:roleName "Actor"@en ;
+    drk:character   [ a                 drk:Character ;
+                      schema:name       "Tommy"@en ;
+                      drk:characterType tchar:Person ] ;
+    drk:performer   [ a                 drk:Performer ;
+                      schema:name       "Luca Skupin" ;
+                      drk:performerType tperf:Person ] .
 
 #####################################################################
 # TODO: Add Theater Showtimes (Website and) API instance (e.g., https://staatstheater-augsburg.de/drk), and link it to the TheaterGroup / Organization instance
