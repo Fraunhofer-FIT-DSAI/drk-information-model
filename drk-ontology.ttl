@@ -38,7 +38,7 @@ drk:Character
 
 # The drk:characterType property specifies the type of a character in a creative work or during an event.
 # Examples of character types include person, animal, organization, puppet, robot, inanimate object, imaginary entity, etc.
-# Values should be an URIs from a controlled vocabulary such as DRK Character Types Vocabulary: `http://w3id.org/drk/vocabs/character-types#`.
+# Values should be URIs from a controlled vocabulary such as the DRK Character Types Vocabulary: `http://w3id.org/drk/vocabs/character-types#`.
 drk:characterType
     a           rdf:Property, owl:ObjectProperty ;
     rdfs:domain drk:Character ;
@@ -56,7 +56,7 @@ drk:Performer
 
 # The drk:performerType property specifies the type of performer that performs a role in a creative work or event.
 # Examples of performer types include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI).
-# Values should be an URIs from a controlled vocabulary such as DRK Performer Types Vocabulary: `http://w3id.org/drk/vocabs/performer-types#`.
+# Values should be URIs from a controlled vocabulary such as the DRK Performer Types Vocabulary: `http://w3id.org/drk/vocabs/performer-types#`.
 drk:performerType
     a           rdf:Property, owl:ObjectProperty ;
     rdfs:domain drk:Performer ;
@@ -117,11 +117,11 @@ drk:PlayProduction
     rdfs:comment    "A class that includes all stages of Play Production from writing, planning, casting, and staging to rehearsal, but excludes the final presentation or performance, which is modeled as an Event using the drk:TheaterEvent class."@en .
 
 # The drk:productionType property specifies the production type of a creative work, such as 'World Premiere', 'Language Premiere', etc.
-# The production type values would be URIs from the DRK controlled vocabulary 'theatrical production types': `http://w3id.org/drk/vocabs/theatrical-production-types#`.
+# Values should be URIs from a controlled vocabulary such as the DRK Theatrical Production Types Vocabulary: `http://w3id.org/drk/vocabs/theatrical-production-types#`.
 drk:productionType
     a           rdf:Property, owl:ObjectProperty ;
     rdfs:domain drk:PlayProduction ;
-    rdfs:range  schema:URL ;    # The value would be an URI from the DRK 'theatrical production types' vocabulary.
+    rdfs:range  skos:Concept ;
     rdfs:label  "Production Type"@en ;
     rdfs:comment
                 "A property that specifies the production type of a creative work, such as 'World Premiere', 'Language Premiere', etc."@en .
@@ -129,7 +129,7 @@ drk:productionType
 # The drk:characterRole property specifies the characters and roles played by them in a theatrical play.
 # It enables specifying characterName, characterType and roleName.
 # characterName examples: Romeo, Simba, WALL-E, etc.
-# characterType: Provided by DRK controlled vocabulary character types (persons, animals, puppets, robots, inanimate objects, imaginary entities).
+# characterType: Provided by the DRK Character Types Vocabulary (persons, animals, puppets, robots, inanimate objects, imaginary entities).
 # roleName examples (corresponding to character roles): actor, protagonist, puppeteer, cameo, singer, etc.
 # Note: This property is comparable to schema:character, but it allows for specifying characters and their roles in greater detail than schema:character by incorporating character names, types, and role names.
 drk:characterRole
@@ -203,11 +203,11 @@ drk:eventRole
                 "A property that is used to link the production roles in an event that features theatrical work such as a play to its performers. Event roles are (mostly off-stage) production roles that are performed during the preparation or performance of an Event. Examples include director, costume designer, stage manager, set/stage designer, lighting designer, sound designer, sound engineer, technical director, makeup artist, choreographer, understudy, usher, production manager, producer, funder, sponsor, front of house manager, etc."@en .
 
 # The drk:eventType property specifies theatrical event types such as Premiere, Last Performance, Guest Performance, etc.
-# Note: Use DRK controlled vocabulary: theatrical event types: `http://w3id.org/drk/vocabs/theatrical-event-types#`
+# Values should be URIs from a controlled vocabulary such as the DRK Theatrical Event Types Vocabulary: `http://w3id.org/drk/vocabs/theatrical-event-types#`.
 drk:eventType
     a           rdf:Property, owl:ObjectProperty ;
     rdfs:domain schema:TheaterEvent ;
-    rdfs:range  schema:URL ;
+    rdfs:range  skos:Concept ;
     rdfs:label  "Event Type"@en ;
     rdfs:comment
                 "A property that specifies theatrical event types such as Premiere, Last Performance, Guest Performance, etc."@en .
@@ -252,11 +252,11 @@ drk:animalPolicy
     dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
 # The drk:accessibleWith property is used to specify with what disability profile can a person access the given place.
-# The personal disability profile values would be URIs from the DRK controlled vocabulary 'Personal Profile for Accessibility': `http://w3id.org/drk/vocabs/personal-profile-for-accessibility#`.
+# The personal disability profile values should be URIs from a controlled vocabulary such as the DRK 'Personal Profile for Accessibility' vocabulary: `http://w3id.org/drk/vocabs/personal-profile-for-accessibility#`.
 drk:accessibleWith
     a              rdf:Property, owl:ObjectProperty ;
     rdfs:domain    drk:PlaceAccessibilityFeature ;
-    rdfs:range     schema:URL ;
+    rdfs:range     skos:Concept ;
     rdfs:label     "Accessible With Personal (Disability) Profile Property"@en ;
     rdfs:comment   "A property that is used to specify with what disability profile can a person access the given place. For example, the place owner or an external agency might specify that the given place can be comfortably accessed by a person who uses a wheelchair, or who has a visual impairment."@en ;
     dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
