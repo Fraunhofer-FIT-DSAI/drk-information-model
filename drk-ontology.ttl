@@ -129,7 +129,7 @@ drk:productionType
 # The drk:characterRole property specifies the characters and roles played by them in a theatrical play.
 # It enables specifying characterName, characterType and roleName.
 # characterName examples: Romeo, Simba, WALL-E, etc.
-# characterType: Provided by DRK controlled vocabulary theatrical character types (persons, animals, puppets, robots, inanimate objects, imaginary entities).
+# characterType: Provided by DRK controlled vocabulary character types (persons, animals, puppets, robots, inanimate objects, imaginary entities).
 # roleName examples (corresponding to character roles): actor, protagonist, puppeteer, cameo, singer, etc.
 # Note: This property is comparable to schema:character, but it allows for specifying characters and their roles in greater detail than schema:character by incorporating character names, types, and role names.
 drk:characterRole

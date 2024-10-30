@@ -9,17 +9,17 @@
 @prefix dbo:          <https://dbpedia.org/ontology/> .
 @prefix vann:         <http://purl.org/vocab/vann/> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
-@prefix tchar:        <http://w3id.org/drk/vocabs/theatrical-character-types#> .
+@prefix tchar:        <http://w3id.org/drk/vocabs/character-types#> .
 
 tchar:
     a                             voaf:Vocabulary, skos:ConceptScheme ;
-    dcterms:title                 "Theatrical Character Types Vocabulary"@en ;
-    dcterms:description           "A controlled vocabulary for listing and describing various types of theatrical characters."@en ;
-    rdfs:label                    "Theatrical Character Types Vocabulary"@en ;
-    rdfs:comment                  "A controlled vocabulary for listing and describing various types of theatrical characters."@en ;
+    dcterms:title                 "Character Types Vocabulary"@en ;
+    dcterms:description           "A controlled vocabulary for listing and describing various types of characters in creative works such as plays or movies."@en ;
+    rdfs:label                    "Character Types Vocabulary"@en ;
+    rdfs:comment                  "A controlled vocabulary for listing and describing various types of characters in creative works such as plays or movies."@en ;
     dcterms:hasVersion            "0.0.1"^^xsd:string ;
     vann:preferredNamespacePrefix "tchar" ;
-    vann:preferredNamespaceUri    "http://w3id.org/drk/vocabs/theatrical-character-types#" .
+    vann:preferredNamespaceUri    "http://w3id.org/drk/vocabs/character-types#" .
 
 tchar:Person
     a               skos:Concept ;

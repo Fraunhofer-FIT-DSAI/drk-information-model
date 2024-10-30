@@ -194,12 +194,12 @@ drkr:Hedwig_and_the_Angry_Inch_Event_20241228
     drk:eventType tevent:LastPerformance .
 ```
 
-## Theatrical Character Types Vocabulary
+## Character Types Vocabulary
 
-- Title: DRK Theatrical Character Types Vocabulary
-- [Link to TTL representation](theatrical-character-types.ttl)
-- Namespace: `http://w3id.org/drk/vocabs/theatrical-character-types#`
-- Term example: `http://w3id.org/drk/vocabs/theatrical-character-types#Robot` OR `tchar:Robot`
+- Title: DRK Character Types Vocabulary
+- [Link to TTL representation](character-types.ttl)
+- Namespace: `http://w3id.org/drk/vocabs/character-types#`
+- Term example: `http://w3id.org/drk/vocabs/character-types#Robot` OR `tchar:Robot`
 - Usage example:
 
 ```turtle
@@ -209,7 +209,7 @@ drkr:Hedwig_and_the_Angry_Inch_Event_20241228
 @prefix drk:             <https://w3id.org/drk/ontology/> .
 @prefix drkr:            <https://w3id.org/drk/resources/> .
 @prefix schema:          <https://schema.org/> .
-@prefix tchar:           <http://w3id.org/drk/vocabs/theatrical-character-types#> .
+@prefix tchar:           <http://w3id.org/drk/vocabs/character-types#> .
 
 drkr:Hedwig_and_the_Angry_Inch_Play_Augsburg
     a                 drk:PlayProduction ;
@@ -239,7 +239,7 @@ drkr:CharacterRoleHedwig
 @prefix drkr:            <https://w3id.org/drk/resources/> .
 @prefix schema:          <https://schema.org/> .
 @prefix wikidata:        <https://www.wikidata.org/entity/> .
-@prefix tchar:           <http://w3id.org/drk/vocabs/theatrical-character-types#> .
+@prefix tchar:           <http://w3id.org/drk/vocabs/character-types#> .
 @prefix tperf:           <http://w3id.org/drk/vocabs/performer-types#> .
 
 drkr:Hedwig_and_the_Angry_Inch_Play_Augsburg
