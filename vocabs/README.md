@@ -216,10 +216,11 @@ drkr:Hedwig_and_the_Angry_Inch_Play_Augsburg
     drk:characterRole drkr:CharacterRoleHedwig .
 
 drkr:CharacterRoleHedwig
-    a                 drk:CharacterPerformanceRole ;
-    drk:characterName "Hedwig Robinson"@en ;
-    drk:characterType tchar:Person ;
-    schema:roleName   "Actor"@en, "Protagonist"@en, "Narrator"@en, "Singer"@en .
+    a               drk:CharacterPerformanceRole ;
+    schema:roleName "Actor"@en, "Protagonist"@en, "Narrator"@en, "Singer"@en ;
+    drk:character   [ a                 drk:Character ;
+                      schema:name       "Hedwig Robinson"@en ;
+                      drk:characterType tchar:Person ] .
 ```
 
 ## Performer Types Vocabulary
@@ -237,24 +238,30 @@ drkr:CharacterRoleHedwig
 @prefix drk:             <https://w3id.org/drk/ontology/> .
 @prefix drkr:            <https://w3id.org/drk/resources/> .
 @prefix schema:          <https://schema.org/> .
+@prefix wikidata:        <https://www.wikidata.org/entity/> .
 @prefix tchar:           <http://w3id.org/drk/vocabs/theatrical-character-types#> .
 @prefix tperf:           <http://w3id.org/drk/vocabs/performer-types#> .
 
 drkr:Hedwig_and_the_Angry_Inch_Play_Augsburg
     a               drk:PlayProduction ;
-    drk:creatorRole [ a                 drk:ProductionRole ;
-                      schema:roleName   "Sponsor"@en, "Funder"@en ;
-                      drk:performerName "Staatstheater (State Theater) Augsburg"@en ;
-                      drk:performerType tperf:Organization ] .
+    drk:creatorRole [ a               drk:ProductionRole ;
+                      schema:roleName "Sponsor"@en, "Funder"@en ;
+                      drk:performer   [ a                 drk:Performer ;
+                                        schema:name       "Staatstheater (State Theater) Augsburg"@en ;
+                                        drk:performerType tperf:Organization ;
+                                        schema:sameAs     drkr:DE_Augsburg_STAugsburg ] ] .
 
 drkr:Hedwig_and_the_Angry_Inch_Event_20241228
-    a                          drk:TheaterEvent ;
-    drk:characterPerformerRole [ a                 drk:CharacterPerformerRole ;
-                                 drk:characterName "Hedwig Robinson"@en ;
-                                 drk:characterType tchar:Person ;
-                                 schema:roleName   "Actor"@en, "Protagonist"@en, "Narrator"@en, "Singer"@en ;
-                                 drk:performerName "Thomas Prazak"@en ;
-                                 drk:performerType tperf:Person ] .
+    a                            drk:TheaterEvent ;
+    drk:characterPerformanceRole [ a               drk:CharacterPerformanceRole ;
+                                   schema:roleName "Actor"@en, "Protagonist"@en, "Narrator"@en, "Singer"@en ;
+                                   drk:character   [ a                 drk:Character ;
+                                                     schema:name       "Hedwig Robinson"@en ;
+                                                     drk:characterType tchar:Person ] ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Thomas Prazak" ;
+                                                     drk:performerType tperf:Person ;
+                                                     schema:sameAs     wikidata:Q18631797 ] ] .
 ```
 
 ## Personal Profile for Accessibility Vocabulary
