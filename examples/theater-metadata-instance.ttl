@@ -1,4 +1,4 @@
-# Namespace of the DRK Ontology
+    # Namespace of the DRK Ontology
 @prefix drk:                   <https://w3id.org/drk/ontology/> .
 # Namespace of the DRK Knowledge Graph
 @prefix drkr:                  <https://w3id.org/drk/resources/> .
@@ -12,7 +12,7 @@
 @prefix ids:                   <https://w3id.org/idsa/core/> .
 @prefix dcat:                  <http://www.w3.org/ns/dcat#> .
 @prefix voaf:                  <http://purl.org/vocommons/voaf#> .
-@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsd:                   <http://www.w3.org/2001/XMLSchema#> .
 @prefix wikidata:              <https://www.wikidata.org/entity/> .
 @prefix gnd-kg:                <https://d-nb.info/gnd/> .
 @prefix lcc-3166-1:            <https://www.omg.org/spec/LCC/Countries/ISO3166-1-CountryCodes/> .
@@ -207,11 +207,11 @@ drkr:DE_Augsburg_STAugsburg_Place
                                   schema:addressCountry  lcc-3166-1:Germany ;
                                   schema:url             <https://maps.app.goo.gl/v1XhJ3uVdixjGgY2A> ] ;
     drk:hasAccessibilityFeature [ a                  drk:PlaceAccessibilityFeature ;
-                                  drk:animalPolicy   [ a                            drk:AnimalPolicy ;
-                                                       drk:allowsDogs               false ; # xsd:boolean
-                                                       drk:drk:allowsServiceAnimals false ;
-                                                       drk:allowsAssistanceDogs     true ;
-                                                       drk:allowsGuideDogs          true ; ] ;
+                                  drk:animalPolicy   [ a                        drk:AnimalPolicy ;
+                                                       drk:allowsDogs           false ; # xsd:boolean
+                                                       drk:allowsServiceAnimals false ;
+                                                       drk:allowsAssistanceDogs true ;
+                                                       drk:allowsGuideDogs      true ; ] ;
                                   drk:accessibleWith ppfa:mobilityImpairment ;
                                   drk:accessibleWith ppfa:blindness, ppfa:visualImpairment ; ] ;
     drk:wheelchairPlaces        [ a                        drk:WheelchairPlaces ;
