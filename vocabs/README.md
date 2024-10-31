@@ -1,7 +1,7 @@
 # Controlled Vocabularies for Representing Enumerations
 
 - For modeling Enumerations (ENUMs) in semantic metadata schemas (and later using them while instantiating these
-  metadata models in the DRK Knowledge Graph), it would be preferable use URIs from existing controlled vocabularies (
+  metadata models in the DRK Knowledge Graph), it is preferable use URIs from existing controlled vocabularies (
   preferably standard-based), instead of plain string literals.
 - In case there are no existing vocabularies for a given ENUM-type, new ones can be created and defined under the DRK
   IM's vocabulary namespace: `http://w3id.org/drk/vocabs/`
