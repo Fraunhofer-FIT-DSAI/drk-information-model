@@ -92,7 +92,7 @@ tgenres:Cabaret
     skos:exactMatch gndkg:4029104-2 ;
     rdfs:seeAlso    <https://en.wikipedia.org/wiki/Cabaret> .
 
-tgenres:KabarettComedy
+tgenres:CabaretComedy
     a             skos:Concept ;
     skos:inScheme tgenres: ;
     rdfs:label    "Cabaret Comedy"@en, "Kabarett-Comedy"@de ;
