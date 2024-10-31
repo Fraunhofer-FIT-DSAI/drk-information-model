@@ -21,58 +21,58 @@ ppfa:
     dcterms:source                <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/#personalprofile> ;
     rdfs:seeAlso                  <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
-# See also ppfa:visualImpairment
-ppfa:blindness
+# See also ppfa:VisualImpairment
+ppfa:Blindness
     a               skos:Concept ;
     skos:inScheme   ppfa: ;
     rdfs:label      "Blindness"@en ;
     rdfs:comment    "A term that describes the profile of a person who is blind."@en ;
     skos:closeMatch wikidata:Q10874 .
 
-ppfa:guideDog
+ppfa:GuideDog
     a               skos:Concept ;
     skos:inScheme   ppfa: ;
     rdfs:label      "Guide Dog"@en ;
     rdfs:comment    "A term that describes the profile of a person who needs a guide dog."@en ;
     skos:closeMatch dbr:Guide_dog, wikidata:Q38782 .
 
-ppfa:hearingImpairment
+ppfa:HearingImpairment
     a               skos:Concept ;
     skos:inScheme   ppfa: ;
     rdfs:label      "Hearing Impairment"@en ;
     rdfs:comment    "A term that describes the profile of a person who has a hearing impairment."@en ;
     skos:closeMatch dbr:Hearing_impairment, wikidata:Q16035842 .
 
-ppfa:learningImpairment
+ppfa:LearningImpairment
     a               skos:Concept ;
     skos:inScheme   ppfa: ;
     rdfs:label      "Learning Impairment"@en ;
     rdfs:comment    "A term that describes the profile of a person who has a learning impairment."@en ;
     skos:closeMatch dbr:Learning_impairment .
 
-ppfa:mobilityImpairment
+ppfa:MobilityImpairment
     a               skos:Concept ;
     skos:inScheme   ppfa: ;
     rdfs:label      "Mobility Impairment"@en ;
     rdfs:comment    "A term that describes the profile of a person who has a mobility impairment."@en ;
     skos:closeMatch dbr:Mobility_impairment, wikidata:Q3317681 .
 
-ppfa:muteness
+ppfa:Muteness
     a               skos:Concept ;
     skos:inScheme   ppfa: ;
     rdfs:label      "Muteness"@en ;
     rdfs:comment    "A term that describes the profile of a person who is unable to speak."@en ;
     skos:closeMatch dbr:Muteness, wikidata:Q671776 .
 
-# See also ppfa:blindness
-ppfa:visualImpairment
+# See also ppfa:Blindness
+ppfa:VisualImpairment
     a               skos:Concept ;
     skos:inScheme   ppfa: ;
     rdfs:label      "Visual Impairment"@en ;
     rdfs:comment    "A term that describes the profile of a person who has a visual impairment."@en ;
     skos:exactMatch dbr:Visual_impairment, wikidata:Q737460 .
 
-ppfa:wheelchair
+ppfa:Wheelchair
     a               skos:Concept ;
     skos:inScheme   ppfa: ;
     rdfs:label      "Wheelchair"@en ;

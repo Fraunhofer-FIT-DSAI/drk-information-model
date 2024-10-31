@@ -269,7 +269,7 @@ drkr:Hedwig_and_the_Angry_Inch_Event_20241228
 - Title: DRK Personal Profile for Accessibility Vocabulary
 - [Link to TTL representation](personal-profile-for-accessibility.ttl)
 - Namespace: `http://w3id.org/drk/vocabs/personal-profile-for-accessibility#`
-- Term example: `http://w3id.org/drk/vocabs/personal-profile-for-accessibility#blindness` OR `ppfa:blindness`
+- Term example: `http://w3id.org/drk/vocabs/personal-profile-for-accessibility#Blindness` OR `ppfa:Blindness`
 - Usage example:
 
 ```turtle
@@ -285,8 +285,8 @@ drkr:DE_Augsburg_STAugsburg_Place
     a                           drk:PerformingArtsTheater ;
     schema:name                 "Staatstheater Augsburg - brecht stage im Gaswerk"@en ;
     drk:hasAccessibilityFeature [ a                  drk:PlaceAccessibilityFeature ;
-                                  drk:accessibleWith ppfa:wheelchair, ppfa:mobilityImpairment ;
-                                  drk:accessibleWith ppfa:blindness, ppfa:visualImpairment ; ] ;
+                                  drk:accessibleWith ppfa:Wheelchair, ppfa:MobilityImpairment ;
+                                  drk:accessibleWith ppfa:Blindness, ppfa:VisualImpairment ; ] ;
     schema:latitude             48.3874688 ;
     schema:longitude            10.8597226 .
 ```

@@ -212,8 +212,8 @@ drkr:DE_Augsburg_STAugsburg_Place
                                                        drk:allowsServiceAnimals false ;
                                                        drk:allowsAssistanceDogs true ;
                                                        drk:allowsGuideDogs      true ; ] ;
-                                  drk:accessibleWith ppfa:mobilityImpairment ;
-                                  drk:accessibleWith ppfa:blindness, ppfa:visualImpairment ; ] ;
+                                  drk:accessibleWith ppfa:MobilityImpairment ;
+                                  drk:accessibleWith ppfa:Blindness, ppfa:VisualImpairment ; ] ;
     drk:wheelchairPlaces        [ a                        drk:WheelchairPlaces ;
                                   drk:count                "11"^^xsd:nonNegativeInteger ;
                                   drk:hasSpaceForAssistant true ; ] ;
