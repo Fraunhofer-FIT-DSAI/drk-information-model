@@ -350,8 +350,8 @@ drk:WheelchairPlaces
     rdfs:comment   "A class that describes the presence of reserved spots for wheelchairs at a place."@en ;
     dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
-# The drk:count property specifies the number of designated places for wheelchairs, for example, in a theater place or a cinema hall.
-drk:count
+# The drk:wheelchairPlacesCount property specifies the number of designated places for wheelchairs, for example, in a theater place or a cinema hall.
+drk:wheelchairPlacesCount
     a              rdf:Property, owl:DatatypeProperty ;
     rdfs:domain    drk:WheelchairPlaces ;
     rdfs:range     xsd:nonNegativeInteger ;
@@ -368,7 +368,7 @@ drk:hasSpaceForAssistant
     rdfs:comment   "A property that specifies whether the place has additional space for a wheelchair assistant."@en ;
     dcterms:source <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
-# The drk:wheelchairUserCapacity property specifies the number of people using a wheelchair that can be accommodated at the same time. This property should be used when there is no designated space for wheelchair users (i.e., drk:count), but the number is known.
+# The drk:wheelchairUserCapacity property specifies the number of people using a wheelchair that can be accommodated at the same time. This property should be used when there is no designated space for wheelchair users (i.e., drk:wheelchairPlacesCount), but the number is known.
 drk:wheelchairUserCapacity
     a              rdf:Property, owl:DatatypeProperty ;
     rdfs:domain    drk:WheelchairPlaces ;

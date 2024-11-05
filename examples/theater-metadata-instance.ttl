@@ -214,9 +214,9 @@ drkr:DE_Augsburg_STAugsburg_Place
                                                        drk:allowsGuideDogs      true ; ] ;
                                   drk:accessibleWith ppfa:MobilityImpairment ;
                                   drk:accessibleWith ppfa:Blindness, ppfa:VisualImpairment ; ] ;
-    drk:wheelchairPlaces        [ a                        drk:WheelchairPlaces ;
-                                  drk:count                "11"^^xsd:nonNegativeInteger ;
-                                  drk:hasSpaceForAssistant true ; ] ;
+    drk:wheelchairPlaces        [ a                         drk:WheelchairPlaces ;
+                                  drk:wheelchairPlacesCount "11"^^xsd:nonNegativeInteger ;
+                                  drk:hasSpaceForAssistant  true ; ] ;
     drk:accessibilityDescription
                                 """The theater campus as well as buildings are equipped with all the necessary facilities for access by a person who has a visual impairment and/or mobility impairment. The place is equipped with accessible toilets and braille script has been used at necessary points. Please mention accessibility related requirements while purchasing tickets to enable us to serve you better. Our staff members and ushers will be happy to assist you at the venue."""@en ;
     schema:latitude             48.3874688 ;
