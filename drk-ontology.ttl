@@ -226,6 +226,15 @@ drk:PerformingArtsTheater
     rdfs:label      "Performing Arts Theater"@en ;
     rdfs:comment    "A place such as a building, a group of buildings, or an event site that is designated for organizing theatrical events such as plays."@en .
 
+# The drk:navigationMapURL property is used to specify a link to the geographical location of a place on a digital map service such as Google Maps for navigation purposes.
+drk:navigationMapURL
+    a                  rdf:Property, owl:DatatypeProperty ;
+    rdfs:subPropertyOf schema:url ;
+    rdfs:domain        schema:Place ;
+    rdfs:range         schema:URL ;
+    rdfs:label         "Map Location URL"@en ;
+    rdfs:comment       "A URL linking to the geographical location of the specified place on a digital map service for navigation purposes (e.g., Google Maps, OpenStreetMap, Apple Maps). This differs from a venue map or seating chart by offering a direct navigation point, such as <https://maps.app.goo.gl/v1XhJ3uVdixjGgY2A>."@en .
+
 # The drk:hasAccessibilityFeature property is used to describe the physical (and sometimes human-rated) accessibility features of a physical place.
 drk:hasAccessibilityFeature
     a           rdf:Property, owl:ObjectProperty ;

@@ -45,7 +45,7 @@ drkr:DE_Augsburg_STAugsburg
                      schema:addressLocality "Augsburg"@en ;
                      schema:addressRegion   lcc-3166-2-de:Bayern ;
                      schema:addressCountry  lcc-3166-1:Germany ;
-                     schema:url             <https://maps.app.goo.gl/C9oHeBUtVhWYFwX68> ] ;
+                     drk:navigationMapURL   <https://maps.app.goo.gl/C9oHeBUtVhWYFwX68> ] ;
     schema:address [ a                      schema:PostalAddress ;
                      schema:name            "Augsburg State Theater Visitor Service - at the Citizens' and Tourist Information Office"@en ;
                      schema:name            "Besucherservice Staatstheater Augsburg - in der Bürger- und Tourist-Information"@de ;
@@ -54,7 +54,7 @@ drkr:DE_Augsburg_STAugsburg
                      schema:addressLocality "Augsburg"@en ;
                      schema:addressRegion   lcc-3166-2-de:Bayern ;
                      schema:addressCountry  lcc-3166-1:Germany ;
-                     schema:url             <https://maps.app.goo.gl/GDtXMCb6VpeQawJY7> ] ;
+                     drk:navigationMapURL   <https://maps.app.goo.gl/GDtXMCb6VpeQawJY7> ] ;
     schema:logo    <https://upload.wikimedia.org/wikipedia/commons/c/c7/Staatstheater_Augsburg_Logo.svg> ;
     schema:url     <https://staatstheater-augsburg.de/> ;  # Official website
     schema:sameAs  <https://en.wikipedia.org/wiki/Staatstheater_Augsburg>, wikidata:Q1441463, gnd-kg:1170044093 .
@@ -205,7 +205,7 @@ drkr:DE_Augsburg_STAugsburg_Place
                                   schema:addressLocality "Augsburg"@en ;
                                   schema:addressRegion   lcc-3166-2-de:Bayern ;
                                   schema:addressCountry  lcc-3166-1:Germany ;
-                                  schema:url             <https://maps.app.goo.gl/v1XhJ3uVdixjGgY2A> ] ;
+                                  drk:navigationMapURL   <https://maps.app.goo.gl/v1XhJ3uVdixjGgY2A> ] ;
     drk:hasAccessibilityFeature [ a                  drk:PlaceAccessibilityFeature ;
                                   drk:animalPolicy   [ a                        drk:AnimalPolicy ;
                                                        drk:allowsDogs           false ; # xsd:boolean
