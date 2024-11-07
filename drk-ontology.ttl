@@ -158,33 +158,44 @@ drk:creatorRole
     rdfs:comment     "A property that is used to specify the names of creator roles involved in a play's production that are not characters in the play. For example, William Shakespeare performed the roles of playwright and creator in the production of his play 'Romeo and Juliet'."@en ;
     rdfs:isDefinedBy drk: .
 
+# The drk:Event describes an event taking place at a particular location and time.
+# Examples include a theatrical play performance, movie screening, concert, or festival.
+# It extends schema:Event class.
+# drk:Event can be linked to schema:CreativeWork using the property 'schema:workPerformed'.
+# Events can be presented to an audience at a physical and/or virtual location.
+drk:Event
+    a                owl:Class, rdfs:Class ;
+    rdfs:subClassOf  schema:Event ;
+    rdfs:label       "Event"@en ;
+    rdfs:comment     "A class that describes a thing happening at a particular location and at a particular time such as a theatrical play performance, movie screening, concert, or festival."@en ;
+    rdfs:isDefinedBy drk: .
+
 # The drk:TheaterEvent describes the presentation of a theatrical creative work such as a play.
 # For example, the premiere performance of the play 'Hedwig and the Angry Inch' on 15.9.2023 at Staatstheater Augsburg: https://staatstheater-augsburg.de/hedwig_and_the_angry_inch.
-# It extends schema:TheaterEvent class.
+# It extends drk:Event and schema:TheaterEvent classes.
 # drk:TheaterEvent can be linked to drk:PlayProduction using the property 'schema:workPerformed'.
 # Theater Events can be presented to an audience at a physical location, a virtual location, or in a hybrid manner.
 drk:TheaterEvent
     a                owl:Class, rdfs:Class ;
-    rdfs:subClassOf  schema:TheaterEvent ;
+    rdfs:subClassOf  drk:Event, schema:TheaterEvent ;
     rdfs:label       "Theater Event"@en ;
     rdfs:comment     "A class that describes the presentation of a theatrical creative work such as a play."@en ;
     rdfs:isDefinedBy drk: .
 
 # The drk:intermissionCount property specifies the number of intermissions or breaks during an Event.
-# Note: rdfs:domain is schema:Event.
 drk:intermissionCount
     a                rdf:Property, owl:DatatypeProperty ;
-    rdfs:domain      schema:Event ;
+    rdfs:domain      drk:Event ;
     rdfs:range       xsd:nonNegativeInteger ;
     rdfs:label       "Intermission Count"@en ;
     rdfs:comment     "A property that specifies the number of intermissions or breaks during an Event."@en ;
     rdfs:isDefinedBy drk: .
 
-# The drk:subtitleLanguage specifies the languages in which subtitles or captions are available during an Event.
-# Currently, schema:subtitleLanguage is not applicable on schema:Event (or schema:TheaterEvent), but only on some specific types such as BroadcastEvent, ScreeningEvent.
+# The drk:subtitleLanguage specifies the languages in which subtitles or captions are available during a Theater Event.
+# Currently, schema.org (V28.0) has a property called 'schema:subtitleLanguage' which is not applicable on schema:Event (or schema:TheaterEvent), but only on some specific types such as BroadcastEvent, ScreeningEvent.
 drk:subtitleLanguage
     a                rdf:Property, owl:ObjectProperty ;
-    rdfs:domain      schema:TheaterEvent ;
+    rdfs:domain      drk:TheaterEvent ;
     rdfs:range       schema:Language ;
     rdfs:label       "Subtitle Language"@en ;
     rdfs:comment     "A property that specifies the languages in which subtitles or captions are available during a Theatrical Event."@en ;
@@ -193,28 +204,28 @@ drk:subtitleLanguage
 # The drk:characterPerformanceRole property is used to specify and link the details of characters in a creative work such as a play to the respective performers and the roles played by them.
 drk:characterPerformanceRole
     a                rdf:Property, owl:ObjectProperty ;
-    rdfs:domain      schema:TheaterEvent ;
+    rdfs:domain      drk:TheaterEvent ;
     rdfs:range       drk:CharacterPerformanceRole ;
     rdfs:label       "Character Performance Role Property"@en ;
     rdfs:comment     "A property that is used to specify and link the details of characters in a creative work such as a play to the respective performers and the roles played by them."@en ;
     rdfs:isDefinedBy drk: .
 
-# The drk:eventRole property is used to link the production roles in an event that features theatrical work such as a play to its performers.
-# Event roles are (mostly off-stage) production roles that are performed during the preparation or performance of an Event. These are mostly the "non-character" roles, i.e., they are not linked to any characters in the play.
+# The drk:eventRole property is used to link the production roles in an event such as theatrical play to its performers.
+# Event roles are (mostly off-stage) production roles that are performed during the preparation or performance of an Event. These are mostly the "non-character" roles, i.e., they are not linked to any characters (such as characters in a play).
 # Examples include director, costume designer, stage manager, set/stage designer, lighting designer, sound designer, sound engineer, technical director, makeup artist, choreographer, understudy, usher, production manager, producer, funder, sponsor, front of house manager, etc.
 drk:eventRole
     a                rdf:Property, owl:ObjectProperty ;
-    rdfs:domain      schema:TheaterEvent ;
+    rdfs:domain      drk:Event ;
     rdfs:range       drk:ProductionRole ;
     rdfs:label       "Event Role Property"@en ;
     rdfs:comment     "A property that is used to link the production roles in an event that features theatrical work such as a play to its performers. Event roles are (mostly off-stage) production roles that are performed during the preparation or performance of an Event. Examples include director, costume designer, stage manager, set/stage designer, lighting designer, sound designer, sound engineer, technical director, makeup artist, choreographer, understudy, usher, production manager, producer, funder, sponsor, front of house manager, etc."@en ;
     rdfs:isDefinedBy drk: .
 
-# The drk:eventType property specifies theatrical event types such as Premiere, Last Performance, Guest Performance, etc.
+# The drk:eventType property specifies event types such as Premiere, Last Performance, Guest Performance, etc.
 # Values should be URIs from a controlled vocabulary such as the DRK Theatrical Event Types Vocabulary: `http://w3id.org/drk/vocabs/theatrical-event-types#`.
 drk:eventType
     a                rdf:Property, owl:ObjectProperty ;
-    rdfs:domain      schema:TheaterEvent ;
+    rdfs:domain      drk:Event ;
     rdfs:range       skos:Concept ;
     rdfs:label       "Event Type"@en ;
     rdfs:comment     "A property that specifies theatrical event types such as Premiere, Last Performance, Guest Performance, etc."@en ;
@@ -240,7 +251,7 @@ drk:PerformingArtsTheater
 drk:navigationMapURL
     a                  rdf:Property, owl:DatatypeProperty ;
     rdfs:subPropertyOf schema:url ;
-    rdfs:domain        schema:Place ;
+    rdfs:domain        drk:Place ;
     rdfs:range         schema:URL ;
     rdfs:label         "Map Location URL"@en ;
     rdfs:comment       "A URL linking to the geographical location of the specified place on a digital map service for navigation purposes (e.g., Google Maps, OpenStreetMap, Apple Maps). This differs from a venue map or seating chart by offering a direct navigation point, such as <https://maps.app.goo.gl/v1XhJ3uVdixjGgY2A>."@en ;
@@ -249,7 +260,7 @@ drk:navigationMapURL
 # The drk:hasAccessibilityFeature property is used to describe the physical (and sometimes human-rated) accessibility features of a physical place.
 drk:hasAccessibilityFeature
     a                rdf:Property, owl:ObjectProperty ;
-    rdfs:domain      schema:Place ;
+    rdfs:domain      drk:Place ;
     rdfs:range       drk:PlaceAccessibilityFeature ;
     rdfs:label       "Has Accessibility Feature Property"@en ;
     rdfs:comment     "A property that is used to describe the physical (and sometimes human-rated) accessibility of a physical place."@en ;
