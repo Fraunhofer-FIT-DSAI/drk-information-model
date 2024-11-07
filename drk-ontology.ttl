@@ -2,6 +2,7 @@
 @prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:          <http://www.w3.org/2002/07/owl#> .
+@prefix lang:         <https://w3id.org/drk/vocabs/languages-iso639-1#> .
 @prefix dcterms:      <http://purl.org/dc/terms/> .
 @prefix vann:         <http://purl.org/vocab/vann/> .
 @prefix schema:       <https://schema.org/> .
@@ -10,17 +11,81 @@
 @prefix dcat:         <http://www.w3.org/ns/dcat#> .
 @prefix voaf:         <http://purl.org/vocommons/voaf#> .
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix cc:           <http://creativecommons.org/ns#> .
+@prefix foaf:         <http://xmlns.com/foaf/0.1/> .
 
+# Ontology Definition
 drk:
     a                             owl:Ontology, voaf:Vocabulary ;
+
+    # Basic Metadata
     rdfs:label                    "Culture Dataspace (DRK) Ontology"@en, "Datenraum Kultur (DRK) Ontologie"@de ;
     rdfs:comment                  "The DRK ontology is designed for the cultural dataspace, providing extensible semantic concepts, properties, and their interrelationships for modeling metadata related to theaters, theatrical productions, and their showtimes."@en ;
     dcterms:title                 "Culture Dataspace (DRK) Ontology"@en, "Datenraum Kultur (DRK) Ontologie"@de ;
-    dcterms:description           "The DRK ontology is designed for the cultural dataspace, providing extensible semantic concepts, properties, and their interrelationships for modeling metadata related to theaters, theatrical productions, and their showtimes."@en ;
-    dcterms:hasVersion            "0.0.1"^^xsd:string ;
+
+    # Version Information
+    owl:versionInfo               "1.0.0"^^xsd:string ;
+    # owl:priorVersion             <http://w3id.org/drk/ontology/0.9.0> ;
+    dcterms:hasVersion            "1.0.0"^^xsd:string ;
+
+    # Dates
+    dcterms:created               "2024-10-22"^^xsd:date ;
+    dcterms:modified              "2024-11-07"^^xsd:date ;
+    dcterms:issued                "2024-11-07"^^xsd:date ;  # Date of a major release
+
+    # Creator Information
+    dcterms:creator               [ a                  foaf:Person ;
+                                    foaf:name          "Rohit A. Deshmukh"@en ;
+                                    foaf:mbox          <mailto:rohit.deshmukh@fit.fraunhofer.de> ;
+                                    foaf:homepage      <https://github.com/rohitadeshmukh13> ;
+                                    dcterms:identifier <https://orcid.org/0000-0003-2885-7076> ] ;
+    dcterms:creator               [ a                  foaf:Person ;
+                                    foaf:name          "Daham Mohammed Mustafa"@en ;
+                                    foaf:homepage      <https://github.com/Daham-Mustaf> ;
+                                    dcterms:identifier <https://orcid.org/0000-0003-1867-4428> ] ;
+    dcterms:creator               [ a                  foaf:Person ;
+                                    foaf:name          "Christoph Lange-Bever"@en ;
+                                    foaf:homepage      <https://github.com/clange> ;
+                                    dcterms:identifier <https://orcid.org/0000-0001-9879-3827> ] ;
+    dcterms:creator               [ a             foaf:Person ;
+                                    foaf:name     "Peter Retzlaff"@en ;
+                                    foaf:homepage <https://github.com/peret> ] ;
+
+    # Publisher Information
+    dcterms:publisher             [ a             foaf:Organization ;
+                                    foaf:name     "Fraunhofer FIT" ;
+                                    foaf:homepage <https://www.fit.fraunhofer.de/> ] ;
+
+    # License and Rights
+    dcterms:license               <http://creativecommons.org/licenses/by/4.0/> ;
+    cc:license                    <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:rights                "This ontology is distributed under Creative Commons Attribution 4.0 International License"@en ;
+
+    # Namespace Information
     vann:preferredNamespacePrefix "drk" ;
-    vann:preferredNamespaceUri    "http://w3id.org/drk/ontology/"
-.
+    vann:preferredNamespaceUri    "http://w3id.org/drk/ontology/" ;
+
+    # Documentation Links
+    rdfs:seeAlso                  <https://github.com/Fraunhofer-FIT-DSAI/drk-information-model> ;
+    vann:example                  <https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/examples> ;
+
+    # Extended Description
+    dcterms:description           """
+        The DRK (Datenraum Kultur) ontology provides a comprehensive vocabulary for describing theatrical productions and cultural events.
+        It includes concepts for:
+        - Theatrical productions and events
+        - Characters, roles and performances
+        - Venues and their accessibility
+        - Event scheduling and management
+
+        The ontology is designed to be extensible and interoperable with other cultural heritage vocabularies.
+    """@en ;
+
+    # Additional Metadata
+    dcterms:language              lang:en, lang:de ;
+    dcterms:subject               "Theater"@en, "Play Production"@en, "Cultural Events"@en, "Performing Arts"@en ;
+    dcterms:audience              "Cultural institutions"@en, "Theater professionals"@en, "Researchers"@en ;
+    dcterms:coverage              "Global"@en .
 
 # The drk:Character class represents a character in a creative work or during an event.
 drk:Character
