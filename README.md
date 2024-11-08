@@ -7,8 +7,8 @@
 - Application profiles (constraints: mandatory, recommended, optional - in the form of SHACL shapes)
 - Controlled vocabularies for representing enumerations
 - Templates for access and usage policies (in the form of ODRL policy templates/examples)
-- Example instances
 - Competency questions for scoping and validating the information model and modeling discussions (in the form of Issues and comments)
+- Example instances and queries (in the form of SPARQL queries based on competency questions)
 - Documentation (currently, in the form of README files)
 
 # Naming Conventions
