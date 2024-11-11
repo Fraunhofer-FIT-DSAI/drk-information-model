@@ -1,0 +1,1257 @@
+{
+  "@graph": [
+    {
+      "@id": "drkr:DE_Augsburg_STAugsburg",
+      "@type": "schema:TheaterGroup",
+      "address": [
+        {
+          "@type": "schema:PostalAddress",
+          "addressCountry": "lcc-3166-1:Germany",
+          "addressLocality": {
+            "@language": "en",
+            "@value": "Augsburg"
+          },
+          "addressRegion": "lcc-3166-2-de:Bayern",
+          "name": [
+            {
+              "@language": "en",
+              "@value": "Staatstheater Augsburg - Front Desk"
+            },
+            {
+              "@language": "de",
+              "@value": "Staatstheater Augsburg - Pforte"
+            }
+          ],
+          "postalCode": "86153",
+          "streetAddress": {
+            "@language": "en",
+            "@value": "Provinostr. 52"
+          },
+          "navigationMapURL": "https://maps.app.goo.gl/C9oHeBUtVhWYFwX68"
+        },
+        {
+          "@type": "schema:PostalAddress",
+          "addressCountry": "lcc-3166-1:Germany",
+          "addressLocality": {
+            "@language": "en",
+            "@value": "Augsburg"
+          },
+          "addressRegion": "lcc-3166-2-de:Bayern",
+          "name": [
+            {
+              "@language": "en",
+              "@value": "Augsburg State Theater Visitor Service - at the Citizens' and Tourist Information Office"
+            },
+            {
+              "@language": "de",
+              "@value": "Besucherservice Staatstheater Augsburg - in der Bürger- und Tourist-Information"
+            }
+          ],
+          "postalCode": "86150",
+          "streetAddress": {
+            "@language": "en",
+            "@value": "Rathausplatz 1"
+          },
+          "navigationMapURL": "https://maps.app.goo.gl/GDtXMCb6VpeQawJY7"
+        }
+      ],
+      "description": [
+        {
+          "@language": "en",
+          "@value": "Staatstheater (State Theater) Augsburg is a prominent German theater organization in Augsburg, offering a diverse range of performances including opera, theater, plays, ballet, and concerts."
+        },
+        {
+          "@language": "de",
+          "@value": "Das Staatstheater Augsburg ist ein bedeutendes deutsches Theater in Augsburg, das ein vielfältiges Angebot an Aufführungen wie Oper, Theater, Schauspiel, Ballett und Konzerte bietet."
+        }
+      ],
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Staatstheater_Augsburg_Logo.svg",
+      "name": [
+        {
+          "@language": "en",
+          "@value": "Staatstheater Augsburg"
+        },
+        {
+          "@language": "de",
+          "@value": "Staatstheater Augsburg"
+        }
+      ],
+      "sameAs": [
+        "https://en.wikipedia.org/wiki/Staatstheater_Augsburg",
+        "wikidata:Q1441463",
+        "gnd-kg:1170044093"
+      ],
+      "url": "https://staatstheater-augsburg.de/"
+    },
+    {
+      "@id": "drkr:DE_STAugsburg_HedwigAngryInch",
+      "@type": "drk:PlayProduction",
+      "abstract": [
+        {
+          "@language": "en",
+          "@value": "The cult rock musical \"Hedwig and the Angry Inch\" went from being an off-Broadway insider tip to a hit on Broadway itself within just a few years. In 2023, Hedwig, the \"worldwide ignored Queen of Glam Rock,\" finally conquered the hearts of the Augsburg audience - with long-time acting ensemble member Thomas Prazak in charge. The live music is provided by Stefan Leibold, Jonas Horche, Tilman Herpichböhm and Niklas Rehle as the band \"The Angry Inch\"."
+        },
+        {
+          "@language": "de",
+          "@value": "Das Kult-Rockmusical \"Hedwig and the Angry Inch\" wurde innerhalb weniger Jahre vom Off-Broadway-Geheimtipp zu einem Hit am Broadway selbst. 2023 erobert Hedwig, die \"weltweit ignorierte Queen of Glamrock\" endlich auch die Herzen des Augsburger Publikums – mit dem langjährigen Schauspiel-Ensemble-Mitglied Thomas Prazak in der Hauptrolle. Die Live-Musik steuern Stefan Leibold, Jonas Horche, Tilman Herpichböhm und Niklas Rehle als Band \"The Angry Inch\" bei."
+        }
+      ],
+      "accessibilitySummary": [
+        {
+          "@language": "en",
+          "@value": "Please note that strobe lighting is used in this production.\r\n                               Within the stage text, psychological violence is thematised and portrayed in individual scenes.\r\n                               For this reason, we recommend school and group bookings from the age of 14. As a general rule, teachers know their groups best. If you have any questions, please contact us."
+        },
+        {
+          "@language": "de",
+          "@value": "Bitte beachten Sie, dass bei dieser Inszenierung Stroboskoplicht zum Einsatz kommt.\r\n                               Innerhalb des Bühnentextes wird psychische Gewalt thematisiert und in einzelnen Szenen dargestellt.\r\n                               Aus diesem Grund empfehlen wir Schul- und Gruppenbuchungen ab 14 Jahren. Grundsätzlich gilt: Pädagog:innen kennen ihre Gruppen am besten. Bei Fragen kontaktieren Sie uns bitte."
+        }
+      ],
+      "alternativeHeadline": [
+        {
+          "@language": "en",
+          "@value": "Musical by John Cameron Mitchell (book) and Stephen Trask (music and lyrics)"
+        },
+        {
+          "@language": "de",
+          "@value": "Musical von John Cameron Mitchell (Buch) und Stephen Trask (Musik und Gesangstexte)"
+        }
+      ],
+      "audience": {
+        "@type": "schema:PeopleAudience",
+        "schema:suggestedMinAge": 14
+      },
+      "description": [
+        {
+          "@language": "en",
+          "@value": "\r\n    Songs in English with German dialogues\r\n    Hedwig, the queen of glam rock, is coming to Augsburg on her tour! She is giving one of her rousing concerts with her band The Angry Inch. Between the songs - sometimes rock numbers, sometimes country ballads - that tell of her life and the search for her own identity, she comes closer to the audience than ever before.\r\n    You shouldn't miss this show!\r\n    The musical, which premiered in New York in 1998, has written a unique success story.\r\n\r\n    First shown off-Broadway, with John Cameron Mitchell as Hedwig, it moved on to the screen just a few years later and was adapted into a film. The work was also successful internationally, both as a play and as a film. In 2014, the premiere on Broadway finally followed, with Neil Patrick Harris as the lead actor, which won four Tony Awards. This is just the latest proof of the cult status that the rock musical and its main character, the drag queen Hedwig, have achieved."
+        },
+        {
+          "@language": "de",
+          "@value": "\r\n                               Songs in englischer Sprache mit deutschen Dialogen\r\n                               Hedwig, die Queen des Glamrock, kommt auf ihrer Tournee in Augsburg vorbei! Gemeinsam mit ihrer Band The Angry Inch gibt sie eines ihrer mitreißenden Konzerte. Zwischen den Songs, die – mal Rocknummer, mal Country-Ballade – von ihrem Leben und der Suche nach der eigenen Identität erzählen, kommt sie dem Publikum so nah wie nie.\r\n                               Diese Show sollten Sie nicht verpassen!\r\n                               Das Musical, das 1998 in New York uraufgeführt wurde, hat eine einmalige Erfolgsgeschichte geschrieben.\r\n\r\n                               Zuerst am Off-Broadway gezeigt, mit John Cameron Mitchell als Hedwig, wanderte es nur wenige Jahre später weiter auf die Leinwand und wurde als Film adaptiert. Auch international feierte das Werk Erfolge, sowohl als Theaterstück wie auch als Film. 2014 folgte schließlich dann die Premiere am Broadway, Hauptdarsteller damals war Neil Patrick Harris, die mit vier Tony-Awards ausgezeichnet wurde. Dies ist nur der letzte Beweis für den Kultstatus, den das Rockmusical und seine Hauptfigur, die Dragqueen Hedwig, erlangt hat."
+        }
+      ],
+      "genre": "tgenres:Musical",
+      "inLanguage": "lang:de",
+      "isBasedOn": [
+        "wikidata:Q13424058",
+        "gnd-kg:1150192992",
+        "http://dbpedia.org/resource/Hedwig_and_the_Angry_Inch_(musical)"
+      ],
+      "name": {
+        "@language": "en",
+        "@value": "Hedwig and the Angry Inch"
+      },
+      "characterRole": [
+        "drkr:CharacterRoleHedwig",
+        "drkr:CharacterRoleYitzhak",
+        "drkr:CharacterRoleTommy"
+      ],
+      "creatorRole": [
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Author"
+            },
+            {
+              "@language": "en",
+              "@value": "Book Author"
+            },
+            {
+              "@language": "en",
+              "@value": "Playwright"
+            },
+            {
+              "@language": "en",
+              "@value": "Librettist"
+            }
+          ],
+          "performer": {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "John Cameron Mitchell"
+            },
+            "sameAs": "wikidata:Q443995",
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Music Composer"
+            },
+            {
+              "@language": "en",
+              "@value": "Lyrics Author"
+            }
+          ],
+          "performer": {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "Stephen Trask"
+            },
+            "sameAs": "wikidata:Q111572",
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Director"
+            },
+            {
+              "@language": "de",
+              "@value": "Inszenierung"
+            }
+          ],
+          "performer": {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "Cornelia Maschner"
+            },
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Music Director"
+            },
+            {
+              "@language": "de",
+              "@value": "Musikalische Leitung"
+            },
+            {
+              "@language": "en",
+              "@value": "Band Member"
+            },
+            {
+              "@language": "de",
+              "@value": "Bandmitglied"
+            }
+          ],
+          "performer": {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "Stefan Leibold"
+            },
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Stage and Costumes Designer"
+            },
+            {
+              "@language": "de",
+              "@value": "Bühnen- und Kostümbildnerin"
+            }
+          ],
+          "performer": {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "Lisa Geller"
+            },
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Video Director"
+            },
+            {
+              "@language": "de",
+              "@value": "Video-Regisseur"
+            }
+          ],
+          "performer": {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "Pius Neumaier"
+            },
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Lighting Designer"
+            },
+            {
+              "@language": "de",
+              "@value": "Lichtdesigner"
+            }
+          ],
+          "performer":  {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "Moritz Fettinger"
+            },
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Dramaturg"
+            },
+            {
+              "@language": "de",
+              "@value": "Dramaturgin"
+            }
+          ],
+          "performer": {
+            "@type": "drk:Performer",
+            "name": [
+              {
+                "@language": "en",
+                "@value": "Sarah Moessner"
+              },
+              {
+                "@language": "de",
+                "@value": "Sarah Mössner"
+              }
+            ],
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Band Member"
+            },
+            {
+              "@language": "de",
+              "@value": "Bandmitglied"
+            }
+          ],
+          "performer": {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "Jonas Horche"
+            },
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Band Member"
+            },
+            {
+              "@language": "de",
+              "@value": "Bandmitglied"
+            }
+          ],
+          "performer": {
+            "@type": "drk:Performer",
+            "name": [
+              {
+                "@language": "en",
+                "@value": "Tilman Herpichboehm"
+              },
+              {
+                "@language": "de",
+                "@value": "Tilman Herpichböhm"
+              }
+            ],
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Band Member"
+            },
+            {
+              "@language": "de",
+              "@value": "Bandmitglied"
+            }
+          ],
+          "performer": {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "Niklas Rehle"
+            },
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": {
+            "@language": "en",
+            "@value": "Costume Provider"
+          },
+          "performer": {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "Staatstheater (State Theater) Augsburg"
+            },
+            "sameAs": "drkr:DE_Augsburg_STAugsburg",
+            "performerType": "tperf:Organization"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Sponsor"
+            },
+            {
+              "@language": "en",
+              "@value": "Funder"
+            }
+          ],
+          "performer": {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "Staatstheater (State Theater) Augsburg"
+            },
+            "sameAs": "drkr:DE_Augsburg_STAugsburg",
+            "performerType": "tperf:Organization"
+          }
+        }
+      ],
+      "productionType": "tprod:Revival"
+    },
+    {
+      "@id": "drkr:CharacterPerformanceRoleHedwig",
+      "@type": "drk:CharacterPerformanceRole",
+      "roleName": [
+        {
+          "@language": "en",
+          "@value": "Actor"
+        },
+        {
+          "@language": "en",
+          "@value": "Protagonist"
+        },
+        {
+          "@language": "en",
+          "@value": "Narrator"
+        },
+        {
+          "@language": "en",
+          "@value": "Singer"
+        }
+      ],
+      "character": {
+        "@type": "drk:Character",
+        "name": {
+          "@language": "en",
+          "@value": "Hedwig Robinson"
+        },
+        "characterType": "tchar:Person"
+      },
+      "performer": {
+        "@type": "drk:Performer",
+        "name": {
+          "@language": "en",
+          "@value": "Thomas Prazak"
+        },
+        "sameAs": "wikidata:Q18631797",
+        "performerType": "tperf:Person"
+      }
+    },
+    {
+      "@id": "drkr:CharacterPerformanceRoleTommy",
+      "@type": "drk:CharacterPerformanceRole",
+      "roleName": {
+        "@language": "en",
+        "@value": "Actor"
+      },
+      "character": {
+        "@type": "drk:Character",
+        "name": {
+          "@language": "en",
+          "@value": "Tommy"
+        },
+        "characterType": "tchar:Person"
+      },
+      "performer": {
+        "@type": "drk:Performer",
+        "name": {
+          "@language": "en",
+          "@value": "Luca Skupin"
+        },
+        "performerType": "tperf:Person"
+      }
+    },
+    {
+      "@id": "drkr:CharacterPerformanceRoleYitzhak",
+      "@type": "drk:CharacterPerformanceRole",
+      "roleName": {
+        "@language": "en",
+        "@value": "Actor"
+      },
+      "character": {
+        "@type": "drk:Character",
+        "name": {
+          "@language": "en",
+          "@value": "Yitzhak"
+        },
+        "characterType": "tchar:Person"
+      },
+      "performer": {
+        "@type": "drk:Performer",
+        "name": {
+          "@language": "en",
+          "@value": "Mirjam Birkl"
+        },
+        "performerType": "tperf:Person"
+      }
+    },
+    {
+      "@id": "drkr:CharacterRoleHedwig",
+      "@type": "drk:CharacterPerformanceRole",
+      "roleName": [
+        {
+          "@language": "en",
+          "@value": "Actor"
+        },
+        {
+          "@language": "en",
+          "@value": "Protagonist"
+        },
+        {
+          "@language": "en",
+          "@value": "Narrator"
+        },
+        {
+          "@language": "en",
+          "@value": "Singer"
+        }
+      ],
+      "character": {
+        "@type": "drk:Character",
+        "name": {
+          "@language": "en",
+          "@value": "Hedwig Robinson"
+        },
+        "characterType": "tchar:Person"
+      }
+    },
+    {
+      "@id": "drkr:CharacterRoleTommy",
+      "@type": "drk:CharacterPerformanceRole",
+      "roleName": {
+        "@language": "en",
+        "@value": "Actor"
+      },
+      "character": {
+        "@type": "drk:Character",
+        "name": {
+          "@language": "en",
+          "@value": "Tommy"
+        },
+        "characterType": "tchar:Person"
+      }
+    },
+    {
+      "@id": "drkr:CharacterRoleYitzhak",
+      "@type": "drk:CharacterPerformanceRole",
+      "roleName": {
+        "@language": "en",
+        "@value": "Actor"
+      },
+      "character": {
+        "@type": "drk:Character",
+        "name": {
+          "@language": "en",
+          "@value": "Yitzhak"
+        },
+        "characterType": "tchar:Person"
+      }
+    },
+    {
+      "@id": "drkr:DE_Augsburg_STAugsburg_Place",
+      "@type": "drk:PerformingArtsTheater",
+      "address": {
+        "@type": "schema:PostalAddress",
+        "addressCountry": "lcc-3166-1:Germany",
+        "addressLocality": {
+          "@language": "en",
+          "@value": "Augsburg"
+        },
+        "addressRegion": "lcc-3166-2-de:Bayern",
+        "name": [
+          {
+            "@language": "en",
+            "@value": "Staatstheater Augsburg - brecht stage im Gaswerk"
+          },
+          {
+            "@language": "de",
+            "@value": "Staatstheater Augsburg - brechtbühne im Gaswerk"
+          }
+        ],
+        "postalCode": "86156",
+        "streetAddress": {
+          "@language": "en",
+          "@value": "Am Alten Gaswerk 8"
+        },
+        "navigationMapURL": "https://maps.app.goo.gl/v1XhJ3uVdixjGgY2A"
+      },
+      "latitude": "48.3874688",
+      "longitude": "10.8597226",
+      "name": [
+        {
+          "@language": "en",
+          "@value": "Staatstheater Augsburg - brecht stage im Gaswerk"
+        },
+        {
+          "@language": "de",
+          "@value": "Staatstheater Augsburg - brechtbühne im Gaswerk"
+        }
+      ],
+      "accessibilityDescription": {
+        "@language": "en",
+        "@value": "The theater campus as well as buildings are equipped with all the necessary facilities for access by a person who has a visual impairment and/or mobility impairment. The place is equipped with accessible toilets and braille script has been used at necessary points. Please mention accessibility related requirements while purchasing tickets to enable us to serve you better. Our staff members and ushers will be happy to assist you at the venue."
+      },
+      "hasAccessibilityFeature": {
+        "@type": "drk:PlaceAccessibilityFeature",
+        "accessibleWith": [
+          "ppfa:MobilityImpairment",
+          "ppfa:Blindness",
+          "ppfa:VisualImpairment"
+        ],
+        "animalPolicy": {
+          "@type": "drk:AnimalPolicy",
+          "drk:allowsAssistanceDogs": true,
+          "drk:allowsDogs": false,
+          "drk:allowsGuideDogs": true,
+          "drk:allowsServiceAnimals": false
+        }
+      },
+      "wheelchairPlaces": {
+        "@type": "drk:WheelchairPlaces",
+        "drk:hasSpaceForAssistant": true,
+        "wheelchairPlaces:Count": 11
+      }
+    },
+    {
+      "@id": "drkr:HedwigAngryInch_Event_20241228",
+      "@type": "drk:TheaterEvent",
+      "doorTime": "2024-12-28T19:00:00",
+      "duration": "PT1H30M",
+      "endDate": "2024-12-28T21:00:00",
+      "eventStatus": "schema:EventScheduled",
+      "inLanguage": "lang:de",
+      "location": [
+        "drkr:DE_Augsburg_STAugsburg_Place",
+        {
+          "@type": "schema:VirtualLocation",
+          "name": {
+            "@language": "en",
+            "@value": "Hedwig and the Angry Inch Live Streaming"
+          },
+          "url": "https://staatstheater-augsburg.de/live/hedwig_and_the_angry_inch"
+        }
+      ],
+      "name": {
+        "@language": "en",
+        "@value": "The last performance of Hedwig and the Angry Inch at Staatstheater Augsburg"
+      },
+      "offers": {
+        "@type": "schema:Offer",
+        "availability": [
+          "schema:OnlineOnly",
+          "schema:InStock"
+        ],
+        "name": {
+          "@language": "en",
+          "@value": "Hedwig and the Angry Inch Ticket Offers"
+        },
+        "priceSpecification": [
+          {
+            "@type": "schema:PriceSpecification",
+            "maxPrice": "25.0",
+            "minPrice": "9.0",
+            "name": {
+              "@language": "en",
+              "@value": "Early Bird Ticket Price"
+            },
+            "priceCurrency": "fibo-fnd-acc-4217:EUR",
+            "validFrom": "2024-08-28T19:30:00",
+            "validThrough": "2024-10-28T19:30:00"
+          },
+          {
+            "@type": "schema:PriceSpecification",
+            "maxPrice": "29.0",
+            "minPrice": "11.0",
+            "name": {
+              "@language": "en",
+              "@value": "Standard Ticket Price"
+            },
+            "priceCurrency": "fibo-fnd-acc-4217:EUR",
+            "validFrom": "2024-10-28T19:31:00",
+            "validThrough": "2024-12-28T19:30:00"
+          }
+        ],
+        "url": "https://webshop-tickets.staatstheater-augsburg.de/de/veranstaltung/a707d36b-76e7-47f0-a10a-33033a333c21/9172"
+      },
+      "startDate": "2024-12-28T19:30:00",
+      "url": "https://staatstheater-augsburg.de/hedwig_and_the_angry_inch",
+      "workPerformed": "drk:DE_STAugsburg_HedwigAngryInch",
+      "characterPerformanceRole": [
+        "drkr:CharacterPerformanceRoleHedwig",
+        "drkr:CharacterPerformanceRoleYitzhak",
+        "drkr:CharacterPerformanceRoleTommy"
+      ],
+      "eventRole": [
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Director"
+            },
+            {
+              "@language": "de",
+              "@value": "Inszenierung"
+            }
+          ],
+          "performer": {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "Cornelia Maschner"
+            },
+            "sameAs": "https://staatstheater-augsburg.de/cornelia_maschner",
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Music Director"
+            },
+            {
+              "@language": "de",
+              "@value": "Musikalische Leitung"
+            },
+            {
+              "@language": "en",
+              "@value": "Band Member"
+            },
+            {
+              "@language": "de",
+              "@value": "Bandmitglied"
+            }
+          ],
+          "performer": {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "Stefan Leibold"
+            },
+            "sameAs": "https://staatstheater-augsburg.de/stefan_leibold",
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Stage and Costumes Designer"
+            },
+            {
+              "@language": "de",
+              "@value": "Bühnen- und Kostümbildnerin"
+            }
+          ],
+          "performer": {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "Lisa Geller"
+            },
+            "sameAs": "https://staatstheater-augsburg.de/lisa_geller",
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Video Director"
+            },
+            {
+              "@language": "de",
+              "@value": "Video-Regisseur"
+            }
+          ],
+          "performer":  {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "Pius Neumaier"
+            },
+            "sameAs": "https://staatstheater-augsburg.de/pius_neumaier",
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Lighting Designer"
+            },
+            {
+              "@language": "de",
+              "@value": "Lichtdesigner"
+            }
+          ],
+          "performer":  {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "Moritz Fettinger"
+            },
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Dramaturg"
+            },
+            {
+              "@language": "de",
+              "@value": "Dramaturgin"
+            }
+          ],
+          "performer": {
+            "@type": "drk:Performer",
+            "name": [
+              {
+                "@language": "en",
+                "@value": "Sarah Moessner"
+              },
+              {
+                "@language": "de",
+                "@value": "Sarah Mössner"
+              }
+            ],
+            "sameAs": "https://staatstheater-augsburg.de/sarah_moessner",
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Band Member"
+            },
+            {
+              "@language": "de",
+              "@value": "Bandmitglied"
+            }
+          ],
+          "performer": {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "Jonas Horche"
+            },
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Band Member"
+            },
+            {
+              "@language": "de",
+              "@value": "Bandmitglied"
+            }
+          ],
+          "performer": {
+            "@type": "drk:Performer",
+            "name": [
+              {
+                "@language": "en",
+                "@value": "Tilman Herpichboehm"
+              },
+              {
+                "@language": "de",
+                "@value": "Tilman Herpichböhm"
+              }
+            ],
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Band Member"
+            },
+            {
+              "@language": "de",
+              "@value": "Bandmitglied"
+            }
+          ],
+          "performer": {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "Niklas Rehle"
+            },
+            "performerType": "tperf:Person"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": {
+            "@language": "en",
+            "@value": "Costume Provider"
+          },
+          "performer": {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "Staatstheater (State Theater) Augsburg"
+            },
+            "sameAs": "drkr:DE_Augsburg_STAugsburg",
+            "performerType": "tperf:Organization"
+          }
+        },
+        {
+          "@type": "drk:ProductionRole",
+          "roleName": [
+            {
+              "@language": "en",
+              "@value": "Sponsor"
+            },
+            {
+              "@language": "en",
+              "@value": "Funder"
+            }
+          ],
+          "performer": {
+            "@type": "drk:Performer",
+            "name": {
+              "@language": "en",
+              "@value": "Staatstheater (State Theater) Augsburg"
+            },
+            "sameAs": "drkr:DE_Augsburg_STAugsburg",
+            "performerType": "tperf:Organization"
+          }
+        }
+      ],
+      "eventType": "tevent:LastPerformance",
+      "drk:intermissionCount": 0,
+      "subtitleLanguage": [
+        "lang:en",
+        "lang:de"
+      ]
+    }
+  ],
+  "@context": {
+    "url": {
+      "@id": "https://schema.org/url",
+      "@type": "@id"
+    },
+    "name": {
+      "@id": "https://schema.org/name"
+    },
+    "description": {
+      "@id": "https://schema.org/description"
+    },
+    "address": {
+      "@id": "https://schema.org/address",
+      "@type": "@id"
+    },
+    "logo": {
+      "@id": "https://schema.org/logo",
+      "@type": "@id"
+    },
+    "sameAs": {
+      "@id": "https://schema.org/sameAs",
+      "@type": "@id"
+    },
+    "streetAddress": {
+      "@id": "https://schema.org/streetAddress"
+    },
+    "postalCode": {
+      "@id": "https://schema.org/postalCode"
+    },
+    "addressLocality": {
+      "@id": "https://schema.org/addressLocality"
+    },
+    "addressRegion": {
+      "@id": "https://schema.org/addressRegion",
+      "@type": "@id"
+    },
+    "addressCountry": {
+      "@id": "https://schema.org/addressCountry",
+      "@type": "@id"
+    },
+    "navigationMapURL": {
+      "@id": "https://w3id.org/drk/ontology/navigationMapURL",
+      "@type": "@id"
+    },
+    "alternativeHeadline": {
+      "@id": "https://schema.org/alternativeHeadline"
+    },
+    "abstract": {
+      "@id": "https://schema.org/abstract"
+    },
+    "genre": {
+      "@id": "https://schema.org/genre",
+      "@type": "@id"
+    },
+    "productionType": {
+      "@id": "https://w3id.org/drk/ontology/productionType",
+      "@type": "@id"
+    },
+    "accessibilitySummary": {
+      "@id": "https://schema.org/accessibilitySummary"
+    },
+    "inLanguage": {
+      "@id": "https://schema.org/inLanguage",
+      "@type": "@id"
+    },
+    "audience": {
+      "@id": "https://schema.org/audience",
+      "@type": "@id"
+    },
+    "characterRole": {
+      "@id": "https://w3id.org/drk/ontology/characterRole",
+      "@type": "@id"
+    },
+    "creatorRole": {
+      "@id": "https://w3id.org/drk/ontology/creatorRole",
+      "@type": "@id"
+    },
+    "isBasedOn": {
+      "@id": "https://schema.org/isBasedOn",
+      "@type": "@id"
+    },
+    "suggestedMinAge": {
+      "@id": "https://schema.org/suggestedMinAge",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "roleName": {
+      "@id": "https://schema.org/roleName"
+    },
+    "character": {
+      "@id": "https://w3id.org/drk/ontology/character",
+      "@type": "@id"
+    },
+    "performer": {
+      "@id": "https://w3id.org/drk/ontology/performer",
+      "@type": "@id"
+    },
+    "performerType": {
+      "@id": "https://w3id.org/drk/ontology/performerType",
+      "@type": "@id"
+    },
+    "characterType": {
+      "@id": "https://w3id.org/drk/ontology/characterType",
+      "@type": "@id"
+    },
+    "hasAccessibilityFeature": {
+      "@id": "https://w3id.org/drk/ontology/hasAccessibilityFeature",
+      "@type": "@id"
+    },
+    "wheelchairPlaces": {
+      "@id": "https://w3id.org/drk/ontology/wheelchairPlaces",
+      "@type": "@id"
+    },
+    "accessibilityDescription": {
+      "@id": "https://w3id.org/drk/ontology/accessibilityDescription"
+    },
+    "latitude": {
+      "@id": "https://schema.org/latitude",
+      "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+    },
+    "longitude": {
+      "@id": "https://schema.org/longitude",
+      "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+    },
+    "animalPolicy": {
+      "@id": "https://w3id.org/drk/ontology/animalPolicy",
+      "@type": "@id"
+    },
+    "accessibleWith": {
+      "@id": "https://w3id.org/drk/ontology/accessibleWith",
+      "@type": "@id"
+    },
+    "allowsDogs": {
+      "@id": "https://w3id.org/drk/ontology/allowsDogs",
+      "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "allowsServiceAnimals": {
+      "@id": "https://w3id.org/drk/ontology/allowsServiceAnimals",
+      "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "allowsAssistanceDogs": {
+      "@id": "https://w3id.org/drk/ontology/allowsAssistanceDogs",
+      "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "allowsGuideDogs": {
+      "@id": "https://w3id.org/drk/ontology/allowsGuideDogs",
+      "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "wheelchairPlacesCount": {
+      "@id": "https://w3id.org/drk/ontology/wheelchairPlacesCount",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "hasSpaceForAssistant": {
+      "@id": "https://w3id.org/drk/ontology/hasSpaceForAssistant",
+      "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "workPerformed": {
+      "@id": "https://schema.org/workPerformed",
+      "@type": "@id"
+    },
+    "location": {
+      "@id": "https://schema.org/location",
+      "@type": "@id"
+    },
+    "startDate": {
+      "@id": "https://schema.org/startDate",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "endDate": {
+      "@id": "https://schema.org/endDate",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "doorTime": {
+      "@id": "https://schema.org/doorTime",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "duration": {
+      "@id": "https://schema.org/duration",
+      "@type": "http://www.w3.org/2001/XMLSchema#duration"
+    },
+    "intermissionCount": {
+      "@id": "https://w3id.org/drk/ontology/intermissionCount",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "subtitleLanguage": {
+      "@id": "https://w3id.org/drk/ontology/subtitleLanguage",
+      "@type": "@id"
+    },
+    "offers": {
+      "@id": "https://schema.org/offers",
+      "@type": "@id"
+    },
+    "characterPerformanceRole": {
+      "@id": "https://w3id.org/drk/ontology/characterPerformanceRole",
+      "@type": "@id"
+    },
+    "eventRole": {
+      "@id": "https://w3id.org/drk/ontology/eventRole",
+      "@type": "@id"
+    },
+    "eventType": {
+      "@id": "https://w3id.org/drk/ontology/eventType",
+      "@type": "@id"
+    },
+    "eventStatus": {
+      "@id": "https://schema.org/eventStatus",
+      "@type": "@id"
+    },
+    "availability": {
+      "@id": "https://schema.org/availability",
+      "@type": "@id"
+    },
+    "priceSpecification": {
+      "@id": "https://schema.org/priceSpecification",
+      "@type": "@id"
+    },
+    "minPrice": {
+      "@id": "https://schema.org/minPrice",
+      "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+    },
+    "maxPrice": {
+      "@id": "https://schema.org/maxPrice",
+      "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+    },
+    "validFrom": {
+      "@id": "https://schema.org/validFrom",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "validThrough": {
+      "@id": "https://schema.org/validThrough",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "priceCurrency": {
+      "@id": "https://schema.org/priceCurrency",
+      "@type": "@id"
+    },
+    "schema": "https://schema.org/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "voaf": "http://purl.org/vocommons/voaf#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "tperf": "http://w3id.org/drk/vocabs/performer-types#",
+    "fibo-fnd-acc-4217": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/ISO4217-CurrencyCodes/",
+    "ppfa": "http://w3id.org/drk/vocabs/personal-profile-for-accessibility#",
+    "lcc-3166-1": "https://www.omg.org/spec/LCC/Countries/ISO3166-1-CountryCodes/",
+    "gnd-kg": "https://d-nb.info/gnd/",
+    "dct": "http://purl.org/dc/terms/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "ids": "https://w3id.org/idsa/core/",
+    "drkr": "https://w3id.org/drk/resources/",
+    "tchar": "http://w3id.org/drk/vocabs/character-types#",
+    "drk": "https://w3id.org/drk/ontology/",
+    "lang": "https://w3id.org/drk/vocabs/languages-iso639-1#",
+    "vann": "http://purl.org/vocab/vann/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "tprod": "http://w3id.org/drk/vocabs/theatrical-production-types#",
+    "wikidata": "https://www.wikidata.org/entity/",
+    "lcc-3166-2-de": "https://www.omg.org/spec/LCC/Countries/Regions/ISO3166-2-SubdivisionCodes-DE/",
+    "tgenres": "http://w3id.org/drk/vocabs/theatrical-genres#",
+    "tevent": "http://w3id.org/drk/vocabs/theatrical-event-types#"
+  }
+}

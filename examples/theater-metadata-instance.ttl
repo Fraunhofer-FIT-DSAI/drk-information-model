@@ -1,0 +1,367 @@
+    # Namespace of the DRK Ontology
+@prefix drk:                   <https://w3id.org/drk/ontology/> .
+# Namespace of the DRK Knowledge Graph
+@prefix drkr:                  <https://w3id.org/drk/resources/> .
+
+@prefix rdf:                   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                  <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl:                   <http://www.w3.org/2002/07/owl#> .
+@prefix dct:                   <http://purl.org/dc/terms/> .
+@prefix vann:                  <http://purl.org/vocab/vann/> .
+@prefix schema:                <https://schema.org/> .
+@prefix ids:                   <https://w3id.org/idsa/core/> .
+@prefix dcat:                  <http://www.w3.org/ns/dcat#> .
+@prefix voaf:                  <http://purl.org/vocommons/voaf#> .
+@prefix xsd:                   <http://www.w3.org/2001/XMLSchema#> .
+@prefix wikidata:              <https://www.wikidata.org/entity/> .
+@prefix gnd-kg:                <https://d-nb.info/gnd/> .
+@prefix lcc-3166-1:            <https://www.omg.org/spec/LCC/Countries/ISO3166-1-CountryCodes/> .
+@prefix lcc-3166-2-de:         <https://www.omg.org/spec/LCC/Countries/Regions/ISO3166-2-SubdivisionCodes-DE/> .
+@prefix lang:                  <https://w3id.org/drk/vocabs/languages-iso639-1#> .
+@prefix tgenres:               <http://w3id.org/drk/vocabs/theatrical-genres#> .
+@prefix tprod:                 <http://w3id.org/drk/vocabs/theatrical-production-types#> .
+@prefix tchar:                 <http://w3id.org/drk/vocabs/character-types#> .
+@prefix ppfa:                  <http://w3id.org/drk/vocabs/personal-profile-for-accessibility#> .
+@prefix tevent:                <http://w3id.org/drk/vocabs/theatrical-event-types#> .
+@prefix fibo-fnd-acc-4217:     <https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/ISO4217-CurrencyCodes/> .
+@prefix tperf:                 <http://w3id.org/drk/vocabs/performer-types#> .
+
+# Note: This is just an example and it may not be factually correct.
+
+####################################################################
+# Instance of schema:TheaterGroup (subclass of schema:Organization).
+# Theater (Organization) naming scheme used here: <ISO3166-1 Country code>_<City name>_<(Shortened) Theater name>.
+drkr:DE_Augsburg_STAugsburg
+    a              schema:TheaterGroup ;
+    schema:name    "Staatstheater Augsburg"@en, "Staatstheater Augsburg"@de ;
+    schema:description
+                   "Staatstheater (State Theater) Augsburg is a prominent German theater organization in Augsburg, offering a diverse range of performances including opera, theater, plays, ballet, and concerts."@en,
+                   "Das Staatstheater Augsburg ist ein bedeutendes deutsches Theater in Augsburg, das ein vielfältiges Angebot an Aufführungen wie Oper, Theater, Schauspiel, Ballett und Konzerte bietet."@de ;
+    schema:address [ a                      schema:PostalAddress ;
+                     schema:name            "Staatstheater Augsburg - Front Desk"@en ;
+                     schema:name            "Staatstheater Augsburg - Pforte"@de ;
+                     schema:streetAddress   "Provinostr. 52"@en ;
+                     schema:postalCode      "86153" ;
+                     schema:addressLocality "Augsburg"@en ;
+                     schema:addressRegion   lcc-3166-2-de:Bayern ;
+                     schema:addressCountry  lcc-3166-1:Germany ;
+                     drk:navigationMapURL   <https://maps.app.goo.gl/C9oHeBUtVhWYFwX68> ] ;
+    schema:address [ a                      schema:PostalAddress ;
+                     schema:name            "Augsburg State Theater Visitor Service - at the Citizens' and Tourist Information Office"@en ;
+                     schema:name            "Besucherservice Staatstheater Augsburg - in der Bürger- und Tourist-Information"@de ;
+                     schema:streetAddress   "Rathausplatz 1"@en ;
+                     schema:postalCode      "86150" ;
+                     schema:addressLocality "Augsburg"@en ;
+                     schema:addressRegion   lcc-3166-2-de:Bayern ;
+                     schema:addressCountry  lcc-3166-1:Germany ;
+                     drk:navigationMapURL   <https://maps.app.goo.gl/GDtXMCb6VpeQawJY7> ] ;
+    schema:logo    <https://upload.wikimedia.org/wikipedia/commons/c/c7/Staatstheater_Augsburg_Logo.svg> ;
+    schema:url     <https://staatstheater-augsburg.de/> ;  # Official website
+    schema:sameAs  <https://en.wikipedia.org/wiki/Staatstheater_Augsburg>, wikidata:Q1441463, gnd-kg:1170044093 .
+
+####################################################################
+# Instance of drk:PlayProduction (subclass of schema:CreativeWork).
+# It includes every stage of Play Production from writing, planning, and casting, to rehearsal, except for the presentation of work (i.e., drk:TheaterEvent).
+# Play Production naming scheme used here: <ISO3166-1 Country code>_<(Shortened) Theater company name>_<(Shortened) Play Production name>
+drkr:DE_STAugsburg_HedwigAngryInch
+    a                           drk:PlayProduction ;
+    schema:name                 "Hedwig and the Angry Inch"@en ;
+    schema:alternativeHeadline  "Musical by John Cameron Mitchell (book) and Stephen Trask (music and lyrics)"@en,
+                                "Musical von John Cameron Mitchell (Buch) und Stephen Trask (Musik und Gesangstexte)"@de ;
+    schema:abstract             """The cult rock musical "Hedwig and the Angry Inch" went from being an off-Broadway insider tip to a hit on Broadway itself within just a few years. In 2023, Hedwig, the "worldwide ignored Queen of Glam Rock," finally conquered the hearts of the Augsburg audience - with long-time acting ensemble member Thomas Prazak in charge. The live music is provided by Stefan Leibold, Jonas Horche, Tilman Herpichböhm and Niklas Rehle as the band "The Angry Inch"."""@en,
+                                """Das Kult-Rockmusical "Hedwig and the Angry Inch" wurde innerhalb weniger Jahre vom Off-Broadway-Geheimtipp zu einem Hit am Broadway selbst. 2023 erobert Hedwig, die "weltweit ignorierte Queen of Glamrock" endlich auch die Herzen des Augsburger Publikums – mit dem langjährigen Schauspiel-Ensemble-Mitglied Thomas Prazak in der Hauptrolle. Die Live-Musik steuern Stefan Leibold, Jonas Horche, Tilman Herpichböhm und Niklas Rehle als Band "The Angry Inch" bei."""@de ;
+    schema:description          """
+    Songs in English with German dialogues
+    Hedwig, the queen of glam rock, is coming to Augsburg on her tour! She is giving one of her rousing concerts with her band The Angry Inch. Between the songs - sometimes rock numbers, sometimes country ballads - that tell of her life and the search for her own identity, she comes closer to the audience than ever before.
+    You shouldn't miss this show!
+    The musical, which premiered in New York in 1998, has written a unique success story.
+
+    First shown off-Broadway, with John Cameron Mitchell as Hedwig, it moved on to the screen just a few years later and was adapted into a film. The work was also successful internationally, both as a play and as a film. In 2014, the premiere on Broadway finally followed, with Neil Patrick Harris as the lead actor, which won four Tony Awards. This is just the latest proof of the cult status that the rock musical and its main character, the drag queen Hedwig, have achieved."""@en, """
+                               Songs in englischer Sprache mit deutschen Dialogen
+                               Hedwig, die Queen des Glamrock, kommt auf ihrer Tournee in Augsburg vorbei! Gemeinsam mit ihrer Band The Angry Inch gibt sie eines ihrer mitreißenden Konzerte. Zwischen den Songs, die – mal Rocknummer, mal Country-Ballade – von ihrem Leben und der Suche nach der eigenen Identität erzählen, kommt sie dem Publikum so nah wie nie.
+                               Diese Show sollten Sie nicht verpassen!
+                               Das Musical, das 1998 in New York uraufgeführt wurde, hat eine einmalige Erfolgsgeschichte geschrieben.
+
+                               Zuerst am Off-Broadway gezeigt, mit John Cameron Mitchell als Hedwig, wanderte es nur wenige Jahre später weiter auf die Leinwand und wurde als Film adaptiert. Auch international feierte das Werk Erfolge, sowohl als Theaterstück wie auch als Film. 2014 folgte schließlich dann die Premiere am Broadway, Hauptdarsteller damals war Neil Patrick Harris, die mit vier Tony-Awards ausgezeichnet wurde. Dies ist nur der letzte Beweis für den Kultstatus, den das Rockmusical und seine Hauptfigur, die Dragqueen Hedwig, erlangt hat."""@de ;
+    schema:genre                tgenres:Musical ;
+    drk:productionType          tprod:Revival ;
+    schema:accessibilitySummary """Please note that strobe lighting is used in this production.
+                               Within the stage text, psychological violence is thematised and portrayed in individual scenes.
+                               For this reason, we recommend school and group bookings from the age of 14. As a general rule, teachers know their groups best. If you have any questions, please contact us."""@en, """Bitte beachten Sie, dass bei dieser Inszenierung Stroboskoplicht zum Einsatz kommt.
+                               Innerhalb des Bühnentextes wird psychische Gewalt thematisiert und in einzelnen Szenen dargestellt.
+                               Aus diesem Grund empfehlen wir Schul- und Gruppenbuchungen ab 14 Jahren. Grundsätzlich gilt: Pädagog:innen kennen ihre Gruppen am besten. Bei Fragen kontaktieren Sie uns bitte."""@de ;
+    schema:inLanguage           lang:de ;
+    schema:audience             [ a                      schema:PeopleAudience ;
+                                  schema:suggestedMinAge 14 ; # same as "14"^^xsd:integer
+                                ] ;
+    drk:characterRole           drkr:CharacterRoleHedwig, drkr:CharacterRoleYitzhak, drkr:CharacterRoleTommy ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Author"@en, "Book Author"@en, "Playwright"@en, "Librettist"@en ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "John Cameron Mitchell"@en ;
+                                                    drk:performerType tperf:Person ;
+                                                    schema:sameAs     wikidata:Q443995 ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Music Composer"@en, "Lyrics Author"@en ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Stephen Trask"@en ;
+                                                    drk:performerType tperf:Person ;
+                                                    schema:sameAs     wikidata:Q111572 ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Director"@en, "Inszenierung"@de ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Cornelia Maschner"@en ;
+                                                    drk:performerType tperf:Person ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Music Director"@en, "Musikalische Leitung"@de, "Band Member"@en,
+                                                  "Bandmitglied"@de ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Stefan Leibold"@en ;
+                                                    drk:performerType tperf:Person ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Stage and Costumes Designer"@en, "Bühnen- und Kostümbildnerin"@de ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Lisa Geller"@en ;
+                                                    drk:performerType tperf:Person ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Video Director"@en, "Video-Regisseur"@de ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Pius Neumaier"@en ;
+                                                    drk:performerType tperf:Person ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Lighting Designer"@en, "Lichtdesigner"@de ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Moritz Fettinger"@en ;
+                                                    drk:performerType tperf:Person ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Dramaturg"@en, "Dramaturgin"@de ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Sarah Moessner"@en, "Sarah Mössner"@de ;
+                                                    drk:performerType tperf:Person ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Band Member"@en, "Bandmitglied"@de ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Jonas Horche"@en ;
+                                                    drk:performerType tperf:Person ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Band Member"@en, "Bandmitglied"@de ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Tilman Herpichboehm"@en,
+                                                                      "Tilman Herpichböhm"@de ;
+                                                    drk:performerType tperf:Person ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Band Member"@en, "Bandmitglied"@de ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Niklas Rehle"@en ;
+                                                    drk:performerType tperf:Person ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Costume Provider"@en ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Staatstheater (State Theater) Augsburg"@en ;
+                                                    schema:sameAs     drkr:DE_Augsburg_STAugsburg ;
+                                                    drk:performerType tperf:Organization ; ] ] ;
+    drk:creatorRole             [ a               drk:ProductionRole ;
+                                  schema:roleName "Sponsor"@en, "Funder"@en ;
+                                  drk:performer   [ a                 drk:Performer ;
+                                                    schema:name       "Staatstheater (State Theater) Augsburg"@en ;
+                                                    schema:sameAs     drkr:DE_Augsburg_STAugsburg ;
+                                                    drk:performerType tperf:Organization ; ] ] ;
+    schema:isBasedOn            wikidata:Q13424058, gnd-kg:1150192992,
+                                <http://dbpedia.org/resource/Hedwig_and_the_Angry_Inch_(musical)> .
+
+drkr:CharacterRoleHedwig
+    a               drk:CharacterPerformanceRole ;
+    schema:roleName "Actor"@en, "Protagonist"@en, "Narrator"@en, "Singer"@en ;
+    drk:character   [ a                 drk:Character ;
+                      schema:name       "Hedwig Robinson"@en ;
+                      drk:characterType tchar:Person ] .
+
+drkr:CharacterRoleYitzhak
+    a               drk:CharacterPerformanceRole ;
+    schema:roleName "Actor"@en ;
+    drk:character   [ a                 drk:Character ;
+                      schema:name       "Yitzhak"@en ;
+                      drk:characterType tchar:Person ] .
+
+drkr:CharacterRoleTommy
+    a               drk:CharacterPerformanceRole ;
+    schema:roleName "Actor"@en ;
+    drk:character   [ a                 drk:Character ;
+                      schema:name       "Tommy"@en ;
+                      drk:characterType tchar:Person ] .
+
+####################################################################
+# Instance of drk:PerformingArtsTheater.
+# It is a subclass of drk:Place (subclass of schema:Place) and schema:PerformingArtsTheater.
+# PerformingArtsTheater (Place) naming scheme used here: <ISO3166-1 Country code>_<(Shortened) PerformingArtsTheater name>_Place.
+drkr:DE_Augsburg_STAugsburg_Place
+    a                           drk:PerformingArtsTheater ;
+    schema:name                 "Staatstheater Augsburg - brecht stage im Gaswerk"@en,
+                                "Staatstheater Augsburg - brechtbühne im Gaswerk"@de ;
+    schema:address              [ a                      schema:PostalAddress ;
+                                  schema:name            "Staatstheater Augsburg - brecht stage im Gaswerk"@en ;
+                                  schema:name            "Staatstheater Augsburg - brechtbühne im Gaswerk"@de ;
+                                  schema:streetAddress   "Am Alten Gaswerk 8"@en ;
+                                  schema:postalCode      "86156" ;
+                                  schema:addressLocality "Augsburg"@en ;
+                                  schema:addressRegion   lcc-3166-2-de:Bayern ;
+                                  schema:addressCountry  lcc-3166-1:Germany ;
+                                  drk:navigationMapURL   <https://maps.app.goo.gl/v1XhJ3uVdixjGgY2A> ] ;
+    drk:hasAccessibilityFeature [ a                  drk:PlaceAccessibilityFeature ;
+                                  drk:animalPolicy   [ a                        drk:AnimalPolicy ;
+                                                       drk:allowsDogs           false ; # xsd:boolean
+                                                       drk:allowsServiceAnimals false ;
+                                                       drk:allowsAssistanceDogs true ;
+                                                       drk:allowsGuideDogs      true ; ] ;
+                                  drk:accessibleWith ppfa:MobilityImpairment ;
+                                  drk:accessibleWith ppfa:Blindness, ppfa:VisualImpairment ; ] ;
+    drk:wheelchairPlaces        [ a                         drk:WheelchairPlaces ;
+                                  drk:wheelchairPlacesCount "11"^^xsd:nonNegativeInteger ;
+                                  drk:hasSpaceForAssistant  true ; ] ;
+    drk:accessibilityDescription
+                                """The theater campus as well as buildings are equipped with all the necessary facilities for access by a person who has a visual impairment and/or mobility impairment. The place is equipped with accessible toilets and braille script has been used at necessary points. Please mention accessibility related requirements while purchasing tickets to enable us to serve you better. Our staff members and ushers will be happy to assist you at the venue."""@en ;
+    schema:latitude             48.3874688 ;
+    schema:longitude            10.8597226 ;
+.
+
+####################################################################
+# Instance of drk:TheaterEvent.
+# It is a subclass of schema:TheaterEvent (subclass of schema:Event).
+# TheaterEvent naming scheme used here: <(Shortened) name of work performed>_Event_<Start Date in YYYYMMDD[THHMM] format>
+drkr:HedwigAngryInch_Event_20241228
+    a                            drk:TheaterEvent ;
+    schema:name                  "The last performance of Hedwig and the Angry Inch at Staatstheater Augsburg"@en ;
+    schema:workPerformed         drk:DE_STAugsburg_HedwigAngryInch ;    # drk:PlayProduction
+    schema:location              drkr:DE_Augsburg_STAugsburg_Place ;    # drk:PerformingArtsTheater
+    schema:location              [ a           schema:VirtualLocation ;
+                                   schema:name "Hedwig and the Angry Inch Live Streaming"@en ;
+                                   schema:url  <https://staatstheater-augsburg.de/live/hedwig_and_the_angry_inch> ; ] ;
+    schema:startDate             "2024-12-28T19:30:00"^^xsd:dateTime ;    # ISO 8601 format [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+    schema:endDate               "2024-12-28T21:00:00"^^xsd:dateTime ;
+    schema:doorTime              "2024-12-28T19:00:00"^^xsd:dateTime ;
+    schema:duration              "PT1H30M"^^xsd:duration ;    # OR "P0Y0M0DT1H30M0S" # ISO 8601 duration format: P(n)Y(n)M(n)DT(n)H(n)M(n)S
+    drk:intermissionCount        "0"^^xsd:nonNegativeInteger ;
+    schema:url                   <https://staatstheater-augsburg.de/hedwig_and_the_angry_inch> ;
+    schema:inLanguage            lang:de ;
+    drk:subtitleLanguage         lang:de, lang:en ;
+    schema:offers                [ a                         schema:Offer ;
+                                   schema:name               "Hedwig and the Angry Inch Ticket Offers"@en ;
+                                   schema:url                <https://webshop-tickets.staatstheater-augsburg.de/de/veranstaltung/a707d36b-76e7-47f0-a10a-33033a333c21/9172> ;
+                                   schema:availability       schema:OnlineOnly, schema:InStock ;
+                                   schema:priceSpecification [ a                    schema:PriceSpecification ;
+                                                               schema:name          "Early Bird Ticket Price"@en ;
+                                                               schema:minPrice      9.0 ;
+                                                               schema:maxPrice      25.0 ; # same as "25.0"^^xsd:decimal
+                                                               schema:validFrom     "2024-08-28T19:30:00"^^xsd:dateTime ;
+                                                               schema:validThrough  "2024-10-28T19:30:00"^^xsd:dateTime ;
+                                                               schema:priceCurrency fibo-fnd-acc-4217:EUR ; ] ;
+                                   schema:priceSpecification [ a                    schema:PriceSpecification ;
+                                                               schema:name          "Standard Ticket Price"@en ;
+                                                               schema:minPrice      11.0 ;
+                                                               schema:maxPrice      29.0 ;
+                                                               schema:validFrom     "2024-10-28T19:31:00"^^xsd:dateTime ;
+                                                               schema:validThrough  "2024-12-28T19:30:00"^^xsd:dateTime ;
+                                                               schema:priceCurrency fibo-fnd-acc-4217:EUR ; ] ; ] ;
+    drk:characterPerformanceRole drkr:CharacterPerformanceRoleHedwig, drkr:CharacterPerformanceRoleYitzhak,
+                                 drkr:CharacterPerformanceRoleTommy ;
+    drk:eventRole                [ a               drk:ProductionRole ;
+                                   schema:roleName "Director"@en, "Inszenierung"@de ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Cornelia Maschner"@en ;
+                                                     drk:performerType tperf:Person ;
+                                                     schema:sameAs     <https://staatstheater-augsburg.de/cornelia_maschner> ] ] ;
+    drk:eventRole                [ a               drk:ProductionRole ;
+                                   schema:roleName "Music Director"@en, "Musikalische Leitung"@de, "Band Member"@en,
+                                                   "Bandmitglied"@de ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Stefan Leibold"@en ;
+                                                     drk:performerType tperf:Person ;
+                                                     schema:sameAs     <https://staatstheater-augsburg.de/stefan_leibold> ] ] ;
+    drk:eventRole                [ a               drk:ProductionRole ;
+                                   schema:roleName "Stage and Costumes Designer"@en, "Bühnen- und Kostümbildnerin"@de ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Lisa Geller"@en ;
+                                                     drk:performerType tperf:Person ;
+                                                     schema:sameAs     <https://staatstheater-augsburg.de/lisa_geller> ] ] ;
+    drk:eventRole                [ a               drk:ProductionRole ;
+                                   schema:roleName "Video Director"@en, "Video-Regisseur"@de ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Pius Neumaier"@en ;
+                                                     drk:performerType tperf:Person ;
+                                                     schema:sameAs     <https://staatstheater-augsburg.de/pius_neumaier> ] ] ;
+    drk:eventRole                [ a               drk:ProductionRole ;
+                                   schema:roleName "Lighting Designer"@en, "Lichtdesigner"@de ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Moritz Fettinger"@en ;
+                                                     drk:performerType tperf:Person ] ] ;
+    drk:eventRole                [ a               drk:ProductionRole ;
+                                   schema:roleName "Dramaturg"@en, "Dramaturgin"@de ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Sarah Moessner"@en, "Sarah Mössner"@de ;
+                                                     drk:performerType tperf:Person ;
+                                                     schema:sameAs     <https://staatstheater-augsburg.de/sarah_moessner> ] ] ;
+    drk:eventRole                [ a               drk:ProductionRole ;
+                                   schema:roleName "Band Member"@en, "Bandmitglied"@de ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Jonas Horche"@en ;
+                                                     drk:performerType tperf:Person ] ] ;
+    drk:eventRole                [ a               drk:ProductionRole ;
+                                   schema:roleName "Band Member"@en, "Bandmitglied"@de ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Tilman Herpichboehm"@en,
+                                                                       "Tilman Herpichböhm"@de ;
+                                                     drk:performerType tperf:Person ] ] ;
+    drk:eventRole                [ a               drk:ProductionRole ;
+                                   schema:roleName "Band Member"@en, "Bandmitglied"@de ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Niklas Rehle"@en ;
+                                                     drk:performerType tperf:Person ] ] ;
+    drk:eventRole                [ a               drk:ProductionRole ;
+                                   schema:roleName "Costume Provider"@en ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Staatstheater (State Theater) Augsburg"@en ;
+                                                     drk:performerType tperf:Organization ;
+                                                     schema:sameAs     drkr:DE_Augsburg_STAugsburg ] ] ;
+    drk:eventRole                [ a               drk:ProductionRole ;
+                                   schema:roleName "Sponsor"@en, "Funder"@en ;
+                                   drk:performer   [ a                 drk:Performer ;
+                                                     schema:name       "Staatstheater (State Theater) Augsburg"@en ;
+                                                     drk:performerType tperf:Organization ;
+                                                     schema:sameAs     drkr:DE_Augsburg_STAugsburg ] ] ;
+    drk:eventType                tevent:LastPerformance ;
+    schema:eventStatus           schema:EventScheduled ;
+.
+
+drkr:CharacterPerformanceRoleHedwig
+    a               drk:CharacterPerformanceRole ;
+    schema:roleName "Actor"@en, "Protagonist"@en, "Narrator"@en, "Singer"@en ;
+    drk:character   [ a                 drk:Character ;
+                      schema:name       "Hedwig Robinson"@en ;
+                      drk:characterType tchar:Person ] ;
+    drk:performer   [ a                 drk:Performer ;
+                      schema:name       "Thomas Prazak"@en ;
+                      drk:performerType tperf:Person ;
+                      schema:sameAs     wikidata:Q18631797 ] .
+
+drkr:CharacterPerformanceRoleYitzhak
+    a               drk:CharacterPerformanceRole ;
+    schema:roleName "Actor"@en ;
+    drk:character   [ a                 drk:Character ;
+                      schema:name       "Yitzhak"@en ;
+                      drk:characterType tchar:Person ] ;
+    drk:performer   [ a                 drk:Performer ;
+                      schema:name       "Mirjam Birkl"@en ;
+                      drk:performerType tperf:Person ] .
+
+drkr:CharacterPerformanceRoleTommy
+    a               drk:CharacterPerformanceRole ;
+    schema:roleName "Actor"@en ;
+    drk:character   [ a                 drk:Character ;
+                      schema:name       "Tommy"@en ;
+                      drk:characterType tchar:Person ] ;
+    drk:performer   [ a                 drk:Performer ;
+                      schema:name       "Luca Skupin"@en ;
+                      drk:performerType tperf:Person ] .
+
+#####################################################################
+# TODO: Add Theater Showtimes (Website and) API instance (e.g., https://staatstheater-augsburg.de/drk), and link it to the TheaterGroup / Organization instance
