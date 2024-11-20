@@ -245,23 +245,39 @@ drkr:HedwigAngryInch_Event_20241228
     schema:inLanguage            lang:de ;
     drk:subtitleLanguage         lang:de, lang:en ;
     schema:offers                [ a                         schema:Offer ;
-                                   schema:name               "Hedwig and the Angry Inch Ticket Offers"@en ;
+                                   schema:name               "Hedwig and the Angry Inch Early Bird Ticket Offer"@en ;
                                    schema:url                <https://webshop-tickets.staatstheater-augsburg.de/de/veranstaltung/a707d36b-76e7-47f0-a10a-33033a333c21/9172> ;
-                                   schema:availability       schema:OnlineOnly, schema:InStock ;
+                                   schema:availability       schema:OnlineOnly, schema:LimitedAvailability,
+                                                             schema:SoldOut ;
                                    schema:priceSpecification [ a                    schema:PriceSpecification ;
                                                                schema:name          "Early Bird Ticket Price"@en ;
                                                                schema:minPrice      9.0 ;
                                                                schema:maxPrice      25.0 ; # same as "25.0"^^xsd:decimal
                                                                schema:validFrom     "2024-08-28T19:30:00"^^xsd:dateTime ;
                                                                schema:validThrough  "2024-10-28T19:30:00"^^xsd:dateTime ;
-                                                               schema:priceCurrency fibo-fnd-acc-4217:EUR ; ] ;
+                                                               schema:priceCurrency fibo-fnd-acc-4217:EUR ] ] ;
+    schema:offers                [ a                         schema:Offer ;
+                                   schema:name               "Hedwig and the Angry Inch Standard Ticket Offer"@en ;
+                                   schema:url                <https://webshop-tickets.staatstheater-augsburg.de/de/veranstaltung/a707d36b-76e7-47f0-a10a-33033a333c21/9172> ;
+                                   schema:availability       schema:OnlineOnly, schema:InStock ;
                                    schema:priceSpecification [ a                    schema:PriceSpecification ;
                                                                schema:name          "Standard Ticket Price"@en ;
                                                                schema:minPrice      11.0 ;
                                                                schema:maxPrice      29.0 ;
                                                                schema:validFrom     "2024-10-28T19:31:00"^^xsd:dateTime ;
                                                                schema:validThrough  "2024-12-28T19:30:00"^^xsd:dateTime ;
-                                                               schema:priceCurrency fibo-fnd-acc-4217:EUR ; ] ; ] ;
+                                                               schema:priceCurrency fibo-fnd-acc-4217:EUR ] ] ;
+    schema:offers                [ a                         schema:Offer ;
+                                   schema:name               "Hedwig and the Angry Inch Ticket Offer with Germany Culture Card Gold"@en ;
+                                   schema:url                <https://webshop-tickets.staatstheater-augsburg.de/de/veranstaltung/a707d36b-76e7-47f0-a10a-33033a333c21/9172> ;
+                                   schema:availability       schema:InStoreOnly, schema:InStock ;
+                                   schema:validForMemberTier drkr:DE-Cultur-Card-Gold-Tier ;    # This offer is valid only for the subscribers of Germany Culture Card Gold
+                                   schema:priceSpecification [ a                    schema:PriceSpecification ;
+                                                               schema:name          "Free Tickets with Germany Culture Card Gold"@en ;
+                                                               schema:price         0 ;
+                                                               schema:validFrom     "2024-10-28T19:31:00"^^xsd:dateTime ;
+                                                               schema:validThrough  "2024-12-28T19:30:00"^^xsd:dateTime ;
+                                                               schema:priceCurrency fibo-fnd-acc-4217:EUR ] ] ;
     drk:characterPerformanceRole drkr:CharacterPerformanceRoleHedwig, drkr:CharacterPerformanceRoleYitzhak,
                                  drkr:CharacterPerformanceRoleTommy ;
     drk:eventRole                [ a               drk:ProductionRole ;
@@ -362,6 +378,36 @@ drkr:CharacterPerformanceRoleTommy
     drk:performer   [ a                 drk:Performer ;
                       schema:name       "Luca Skupin"@en ;
                       drk:performerType tperf:Person ] .
+
+drkr:DE-Culture-Card
+    a                          schema:MemberProgram ;
+    schema:name                "Germany Culture Card"@en, "Deutschland Kultur Karte"@de ;
+    schema:description         "The Germany Culture Card is an annual subscription pass. With this pass, subscribers can enjoy benefits including discounted tickets or free entry into member museums, free tickets to theater events organized by member theater organizations, and free introductory courses at member music and culinary schools." ;
+    schema:hasTiers            drkr:DE-Cultur-Card-Silver-Tier, drkr:DE-Cultur-Card-Gold-Tier ;
+    schema:hostingOrganization drkr:DE_Culture_Club ;
+    schema:url                 <https://example.org/DE_Culture_Club/DE-Culture-Card> .
+
+drkr:DE-Cultur-Card-Silver-Tier
+    a                     schema:MemberProgramTier ;
+    schema:name           "Germany Culture Card - Silver" ;
+    schema:description    "With the Germany Culture Card Silver, subscribers can enjoy 50% off with member cultural organizations, including museums, theaters, and music and culinary schools." ;
+    schema:hasTierBenefit schema:TierBenefitLoyaltyPrice ;
+    schema:isTierOf       drkr:DE-Cultur-Card
+.
+
+drkr:DE-Cultur-Card-Gold-Tier
+    a                     schema:MemberProgramTier ;
+    schema:name           "Germany Culture Card - Gold" ;
+    schema:description    "With the Germany Culture Card Gold, subscribers can enjoy free tickets for events organized by member cultural organizations, including museums, theaters, and music and culinary schools." ;
+    schema:hasTierBenefit schema:TierBenefitLoyaltyPrice ;
+    schema:isTierOf       drkr:DE-Cultur-Card
+.
+
+drkr:DE_Culture_Club
+    a           schema:Organization ;
+    schema:name "Culture Club Germany"@en ;
+    schema:description
+                "We are an organization headquartered in Berlin that seeks to inspire people about the richness and diversity of culture in Germany. Several cultural organizations in Germany are our members and offer discounted and free tickets to the subscribers of our Culture Cards."@en .
 
 #####################################################################
 # TODO: Add Theater Showtimes (Website and) API instance (e.g., https://staatstheater-augsburg.de/drk), and link it to the TheaterGroup / Organization instance

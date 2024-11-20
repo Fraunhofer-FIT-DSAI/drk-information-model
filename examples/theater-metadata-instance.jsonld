@@ -303,7 +303,7 @@
               "@value": "Lichtdesigner"
             }
           ],
-          "performer":  {
+          "performer": {
             "@type": "drk:Performer",
             "name": {
               "@language": "en",
@@ -686,18 +686,19 @@
         "@language": "en",
         "@value": "The last performance of Hedwig and the Angry Inch at Staatstheater Augsburg"
       },
-      "offers": {
-        "@type": "schema:Offer",
-        "availability": [
-          "schema:OnlineOnly",
-          "schema:InStock"
-        ],
-        "name": {
-          "@language": "en",
-          "@value": "Hedwig and the Angry Inch Ticket Offers"
-        },
-        "priceSpecification": [
-          {
+      "offers": [
+        {
+          "@type": "schema:Offer",
+          "availability": [
+            "schema:OnlineOnly",
+            "schema:LimitedAvailability",
+            "schema:SoldOut"
+          ],
+          "name": {
+            "@language": "en",
+            "@value": "Hedwig and the Angry Inch Early Bird Ticket Offer"
+          },
+          "priceSpecification": {
             "@type": "schema:PriceSpecification",
             "maxPrice": "25.0",
             "minPrice": "9.0",
@@ -709,7 +710,19 @@
             "validFrom": "2024-08-28T19:30:00",
             "validThrough": "2024-10-28T19:30:00"
           },
-          {
+          "url": "https://webshop-tickets.staatstheater-augsburg.de/de/veranstaltung/a707d36b-76e7-47f0-a10a-33033a333c21/9172"
+        },
+        {
+          "@type": "schema:Offer",
+          "availability": [
+            "schema:OnlineOnly",
+            "schema:InStock"
+          ],
+          "name": {
+            "@language": "en",
+            "@value": "Hedwig and the Angry Inch Standard Ticket Offer"
+          },
+          "priceSpecification": {
             "@type": "schema:PriceSpecification",
             "maxPrice": "29.0",
             "minPrice": "11.0",
@@ -720,10 +733,34 @@
             "priceCurrency": "fibo-fnd-acc-4217:EUR",
             "validFrom": "2024-10-28T19:31:00",
             "validThrough": "2024-12-28T19:30:00"
-          }
-        ],
-        "url": "https://webshop-tickets.staatstheater-augsburg.de/de/veranstaltung/a707d36b-76e7-47f0-a10a-33033a333c21/9172"
-      },
+          },
+          "url": "https://webshop-tickets.staatstheater-augsburg.de/de/veranstaltung/a707d36b-76e7-47f0-a10a-33033a333c21/9172"
+        },
+        {
+          "@type": "schema:Offer",
+          "availability": [
+            "schema:InStock",
+            "schema:InStoreOnly"
+          ],
+          "name": {
+            "@language": "en",
+            "@value": "Hedwig and the Angry Inch Ticket Offer with Germany Culture Card Gold"
+          },
+          "priceSpecification": {
+            "@type": "schema:PriceSpecification",
+            "name": {
+              "@language": "en",
+              "@value": "Free Tickets with Germany Culture Card Gold"
+            },
+            "schema:price": 0,
+            "priceCurrency": "fibo-fnd-acc-4217:EUR",
+            "validFrom": "2024-10-28T19:31:00",
+            "validThrough": "2024-12-28T19:30:00"
+          },
+          "url": "https://webshop-tickets.staatstheater-augsburg.de/de/veranstaltung/a707d36b-76e7-47f0-a10a-33033a333c21/9172",
+          "validForMemberTier": "drkr:DE-Cultur-Card-Gold-Tier"
+        }
+      ],
       "startDate": "2024-12-28T19:30:00",
       "url": "https://staatstheater-augsburg.de/hedwig_and_the_angry_inch",
       "workPerformed": "drk:DE_STAugsburg_HedwigAngryInch",
@@ -819,7 +856,7 @@
               "@value": "Video-Regisseur"
             }
           ],
-          "performer":  {
+          "performer": {
             "@type": "drk:Performer",
             "name": {
               "@language": "en",
@@ -841,7 +878,7 @@
               "@value": "Lichtdesigner"
             }
           ],
-          "performer":  {
+          "performer": {
             "@type": "drk:Performer",
             "name": {
               "@language": "en",
@@ -992,6 +1029,55 @@
         "lang:en",
         "lang:de"
       ]
+    },
+    {
+      "@id": "drkr:DE-Culture-Card",
+      "@type": "schema:MemberProgram",
+      "description": "The Germany Culture Card is an annual subscription pass. With this pass, subscribers can enjoy benefits including discounted tickets or free entry into member museums, free tickets to theater events organized by member theater organizations, and free introductory courses at member music and culinary schools.",
+      "hasTiers": [
+        "drkr:DE-Cultur-Card-Gold-Tier",
+        "drkr:DE-Cultur-Card-Silver-Tier"
+      ],
+      "hostingOrganization": "drkr:DE_Culture_Club",
+      "name": [
+        {
+          "@language": "en",
+          "@value": "Germany Culture Card"
+        },
+        {
+          "@language": "de",
+          "@value": "Deutschland Kultur Karte"
+        }
+      ],
+      "url": "https://example.org/DE_Culture_Club/DE-Culture-Card"
+    },
+    {
+      "@id": "drkr:DE-Cultur-Card-Gold-Tier",
+      "@type": "schema:MemberProgramTier",
+      "description": "With the Germany Culture Card Gold, subscribers can enjoy free tickets for events organized by member cultural organizations, including museums, theaters, and music and culinary schools.",
+      "hasTierBenefit": "schema:TierBenefitLoyaltyPrice",
+      "isTierOf": "drkr:DE-Cultur-Card",
+      "name": "Germany Culture Card - Gold"
+    },
+    {
+      "@id": "drkr:DE-Cultur-Card-Silver-Tier",
+      "@type": "schema:MemberProgramTier",
+      "description": "With the Germany Culture Card Silver, subscribers can enjoy 50% off with member cultural organizations, including museums, theaters, and music and culinary schools.",
+      "hasTierBenefit": "schema:TierBenefitLoyaltyPrice",
+      "isTierOf": "drkr:DE-Cultur-Card",
+      "name": "Germany Culture Card - Silver"
+    },
+    {
+      "@id": "drkr:DE_Culture_Club",
+      "@type": "schema:Organization",
+      "description": {
+        "@language": "en",
+        "@value": "We are an organization headquartered in Berlin that seeks to inspire people about the richness and diversity of culture in Germany. Several cultural organizations in Germany are our members and offer discounted and free tickets to the subscribers of our Culture Cards."
+      },
+      "name": {
+        "@language": "en",
+        "@value": "Culture Club Germany"
+      }
     }
   ],
   "@context": {
