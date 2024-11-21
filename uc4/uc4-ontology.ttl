@@ -46,15 +46,15 @@ drk:
 
     # Creator Information
     dcterms:creator               [ a                  foaf:Person ;
-                                    foaf:name          "Rohit A. Deshmukh"@en ;
-                                    foaf:mbox          <mailto:rohit.deshmukh@fit.fraunhofer.de> ;
-                                    foaf:homepage      <https://github.com/rohitadeshmukh13> ;
-                                    dcterms:identifier <https://orcid.org/0000-0003-2885-7076> ] ;
-    dcterms:creator               [ a                  foaf:Person ;
                                     foaf:name          "Daham Mohammed Mustafa"@en ;
                                     foaf:mbox          <mailto:daham.mustafa@fit.fraunhofer.de> ;
                                     foaf:homepage      <https://github.com/Daham-Mustaf> ;
                                     dcterms:identifier <https://orcid.org/0000-0003-1867-4428> ] ;
+    dcterms:creator               [ a                  foaf:Person ;
+                                    foaf:name          "Rohit A. Deshmukh"@en ;
+                                    foaf:mbox          <mailto:rohit.deshmukh@fit.fraunhofer.de> ;
+                                    foaf:homepage      <https://github.com/rohitadeshmukh13> ;
+                                    dcterms:identifier <https://orcid.org/0000-0003-2885-7076> ] ;
     dcterms:creator               [ a                  foaf:Person ;
                                     foaf:name          "Christoph Lange-Bever"@en ;
                                     foaf:mbox          <mailto:christoph.lange-bever@fit.fraunhofer.de> ;
