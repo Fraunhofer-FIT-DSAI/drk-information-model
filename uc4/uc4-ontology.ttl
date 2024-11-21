@@ -14,15 +14,92 @@
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
 @prefix cc:           <http://creativecommons.org/ns#> .
 @prefix foaf:         <http://xmlns.com/foaf/0.1/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix mo: <http://purl.org/ontology/mo/> .
-@prefix iomust: <http://purl.org/ontology/iomust/internet_of_things/iomust/> .
-@prefix dbpedia: <http://dbpedia.org/ontology/> .
-@prefix schema: <http://schema.org/> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix mo:           <http://purl.org/ontology/mo/> .
+@prefix dbpedia:      <http://dbpedia.org/ontology/> .
+@prefix vcard:        <http://www.w3.org/2006/vcard/ns#> .
+@prefix event:        <http://purl.org/NET/c4dm/event.owl#> .
+@prefix dbo:          <http://dbpedia.org/ontology/> .
+@prefix nfo:          <http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#> .
+@prefix time:         <http://www.w3.org/2006/time#> .
+@prefix ncal:         <http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#> .
+@prefix prov:         <http://www.w3.org/ns/prov#> .
+@prefix geo:          <http://www.opengis.net/ont/geosparql#> .
 
+
+# Ontology Definition
+drk:
+    a                             owl:Ontology, voaf:Vocabulary ;
+
+    # Basic Metadata
+    rdfs:label                    "DRK Musikschul-Manager Ontology"@en, "DRK Musikschul-Manager Ontologie"@de ;
+    rdfs:comment                  "The DRK ontology for Hamburger Konservatorium's Musikschul-Manager, providing semantic concepts and properties for music school management, including student-teacher relationships, lesson scheduling, and administrative processes."@en ;
+    dcterms:title                 "DRK Musikschul-Manager Ontology"@en, "DRK Musikschul-Manager Ontologie"@de ;
+
+    # Version Information
+    owl:versionInfo               "1.0.0"^^xsd:string ;
+    dcterms:hasVersion            "1.0.0"^^xsd:string ;
+
+    # Dates
+    dcterms:created               "2024-11-14"^^xsd:date ;
+    dcterms:modified              "2024-11-14"^^xsd:date ;
+    dcterms:issued                "2024-11-14"^^xsd:date ;
+
+    # Creator Information
+    dcterms:creator               [ a                  foaf:Person ;
+                                    foaf:name          "Rohit A. Deshmukh"@en ;
+                                    foaf:mbox          <mailto:rohit.deshmukh@fit.fraunhofer.de> ;
+                                    foaf:homepage      <https://github.com/rohitadeshmukh13> ;
+                                    dcterms:identifier <https://orcid.org/0000-0003-2885-7076> ] ;
+    dcterms:creator               [ a                  foaf:Person ;
+                                    foaf:name          "Daham Mohammed Mustafa"@en ;
+                                    foaf:mbox          <mailto:daham.mustafa@fit.fraunhofer.de> ;
+                                    foaf:homepage      <https://github.com/Daham-Mustaf> ;
+                                    dcterms:identifier <https://orcid.org/0000-0003-1867-4428> ] ;
+    dcterms:creator               [ a                  foaf:Person ;
+                                    foaf:name          "Christoph Lange-Bever"@en ;
+                                    foaf:mbox          <mailto:christoph.lange-bever@fit.fraunhofer.de> ;
+                                    foaf:homepage      <https://github.com/clange> ;
+                                    dcterms:identifier <https://orcid.org/0000-0001-9879-3827> ] ;
+
+    # Publisher Information
+    dcterms:publisher             [ a             foaf:Organization ;
+                                    foaf:name     "Fraunhofer FIT" ;
+                                    foaf:homepage <https://www.fit.fraunhofer.de/> ] ;
+
+    # License and Rights
+    dcterms:license               <http://creativecommons.org/licenses/by/4.0/> ;
+    cc:license                    <http://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:rights                "This ontology is distributed under Creative Commons Attribution 4.0 International License"@en ;
+
+    # Namespace Information
+    vann:preferredNamespacePrefix "drk" ;
+    vann:preferredNamespaceUri    "http://w3id.org/drk/ontology/" ;
+
+    # Documentation Links
+    rdfs:seeAlso                  <https://github.com/Fraunhofer-FIT-DSAI/drk-information-model> ;
+    vann:example                  <https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/examples> ;
+
+    # Extended Description
+    dcterms:description           """
+        The DRK Musikschul-Manager ontology provides a comprehensive vocabulary for describing music school operations and management.
+        It includes concepts for:
+        - School and institution management (14 domain classes)
+        - User roles and authentication (12 enumeration classes)
+        - Music lesson scheduling and management
+        - Teacher-student matching and interactions
+        - File and integration management
+        
+        Key components:
+        - 26 Classes (14 domain + 12 enums)
+        - 89 Data Properties
+        - 19 Object Properties
+
+        The ontology is designed specifically for the Hamburger Konservatorium's requirements while maintaining interoperability within the DRK framework.
+    """@en ;
+    
+    dcterms:language              lang:en, lang:de ;
+    dcterms:subject               "Music Education"@en, "School Management"@en, "Cultural Education"@en, "Music School Administration"@en ;
+    dcterms:audience              "Music Schools"@en, "Music Teachers"@en, "Music Students"@en, "School Administrators"@en .
 
 # Core Classes
 :School
@@ -30,7 +107,6 @@
     rdfs:isDefinedBy :drk ;
     rdfs:label "Music School"@en ;
     skos:definition "An educational School specialized in music education, offering instruction in various instruments and musical genres through qualified teachers."@en ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Music_school> ;
     rdfs:subClassOf [
         a owl:Class ;
         owl:unionOf (
@@ -40,6 +116,8 @@
             vcard:Organization
         )
     ] ;
+    rdfs:seeAlso <http://dbpedia.org/resource/Music_school> ;
+    rdfs:seeAlso schema:EducationalOrganization ;
     skos:note "Extended with music-specific attributes and relationships while maintaining compatibility with standard organization vocabularies."@en .
 
 :User
@@ -55,6 +133,7 @@
             vcard:Individual
         )
     ] ;
+    rdfs:seeAlso <https://schema.org/Person> ;
     skos:note "The User class encompasses all individuals who engage with the music school system, whether as learners, educators, or system managers. It bridges standard vocabularies such as FOAF, Schema.org, and vCard for semantic interoperability."@en .
 
 :Teacher
@@ -176,7 +255,6 @@
         owl:unionOf (
             schema:VerifyAction
             prov:Activity
-            acl:Authorization
         )
     ] ;
     rdfs:seeAlso <https://www.w3.org/TR/prov-o/#Activity> ;
@@ -367,7 +445,6 @@ drk:hasUser
     owl:equivalentProperty [
         owl:unionOf (
             schema:description
-            dc:description
             dcterms:description
             vcard:note
         )
@@ -426,8 +503,7 @@ drk:hasUser
     rdfs:domain :School ;    # schools.website (varchar)
     rdfs:range xsd:anyURI ;
     owl:equivalentProperty [
-        owl:unionOf ( schema:url schema:website foaf:homepage vcard:hasURL org:siteAddress
-        )
+        owl:unionOf ( schema:url schema:website foaf:homepage vcard:hasURL )
     ] .
 
 # Location Properties
@@ -449,7 +525,7 @@ drk:hasUser
         owl:unionOf (
             schema:addressLocality
             vcard:locality
-            gn:name
+#            gn:name
         )
     ] .
 
@@ -539,7 +615,7 @@ drk:hasUser
     rdfs:domain :User ;
     rdfs:range xsd:date ;
     owl:equivalentProperty [
-         owl:unionOf ( schema:birthDate bio:birth dcterms:date )
+         owl:unionOf ( schema:birthDate dcterms:date )
     ] .
 
 # Schedule-related Properties
@@ -591,8 +667,6 @@ drk:hasUser
     owl:equivalentProperty [
         owl:unionOf (
             schema:inLanguage
-            dc:language
-            lexvo:language
         )
     ] .
 
