@@ -24,7 +24,7 @@
 @prefix ncal:         <http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#> .
 @prefix prov:         <http://www.w3.org/ns/prov#> .
 @prefix geosparql:          <http://www.opengis.net/ont/geosparql#> .
-
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 
 # Ontology Definition
 drk:
@@ -556,12 +556,13 @@ drk:hasUser
     rdfs:domain :Lesson ;    # lessons.location (varchar)
     rdfs:range xsd:string ;
     owl:equivalentProperty [
-        owl:unionOf (
-            schema:location
-            vcard:hasAddress
-            geo:location
-        )
-    ] .
+          owl:unionOf (
+                          schema:location
+                          vcard:hasAddress
+                          geo:location
+                          geosparql:asWKT
+                      )
+      ] .
 # Temporal Properties
 :created
     a owl:DatatypeProperty ;
@@ -716,7 +717,7 @@ drk:hasUser
     rdfs:comment "Required notice period in hours"@en ;
     rdfs:domain [
         a owl:Class ;
-        owl:unionOf (:Schedule:Lesson)
+        owl:unionOf (:Schedule :Lesson)
     ] ;
     rdfs:range xsd:nonNegativeInteger ;
     owl:equivalentProperty time:hours .
