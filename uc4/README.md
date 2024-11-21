@@ -1,34 +1,130 @@
 # DRK Musikschul-Manager Ontology Documentation
-
 ## Overview
 This document describes the translation of the Hamburger Konservatorium's Musikschul-Manager PostgreSQL database schema into an RDF/OWL ontology for the DRK (Datenraum Kultur) system.
 
+# Database to OWL Translation Documentation
+This project translates the Hamburger Konservatorium's Musikschul-Manager PostgreSQL database schema into an RDF/OWL ontology for the DRK (Datenraum Kultur) system. The translation preserves the semantic relationships while enabling semantic web capabilities.
+
 ## Translation Statistics
-- **Total Classes**: 26 (14 domain classes + 12 enumerations)
-- **Total Properties**: 108 (92 data properties + 19 object properties)
+- **Domain Classes**: 14 core classes from database tables
+- **Enumeration Classes**: 12 from database enums
+- **Properties**: 108 total
+  - 89 data properties from database columns
+  - 19 object properties from relationships
 
-## Translation Patterns
+## Key Mappings
 
-### 1. Database Tables → OWL Classes (14)
+### Database → OWL Class Mappings
 ```
-Domain Classes:
-- migrations
-- auth
-- schools
-- users
-- user_confirmations
-- teachers
-- students
-- schedules
-- lessons
-- matches
-- files
-- integrations
-- teacher_integrations
-- integrations_schools
+Database Tables → OWL Classes
+- migrations      → Migrations
+- auth           → Auth
+- schools        → School
+- users          → User
+- teachers       → Teacher
+- students       → Student
+- schedules      → Schedule
+- lessons        → Lesson
+- matches        → Match
+- files          → File
+- integrations   → Integration
+...and more
 ```
 
-### 2. Enumeration Classes (12)
+### Enum → OWL Class Mappings
+```
+Database Enums → OWL Enumeration Classes
+language
+user_role
+user_gender
+user_confirmation
+lesson_place
+lesson_type
+lesson_duration
+lesson_status
+file_type
+gender_preference
+school_language
+school_match_notification
+```
+
+### Property Mappings
+```
+Database Column Types → OWL Properties
+- Primary Keys (uuid) → URI identifiers
+- Foreign Keys       → owl:ObjectProperty
+- Regular Columns    → owl:DatatypeProperty
+```
+
+## Database Constraints Translation
+```
+Database           │ OWL
+───────────────────┼──────────────────
+NOT NULL           │ owl:cardinality 1
+Optional           │ owl:maxCardinality 1
+ENUM              │ owl:oneOf
+```
+
+## Core Classes (Primary Domain Classes)
+Core classes represent the fundamental entities in the music school domain:
+
+- **School**: Music education institution
+- **User**: Base class for system participants
+- **Teacher**: Music education professionals (subclass of User)
+- **Student**: Music learners (subclass of User)
+- **Lesson**: Instructional sessions
+- **Match**: Teacher-student pairing entity
+- **Genre**: Musical styles and categories
+- **Instrument**: Musical instruments used in education
+
+## Secondary Classes (Supporting Classes)
+Secondary classes provide supporting functionality:
+
+- **File**: Digital assets and documents
+- **Schedule**: Time management and availability
+- **Integration**: Third-party service connections
+- **UserConfirmation**: Verification processes
+- **TeacherIntegration**: Teacher-specific external service connections
+
+Each class maintains semantic relationships through standard vocabularies (Schema.org, FOAF, Music Ontology) while adding domain-specific attributes for music education.
+
+
+# Object Properties Mapping
+
+## Core User Relations
+| Property | Domain | Range | Description |
+|----------|---------|--------|-------------|
+| `hasUser` | `Teacher`, `Student` | `User` | Links Teacher/Student to their base User profile |
+| `managesSchool` | `User` | `School` | Links admin User to School they manage |
+| `belongsToSchool` | `Teacher` | `School` | Links Teacher to their School |
+| `attendsSchool` | `Student` | `School` | Links Student to their School |
+
+## Teaching Relations
+| Property | Domain | Range | Description |
+|----------|---------|--------|-------------|
+| `teachesLesson` | `Teacher` | `Lesson` | Links Teacher to Lessons they teach |
+| `attendsLesson` | `Student` | `Lesson` | Links Student to Lessons they attend |
+| `hasSchedule` | `User` | `Schedule` | Links User to their Schedule |
+
+## Matching System
+| Property | Domain | Range | Description |
+|----------|---------|--------|-------------|
+| `teacherMatch` | `Teacher` | `Match` | Links Teacher to their Matches |
+| `studentMatch` | `Student` | `Match` | Links Student to their Matches |
+
+## Resource Relations
+| Property | Domain | Range | Description |
+|----------|---------|--------|-------------|
+| `hasInstrument` | `Teacher`, `Student`, `School`, `Match` | `Instrument` | Links entities to Instruments |
+| `hasGenre` | `Teacher`, `Student`, `School`, `Match` | `Genre` | Links entities to Genres |
+| `hasFile` | `User`, `School` | `File` | Links entities to their Files |
+
+## Integration Relations
+| Property | Domain | Range | Description |
+|----------|---------|--------|-------------|
+| `hasIntegration` | `Teacher`, `School` | `Integration`, `TeacherIntegration` | Links to Integration systems |
+
+### Enumeration Classes (12)
 ```
 Enum Classes:
 - language
@@ -45,179 +141,210 @@ Enum Classes:
 - school_match_notification
 ```
 
-### 3. Properties Mapping
-```
-Database Column Type    →  OWL Property Type
-----------------------------------------
-Primary Keys (uuid)     →  URI identifiers
-Foreign Keys           →  owl:ObjectProperty (19 total)
-Regular Columns        →  owl:DatatypeProperty (89 total)
-```
+### Properties with Enum Types
 
-### 4. Constraints Translation
-```
-Database Constraint    →  OWL Constraint
-----------------------------------------
-NOT NULL              →  owl:cardinality 1
-Optional              →  owl:maxCardinality 1
-ENUM                  →  owl:oneOf
-```
+- **`users`**
+  - `language` → `language` (Enum)
+  - `role` → `user_role` (Enum)
+  - `gender` → `user_gender` (Enum)
+
+- **`user_confirmations`**
+  - `type` → `user_confirmation` (Enum)
+
+- **`schools`**
+  - `language` → `school_language` (Enum)
+  - `match_notification` → `school_match_notification` (Enum)
+
+- **`teachers`**
+  - `gender_preference` → `gender_preference` (Enum)
+
+- **`students`**
+  - `gender_preference` → `gender_preference` (Enum)
+
+- **`lessons`**
+  - `place` → `lesson_place` (Enum)
+  - `type` → `lesson_type` (Enum)
+  - `duration` → `lesson_duration` (Enum)
+  - `status` → `lesson_status` (Enum)
+
+- **`files`**
+  - `type` → `file_type` (Enum)
 
 
-## Complete Properties Table
+# Core Identification Data Properties
+1. id
+   Domains: [School, User, Teacher, Student, Schedule, Lesson, Match, File, Integration, TeacherIntegration, Genre, Instrument]
 
-### Data Properties (92)
-| Class | Property | Type | Cardinality | Description |
-|-------|----------|------|-------------|-------------|
-| **migrations** |
-| | timestamp | xsd:long | 1..1 | Migration execution timestamp |
-| | name | xsd:string | 1..1 | Migration name/description |
-| **auth** |
-| | token | xsd:string | 1..1 | Authentication token |
-| | created | xsd:dateTime | 1..1 | Token creation timestamp |
-| **schools** |
-| | confirmed | xsd:boolean | 1..1 | School confirmation status |
-| | validated | xsd:boolean | 1..1 | School validation status |
-| | name | xsd:string | 1..1 | School name |
-| | teachers_amount | xsd:nonNegativeInteger | 1..1 | Number of teachers |
-| | students_amount | xsd:nonNegativeInteger | 1..1 | Number of students |
-| | language | school_language | 1..1 | Primary language |
-| | match_notification | school_match_notification | 1..1 | Notification preference |
-| | socials | xsd:string (JSON) | 0..1 | Social media links as JSON |
-| | unions | xsd:string (JSON) | 0..1 | Unions data as JSON |
-| | price_range | xsd:string (JSON) | 0..1 | Price range data as JSON |
-| | sponsor | xsd:string | 0..1 | School sponsor |
-| | website | xsd:anyURI | 0..1 | School website |
-| | description | xsd:string | 0..1 | School description |
-| | postal_code | xsd:string | 0..1 | Postal code |
-| | city | xsd:string | 0..1 | City |
-| | phone_number | xsd:string | 0..1 | Contact number |
-| | instruments | rdf:List | 0..1 | List of instruments offered |
-| | genres | rdf:List | 0..1 | List of music genres taught |
-| | created | xsd:dateTime | 1..1 | Record creation date |
-| | modified | xsd:dateTime | 1..1 | Last modification date |
-| | deleted | xsd:dateTime | 0..1 | Deletion date if applicable |
-| **users** |
-| | language | language | 0..1 | User preferred language |
-| | spoken_languages | rdf:List | 0..1 | Languages spoken |
-| | role | user_role | 1..1 | User role in system |
-| | email | xsd:string | 1..1 | Email address |
-| | password | xsd:string | 0..1 | Encrypted password |
-| | first_name | xsd:string | 0..1 | First name |
-| | last_name | xsd:string | 0..1 | Last name |
-| | timezone | xsd:string | 0..1 | User timezone |
-| | postal_code | xsd:string | 0..1 | Postal code |
-| | city | xsd:string | 0..1 | City |
-| | phone_number | xsd:string | 0..1 | Contact number |
-| | gender | user_gender | 0..1 | User gender |
-| | allow_email_contact | xsd:boolean | 0..1 | Email contact preference |
-| | allow_phone_contact | xsd:boolean | 0..1 | Phone contact preference |
-| | birthday | xsd:dateTime | 0..1 | Date of birth |
-| | coordinate | xsd:string (JSON) | 0..1 | Geographic coordinates |
-| | created | xsd:dateTime | 1..1 | Record creation date |
-| | modified | xsd:dateTime | 1..1 | Last modification date |
-| **user_confirmations** |
-| | email | xsd:string | 1..1 | Email to confirm |
-| | type | user_confirmation | 1..1 | Confirmation type |
-| | key | xsd:integer | 1..1 | Confirmation key |
-| | confirmed | xsd:boolean | 0..1 | Confirmation status |
-| | created | xsd:dateTime | 1..1 | Record creation date |
-| | modified | xsd:dateTime | 1..1 | Last modification date |
-| **teachers** |
-| | validated | xsd:boolean | 1..1 | Validation status |
-| | instruments | rdf:List | 0..1 | Instruments taught |
-| | genres | rdf:List | 0..1 | Music genres taught |
-| | years_experience | xsd:nonNegativeInteger | 0..1 | Years of teaching |
-| | teaching_location | rdf:List | 0..1 | Teaching locations |
-| | education | xsd:string (JSON) | 0..1 | Education details |
-| | socials | xsd:string (JSON) | 0..1 | Social media profiles |
-| | work_with_minors | xsd:boolean | 0..1 | Minor student capability |
-| | students_experience_level | rdf:List | 0..1 | Student levels taught |
-| | age_preference | rdf:List | 0..1 | Preferred student ages |
-| | gender_preference | gender_preference | 0..1 | Preferred student gender |
-| | description | xsd:string | 0..1 | Teacher description |
-| | price_range | xsd:string (JSON) | 0..1 | Teaching rates |
-| | students_amount | xsd:nonNegativeInteger | 1..1 | Current student count |
-| | created | xsd:dateTime | 1..1 | Record creation date |
-| | modified | xsd:dateTime | 1..1 | Last modification date |
-| **students** |
-| | instruments | rdf:List | 0..1 | Instruments of interest |
-| | genres | rdf:List | 0..1 | Music genres of interest |
-| | experience_level | xsd:string | 0..1 | Musical experience level |
-| | teaching_location | rdf:List | 0..1 | Preferred lesson locations |
-| | gender_preference | gender_preference | 0..1 | Preferred teacher gender |
-| | created | xsd:dateTime | 1..1 | Record creation date |
-| | modified | xsd:dateTime | 1..1 | Last modification date |
-| **schedules** |
-| | day | xsd:integer | 1..1 | Day of week |
-| | start_time | xsd:dateTime | 0..1 | Schedule start time |
-| | end_time | xsd:dateTime | 0..1 | Schedule end time |
-| | override_date | xsd:dateTime | 0..1 | Override date if any |
-| | notice | xsd:integer | 1..1 | Notice period |
-| | created | xsd:dateTime | 1..1 | Record creation date |
-| **lessons** |
-| | place | lesson_place | 1..1 | Lesson location type |
-| | location | xsd:string | 0..1 | Specific location |
-| | room_id | xsd:integer | 0..1 | Room identifier |
-| | title | xsd:string | 1..1 | Lesson title |
-| | description | xsd:string | 0..1 | Lesson description |
-| | target_teacher | xsd:string | 0..1 | Target teacher notes |
-| | target_student | xsd:string | 0..1 | Target student notes |
-| | start_time | xsd:dateTime | 1..1 | Lesson start time |
-| | end_time | xsd:dateTime | 1..1 | Lesson end time |
-| | notice | xsd:integer | 1..1 | Notice period |
-| | type | lesson_type | 1..1 | Lesson type |
-| | duration | lesson_duration | 1..1 | Lesson duration |
-| | status | lesson_status | 1..1 | Lesson status |
-| | created | xsd:dateTime | 1..1 | Record creation date |
-| | modified | xsd:dateTime | 1..1 | Last modification date |
-| **matches** |
-| | instruments | rdf:List | 0..1 | Matched instruments |
-| | genres | rdf:List | 0..1 | Matched genres |
-| | accept_teacher | xsd:boolean | 0..1 | Teacher acceptance |
-| | accept_student | xsd:boolean | 0..1 | Student acceptance |
-| | terminated | xsd:boolean | 0..1 | Match termination status |
-| | created | xsd:dateTime | 1..1 | Record creation date |
-| **files** |
-| | type | file_type | 1..1 | File type |
-| | url | xsd:anyURI | 1..1 | File URL |
-| | key | xsd:string | 1..1 | Unique file key |
-| | created | xsd:dateTime | 1..1 | Record creation date |
-| **integrations** |
-| | name | xsd:string | 1..1 | Integration name |
-| | description | xsd:string | 0..1 | Integration description |
-| | created | xsd:dateTime | 1..1 | Record creation date |
-| | modified | xsd:dateTime | 1..1 | Last modification date |
-| **teacher_integrations** |
-| | link | xsd:anyURI | 1..1 | Integration link |
-| | created | xsd:dateTime | 1..1 | Record creation date |
-| | modified | xsd:dateTime | 1..1 | Last modification date |
+2. name
+   Domains: [School, Integration]
+   Sub-properties: nameDe, nameEn, nameVariant (Domains: [Genre, Instrument])
 
-### Object Properties (19)
-| Source | Property | Target | Cardinality | Description |
-|--------|----------|--------|-------------|-------------|
-| teachers | hasUser | users | 1..1 | Teacher's user account |
-| teachers | hasSchool | schools | 1..1 | Teacher's school |
-| students | hasUser | users | 1..1 | Student's user account |
-| students | hasSchool | schools | 0..1 | Student's school |
-| schedules | hasUser | users | 1..1 | Schedule owner |
-| lessons | hasTeacher | teachers | 1..1 | Lesson teacher |
-| lessons | hasStudent | students | 1..1 | Lesson student |
-| matches | hasTeacher | teachers | 1..1 | Match teacher |
-| matches | hasStudent | students | 1..1 | Match student |
-| user_confirmations | hasUser | users | 1..1 | User being confirmed |
-| files | hasUser | users | 0..1 | File owner |
-| files | hasSchool | schools | 0..1 | Associated school |
-| users | managesSchool | schools | 0..1 | School being managed |
-| teacher_integrations | hasIntegration | integrations | 1..1 | Integration type |
-| teacher_integrations | hasTeacher | teachers | 1..1 | Associated teacher |
-| integrations_schools | hasSchool | schools | 1..1 | School in integration |
-| integrations_schools | hasIntegration | integrations | 1..1 | Integration type |
+3. description
+   Domains: [School, Teacher, Integration, Lesson]
 
-## Implementation Features
-- Bilingual labels (EN/DE)
-- Dublin Core terms integration
-- Proper cardinality constraints
-- Clear class hierarchies
-- Standard vocabulary reuse
-- Comprehensive documentation
+# Contact Properties
+4. email
+   Domains: [User, UserConfirmation]
+
+5. phoneNumber
+   Domains: [School, User]
+
+6. website
+   Domains: [School]
+
+# Location Properties
+7. city
+   Domains: [School, User]
+
+8. postalCode
+   Domains: [School, User]
+
+9. location
+   Domains: [Lesson]
+   
+10. teachingLocation
+    Domains: [Teacher, Student]
+
+# Temporal Properties
+11. created
+    Domains: [School, User, UserConfirmation, Teacher, Student, Schedule, Lesson, Match, File, Integration, TeacherIntegration]
+
+12. modified
+    Domains: [School, User, UserConfirmation, Teacher, Student, Lesson, Integration, TeacherIntegration]
+
+13. deleted
+    Domains: [School]
+
+14. birthday
+    Domains: [User]
+
+15. startTime
+    Domains: [Schedule, Lesson]
+
+16. endTime
+    Domains: [Schedule, Lesson]
+
+# Language Properties
+17. language
+    Domains: [School, User]
+
+18. spokenLanguages
+    Domains: [User]
+
+# Numerical Properties
+19. teachersAmount
+    Domains: [School]
+
+20. studentsAmount
+    Domains: [School, Teacher]
+
+21. yearsExperience
+    Domains: [Teacher]
+
+22. notice
+    Domains: [Schedule, Lesson]
+
+23. roomId
+    Domains: [Lesson]
+
+# Boolean Properties
+24. confirmed
+    Domains: [School, UserConfirmation]
+
+25. validated
+    Domains: [School, Teacher]
+
+26. workWithMinors
+    Domains: [Teacher]
+
+27. allowEmailContact
+    Domains: [User]
+
+28. allowPhoneContact
+    Domains: [User]
+
+29. acceptTeacher
+    Domains: [Match]
+
+30. acceptStudent
+    Domains: [Match]
+
+31. terminated
+    Domains: [Match]
+
+32. top10
+    Domains: [Genre, Instrument]
+
+33. availableInMusiq
+    Domains: [Genre, Instrument]
+
+# Preference Properties
+34. genderPreference
+    Domains: [Teacher, Student]
+
+35. agePreference
+    Domains: [Teacher]
+
+36. experienceLevel
+    Domains: [Student]
+    
+37. studentsExperienceLevel
+    Domains: [Teacher]
+
+# External Reference Properties
+38. gnd
+    Domains: [Genre, Instrument]
+
+39. wikidata
+    Domains: [Genre, Instrument]
+
+40. mimo
+    Domains: [Genre, Instrument]
+
+# JSON/Complex Properties
+41. priceRange
+    Domains: [School, Teacher]
+
+42. socials
+    Domains: [School, Teacher]
+
+43. education
+    Domains: [Teacher]
+
+44. coordinate
+    Domains: [User]
+
+45. unions
+    Domains: [School]
+
+# Authentication Properties
+46. password
+    Domains: [User]
+
+47. token
+    Domains: [Auth]
+
+# Type/Status Properties
+48. type
+    Domains: [UserConfirmation, Lesson, File]
+
+49. status
+    Domains: [Lesson]
+
+# Link Properties
+50. url
+    Domains: [File]
+
+51. link
+    Domains: [TeacherIntegration]
+
+52. key
+    Domains: [File, UserConfirmation]
+
+# Role Properties
+53. role
+    Domains: [User]
+
+Total Count: 53 distinct data properties
+
+
