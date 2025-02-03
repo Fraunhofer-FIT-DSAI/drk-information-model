@@ -1,0 +1,67 @@
+@prefix drk: <https://w3id.org/drk/ontology/> .
+@prefix drk: <https://w3id.org/drk/resource/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+###############################################
+#Cultural Data Exchange Policies
+###############################################
+
+###############################################
+# Scenario 3: Open Cultural Data Access
+###############################################
+# Scenario Description:
+# - Perpetual open access to cultural data
+# - No geographic restrictions
+# - No time limitations
+# - Free for any purpose
+# - Attribution requirement
+# - Commercial use allowed
+# - Modification allowed
+
+# OpenAccess Policy Definition
+drk:OpenAccessPolicy a odrl:Policy ;
+    odrl:uid "OpenAccessPolicy" ;
+    rdfs:label "Perpetual Open Access Policy"@en ;
+    dct:description "Policy governing unrestricted access to open cultural data"@en ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:action odrl:use, 
+                    odrl:distribute,
+                    odrl:modify,
+                    odrl:commercialize ;
+        odrl:duty [
+            a odrl:Duty ;
+            odrl:action odrl:attribute ;
+            rdfs:comment "Attribution required when using the data"@en
+        ] ;
+        # Note: No constraints on:
+        # - Time (perpetual access)
+        # - Geography (worldwide)
+        # - Payment (always free)
+        # - Purpose (any purpose allowed)
+    ] .
+
+# Open Data Usage Rights Definition
+drk:OpenDataUse a skos:Concept ;
+    skos:prefLabel "Open Data Usage"@en ;
+    skos:definition "Unrestricted usage rights for open cultural data"@en ;
+    skos:scopeNote "Includes commercial use, modification, and redistribution rights"@en .
+
+# Template for Open Cultural Dataset (example structure)
+drk:OpenCulturalDataset a drk:Dataset, odrl:Asset ;
+    odrl:uid "OpenCulturalDataset" ;
+    dct:title "Open Cultural Dataset"@en ;
+    dct:description "Cultural dataset available under open access terms"@en ;
+    dct:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dct:accessRights "public"^^xsd:string ;
+    dct:rights "This dataset is available under perpetual open access terms"@en ;
+    odrl:hasPolicy drk:OpenAccessPolicy .

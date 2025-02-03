@@ -1,0 +1,83 @@
+@prefix drk: <https://w3id.org/drk/ontology/> .
+@prefix drk: <https://w3id.org/drk/resource/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+###############################################
+#Cultural Data Exchange Policies
+###############################################
+
+###############################################
+# Scenario 1: Cultural API Access Management
+###############################################
+# Scenario Description:
+# - The Augsburg State Theater provides a ShowTimes API
+# - Access is restricted geographically to Germany
+# - Time-limited access until May 10, 2025
+# - Three types of subscribers have access rights
+# - Access is managed through a TempoSpatialAccess policy
+
+# ShowTimes API Asset
+drk:AugsburgStaatstheaterShowtimesAPI a drk:ShowTimesAPI, odrl:Asset ;
+    odrl:uid "AugsburgStaatstheaterShowtimesAPI" ;
+    dct:title "Augsburg Staatstheater ShowTimes API"@de ;
+    dct:description "API providing showtimes data for Augsburg State Theater performances"@en ;
+    odrl:hasPolicy drk:TempoSpatialAccess .
+
+# Data Provider Organization
+drk:DE_Staatstheater_Augsburg a odrl:Party, foaf:Organization ;
+    odrl:uid "DE_Staatstheater_Augsburg" ;
+    rdfs:label "Augsburg State Theater"@en ;
+    dct:description "Cultural organization managing the ShowTimes API"@en .
+
+# Data Consumers
+drk:RegionalNewspaper a odrl:Party ;
+    odrl:uid "regionalnewspaper" ;
+    rdfs:label "Regional Newspaper"@en ;
+    skos:definition "Local news organization with API access rights"@en .
+
+drk:CultureResearchInstitute a odrl:Party ;
+    odrl:uid "cultureresearchinstitute" ;
+    rdfs:label "Culture Research Institute"@en ;
+    skos:definition "Research organization studying cultural events"@en .
+
+drk:CulturalPlatformBavaria a odrl:Party ;
+    odrl:uid "culturalplatformbavaria" ;
+    rdfs:label "Cultural Platform Bavaria"@en ;
+    skos:definition "Bavarian cultural events aggregator"@en .
+
+# Temporal and Spatial Access Policy
+drk:TempoSpatialAccess a odrl:Policy ;
+    odrl:uid "TempoSpatialAccess" ;
+    rdfs:label "Geographical and Time-Based Access Policy"@en ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:assigner drk:DE_Staatstheater_Augsburg ;
+        odrl:assignee drk:RegionalNewspaper, 
+                     drk:CultureResearchInstitute,
+                     drk:CulturalPlatformBavaria ;
+        odrl:action odrl:use ;
+        odrl:target drk:AugsburgStaatstheaterShowtimesAPI ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:spatial ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand "DE"^^xsd:string ;
+            rdfs:comment "Access restricted to Germany"@en
+        ] ,
+        [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:dateTime ;
+            odrl:operator odrl:lteq ;
+            odrl:rightOperand "2025-05-10T23:59:59"^^xsd:dateTime ;
+            rdfs:comment "Access expires on May 10, 2025"@en
+        ] 
+    ] .
