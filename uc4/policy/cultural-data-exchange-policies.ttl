@@ -1,0 +1,234 @@
+@prefix drk: <https://w3id.org/drk/ontology/> .
+@prefix drk: <https://w3id.org/drk/resource/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+###############################################
+#Cultural Data Exchange Policies
+###############################################
+
+###############################################
+# Scenario 1: Cultural API Access Management
+###############################################
+# Scenario Description:
+# - The Augsburg State Theater provides a ShowTimes API
+# - Access is restricted geographically to Germany
+# - Time-limited access until May 10, 2025
+# - Three types of subscribers have access rights
+# - Access is managed through a TempoSpatialAccess policy
+
+# ShowTimes API Asset
+drk:AugsburgStaatstheaterShowtimesAPI a drk:ShowTimesAPI, odrl:Asset ;
+    odrl:uid "AugsburgStaatstheaterShowtimesAPI" ;
+    dct:title "Augsburg Staatstheater ShowTimes API"@de ;
+    dct:description "API providing showtimes data for Augsburg State Theater performances"@en ;
+    odrl:hasPolicy drk:TempoSpatialAccess .
+
+# Data Provider Organization
+drk:DE_Staatstheater_Augsburg a odrl:Party, foaf:Organization ;
+    odrl:uid "DE_Staatstheater_Augsburg" ;
+    rdfs:label "Augsburg State Theater"@en ;
+    dct:description "Cultural organization managing the ShowTimes API"@en .
+
+# Data Consumers
+drk:RegionalNewspaper a odrl:Party ;
+    odrl:uid "regionalnewspaper" ;
+    rdfs:label "Regional Newspaper"@en ;
+    skos:definition "Local news organization with API access rights"@en .
+
+drk:CultureResearchInstitute a odrl:Party ;
+    odrl:uid "cultureresearchinstitute" ;
+    rdfs:label "Culture Research Institute"@en ;
+    skos:definition "Research organization studying cultural events"@en .
+
+drk:CulturalPlatformBavaria a odrl:Party ;
+    odrl:uid "culturalplatformbavaria" ;
+    rdfs:label "Cultural Platform Bavaria"@en ;
+    skos:definition "Bavarian cultural events aggregator"@en .
+
+# Temporal and Spatial Access Policy
+drk:TempoSpatialAccess a odrl:Policy ;
+    odrl:uid "TempoSpatialAccess" ;
+    rdfs:label "Geographical and Time-Based Access Policy"@en ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:assigner drk:DE_Staatstheater_Augsburg ;
+        odrl:assignee drk:RegionalNewspaper, 
+                     drk:CultureResearchInstitute,
+                     drk:CulturalPlatformBavaria ;
+        odrl:action odrl:use ;
+        odrl:target drk:AugsburgStaatstheaterShowtimesAPI ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:spatial ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand "DE"^^xsd:string ;
+            rdfs:comment "Access restricted to Germany"@en
+        ] ,
+        [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:dateTime ;
+            odrl:operator odrl:lteq ;
+            odrl:rightOperand "2025-05-10T23:59:59"^^xsd:dateTime ;
+            rdfs:comment "Access expires on May 10, 2025"@en
+        ] 
+    ] .
+
+
+###############################################
+# Scenario 2: Educational Archive Access
+###############################################
+# Scenario Description:
+# - Historical archives access for educational purposes
+# - Free access for scientific research
+# - Collaboration with local university
+# - Specific constraints on usage purpose
+# - No fee policy implementation
+
+# Historical Archives Asset
+drk:Historical_ShowTimes_Archives a drk:ShowTimesArchives, odrl:Asset ;
+    odrl:uid "Historical_ShowTimes_Archives" ;
+    dct:title "Historical ShowTimes Archives"@en ;
+    dct:description "Digitized historical theater performance records"@en ;
+    skos:definition "Collection of digitized historical showtimes and performance data"@en ;
+    odrl:hasPolicy drk:NoFeePolicy .
+
+# Academic Institution
+drk:University_of_Augsburg  a odrl:Party, foaf:Organization ;
+    odrl:uid "UniversityOfAugsburg" ;
+    dct:title "University of Augsburg"@en, "Universität Augsburg"@de ;
+    rdfs:label "University of Augsburg"@en, "Universität Augsburg"@de ;
+    skos:definition "Academic institution collaborating on theater research"@en ;
+    foaf:homepage "https://www.uni-augsburg.de/"^^xsd:anyURI .
+
+# Scientific Usage Definition
+drk:ScientificUse a odrl:RightOperand, skos:Concept ;
+    skos:prefLabel "Scientific Use"@en ;
+    skos:definition "Usage limited to academic research purposes"@en ;
+    skos:scopeNote "Covers academic research, analysis, and educational activities"@en .
+
+# Free Access Policy for Research
+drk:NoFeePolicy a odrl:Policy ;
+    odrl:uid "NoFeePolicy" ;
+    rdfs:label "Free Access Policy for Research"@en ;
+    dct:description "Policy governing free access for academic research"@en ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:assigner drk:DE_Staatstheater_Augsburg ;
+        odrl:assignee drk:University_of_Augsburg  ;
+        odrl:action odrl:use ;
+        odrl:target drk:Historical_ShowTimes_Archives ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:payAmount ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand "0.00"^^xsd:decimal ;
+            rdfs:comment "Free access - no payment required"@en
+        ] ,
+        [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:purpose ;
+            odrl:operator odrl:isA ;
+            odrl:rightOperand drk:ScientificUse ;
+            rdfs:comment "Limited to scientific research purposes"@en
+        ]
+    ] .
+
+
+
+###############################################
+# Scenario 3: Open Cultural Data Access
+###############################################
+# Scenario Description:
+# - Perpetual open access to cultural data
+# - No geographic restrictions
+# - No time limitations
+# - Free for any purpose
+# - Attribution requirement
+# - Commercial use allowed
+# - Modification allowed
+
+# OpenAccess Policy Definition
+drk:OpenAccessPolicy a odrl:Policy ;
+    odrl:uid "OpenAccessPolicy" ;
+    rdfs:label "Perpetual Open Access Policy"@en ;
+    dct:description "Policy governing unrestricted access to open cultural data"@en ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:action odrl:use, 
+                    odrl:distribute,
+                    odrl:modify,
+                    odrl:commercialize ;
+        odrl:duty [
+            a odrl:Duty ;
+            odrl:action odrl:attribute ;
+            rdfs:comment "Attribution required when using the data"@en
+        ] ;
+        # Note: No constraints on:
+        # - Time (perpetual access)
+        # - Geography (worldwide)
+        # - Payment (always free)
+        # - Purpose (any purpose allowed)
+    ] .
+
+###############################################
+# Scenario 4: Time-Limited Access Policy
+###############################################
+# Scenario Description:
+# - Access limited to specific time period only
+# - No geographic restrictions
+# - No user type restrictions
+# - Time window from 2024-03-01 to 2025-03-01
+# - Access expires automatically after end date
+
+# TimeWindow Policy Definition
+drk:TimeWindowPolicy a odrl:Policy ;
+    odrl:uid "TimeWindowPolicy" ;
+    rdfs:label "Time-Limited Access Policy"@en ;
+    dct:description "Policy governing access within a specific time window"@en ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:action odrl:use ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:dateTime ;
+            odrl:operator odrl:gteq ;
+            odrl:rightOperand "2024-03-01T00:00:00"^^xsd:dateTime ;
+            rdfs:comment "Access starts from March 1, 2024"@en
+        ] ,
+        [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:dateTime ;
+            odrl:operator odrl:lteq ;
+            odrl:rightOperand "2025-03-01T23:59:59"^^xsd:dateTime ;
+            rdfs:comment "Access ends on March 1, 2025"@en
+        ]
+    ] ;
+    odrl:prohibition [
+        a odrl:Prohibition ;
+        odrl:action odrl:use ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:dateTime ;
+            odrl:operator odrl:gt ;
+            odrl:rightOperand "2025-03-01T23:59:59"^^xsd:dateTime ;
+            rdfs:comment "No access after expiration date"@en
+        ]
+    ] .
+
+# Time-Limited Dataset Template
+drk:TimeLimitedDataset a drk:Dataset, odrl:Asset ;
+    odrl:uid "TimeLimitedDataset" ;
+    dct:title "Time-Limited Access Dataset"@en ;
+    dct:description "Dataset with access restricted to specific time period"@en ;
+    dct:temporal "2024-03-01/2025-03-01"^^xsd:string ;
+    dct:accessRights "restricted"^^xsd:string ;
+    odrl:hasPolicy drk:TimeWindowPolicy .
