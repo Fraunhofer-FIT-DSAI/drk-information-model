@@ -1,3 +1,74 @@
+## Policy Templates
+
+### 1. Temporal and Spatial Access Policy
+- Purpose: Controls access based on geographic location and time constraints
+- File: `policies/tempo-spatial-access-policy.ttl`
+- Use case: Region-restricted and time-limited access to cultural APIs
+
+### 2. No Fee Research Policy
+- Purpose: Manages free access for research and educational purposes
+- File: `policies/no-fee-policy.ttl`
+- Use case: Academic and research access to cultural archives
+
+### 3. Open Access Policy
+- Purpose: Defines perpetual open access with attribution requirements
+- File: `policies/open-access-policy.ttl`
+- Use case: Openly accessible cultural datasets
+
+### 4. Time Window Policy
+- Purpose: Enforces time-based access controls
+- File: `policies/time-window-policy.ttl`
+- Use case: Temporary access to cultural resources
+
+### 5. Connector Reference Policy
+- Purpose: Controls access based on connector ID validation
+- File: `policies/connector-reference-policy.ttl`
+- Use case: System-level access control for interconnected services
+
+## Implementation Examples
+
+### 1. Augsburg Theater Example
+- Implements: Temporal and Spatial Access Policy
+- Description: ShowTimes API access for regional stakeholders
+
+### 2. Educational Archive Example
+- Implements: No Fee Research Policy
+- Description: University access to historical theater archives
+
+### 3. Open Data Example
+- Implements: Open Access Policy
+- File: `examples/open-data-example.ttl`
+- Description: Publicly accessible cultural dataset
+
+### 4. Time-Limited Dataset Example
+- Implements: Time Window Policy
+- File: `examples/time-limited-dataset-example.ttl`
+- Description: Dataset with fixed access period
+
+### 5. Connector Protected Resource
+- Implements: Connector Reference Policy
+- File: `examples/connector-protected-resource.ttl`
+- Description: System-level access control implementation
+
+## Usage
+1. Select appropriate policy template from `/policies`
+2. Create implementation based on example patterns in `/examples`
+3. Link implementation to template using `rdfs:isDefinedBy`
+4. Customize constraints and parameters as needed
+
+## Prefixes Used
+```turtle
+@prefix drk: <https://w3id.org/drk/ontology/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+
+
+
+
 # Creative Commons Licenses, ODRL Translation, and Dataspaces
 
 ## 📜 Creative Commons Licenses
