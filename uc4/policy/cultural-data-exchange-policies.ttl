@@ -232,3 +232,58 @@ drk:TimeLimitedDataset a drk:Dataset, odrl:Asset ;
     dct:temporal "2024-03-01/2025-03-01"^^xsd:string ;
     dct:accessRights "restricted"^^xsd:string ;
     odrl:hasPolicy drk:TimeWindowPolicy .
+
+###############################################
+#Cultural Data Exchange Policies
+###############################################
+
+###############################################
+# Scenario 5: Connector Reference Access Policy
+###############################################
+# Scenario Description:
+# - Access based on connector ID validation
+# - Must match intended connector identifier
+# - Simple reference check mechanism
+# - Binary allow/deny based on match
+
+# Connector Reference Policy
+drk:ConnectorReferencePolicy a odrl:Policy ;
+    odrl:uid "ConnectorReferencePolicy" ;
+    rdfs:label "Connector Reference Access Policy"@en ;
+    dct:description "Policy governing access based on connector ID reference"@en ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:action odrl:use ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand drk:connectorId ;  # Custom leftOperand for connector ID
+            odrl:operator odrl:eq ;
+            odrl:rightOperand "{connector-id}"^^xsd:string ;  # Placeholder for actual connector ID
+            rdfs:comment "Access allowed only for matching connector ID"@en
+        ]
+    ] ;
+    odrl:prohibition [
+        a odrl:Prohibition ;
+        odrl:action odrl:use ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand drk:connectorId ;
+            odrl:operator odrl:neq ;
+            odrl:rightOperand "{connector-id}"^^xsd:string ;
+            rdfs:comment "Access denied for non-matching connector ID"@en
+        ]
+    ] .
+
+# Connector ID Definition
+drk:connectorId a odrl:LeftOperand ;
+    rdfs:label "Connector Identifier"@en ;
+    rdfs:comment "Identifies a specific connector for access control"@en .
+
+# Protected Resource Template
+drk:ConnectorProtectedResource a drk:Resource, odrl:Asset ;
+    odrl:uid "ConnectorProtectedResource" ;
+    dct:title "Connector Protected Resource"@en ;
+    dct:description "Resource accessible only through specific connector ID"@en ;
+    dct:accessRights "restricted"^^xsd:string ;
+    drk:intendedConnectorId "{connector-id}" ;  # Placeholder for actual connector ID
+    odrl:hasPolicy drk:ConnectorReferencePolicy .
