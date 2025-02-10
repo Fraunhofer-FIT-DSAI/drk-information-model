@@ -16,19 +16,21 @@
 @prefix foaf:         <http://xmlns.com/foaf/0.1/> .
 @prefix mo:           <http://purl.org/ontology/mo/> .
 @prefix dbpedia:      <http://dbpedia.org/ontology/> .
-@prefix vcard:        <http://www.w3.org/2006/vcard/ns#> .
 @prefix event:        <http://purl.org/NET/c4dm/event.owl#> .
 @prefix dbo:          <http://dbpedia.org/ontology/> .
 @prefix nfo:          <http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#> .
 @prefix time:         <http://www.w3.org/2006/time#> .
 @prefix ncal:         <http://www.semanticdesktop.org/ontologies/2007/04/02/ncal#> .
 @prefix prov:         <http://www.w3.org/ns/prov#> .
-@prefix geosparql:          <http://www.opengis.net/ont/geosparql#> .
-@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geosparql:    <http://www.opengis.net/ont/geosparql#> .
+@prefix geo:          <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix vcard:        <http://www.w3.org/2006/vcard/ns#> .
+
+
 
 # Ontology Definition
 drk:
-    a                             owl:Ontology, voaf:Vocabulary ;
+    a                             owl:Ontology ;
     rdfs:label                    "DRK Musikschul-Manager Ontology"@en, "DRK Musikschul-Manager Ontologie"@de ;
     rdfs:comment                  "The DRK ontology for Hamburger Konservatorium's Musikschul-Manager, providing semantic concepts and properties for music school management, including student-teacher relationships, lesson scheduling, and administrative processes."@en ;
     dcterms:title                 "DRK Musikschul-Manager Ontology"@en, "DRK Musikschul-Manager Ontologie"@de ;
@@ -64,24 +66,19 @@ drk:
     vann:example                  <https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/examples> ;
     dcterms:description           """
         The DRK Musikschul-Manager ontology provides a comprehensive vocabulary for describing music school operations and management.
-        It includes concepts for:
-        - School and institution management (14 domain classes)
-        - User roles and authentication (12 enumeration classes)
-        - Music lesson scheduling and management
-        - Teacher-student matching and interactions
-        - File and integration management
         The ontology is designed specifically for the Hamburger Konservatorium's requirements while maintaining interoperability within the DRK framework.
     """@en ; 
     dcterms:language              lang:en, lang:de ;
     dcterms:subject               "Music Education"@en, "School Management"@en, "Cultural Education"@en, "Music School Administration"@en ;
     dcterms:audience              "Music Schools"@en, "Music Teachers"@en, "Music Students"@en, "School Administrators"@en .
 
+
 # Core Classes
-:School
-    a rdfs:Class, owl:Class ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "Music School"@en ;
-    skos:definition "An educational School specialized in music education, offering instruction in various instruments and musical genres through qualified teachers."@en ;
+:MusicEducationSchool
+   a rdfs:Class, owl:Class, skos:Concept ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "Music School"@en ;
+   skos:definition "An educational School specialized in music education."@en ;
     rdfs:subClassOf [
         a owl:Class ;
         owl:unionOf (
@@ -91,16 +88,15 @@ drk:
             vcard:Organization
         )
     ] ;
-    rdfs:seeAlso <http://dbpedia.org/resource/Music_school> ;
-    rdfs:seeAlso schema:EducationalOrganization ;
-    skos:note "Extended with music-specific attributes and relationships while maintaining compatibility with standard organization vocabularies."@en .
+   rdfs:seeAlso <http://dbpedia.org/resource/Music_school> ;
+    rdfs:seeAlso schema:EducationalOrganization .
 
-:User
-    a rdfs:Class, owl:Class, skos:Concept ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "User"@en ;
-    skos:definition "A person who interacts with the music school system, including students, teachers, and administrators."@en ;
-    rdfs:subClassOf [
+:MusicSchoolMember
+   a rdfs:Class, owl:Class, skos:Concept ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "Music School Member"@en ;
+   skos:definition "A person who interacts with the music school system, including students, teachers, and administrators."@en ;
+   rdfs:subClassOf [
         a owl:Class ;
         owl:unionOf (
             schema:Person
@@ -108,928 +104,1167 @@ drk:
             vcard:Individual
         )
     ] ;
-    rdfs:seeAlso <https://schema.org/Person> ;
-    skos:note "The User class encompasses all individuals who engage with the music school system, whether as learners, educators, or system managers. It bridges standard vocabularies such as FOAF, Schema.org, and vCard for semantic interoperability."@en .
+    rdfs:seeAlso schema:Person .
 
-:Teacher
-    a rdfs:Class, owl:Class ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "Teacher"@en ;
-    skos:definition "A professional individual responsible for instructing students at the music school in various musical disciplines, including instruments, composition, and more."@en ;
-    rdfs:subClassOf :User ;
-    skos:note "The Teacher class represents educators with specific expertise in music, serving as the primary source of knowledge and training for students. This class allows further specification of their qualifications and teaching roles."@en .
+:MusicInstructor
+    a rdfs:Class, owl:Class, skos:Concept ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:label "Music Instructor"@en ;
+    skos:definition "Professional music educator."@en ;
+    rdfs:subClassOf :MusicSchoolMember .
 
-:Student
-    a rdfs:Class, owl:Class ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "Student"@en ;
-    skos:definition "An individual enrolled in the music school to learn and develop skills in musical disciplines such as instrumental performance, singing, and composition."@en ;
-    rdfs:subClassOf :User ;
-    skos:note "The Student class identifies learners at the music school, enabling the definition of their enrollment status, courses, and progress."@en .
+:MusicLearner
+    a rdfs:Class, owl:Class, skos:Concept ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:label "Music Learner"@en ;
+    skos:definition "Student enrolled for music education."@en ;
+    rdfs:subClassOf :MusicSchoolMember .
 
-:Lesson
-    a rdfs:Class, owl:Class ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "Lesson"@en ;
+:MusicInstruction
+    a rdfs:Class, owl:Class, skos:Concept ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:label "Music Instruction"@en ;
     skos:definition "An instructional session conducted by a teacher for one or more students, focusing on a specific musical subject or skill."@en ;
     rdfs:subClassOf [
-        a owl:Class ;
-        owl:unionOf (
-            schema:Event
-            event:Event
-        )
-    ] ;
-    rdfs:seeAlso <https://schema.org/Event> ;
-    rdfs:seeAlso <https://motools.sourceforge.net/event/event.html#term_Event> ;
-    skos:note "This class represents scheduled sessions between teachers and students, with attributes for time, location, and subject."@en .
+          a owl:Class ;
+          owl:unionOf (
+                schema:Event
+                event:Event
+                mo:Performance
+            )
+      ] ;
+    rdfs:seeAlso mo:Performance .
+# could be a property 
+:TeacherStudentPairing
+    a rdfs:Class, owl:Class, skos:Concept ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:label "Teacher Student Pairing"@en ;
+    skos:definition "Match between instructor and learner."@en ;
+    rdfs:subClassOf prov:Association .
 
-:Match
-    a rdfs:Class, owl:Class ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "Match"@en ;
-    skos:definition "A conceptual entity representing a match between a teacher and a student based on their preferences, availability, and expertise."@en ;
-    skos:note "This class models the process of pairing teachers with students, considering mutual compatibility."@en .
-
-:Genre
-    a rdfs:Class, owl:Class ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "Genre"@en ;
-    skos:definition "An expressive style of music associated with lessons, teachers, students, or schools. Any taxonomy can be used to define or refer to genres, including user-defined genres or external references like DBpedia."@en ;
-    rdfs:seeAlso mo:Genre ;
-    rdfs:seeAlso <http://musicontology.com/specification/#term-Genre> ;
-    skos:note "The Genre class supports flexible categorization and linking to external resources, enabling detailed and structured information about musical styles."@en ;
+:MusicGenreCategory
+    a rdfs:Class, owl:Class, skos:Concept ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:label "Music Genre Category"@en ;
+    skos:definition "Style of music."@en ;
     owl:equivalentClass mo:Genre .
 
-:Instrument
-    a rdfs:Class, owl:Class ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "Instrument"@en ;
-    skos:note "The Instrument class represents musical devices used to produce sound. Instruments can be associated with various taxonomies, including external references like Musicbrainz. It can also be linked to lessons, teachers, students, or schools as part of music education, supporting flexible categorization and application in the context of musical learning and performance."@en ;
+:MusicalInstrumentType
+    a rdfs:Class, owl:Class, skos:Concept ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:label "Musical Instrument Type"@en ;
+    skos:definition "Device for producing musical sound."@en ;
     owl:equivalentClass dbo:MusicalInstrument ;
-    owl:equivalentClass mo:Instrument ;
-    rdfs:seeAlso <http://musicontology.com/specification/#term-Instrument> ;
-    rdfs:seeAlso <https://dbpedia.org/page/Musical_instrument> ;
-    rdfs:comment "Represents musical instruments that are not only used for producing sound but are also associated with educational contexts such as lessons, teachers, students, or schools. These instruments are essential components in musical education, performance, and learning environments."@en ;
-    skos:definition "An instrument used in music that produces sound and is associated with musical education, including lessons, teachers, students, or schools. This class can be linked to various musical taxonomies and external references to support diverse applications in music learning environments."@en .
+    owl:equivalentClass mo:Instrument .
 
 # Secondary Classes
-# Define the File class with additional rdfs:comment and skos:definition
-:File
+:MusicSchoolDocument
     a rdfs:Class, owl:Class, skos:Concept ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "File"@en ;
-    rdfs:comment "Represents a digital asset or file in the music school system, such as profile pictures, documents, or educational materials."@en ;
-    skos:definition "A digital asset or file in the music school system, such as profile pictures, documents, or educational materials."@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:label "Music School Document"@en ;
+    skos:definition "Digital asset in music school system."@en ;
     rdfs:subClassOf [
         a owl:Class ;
         owl:unionOf (
             schema:MediaObject
             dcat:Distribution
-            nfo:FileDataObject
+            nfo:MusicSchoolDocumentDataObject
         )
-    ] ;
-    rdfs:seeAlso <https://schema.org/MediaObject> ;
-    rdfs:seeAlso <https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution> ;
-    rdfs:seeAlso <https://oscaf.sourceforge.net/nfo.html#nfo:FileDataObject> ;
-    skos:note "The File class is used to represent various types of digital files that may be associated with a music school system, including media, documents, and resources for educational purposes."@en .
+    ] .
 
-:Schedule
+:InstructionSchedule
     a rdfs:Class, owl:Class, skos:Concept ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "Schedule"@en ;
-    rdfs:comment "Represents a recurring or one-time availability slot for music lessons, classes, or other educational activities within the music school system."@en ;
-    skos:definition "A recurring or one-time availability slot for music lessons or other educational activities. This class captures the time-based structure for lessons, appointments, or events related to music education."@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:label "Instruction Schedule"@en ;
+    skos:definition "Timing for music instruction."@en ;
     rdfs:subClassOf [
         a owl:Class ;
         owl:unionOf (
-            schema:Schedule
+            schema:InstructionSchedule 
             event:Event
             time:TemporalEntity
             ncal:Calendar
         )
-    ] ;
-    rdfs:seeAlso <https://schema.org/Schedule> ;
-    rdfs:seeAlso <https://motools.sourceforge.net/event/event.html#term_Event> ;
-    rdfs:seeAlso <https://www.w3.org/TR/owl-time/#time:TemporalEntity> ;
-    rdfs:seeAlso <https://oscaf.sourceforge.net/ncal.html#ncal:Calendar> ;
-    skos:note "The Schedule class is designed to manage and represent the timing and availability of music lessons and other related educational events in a structured way. It is compatible with existing time and event-related vocabularies."@en .
+    ] .
 
-:Integration
+:ExternalMusicService
     a rdfs:Class, owl:Class, skos:Concept ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "Integration"@en ;
-    skos:definition "A third-party service or API integration that extends the music school system's functionality."@en .
+    rdfs:isDefinedBy drk: ;
+    rdfs:label "External Music Service"@en ;
+    skos:definition "Third-party service integration."@en ;
+    rdfs:subClassOf schema:ServiceChannel .
 
-:UserConfirmation
+:MusicSchoolMemberConfirmation
     a rdfs:Class, owl:Class, skos:Concept ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "User Confirmation"@en ;
-    skos:definition "A verification event for user-related actions such as registration or account recovery."@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:label "Member Confirmation"@en ;
+    skos:definition "Member verification event."@en ;
     rdfs:subClassOf [
         a owl:Class ;
         owl:unionOf (
             schema:VerifyAction
             prov:Activity
         )
-    ] ;
-    rdfs:seeAlso <https://www.w3.org/TR/prov-o/#Activity> ;
-    rdfs:seeAlso <https://solid.github.io/web-access-control-spec/#authorization-rule> ;
-    skos:definition "A verification event triggered by user actions like registration, password recovery, or similar processes, confirming the authenticity of the user and their actions."@en .
+    ] .
 
-:TeacherIntegration
+:MusicInstructorIntegration
     a rdfs:Class, owl:Class, skos:Concept ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "Teacher Integration"@en ;
-    rdfs:comment "Represents a connection or integration between a teacher and third-party services, platforms, or tools that enhance or extend their teaching capabilities, such as online classrooms, music teaching software, or educational resources."@en ;
-    skos:definition "A connection between a teacher and external services or platforms, enabling the teacher to leverage additional resources, tools, or technologies that complement their teaching process."@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:label "Instructor Integration"@en ;
+    skos:definition "Instructor's service connection."@en ;
     rdfs:subClassOf [
         a owl:Class ;
         owl:unionOf (
             schema:ServiceChannel
             prov:Association
         )
-    ] ;
-    rdfs:seeAlso <https://schema.org/ServiceChannel> ;
-    rdfs:seeAlso <https://www.w3.org/TR/prov-o/#Association> .
+    ] .
 
 # Core User Relations object property;
-# hasUser Property Definition
 drk:hasUser
     a owl:ObjectProperty ;
     rdfs:label "has user"@en ;
-    rdfs:isDefinedBy :drk ;
+    rdfs:isDefinedBy drk: ;
     rdfs:domain [
         a owl:Class ;
         owl:unionOf (
-            drk:Teacher 
-            drk:Student
+            drk:MusicInstructor 
+            drk:MusicLearner
         )
     ] ;
-    rdfs:range drk:User ;
+    rdfs:range drk:MusicSchoolMember ;
     owl:inverseOf drk:isUserOf ;
     rdfs:comment "Links a Teacher or Student to their associated User profile in the system."@en ;
     skos:definition "Core relationship that connects the specialized roles (Teacher/Student) to their fundamental User entity, ensuring each role has exactly one user profile."@en .
 
-# Inverse Property Definition
-:isUserOf
-    a owl:ObjectProperty ;
-    rdfs:label "is user of"@en ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:domain :User ;
-    rdfs:range [
-        a owl:Class ;
-        owl:unionOf (
-            :Teacher 
-            :Student
-        )
-    ] ;
-    skos:definition "Inverse relationship indicating which Teacher or Student role a User represents."@en .
-# managesSchool Property Definition 
-# TODO 
+# School-Member Relations
+:hasSchoolAssociation
+   a owl:ObjectProperty ;
+   rdfs:domain :MusicEducationSchool ;
+   rdfs:range [
+       owl:unionOf (
+           :MusicInstructor
+           :MusicLearner
+           :MusicSchoolDocument
+       )
+   ] ;
+   skos:definition "Links a school to its associated members and documents."@en .
 
-# belongsToSchool Property Definition
-:belongsToSchool
-    a owl:ObjectProperty ;
-    rdfs:label "belongs to school"@en ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:domain drk:Teacher ;
-    rdfs:range drk:School ;
-    # owl:inverseOf drk:hasTeacher ;
-    rdfs:comment "Links a Teacher to their associated School."@en ;
-    skos:definition "Represents the employment relationship between a Teacher and their School, derived from the school_id in the teachers table."@en .
+# Instruction Relations
+:hasInstructionParticipant
+   a owl:ObjectProperty ;
+   rdfs:domain :MusicInstruction ;
+   rdfs:range [
+       owl:unionOf (
+           :MusicInstructor
+           :MusicLearner
+       )
+   ] ;
+   skos:definition "Connects an instruction session to its participants."@en .
 
-# attendsSchool Property Definition
-:attendsSchool
-    a owl:ObjectProperty ;
-    rdfs:label "attends school"@en ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:domain :Student ;
-    rdfs:range :School ;
-    # owl:inverseOf drk:hasStudent ;
-    rdfs:comment "Links a Student to their School (optional relationship)."@en ;
-    skos:definition "Represents the enrollment relationship between a Student and a School. Unlike teachers, students may not be associated with a school initially."@en .
-
-# Teaching Relations
-# teachesLesson Property Definition
-:teachesLesson
-    a owl:ObjectProperty ;
-    rdfs:label "teaches lesson"@en ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:domain drk:Teacher ;
-    rdfs:range drk:Lesson ;
-    # owl:inverseOf drk:isTaughtBy ;
-    rdfs:comment "Links a Teacher to the Lessons they teach."@en ;
-    skos:definition "Represents the teaching relationship between a Teacher and their Lessons, derived from the teacher_id in the lessons table."@en .
-
-# attendsLesson Property Definition
-:attendsLesson
-    a owl:ObjectProperty ;
-    rdfs:label "attends lesson"@en ;
-    rdfs:domain drk:Student ;
-    rdfs:range drk:Lesson ;
-    # owl:inverseOf drk:isAttendedBy ;
-    rdfs:comment "Links a Student to Lessons they attend."@en ;
-    skos:definition "Represents the attendance relationship between a Student and their Lessons, derived from the student_id in the lessons table."@en .
-
-# hasSchedule Property Definition
-:hasSchedule
-    a owl:ObjectProperty ;
-    rdfs:label "has schedule"@en ;
-    rdfs:domain drk:User ;
-    rdfs:range drk:Schedule ;
-    # owl:inverseOf drk:isScheduleOf ;
-    rdfs:comment "Links a User to their Schedule entries for availability."@en ;
-    skos:definition "Represents the relationship between a User and their scheduled time slots, including regular and override schedules."@en .
-
-# Matching System
-# teacherMatch Property Definition
-:teacherMatch
-    a owl:ObjectProperty ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "teacher match"@en ;
-    rdfs:domain :Teacher ;
-    rdfs:range :Match ;
-    # owl:inverseOf drk:isMatchOfTeacher ;
-    rdfs:comment "Links a Teacher to their potential or confirmed student matches."@en ;
-    skos:definition "Represents the matching relationship between a Teacher and potential students, including match status and preferences."@en .
-
-# studentMatch Property Definition
-:studentMatch
-    a owl:ObjectProperty ;
-    rdfs:label "student match"@en ;
-     rdfs:isDefinedBy :drk ;
-    rdfs:domain :Student ;
-    rdfs:range :Match ;
-    # owl:inverseOf drk:isMatchOfStudent ;
-    rdfs:comment "Links a Student to their potential or confirmed teacher matches."@en ;
-    skos:definition "Represents the matching relationship between a Student and potential teachers, including preferences, instruments, and genres."@en .
-
-# Resource Relations
-# TODO
+:hasInstructionSchedule
+   a owl:ObjectProperty ;
+   rdfs:domain :MusicInstruction ;
+   rdfs:range :InstructionSchedule ;
+   skos:definition "Links instruction to its scheduled time slot."@en .
 
 # Integration Relations
-:hasIntegration
+:hasServiceIntegration
+   a owl:ObjectProperty ;
+   rdfs:domain [
+       owl:unionOf (
+           :MusicEducationSchool
+           :MusicInstructor
+       )
+   ] ;
+   rdfs:range :ExternalMusicService ;
+   skos:definition "Connects schools/instructors to external services."@en .
+
+# Member Confirmation Relations
+:hasMemberConfirmation
+   a owl:ObjectProperty ;
+   rdfs:domain :MusicSchoolMember ;
+   rdfs:range :MusicSchoolMemberConfirmationType ; #Enum
+   skos:definition "Links members to their verification events."@en .
+
+# Document Relations
+:hasAssociatedDocument
+   a owl:ObjectProperty ;
+   rdfs:domain [
+       owl:unionOf (
+           :MusicEducationSchool
+           :MusicSchoolMember
+       )
+   ] ;
+   rdfs:range :MusicSchoolDocument ;
+   skos:definition "Connects entities to their related documents."@en .
+
+# Musical Relations
+:hasMusicalProfile
+   a owl:ObjectProperty ;
+   rdfs:domain [
+       owl:unionOf (
+           :MusicInstructor
+           :MusicLearner
+           :MusicEducationSchool
+       )
+   ] ;
+   rdfs:range [
+       owl:unionOf (
+           :MusicalInstrumentType
+           :MusicGenreCategory
+       )
+   ] ;
+   skos:definition "Links entities to their musical preferences and capabilities."@en .
+
+# Schedule-Related
+:hasAvailabilitySchedule
     a owl:ObjectProperty ;
     rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (
-            :Teacher 
-            :School
-        )
+        owl:unionOf (:MusicInstructor :MusicLearner)
     ] ;
+    rdfs:range :InstructionSchedule ;
+    skos:definition "Links members to their availability schedules."@en .
+
+# Matching-Related
+:hasTeacherStudentMatch
+    a owl:ObjectProperty ;
+    rdfs:domain :TeacherStudentPairing ;
+    rdfs:range [
+        owl:unionOf (:MusicInstructor :MusicLearner)
+    ] ;
+    skos:definition "Connects matching between teachers and students."@en .
+
+# Student Experience Level Property
+:hasStudentExperienceLevel
+    a owl:ObjectProperty ;
+    rdfs:domain :MusicInstructor ;
     rdfs:range [
         a owl:Class ;
-        owl:unionOf (
-            :Integration 
-            :TeacherIntegration
+        owl:oneOf (
+            :BeginnerLevel
+            :IntermediateLevel
+            :AdvancedLevel
         )
     ] ;
-    rdfs:comment "Links teachers and schools to their respective integration systems."@en ;
-    rdfs:label "has integration"@en .
-
-# Core Identification Properties
-# Name Property Definition
-:name
-    a owl:DatatypeProperty ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "name"@en ;
-    rdfs:comment "Represents various name attributes across different entities in the music school system"@en ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (:School :Integration :Instrument :Genre)
-    ] ;
-    rdfs:range xsd:string ;
-    owl:equivalentProperty [
-        owl:unionOf (
-            schema:name
-            foaf:name
-            vcard:fn
-        )
-    ] .
-
-:description
-    a owl:DatatypeProperty ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "description"@en ;
-    rdfs:comment "Detailed textual description of an entity in the music school system"@en ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (:School :Teacher :Integration :Lesson)
-    ] ;
-    rdfs:range xsd:string ;
-    owl:equivalentProperty [
-        owl:unionOf (
-            schema:description
-            dcterms:description
-            vcard:note
-        )
-    ] .
-
-# Contact Properties
-# Email Property Definition
-:email
-    a owl:DatatypeProperty ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "email"@en ;
-    rdfs:comment "Primary email address used for identification and communication"@en ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (
-            :User             # users.email (varchar, not null)
-            :UserConfirmation # user_confirmations.email (varchar, not null)
-        )
-    ] ;
-    rdfs:range xsd:string ;
-    owl:equivalentProperty [
-        owl:unionOf (
-            schema:email
-            foaf:mbox
-            vcard:hasEmail
-        )
-    ] .
-
-:phoneNumber
-    a owl:DatatypeProperty ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "phone number"@en ;
-    rdfs:comment "Contact phone number for schools and users"@en ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (
-            :School    # schools.phone_number (varchar)
-            :User      # users.phone_number (varchar)
-        )
-    ] ;
-    rdfs:range xsd:string ;
-    owl:equivalentProperty [
-        owl:unionOf (
-            schema:telephone
-            vcard:hasTelephone
-            foaf:phone
-        )
-    ] .
-
-# Main Website Property
-:website
-    a owl:DatatypeProperty ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "website"@en ;
-    rdfs:comment "Official website URL of a music school"@en ;
-    rdfs:domain :School ;    # schools.website (varchar)
-    rdfs:range xsd:anyURI ;
-    owl:equivalentProperty [
-        owl:unionOf ( schema:url schema:website foaf:homepage vcard:hasURL )
-    ] .
-
-# Location Properties
-# City Property
-:city
-    a owl:DatatypeProperty ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "city"@en ;
-    rdfs:comment "City name of the location"@en ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (
-            :School    # schools.city (varchar)
-            :User      # users.city (varchar)
-        )
-    ] ;
-    rdfs:range xsd:string ;
-    owl:equivalentProperty [
-        owl:unionOf (
-            schema:addressLocality
-            vcard:locality
-#            gn:name
-        )
-    ] .
-
-# Postal Code Property
-:postalCode
-    a owl:DatatypeProperty ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "postal code"@en ;
-    rdfs:comment "Postal code of the location"@en ;
-    rdfs:domain [
-        a owl:Class ;
-          owl:unionOf ( :School :User )
-    ] ;
-    rdfs:range xsd:string ;
-    owl:equivalentProperty [
-        owl:unionOf (
-            schema:postalCode
-            vcard:postal-code
-        )
-    ] .
-
-# Lesson Location Property
-:location
-    a owl:DatatypeProperty ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "location"@en ;
-    rdfs:comment "Specific location where a lesson takes place"@en ;
-    rdfs:domain :Lesson ;    # lessons.location (varchar)
-    rdfs:range xsd:string ;
-    owl:equivalentProperty [
-          owl:unionOf (
-                          schema:location
-                          vcard:hasAddress
-                          geo:location
-                          geosparql:asWKT
-                      )
-      ] .
-# Temporal Properties
-:created
-    a owl:DatatypeProperty ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "created"@en ;
-    rdfs:comment "Timestamp when an entity was created"@en ;
-    rdfs:domain [
-        a owl:Class ;
-              owl:unionOf ( :School :User :UserConfirmation :Teacher :Student :Schedule :Lesson :Match :File :Integration :TeacherIntegration )
-    ] ;
-    rdfs:range xsd:dateTime ;
-    owl:equivalentProperty [
-        owl:unionOf (
-            schema:dateCreated
-            dcterms:created
-            prov:generatedAtTime
-        )
-    ] .
-
-:modified
-    a owl:DatatypeProperty ;
-    rdfs:isDefinedBy :drk ;
-    rdfs:label "modified"@en ;
-    rdfs:comment "Timestamp when an entity was last modified"@en ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (:School:User:UserConfirmation:Teacher:Student:Lesson:Integration:TeacherIntegration)
-    ] ;
-    rdfs:range xsd:dateTime ;
-    owl:equivalentProperty [
-        owl:unionOf (
-            schema:dateModified
-            dcterms:modified
-            prov:modifiedAtTime
-        )
-    ] .
-
-:deleted
-    a owl:DatatypeProperty ;
-    rdfs:label "deleted"@en ;
-    rdfs:comment "Timestamp when a school was marked as deleted"@en ;
-    rdfs:domain :School ;
-    rdfs:range xsd:dateTime ;
-    owl:equivalentProperty schema:dateDeleted .
-
-# Personal Temporal Properties
-:birthday
-    a owl:DatatypeProperty ;
-    rdfs:label "birthday"@en ;
-    rdfs:comment "User's date of birth"@en ;
-    rdfs:domain :User ;
-    rdfs:range xsd:date ;
-    owl:equivalentProperty [
-         owl:unionOf ( schema:birthDate dcterms:date )
-    ] .
-
-# Schedule-related Properties
-:startTime
-    a owl:DatatypeProperty ;
-    rdfs:label "start time"@en ;
-    rdfs:comment "Starting time of a scheduled event"@en ;
-    rdfs:domain [
-        a owl:Class ;
-          owl:unionOf ( :Schedule :Lesson )
-    ] ;
-    rdfs:range xsd:dateTime ;
-    owl:equivalentProperty [
-        owl:unionOf (
-            schema:startTime
-            time:hasBeginning
-            prov:startedAtTime
-        )
-    ] .
-
-:endTime
-    a owl:DatatypeProperty ;
-    rdfs:label "end time"@en ;
-    rdfs:comment "Ending time of a scheduled event"@en ;
-    rdfs:domain [
-        a owl:Class ;
-          owl:unionOf ( :Schedule :Lesson )
-    ] ;
-    rdfs:range xsd:dateTime ;
-    owl:equivalentProperty [
-        owl:unionOf (
-            schema:endTime
-            time:hasEnd
-            prov:endedAtTime
-        )
-    ] .
-# Language Properties
-# Primary Language Property
-# TODO language ENUM
-:language
+    skos:definition "Experience levels of students that the instructor is willing to teach."@en .
+    
+:hasStudentExperienceLevel
     a owl:ObjectProperty ;
-    rdfs:label "primary language"@en ;
-    rdfs:comment "Primary language of communication"@en ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (:School:User)
-    ] ;
-    rdfs:range :Language ;
-    owl:equivalentProperty [
-        owl:unionOf (
-            schema:inLanguage
-        )
-    ] .
+    rdfs:domain :MusicInstructor ;
+    rdfs:range :MusicExperienceLevel ;
+    skos:definition "Experience levels of students that the instructor is willing to teach."@en .
 
-# Spoken Languages Property
-:spokenLanguages
+
+:hasPreferredLocation
     a owl:ObjectProperty ;
-    rdfs:label "spoken languages"@en ;
-    rdfs:comment "Languages that a user can communicate in"@en ;
-    rdfs:domain :User ;    # users.spoken_languages (varchar[])
-    rdfs:range :Language ;
-    owl:equivalentProperty schema:knowsLanguage .
-
-# Numerical Properties
-# Teachers Amount Property
-:teachersAmount 
-    a owl:DatatypeProperty ;
-    rdfs:label "number of teachers"@en ;
-    rdfs:comment "Total number of teachers in a school"@en ;
-    rdfs:domain :School ;
-    rdfs:range xsd:nonNegativeInteger ;
-    owl:equivalentProperty schema:numberOfEmployees .
-
-# Students Amount Property
-:studentsAmount
-    a owl:DatatypeProperty ;
-    rdfs:label "number of students"@en ;
-    rdfs:comment "Total number of students for a school or teacher"@en ;
     rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (:School:Teacher)
+        owl:unionOf (:MusicInstructor :MusicLearner :MusicInstruction)
     ] ;
-    rdfs:range xsd:nonNegativeInteger .
+    rdfs:range :MusicInstructionPlace ;
+    skos:definition "Specifies preferred teaching/learning locations."@en .
+# 
+# Notification Properties
+:hasNotificationPreference
+    a owl:ObjectProperty ;
+    rdfs:domain :MusicEducationSchool ;
+    rdfs:range :MusicSchoolMatchNotification ;
+    skos:definition "School's notification preferences for matches."@en .
 
-# Years Experience Property
-:yearsExperience
+# Payment/Price Properties  
+# Price Properties
+:hasMinPrice
     a owl:DatatypeProperty ;
-    rdfs:label "years of teaching experience"@en ;
-    rdfs:comment "Number of years of teaching experience"@en ;
-    rdfs:domain :Teacher ;
-    rdfs:range xsd:nonNegativeInteger ;
-    owl:equivalentProperty schema:OccupationalExperienceRequirements .
-
-# Notice Period Property
-:notice
-    a owl:DatatypeProperty ;
-    rdfs:label "notice period"@en ;
-    rdfs:comment "Required notice period in hours"@en ;
     rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (:Schedule :Lesson)
+        owl:unionOf (:MusicEducationSchool :MusicInstructor)
     ] ;
-    rdfs:range xsd:nonNegativeInteger ;
-    owl:equivalentProperty time:hours .
+    rdfs:range xsd:decimal ;
+    skos:definition "Minimum price for instruction services."@en .
 
-# Room ID Property
-:roomId
+:hasMaxPrice
     a owl:DatatypeProperty ;
-    rdfs:label "room identifier"@en ;
-    rdfs:comment "Unique identifier for a lesson room"@en ;
-    rdfs:domain :Lesson ;
-    rdfs:range xsd:positiveInteger ;
-    owl:equivalentProperty schema:numberOfRooms .
-
-# Boolean Properties
-# Verification Properties
-:confirmed
-    a owl:DatatypeProperty ;
-    rdfs:label "is confirmed"@en ;
-    rdfs:comment "Indicates if an entity has been confirmed"@en ;
     rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (
-            :School            # schools.confirmed (boolean)
-            :UserConfirmation  # user_confirmations.confirmed (boolean)
-        )
+        owl:unionOf (:MusicEducationSchool :MusicInstructor)
     ] ;
-    rdfs:range xsd:boolean .
+    rdfs:range xsd:decimal ;
+    skos:definition "Maximum price for instruction services."@en .
 
-:validated
-    a owl:DatatypeProperty ;
-    rdfs:label "is validated"@en ;
-    rdfs:comment "Indicates if an entity has been validated"@en ;
+:hasCurrency
+    a owl:ObjectProperty ;
     rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (
-            :School    # schools.validated (boolean)
-            :Teacher   # teachers.validated (boolean)
-        )
+        owl:unionOf (:MusicEducationSchool :MusicInstructor)
     ] ;
-    rdfs:range xsd:boolean .
-
-# Teacher Properties
-:workWithMinors
-    a owl:DatatypeProperty ;
-    rdfs:label "works with minors"@en ;
-    rdfs:comment "Indicates if a teacher is willing and authorized to work with minor students"@en ;
-    rdfs:domain :Teacher ;    # teachers.work_with_minors (boolean)
-    rdfs:range xsd:boolean .
-
-# Contact Preferences
-:allowEmailContact
-    a owl:DatatypeProperty ;
-    rdfs:label "allow email contact"@en ;
-    rdfs:comment "User's preference for email communications"@en ;
-    rdfs:domain :User ;    # users.allow_email_contact (boolean)
-    rdfs:range xsd:boolean ;
-    owl:equivalentProperty schema:contactOption .
-
-:allowPhoneContact
-    a owl:DatatypeProperty ;
-    rdfs:label "allow phone contact"@en ;
-    rdfs:comment "User's preference for phone communications"@en ;
-    rdfs:domain :User ;    # users.allow_phone_contact (boolean)
-    rdfs:range xsd:boolean ;
-    owl:equivalentProperty schema:contactOption .
-
-# Match Agreement Properties
-:acceptTeacher
-    a owl:DatatypeProperty ;
-    rdfs:label "teacher accepts match"@en ;
-    rdfs:comment "Indicates if the teacher has accepted the match"@en ;
-    rdfs:domain :Match ;    # matches.accept_teacher (boolean)
-    rdfs:range xsd:boolean .
-
-:acceptStudent
-    a owl:DatatypeProperty ;
-    rdfs:label "student accepts match"@en ;
-    rdfs:comment "Indicates if the student has accepted the match"@en ;
-    rdfs:domain :Match ;    # matches.accept_student (boolean)
-    rdfs:range xsd:boolean .
-
-:terminated
-    a owl:DatatypeProperty ;
-    rdfs:label "is terminated"@en ;
-    rdfs:comment "Indicates if the match has been terminated"@en ;
-    rdfs:domain :Match ;    # matches.terminated (boolean)
-    rdfs:range xsd:boolean .
-
-# Catalog Properties
-:top10
-    a owl:DatatypeProperty ;
-    rdfs:label "is top 10"@en ;
-    rdfs:comment "Indicates if the item is in the top 10 list"@en ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (
-            :Genre        # genres.top10 (boolean)
-            :Instrument   # instruments.top10 (boolean)
-        )
-    ] ;
-    rdfs:range xsd:boolean .
-
-:availableInMusiq
-    a owl:DatatypeProperty ;
-    rdfs:label "available in Musiq"@en ;
-    rdfs:comment "Indicates if the item is available in the Musiq platform"@en ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (
-            :Genre        # genres.availableInMusiq (boolean)
-            :Instrument   # instruments.availableInMusiq (boolean)
-        )
-    ] ;
-    rdfs:range xsd:boolean ;
-    owl:equivalentProperty schema:isAvailableGenerically .
+    rdfs:range schema:Currency ;
+    skos:definition "Currency used for pricing."@en .
 
 # Preference Properties
-# Gender Preference Property
-:genderPreference
+:hasTeachingPreference
     a owl:ObjectProperty ;
-    rdfs:label "gender preference"@en ;
-    rdfs:comment "Preferred gender for teaching/learning relationship"@en ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (
-            :Teacher    # teachers.gender_preference
-            :Student    # students.gender_preference
-        )
+    rdfs:domain :MusicInstructor ;
+    rdfs:range [
+        owl:unionOf ( :MusicSchoolMemberGenderPreference :MusicExperienceLevel)
     ] ;
-    rdfs:range :GenderPreference ; #TODO ENUMERATION GEBDER
-    owl:equivalentProperty schema:gender .
+    skos:definition "Instructor's teaching preferences."@en .
 
-# Age Preference Property
-:agePreference
-    a owl:ObjectProperty ;
-    rdfs:label "age preference"@en ;
-    rdfs:comment "Preferred age groups for teaching"@en ;
-    rdfs:domain :Teacher ;    # teachers.age_preference (varchar[])
-    rdfs:range :AgeRange ; #TODO ENUMERATION Age
-    owl:equivalentProperty schema:suggestedAge .
+# Name Properties
+:hasFirstName
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has first name"@en ;
+   rdfs:comment "First name of a member in the music school system"@en ;
+   rdfs:domain :MusicSchoolMember ;
+   rdfs:range xsd:string ;
+   owl:equivalentProperty [
+       owl:unionOf (
+           schema:givenName
+           foaf:firstName
+           vcard:given-name
+       )
+   ] .
 
-# Experience Level Properties
-:studentsExperienceLevel
-    a owl:ObjectProperty ;
-    rdfs:label "preferred student experience level"@en ;
-    rdfs:comment "Experience levels the teacher is willing to teach"@en ;
-    rdfs:domain :Teacher ;    # teachers.students_experience_level (varchar[])
-    rdfs:range :ExperienceLevel ;
-    owl:equivalentProperty schema:educationalLevel .
+:hasLastName
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has last name"@en ;
+   rdfs:comment "Last name of a member in the music school system"@en ;
+   rdfs:domain :MusicSchoolMember ;
+   rdfs:range xsd:string ;
+   owl:equivalentProperty [
+       owl:unionOf (
+           schema:familyName
+           foaf:lastName
+       )
+   ] .
+
+:hasDescription
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "hasDescription"@en ;
+   rdfs:comment "Detailed textual description of an entity in the music school system"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicEducationSchool    # School profiles and details
+           :MusicInstructor         # Teacher biographies
+           :MusicLearner           # Student profiles
+           :MusicInstruction       # Lesson details
+           :ExternalMusicService   # Service descriptions
+           :TeacherStudentPairing  # Match details
+           :MusicSchoolDocument    # Document descriptions
+           :MusicalInstrumentType  # Instrument descriptions
+           :MusicGenreCategory     # Genre descriptions
+           :InstructionSchedule    # Schedule notes
+       )
+   ] ;
+   rdfs:range xsd:string ;
+#    equivalentProperty !
+   owl:equivalentProperty [
+       owl:unionOf (
+           schema:description
+           dcterms:description
+           vcard:note
+           rdfs:comment
+       )
+   ] .
+
+:hasPhoneNumber
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has phone number"@en ;
+   rdfs:comment "Contact phone number for schools and users"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicEducationSchool    # School contact
+           :MusicSchoolMember      # Member contact
+           :MusicInstructor        # Teacher contact  
+           :MusicLearner          # Student contact
+       )
+   ] ;
+   rdfs:range xsd:string ;
+   owl:equivalentProperty [
+       owl:unionOf (
+           schema:telephone
+           vcard:hasTelephone
+           foaf:phone
+       )
+   ] .
+
+:hasEmail
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has email"@en ;
+   rdfs:comment "Primary email address used for identification and communication"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicSchoolMember             # User email
+           :MusicSchoolMemberConfirmation # Confirmation email
+           :MusicInstructor              # Teacher email
+           :MusicLearner                 # Student email
+           :MusicEducationSchool         # School contact email
+       )
+   ] ;
+   rdfs:range xsd:string ;
+   owl:equivalentProperty [
+       owl:unionOf (
+           schema:email
+           foaf:mbox
+           vcard:hasEmail
+       )
+   ] .
+
+:hasWebsite
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has website"@en ;
+   rdfs:comment "Official website URL"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicEducationSchool    # School website
+           :MusicInstructor         # Teacher portfolio/website
+           :ExternalMusicService    # Service website
+       )
+   ] ;
+   rdfs:range xsd:anyURI ;
+   owl:equivalentProperty [
+       owl:unionOf (
+           schema:url 
+           schema:website 
+           foaf:homepage 
+           vcard:hasURL
+       )
+   ] .
+
+# Location Properties
+:hasCity
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has city"@en ;
+   rdfs:comment "City location"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicEducationSchool    # School location
+           :MusicSchoolMember      # Member location
+           :MusicInstructor        # Teacher location
+           :MusicLearner          # Student location
+           :MusicInstruction      # Lesson location
+       )
+   ] ;
+   rdfs:range xsd:string ;
+   owl:equivalentProperty [
+       owl:unionOf (
+           schema:addressLocality
+           vcard:locality
+       )
+   ] .
+
+:hasPostalCode
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has postal code"@en ;
+   rdfs:comment "Postal code of location"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicEducationSchool
+           :MusicSchoolMember
+           :MusicInstructor
+           :MusicLearner
+       )
+   ] ;
+   rdfs:range xsd:string ;
+   owl:equivalentProperty [
+       owl:unionOf (
+           schema:postalCode
+           vcard:postal-code
+       )
+   ] .
+
+:hasLocation 
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has location"@en ;
+   rdfs:comment "Specific location details"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicInstruction     # Lesson location
+           :MusicEducationSchool # School address
+           :MusicInstructor      # Teaching location
+           :MusicLearner        # Learning location
+       )
+   ] ;
+   rdfs:range xsd:string ;
+   owl:equivalentProperty [
+       owl:unionOf (
+           schema:location
+           vcard:hasAddress 
+           geo:location
+       )
+   ] .
+
+:hasCreationTime
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has creation time"@en ;
+   rdfs:comment "Entity creation timestamp"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicEducationSchool    # School registration time
+           :MusicSchoolMember       # Member account creation
+           :MusicSchoolMemberConfirmation  # Confirmation initiation
+           :MusicInstructor         # Teacher profile creation
+           :MusicLearner           # Student profile creation
+           :InstructionSchedule    # Schedule slot creation
+           :MusicInstruction       # Lesson creation 
+           :TeacherStudentPairing  # Match creation
+           :MusicSchoolDocument    # Document upload time
+           :ExternalMusicService   # Service integration time
+           :MusicInstructorIntegration  # Teacher integration setup
+       )
+   ] ;
+   rdfs:range xsd:dateTime .
+
+:hasModificationTime
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has modification time"@en ;
+   rdfs:comment "Last modification timestamp"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicEducationSchool    # School profile updates
+           :MusicSchoolMember       # Member info changes
+           :MusicSchoolMemberConfirmation  # Confirmation status updates
+           :MusicInstructor         # Teacher profile updates
+           :MusicLearner           # Student profile changes
+           :MusicInstruction       # Lesson modifications
+           :ExternalMusicService   # Service config changes
+           :MusicInstructorIntegration  # Integration updates
+       )
+   ] ;
+   rdfs:range xsd:dateTime .
+
+:hasDeletionTime
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has deletion time"@en ;
+   rdfs:comment "Entity deletion timestamp"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicEducationSchool    # School account deletion
+           :MusicSchoolMember       # Member account removal
+           :MusicInstructor         # Teacher profile deletion
+           :MusicLearner           # Student profile removal
+           :MusicInstruction       # Lesson cancellation
+           :TeacherStudentPairing  # Match termination
+       )
+   ] ;
+   rdfs:range xsd:dateTime .
+
+# Personal Temporal Properties
+:hasBirthday
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has birthday"@en ;
+   rdfs:comment "Date of birth"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicSchoolMember     # Member birth date
+           :MusicInstructor       # Teacher birth date 
+           :MusicLearner         # Student birth date
+       )
+   ] ;
+   rdfs:range xsd:date ;
+   owl:equivalentProperty [
+        owl:unionOf ( schema:birthDate dcterms:date )
+   ] .
+
+# Schedule-related Properties  
+:hasStartTime
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has start time"@en ;
+   rdfs:comment "Event start time"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :InstructionSchedule   # Schedule slot start
+           :MusicInstruction      # Lesson start time
+           :TeacherStudentPairing # Match start date
+       )
+   ] ;
+   rdfs:range xsd:dateTime ;
+   owl:equivalentProperty [
+       owl:unionOf (
+           schema:startTime
+           time:hasBeginning
+           prov:startedAtTime
+       )
+   ] .
+
+:hasEndTime
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has end time"@en ;
+   rdfs:comment "Event end time"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :InstructionSchedule   # Schedule slot end
+           :MusicInstruction      # Lesson end time
+           :TeacherStudentPairing # Match end date
+       )
+   ] ;
+   rdfs:range xsd:dateTime ;
+   owl:equivalentProperty [
+       owl:unionOf (
+           schema:endTime 
+           time:hasEnd
+           prov:endedAtTime
+       )
+   ] .
+
+:hasPrimaryLanguage
+   a owl:ObjectProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has primary language"@en ;
+   rdfs:comment "Primary communication language"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicEducationSchool  # School's primary language
+           :MusicSchoolMember     # Member's main language
+           :MusicInstructor       # Teacher's teaching language
+           :MusicLearner         # Student's learning language
+           :MusicInstruction     # Lesson language
+       )
+   ] ;
+   rdfs:range :Language ;
+   owl:equivalentProperty schema:inLanguage .
+
+:hasSpokenLanguages
+   a owl:ObjectProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has spoken languages"@en ;
+   rdfs:comment "Languages for communication"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicSchoolMember    # Member's language abilities
+           :MusicInstructor      # Teacher's language skills
+           :MusicLearner        # Student's known languages
+       )
+   ] ;
+   rdfs:range :MusicSchoolLanguage ;
+   owl:equivalentProperty schema:knowsLanguage .
+# Numerical Properties
+:hasMusicInstructorsAmount 
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has number of instructors"@en ;
+   rdfs:comment "Total number of instructors"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicEducationSchool  # School's total teachers
+       )
+   ] ;
+   rdfs:range xsd:nonNegativeInteger ;
+   owl:equivalentProperty schema:numberOfEmployees .
+
+:hasMusicLearnersAmount
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has number of learners"@en ;
+   rdfs:comment "Total number of learners"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicEducationSchool  # School's total students
+           :MusicInstructor       # Teacher's student count
+       )
+   ] ;
+   rdfs:range xsd:nonNegativeInteger .
+
+:hasYearsExperience
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has years of experience"@en ;
+   rdfs:comment "Teaching experience duration"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicInstructor      # Teacher's experience years
+       )
+   ] ;
+   rdfs:range xsd:nonNegativeInteger ;
+   owl:equivalentProperty schema:OccupationalExperienceRequirements .
+
+:hasNoticePeriod
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has notice period"@en ;
+   rdfs:comment "Required notification time"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :InstructionSchedule   # Schedule notice requirement
+           :MusicInstruction      # Lesson cancellation notice
+       )
+   ] ;
+   rdfs:range xsd:nonNegativeInteger ;
+   owl:equivalentProperty time:hours .
+
+
+# Room Properties
+:hasRoomId
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has room identifier"@en ;
+   rdfs:comment "Room assignment for lesson"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicInstruction      # Lesson room number
+       )
+   ] ;
+   rdfs:range xsd:positiveInteger ;
+   owl:equivalentProperty schema:numberOfRooms .
+
+# Verification Properties 
+:isConfirmed
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "is confirmed"@en ;
+   rdfs:comment "Confirmation status"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicEducationSchool           # School confirmation
+           :MusicSchoolMemberConfirmation  # Member verification
+           :TeacherStudentPairing         # Match confirmation
+           :MusicInstruction              # Lesson confirmation
+       )
+   ] ;
+   rdfs:range xsd:boolean .
+
+:isValidated
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "is validated"@en ;
+   rdfs:comment "Validation status"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicEducationSchool    # School validation
+           :MusicInstructor         # Teacher validation
+           :MusicSchoolDocument     # Document validation
+       )
+   ] ;
+   rdfs:range xsd:boolean .
+
+# Teaching Properties
+:canTeachMinors
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "can teach minors"@en ;
+   rdfs:comment "Authorization for teaching minors"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicInstructor    # Teacher minor authorization
+       )
+   ] ;
+   rdfs:range xsd:boolean .
+
+# Contact Properties
+:allowsEmailContact
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "allows email contact"@en ;
+   rdfs:comment "Email contact preference"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicSchoolMember    # Member email preference
+           :MusicInstructor      # Teacher contact settings
+           :MusicLearner        # Student contact settings
+       )
+   ] ;
+   rdfs:range xsd:boolean ;
+   owl:equivalentProperty schema:contactOption .
+   
+# Contact Preference Properties
+:allowsPhoneContact
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "allows phone contact"@en ;
+   rdfs:comment "Phone contact preference"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicSchoolMember    # Member phone preference
+           :MusicInstructor      # Teacher phone settings 
+           :MusicLearner        # Student phone settings
+       )
+   ] ;
+   rdfs:range xsd:boolean ;
+   owl:equivalentProperty schema:contactOption .
+
+# Match Agreement Properties
+:hasTeacherAcceptance
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has teacher acceptance"@en ;
+   rdfs:comment "Teacher's match acceptance"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :TeacherStudentPairing    # Teacher match response
+       )
+   ] ;
+   rdfs:range xsd:boolean .
+
+:hasStudentAcceptance 
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has student acceptance"@en ;
+   rdfs:comment "Student's match acceptance"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :TeacherStudentPairing    # Student match response
+       )
+   ] ;
+   rdfs:range xsd:boolean .
+
+:isTerminated
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "is terminated"@en ;
+   rdfs:comment "Match termination status"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :TeacherStudentPairing    # Match termination
+           :MusicInstruction         # Lesson cancellation
+       )
+   ] ;
+   rdfs:range xsd:boolean .
+
+# Catalog Properties
+:isTopTen
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "is top ten"@en ;
+   rdfs:comment "Top 10 status indicator"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicGenreCategory      # Popular genres
+           :MusicalInstrumentType   # Popular instruments
+       )
+   ] ;
+   rdfs:range xsd:boolean .
+
+:isAvailableInMusiq
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "is available in Musiq"@en ;
+   rdfs:comment "Platform availability status"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicGenreCategory      # Available genres
+           :MusicalInstrumentType   # Available instruments
+       )
+   ] ;
+   rdfs:range xsd:boolean ;
+   owl:equivalentProperty schema:isAvailableGenerically .
+
+# Preference Properties
+:hasGenderPreference
+   a owl:ObjectProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has gender preference"@en ;
+   rdfs:comment "Teaching/learning gender preference"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicInstructor    # Teacher gender preference
+           :MusicLearner      # Student gender preference
+           :TeacherStudentPairing  # Match preferences
+       )
+   ] ;
+   rdfs:range :MusicSchoolMemberGender ; 
+   owl:equivalentProperty schema:gender .
+
+:hasAgePreference
+   a owl:ObjectProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has age preference"@en ;
+   rdfs:comment "Preferred teaching age groups"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicInstructor         # Teacher age preferences
+           :TeacherStudentPairing   # Match age criteria
+       )
+   ] ;
+   rdfs:range :AgeRange ;
+   owl:equivalentProperty schema:suggestedAge .
+
+:hasExperienceLevel
+   a owl:ObjectProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has experience level"@en ;
+   rdfs:comment "Experience level classification"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicInstructor         # Teacher's teaching levels
+           :MusicLearner           # Student's proficiency
+           :TeacherStudentPairing   # Match experience criteria
+       )
+   ] ;
+   rdfs:range :ExperienceLevel ;
+   owl:equivalentProperty schema:educationalLevel .
+
 # External Reference Properties
-# GND Property
-:gnd
-    a owl:DatatypeProperty ;
-    rdfs:label "GND identifier"@en ;
-    rdfs:comment "Identifier from the Integrated Authority File (GND)"@en ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (
-            :Genre        # genres.gnd (varchar)
-            :Instrument   # instruments.gnd (varchar)
-        )
-    ] ;
-    rdfs:range xsd:string ;
-    owl:equivalentProperty skos:notation ;
-    rdfs:subPropertyOf skos:exactMatch .
+:hasGndIdentifier
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has GND identifier"@en ;
+   rdfs:comment "Authority file reference"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicGenreCategory      # Genre references
+           :MusicalInstrumentType   # Instrument references
+       )
+   ] ;
+   rdfs:range xsd:string ;
+   owl:equivalentProperty skos:notation ;
+   rdfs:subPropertyOf skos:exactMatch .
 
-# Wikidata Property
-:wikidata
-    a owl:DatatypeProperty ;
-    rdfs:label "Wikidata identifier"@en ;
-    rdfs:comment "Identifier from Wikidata (Q number)"@en ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (
-            :Genre        # genres.wikidata (varchar)
-            :Instrument   # instruments.wikidata (varchar)
-        )
-    ] ;
-    rdfs:range xsd:string ;
-    owl:equivalentProperty skos:notation ;
-    rdfs:subPropertyOf skos:exactMatch .
+# External Reference Properties
+:hasWikidataIdentifier
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has Wikidata identifier"@en ;
+   rdfs:comment "Wikidata reference (Q number)"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicGenreCategory      # Genre Wikidata references
+           :MusicalInstrumentType   # Instrument Wikidata references
+       )
+   ] ;
+   rdfs:range xsd:string ;
+   owl:equivalentProperty skos:notation ;
+   rdfs:subPropertyOf skos:exactMatch .
 
-# MIMO Property
-:mimo
-    a owl:DatatypeProperty ;
-    rdfs:label "MIMO identifier"@en ;
-    rdfs:comment "Identifier from Musical Instrument Museums Online"@en ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (
-            :Genre        # genres.mimo (varchar)
-            :Instrument   # instruments.mimo (varchar)
-        )
-    ] ;
-    rdfs:range xsd:string ;
-    owl:equivalentProperty skos:notation ;
-    rdfs:subPropertyOf skos:exactMatch .
+:hasMimoIdentifier 
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has MIMO identifier"@en ;
+   rdfs:comment "Musical Instrument Museums Online reference"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicGenreCategory      # Genre MIMO references
+           :MusicalInstrumentType   # Instrument MIMO references 
+       )
+   ] ;
+   rdfs:range xsd:string ;
+   owl:equivalentProperty skos:notation ;
+   rdfs:subPropertyOf skos:exactMatch .
 
-# JSON/Complex Properties
-# Price Range Property and Structure
-:priceRange
-    a owl:ObjectProperty ;
-    rdfs:label "price range"@en ;
-    rdfs:comment "Price range for lessons or services"@en ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (
-            :School    # schools.price_range (jsonb)
-            :Teacher   # teachers.price_range (jsonb)
-        )
-    ] ;
-    rdfs:range rdf:JSON ;
-    owl:equivalentProperty schema:priceRange .
+# Price Range Property
+:hasPriceRange
+   a owl:ObjectProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has price range"@en ;
+   rdfs:comment "Service pricing structure"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicEducationSchool    # School pricing
+           :MusicInstructor         # Teacher rates
+           :MusicInstruction        # Lesson costs
+       )
+   ] ;
+   rdfs:range rdf:JSON ;
+   owl:equivalentProperty schema:priceRange .
+# Social Media Properties
+:hasSocialMedia
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has social media"@en ;
+   rdfs:comment "Social media presence details"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicEducationSchool    # School social profiles
+           :MusicInstructor         # Teacher social presence
+       )
+   ] ;
+   rdfs:range rdf:JSON ;
+   owl:equivalentProperty schema:sameAs .
 
-# 42. Socials (JSONB)
-:socials
-    a owl:DatatypeProperty ;
-    rdfs:label "social media links"@en ;
-    rdfs:comment "Social media links stored as JSONB"@en ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (
-            :School    # schools.socials (jsonb)
-            :Teacher   # teachers.socials (jsonb)
-        )
-    ] ;
-    rdfs:range rdf:JSON ;
-    owl:equivalentProperty schema:sameAs .
+# Education Properties  
+:hasEducation
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has education"@en ;
+   rdfs:comment "Educational qualifications"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicInstructor         # Teacher education history
+       )
+   ] ;
+   rdfs:range rdf:JSON ;
+   owl:equivalentProperty schema:educationalCredentialAwarded .
 
-# Education (JSONB)
-:education
-    a owl:DatatypeProperty ;
-    rdfs:label "education details"@en ;
-    rdfs:comment "Educational background stored as JSONB"@en ;
-    rdfs:domain :Teacher ;    # teachers.education (jsonb)
-    rdfs:range rdf:JSON ;
-    owl:equivalentProperty schema:educationalCredentialAwarded .
+# Location Properties
+:hasCoordinates
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has coordinates"@en ;
+   rdfs:comment "Geographic location data"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicSchoolMember       # Member location
+           :MusicEducationSchool    # School location
+           :MusicInstruction        # Lesson location
+       )
+   ] ;
+   rdfs:range rdf:JSON ;
+   owl:equivalentProperty schema:geo .
 
-# Coordinate (JSON)
-:coordinate
-    a owl:DatatypeProperty ;
-    rdfs:label "geographic coordinates"@en ;
-    rdfs:comment "Geographic coordinates stored as JSON"@en ;
-    rdfs:domain :User ;    # users.coordinate (JSON)
-    rdfs:range rdf:JSON ;
-    owl:equivalentProperty [
-        owl:unionOf (
-            schema:geo
-            geosparql:asWKT
-        )
-    ] .
+# Membership Properties
+:hasUnionMemberships
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has union memberships"@en ;
+   rdfs:comment "Professional union affiliations"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicEducationSchool    # School union memberships
+           :MusicInstructor         # Teacher associations
+       )
+   ] ;
+   rdfs:range rdf:JSON ;
+   owl:equivalentProperty schema:memberOf .
 
-# Unions (JSONB)
-:unions
-    a owl:DatatypeProperty ;
-    rdfs:label "union memberships"@en ;
-    rdfs:comment "Union membership details stored as JSONB"@en ;
-    rdfs:domain :School ;    # schools.unions (jsonb)
-    rdfs:range rdf:JSON ;
-    owl:equivalentProperty schema:memberOf .
-
- # Password Property
-:password
-    a owl:DatatypeProperty ;
-    rdfs:label "password hash"@en ;
-    rdfs:comment "Hashed password for user authentication"@en ;
-    rdfs:domain :User ;    # users.password (varchar)
-    rdfs:range xsd:string .
-
+# Authentication Properties
+:hasPasswordHash
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has password hash"@en ;
+   rdfs:comment "Secure password storage"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicSchoolMember       # Member authentication
+           :MusicInstructor         # Teacher login
+           :MusicLearner           # Student login
+       )
+   ] ;
+   rdfs:range xsd:string .
 
 # Type Properties
-:type
-    a owl:ObjectProperty ;        # Using ObjectProperty because types are enumerated
-    rdfs:label "type"@en ;
-    rdfs:comment "TODO: Implement enumerations for user_confirmation, lesson_type, and file_type"@en ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (
-            :UserConfirmation  # type: user_confirmation enum
-            :Lesson           # type: lesson_type enum
-            :File            # type: file_type enum
-        )
-    ] ;
-    rdfs:range [
-        owl:unionOf (
-            :UserConfirmationType    # Values: registration, recovery
-            :LessonType             # Values: trial, single, repeat
-            :FileType               # Values: avatar
-        )
-    ] .
+:hasType
+   a owl:ObjectProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has type"@en ;
+   rdfs:comment "Entity type classification"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicSchoolMemberConfirmation  # Registration/recovery type
+           :MusicInstruction               # Lesson type (trial/single/repeat)
+           :MusicSchoolDocument            # Document type (avatar etc)
+       )
+   ] ;
+   rdfs:range [
+       owl:unionOf (
+           :MusicSchoolMemberConfirmationType  # Member confirmation types
+           :MusicInstructionType               # Instruction categories  
+           :MusicSchoolDocumentType            # Document categories
+       )
+   ] .
 
-# Status Property
-:status
-    a owl:ObjectProperty ;        # Using ObjectProperty because status is enumerated
-    rdfs:label "status"@en ;
-    rdfs:comment "TODO: Implement enumeration for lesson_status"@en ;
-    rdfs:domain :Lesson ;        # lessons.status (lesson_status)
-    rdfs:range :LessonStatus ;   # Values: pending, accepted, compleated, canceled
-    owl:equivalentProperty schema:status .
+# Status Properties  
+:hasStatus
+   a owl:ObjectProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has status"@en ;
+   rdfs:comment "Current state of instruction"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicInstruction        # Lesson status
+           :TeacherStudentPairing   # Match status
+       )
+   ] ;
+   rdfs:range :MusicInstructionStatus ;
+   owl:equivalentProperty schema:status .
 
-# Link Properties
-:url
-    a owl:DatatypeProperty ;
-    rdfs:label "URL"@en ;
-    rdfs:domain :File ;         # files.url (varchar)
-    rdfs:range xsd:anyURI ;
-    owl:equivalentProperty schema:url .
+# Resource Link Properties
+:hasUrl
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has URL"@en ;
+   rdfs:comment "Resource URL"@en ;
+   rdfs:domain :MusicSchoolDocument ;
+   rdfs:range xsd:anyURI ;
+   owl:equivalentProperty schema:url .
 
-:link
-    a owl:DatatypeProperty ;
-    rdfs:label "link"@en ;
-    rdfs:domain :TeacherIntegration ;  # teacher_integrations.link (varchar)
-    rdfs:range xsd:string ;
-    owl:equivalentProperty schema:url .
+:hasLink
+   a owl:DatatypeProperty ; 
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has link"@en ;
+   rdfs:comment "Integration service link"@en ;
+   rdfs:domain :MusicInstructorIntegration ;
+   rdfs:range xsd:string ;
+   owl:equivalentProperty schema:url .
 
-:key
-    a owl:DatatypeProperty ;
-    rdfs:label "key"@en ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (
-            :File               # files.key (varchar)
-            :UserConfirmation   # user_confirmations.key (integer)
-        )
-    ] ;
-    rdfs:range [
-        owl:unionOf (
-            xsd:string         # For File
-            xsd:integer        # For UserConfirmation
-        )
-    ] .
+:hasKey
+   a owl:DatatypeProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has key"@en ;
+   rdfs:comment "Unique key identifier"@en ;
+   rdfs:domain [
+       a owl:Class ;
+       owl:unionOf (
+           :MusicSchoolDocument            # File key
+           :MusicSchoolMemberConfirmation  # Confirmation key
+       )
+   ] ;
+   rdfs:range [
+       owl:unionOf (
+           xsd:string    # Document keys
+           xsd:integer   # Confirmation codes
+       )
+   ] .
 
-# Role Property
-:role
-    a owl:ObjectProperty ;        # Using ObjectProperty because role is enumerated
-    rdfs:label "role"@en ;
-    rdfs:comment "TODO: Implement enumeration for user_role"@en ;
-    rdfs:domain :User ;          # users.role (user_role)
-    rdfs:range :UserRole ;       # Values: root, school_admin, teacher, student
-    owl:equivalentProperty schema:role .
+# Role Properties
+:hasRole
+   a owl:ObjectProperty ;
+   rdfs:isDefinedBy drk: ;
+   rdfs:label "has role"@en ;
+   rdfs:comment "System role assignment"@en ;
+   rdfs:domain :MusicSchoolMember ;
+   rdfs:range :MusicSchoolMemberRole ; #Enum
+   owl:equivalentProperty schema:role .
