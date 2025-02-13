@@ -4,15 +4,17 @@
 
 The policies in this repository can be implemented in two ways:
 
-### Option 1: Comprehensive Single File 📄
-All scenarios and their implementations are available in a single file for unified access:
-- File: [cultural-data-exchange-policies.ttl](https://github.com/Daham-Mustaf/drk-information-model/blob/uc4-policy-update/policy/cultural-data-exchange-policies.ttl)
+### Option 1: Comprehensive Single Policy Graph 📄
+
+All scenarios and their implementations are available as a self-contained policy graph for unified access:
+
+- Graph: [cultural-data-exchange-policies.ttl](cultural-data-exchange-policies.ttl)
 - Contains all five scenarios:
- - Scenario 1: Cultural API Access Management (Augsburg Theater API) 🎭
- - Scenario 2: Educational Archive Access 🎓
- - Scenario 3: Open Data Access 🌐
- - Scenario 4: Time-Limited Access ⏱️
- - Scenario 5: Connector Reference Access 🔗
+  - Scenario 1: Cultural API Access Management (Augsburg Theater API) 🎭
+  - Scenario 2: Educational Archive Access 🎓
+  - Scenario 3: Open Data Access 🌐
+  - Scenario 4: Time-Limited Access ⏱️
+  - Scenario 5: Connector Reference Access 🔗
 
 ### Option 2: Separated Policy Templates and Examples 📑
 Alternatively, the same policies are available as separate templates and implementations:
