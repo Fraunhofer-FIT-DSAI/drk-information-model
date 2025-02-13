@@ -21,40 +21,37 @@ All scenarios and their implementations are available as a self-contained RDF gr
 
 Alternatively, the same policies are available as separate, modular RDF graphs:
 
-### Option 2: Separated Policy Templates and Examples 📑
-Alternatively, the same policies are available as separate templates and implementations:
-
 #### Policy Templates
 1. **Temporal and Spatial Access Policy** 🌍
-  - File: `policies/tempo-spatial-access-policy.ttl`
-  - Purpose: Geographic and time-based access control
-  - Maps to: Scenario 1 in comprehensive file
+   - Implementation: [tempo-spatial-access-policy.ttl](tempo-spatial-access-policy.ttl)
+   - Purpose: Geographic and time-based access control
+   - Maps to: Scenario 1 in the main policy graph
 
 2. **No Fee Research Policy** 📚
-  - File: `policies/no-fee-policy.ttl`
-  - Purpose: Research and educational access management
-  - Maps to: Scenario 2 in comprehensive file
+   - Implementation: [no-fee-policy.ttl](no-fee-policy.ttl)
+   - Purpose: Research and educational access management
+   - Maps to: Scenario 2 in the main policy graph
 
 3. **Open Access Policy** 🔓
-  - File: `policies/open-access-policy.ttl`
-  - Purpose: Perpetual open access with attribution
-  - Maps to: Scenario 3 in comprehensive file
+   - Implementation: [open-access-policy.ttl](open-access-policy.ttl)
+   - Purpose: Perpetual open access with attribution
+   - Maps to: Scenario 3 in the main policy graph
 
 4. **Time Window Policy** ⌛
-  - File: `policies/time-window-policy.ttl`
-  - Purpose: Time-based access control
-  - Maps to: Scenario 4 in comprehensive file
+   - Implementation: [time-window-policy.ttl](time-window-policy.ttl)
+   - Purpose: Time-based access control
+   - Maps to: Scenario 4 in the main policy graph
 
 5. **Connector Reference Policy** 🔌
-  - File: `policies/connector-reference-policy.ttl`
-  - Purpose: Connector ID validation
-  - Maps to: Scenario 5 in comprehensive file
+   - Implementation: [connector-reference-policy.ttl](connector-reference-policy.ttl)
+   - Purpose: Connector ID validation
+   - Maps to: Scenario 5 in the main policy graph
 
 Both implementation approaches are valid and serve different use cases:
-- Use the comprehensive file for quick reference and understanding the complete policy framework 📋
-- Use separated templates for modular implementation and easier maintenance 🔧
+- Use the comprehensive policy graph for a complete view of the policy framework 📋
+- Use modular graph components for targeted implementation and easier maintenance 🔧
 
-The content and functionality remain identical in both approaches, allowing users to choose the most suitable format for their needs. ✨
+The semantic content remains identical in both approaches, allowing users to choose the most suitable representation for their needs. ✨
 
 
 
