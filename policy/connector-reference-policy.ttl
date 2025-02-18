@@ -26,7 +26,7 @@
 
 # Connector Reference Policy
 drk:ConnectorReferencePolicy a odrl:Policy ;
-    odrl:uid "ConnectorReferencePolicy" ;
+    odrl:uid <https://yourdomain.com/policies/ConnectorReferencePolicy> ;
     rdfs:label "Connector Reference Access Policy"@en ;
     dct:description "Policy governing access based on connector ID reference"@en ;
     odrl:permission [
@@ -59,7 +59,7 @@ drk:connectorId a odrl:LeftOperand ;
 
 # Protected Resource Template
 drk:ConnectorProtectedResource a drk:Resource, odrl:Asset ;
-    odrl:uid "ConnectorProtectedResource" ;
+    odrl:uid <https://yourdomain.com/policies/ConnectorProtectedResource> ;
     dct:title "Connector Protected Resource"@en ;
     dct:description "Resource accessible only through specific connector ID"@en ;
     dct:accessRights "restricted"^^xsd:string ;
