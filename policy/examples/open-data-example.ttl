@@ -1,5 +1,5 @@
 @prefix drk: <https://w3id.org/drk/ontology/> .
-@prefix drk: <https://w3id.org/drk/resource/> .
+@prefix drkr: <https://w3id.org/drk/resource/> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
@@ -24,11 +24,11 @@
 # - Modification allowed
 
 # Template for Open Cultural Dataset (example structure)
-drk:OpenCulturalDataset a odrl:Asset ;
+drkr:OpenCulturalDataset a odrl:Asset ;
     odrl:uid "OpenCulturalDataset" ;
     dct:title "Open Cultural Dataset"@en ;
     dct:description "Cultural dataset available under open access terms"@en ;
     dct:license <http://creativecommons.org/licenses/by/4.0/> ;
     dct:accessRights "public"^^xsd:string ;
     dct:rights "This dataset is available under perpetual open access terms"@en ;
-    odrl:hasPolicy drk:OpenAccessPolicy .
+    odrl:hasPolicy drkr:OpenAccessPolicy .
