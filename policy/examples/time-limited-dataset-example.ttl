@@ -13,7 +13,7 @@
 
 
 # Time-Limited Dataset Template
-drk:TimeLimitedDataset a drk:Dataset, odrl:Asset ;
+drk:TimeLimitedDataset a odrl:Asset ;
     odrl:uid "TimeLimitedDataset" ;
     dct:title "Time-Limited Access Dataset"@en ;
     dct:description "Dataset with access restricted to specific time period"@en ;
