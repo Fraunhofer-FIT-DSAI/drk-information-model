@@ -22,43 +22,17 @@
 # Scenario Description:
 # - Historical archives access for educational purposes
 # - Free access for scientific research
-# - Collaboration with local university
 # - Specific constraints on usage purpose
 # - No fee policy implementation
 
-# Historical Archives Asset
-drk:Historical_ShowTimes_Archives a drk:ShowTimesArchives, odrl:Asset ;
-    odrl:uid "Historical_ShowTimes_Archives" ;
-    dct:title "Historical ShowTimes Archives"@en ;
-    dct:description "Digitized historical theater performance records"@en ;
-    skos:definition "Collection of digitized historical showtimes and performance data"@en ;
-    odrl:hasPolicy drk:NoFeePolicy .
-
-# Academic Institution
-drk:University_of_Augsburg  a odrl:Party, foaf:Organization ;
-    odrl:uid "UniversityOfAugsburg" ;
-    dct:title "University of Augsburg"@en, "Universität Augsburg"@de ;
-    rdfs:label "University of Augsburg"@en, "Universität Augsburg"@de ;
-    skos:definition "Academic institution collaborating on theater research"@en ;
-    foaf:homepage "https://www.uni-augsburg.de/"^^xsd:anyURI .
-
-# Scientific Usage Definition
-drk:ScientificUse a odrl:RightOperand, skos:Concept ;
-    skos:prefLabel "Scientific Use"@en ;
-    skos:definition "Usage limited to academic research purposes"@en ;
-    skos:scopeNote "Covers academic research, analysis, and educational activities"@en .
-
-# Free Access Policy for Research
-drk:NoFeePolicy a odrl:Policy ;
-    odrl:uid "NoFeePolicy" ;
+ Research Access Policy
+drkr:ResearchAccessPolicy a odrl:Policy ;
+    odrl:uri <https://w3id.org/drk/resource/ResearchAccessPolicy> ;
     rdfs:label "Free Access Policy for Research"@en ;
     dct:description "Policy governing free access for academic research"@en ;
     odrl:permission [
         a odrl:Permission ;
-        odrl:assigner drk:DE_Staatstheater_Augsburg ;
-        odrl:assignee drk:University_of_Augsburg  ;
         odrl:action odrl:use ;
-        odrl:target drk:Historical_ShowTimes_Archives ;
         odrl:constraint [
             a odrl:Constraint ;
             odrl:leftOperand odrl:payAmount ;
@@ -74,5 +48,10 @@ drk:NoFeePolicy a odrl:Policy ;
             rdfs:comment "Limited to scientific research purposes"@en
         ]
     ] .
+
+# Scientific Usage Definition
+drk:ScientificUse a skos:Concept ;
+    skos:prefLabel "Scientific Use"@en ;
+    skos:definition "Usage limited to academic research purposes"@en .
 
 
