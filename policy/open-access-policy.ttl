@@ -29,7 +29,7 @@
 
 # OpenAccess Policy Definition
 drkr:OpenAccessPolicy a odrl:Policy ;
-    odrl:uri <https://w3id.org/drk/resource/OpenAccessPolicy> ;
+    odrl:uid <https://w3id.org/drk/resource/OpenAccessPolicy> ;
     rdfs:label "Perpetual Open Access Policy"@en ;
     dct:description "Policy governing unrestricted access to open cultural data"@en ;
     odrl:permission [
