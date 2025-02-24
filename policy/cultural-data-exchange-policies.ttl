@@ -27,8 +27,8 @@
 
 
 # Temporal and Spatial Access Policy
-drkr:GeoTemporalAccessPolicy a odrl:Policy ;
-    odrl:uri <https://w3id.org/drk/resource/GeoTemporalAccessPolicy> ;
+drk:GeoTemporalAccessPolicy a odrl:Policy ;
+    odrl:uid <https://w3id.org/drk/resource/GeoTemporalAccessPolicy> ;
     rdfs:label "Geographical and Time-Based Access Policy"@en ;
     odrl:permission [
         a odrl:Permission ;
@@ -60,8 +60,8 @@ drkr:GeoTemporalAccessPolicy a odrl:Policy ;
 # - No fee policy implementation
 
  # Research Access Policy
-drkr:ResearchAccessPolicy a odrl:Policy ;
-    odrl:uri <https://w3id.org/drk/resource/ResearchAccessPolicy> ;
+drk:ResearchAccessPolicy a odrl:Policy ;
+    odrl:uid <https://w3id.org/drk/resource/ResearchAccessPolicy> ;
     rdfs:label "Free Access Policy for Research"@en ;
     dct:description "Policy governing free access for academic research"@en ;
     odrl:permission [
@@ -103,7 +103,7 @@ drk:ScientificUse a skos:Concept ;
 
 # OpenAccess Policy Definition
 drk:OpenAccessPolicy a odrl:Policy ;
-    odrl:uri <https://w3id.org/drk/resource/OpenAccessPolicy> ;
+    odrl:uid <https://w3id.org/drk/resource/OpenAccessPolicy> ;
     rdfs:label "Perpetual Open Access Policy"@en ;
     dct:description "Policy governing unrestricted access to open cultural data"@en ;
     odrl:permission [
@@ -129,8 +129,8 @@ drk:OpenAccessPolicy a odrl:Policy ;
 # - Access expires automatically after end date
 
 # TimeWindow Policy Definition
-drkr:TimeWindowPolicy a odrl:Policy ;
-    odrl:uri <https://w3id.org/drk/resource/TimeWindowPolicy> ;
+drk:TimeWindowPolicy a odrl:Policy ;
+    odrl:uid <https://w3id.org/drk/resource/TimeWindowPolicy> ;
     rdfs:label "Time-Limited Access Policy"@en ;
     dct:description "Policy governing access within a specific time window"@en ;
     odrl:permission [
