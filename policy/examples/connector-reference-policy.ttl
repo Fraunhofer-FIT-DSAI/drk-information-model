@@ -1,5 +1,5 @@
 @prefix drk: <https://w3id.org/drk/ontology/> .
-@prefix drk: <https://w3id.org/drk/resource/> .
+@prefix drkr: <https://w3id.org/drk/resource/> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
@@ -22,6 +22,6 @@
 # - Binary allow/deny based on match
 
 # Example of applying the policy to a protected resource
-drk:SensitiveDataset a drk:Resource ;
+drkr:SensitiveDataset a odrl:Asset ;
     dct:title "Protected Research Data" ;
-    odrl:hasPolicy drk:ConnectorReferencePolicy .
+    odrl:hasPolicy drkr:ConnectorReferencePolicy .
