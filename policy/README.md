@@ -28,7 +28,7 @@ Alternatively, the same policies are available as separate, modular RDF graphs:
    - Maps to: Scenario 1 in the main policy graph
 
 2. **No Fee Research Policy** 📚
-   - Implementation: [no-fee-policy.ttl](no-fee-policy.ttl)
+   - Implementation: [research-access-policy.ttl](research-access-policy.ttl)
    - Purpose: Research and educational access management
    - Maps to: Scenario 2 in the main policy graph
 
