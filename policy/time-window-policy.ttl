@@ -27,7 +27,6 @@
 # - Access expires automatically after end date
 
 # TimeWindow Policy Definition
-# Time Window Policy
 drkr:TimeWindowPolicy a odrl:Policy ;
     odrl:uri <https://w3id.org/drk/resource/TimeWindowPolicy> ;
     rdfs:label "Time-Limited Access Policy"@en ;
