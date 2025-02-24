@@ -24,7 +24,7 @@
 # - Modification allowed
 
 # Template for Open Cultural Dataset (example structure)
-drk:OpenCulturalDataset a drk:Dataset, odrl:Asset ;
+drk:OpenCulturalDataset a odrl:Asset ;
     odrl:uid "OpenCulturalDataset" ;
     dct:title "Open Cultural Dataset"@en ;
     dct:description "Cultural dataset available under open access terms"@en ;
