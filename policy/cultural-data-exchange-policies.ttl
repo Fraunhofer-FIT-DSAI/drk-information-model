@@ -26,47 +26,13 @@
 # - Access is managed through a TempoSpatialAccess policy
 
 
-# ShowTimes API Asset
-drkr:DE_Augsburg_STAugsburg_ShowtimesAPI a drk:ShowTimesAPI, odrl:Asset ;
-    odrl:uid <https://w3id.org/drk/resource/DE_Augsburg_STAugsburg_ShowtimesAPI> ;
-    dct:title "Augsburg Staatstheater ShowTimes API"@de ;
-    dct:description "API providing showtimes data for Augsburg State Theater performances"@en ;
-    odrl:hasPolicy drkr:DE_Augsburg_STAugsburg_TempoSpatialAccess .
-
-# Data Provider Organization
-drkr:DE_Augsburg_STAugsburg a odrl:Party, foaf:Organization ;
-    odrl:uid <https://w3id.org/drk/resource/DE_Augsburg_STAugsburg> ;
-    rdfs:label "Augsburg State Theater"@en ;
-    dct:description "Cultural organization managing the ShowTimes API"@en .
-
-# Data Consumers
-drkr:DE_Augsburg_RegionalNewspaper a odrl:Party ;
-    odrl:uid <https://w3id.org/drk/resource/DE_Augsburg_RegionalNewspaper> ;
-    rdfs:label "Regional Newspaper"@en ;
-    skos:definition "Local news organization with API access rights"@en .
-
-drkr:DE_Augsburg_CultureResearchInstitute a odrl:Party ;
-    odrl:uid <https://w3id.org/drk/resource/DE_Augsburg_CultureResearchInstitute> ;
-    rdfs:label "Culture Research Institute"@en ;
-    skos:definition "Research organization studying cultural events"@en .
-
-drkr:DE_Bavaria_CulturalPlatform a odrl:Party ;
-    odrl:uid <https://w3id.org/drk/resource/DE_Bavaria_CulturalPlatform> ;
-    rdfs:label "Cultural Platform Bavaria"@en ;
-    skos:definition "Bavarian cultural events aggregator"@en .
-
 # Temporal and Spatial Access Policy
-drkr:DE_Augsburg_STAugsburg_TempoSpatialAccess a odrl:Policy ;
-    odrl:uid <https://w3id.org/drk/resource/DE_Augsburg_STAugsburg_TempoSpatialAccess> ;
+drkr:GeoTemporalAccessPolicy a odrl:Policy ;
+    odrl:uri <https://w3id.org/drk/resource/GeoTemporalAccessPolicy> ;
     rdfs:label "Geographical and Time-Based Access Policy"@en ;
     odrl:permission [
         a odrl:Permission ;
-        odrl:assigner drkr:DE_Augsburg_STAugsburg ;
-        odrl:assignee drkr:DE_Augsburg_RegionalNewspaper, 
-                     drkr:DE_Augsburg_CultureResearchInstitute,
-                     drkr:DE_Bavaria_CulturalPlatform ;
         odrl:action odrl:use ;
-        odrl:target drkr:DE_Augsburg_STAugsburg_ShowtimesAPI ;
         odrl:constraint [
             a odrl:Constraint ;
             odrl:leftOperand odrl:spatial ;
