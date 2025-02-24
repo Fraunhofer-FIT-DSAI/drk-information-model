@@ -27,7 +27,7 @@
 
 # Temporal and Spatial Access Policy
 drkr:GeoTemporalAccessPolicy a odrl:Policy ;
-    odrl:uri <https://w3id.org/drk/resource/GeoTemporalAccessPolicy> ;
+    odrl:uid <https://w3id.org/drk/resource/GeoTemporalAccessPolicy> ;
     rdfs:label "Geographical and Time-Based Access Policy"@en ;
     odrl:permission [
         a odrl:Permission ;
