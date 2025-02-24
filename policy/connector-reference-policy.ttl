@@ -25,7 +25,7 @@
 # - Binary allow/deny based on match
 
 # Connector Reference Policy
-drk:ConnectorReferencePolicy a odrl:Policy ;
+drkr:ConnectorReferencePolicy a odrl:Policy ;
     odrl:uid <https://w3id.org/drk/resource/ConnectorReferencePolicy> ;
     rdfs:label "Connector Reference Access Policy"@en ;
     dct:description """Policy governing access based on connector identification. 
