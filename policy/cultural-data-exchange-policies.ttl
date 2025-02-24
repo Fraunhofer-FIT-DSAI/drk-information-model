@@ -59,7 +59,7 @@ drkr:GeoTemporalAccessPolicy a odrl:Policy ;
 # - Specific constraints on usage purpose
 # - No fee policy implementation
 
- Research Access Policy
+ # Research Access Policy
 drkr:ResearchAccessPolicy a odrl:Policy ;
     odrl:uri <https://w3id.org/drk/resource/ResearchAccessPolicy> ;
     rdfs:label "Free Access Policy for Research"@en ;
@@ -129,8 +129,8 @@ drk:OpenAccessPolicy a odrl:Policy ;
 # - Access expires automatically after end date
 
 # TimeWindow Policy Definition
-drk:TimeWindowPolicy a odrl:Policy ;
-    odrl:uid "TimeWindowPolicy" ;
+drkr:TimeWindowPolicy a odrl:Policy ;
+    odrl:uri <https://w3id.org/drk/resource/TimeWindowPolicy> ;
     rdfs:label "Time-Limited Access Policy"@en ;
     dct:description "Policy governing access within a specific time window"@en ;
     odrl:permission [
@@ -150,27 +150,7 @@ drk:TimeWindowPolicy a odrl:Policy ;
             odrl:rightOperand "2025-03-01T23:59:59"^^xsd:dateTime ;
             rdfs:comment "Access ends on March 1, 2025"@en
         ]
-    ] ;
-    odrl:prohibition [
-        a odrl:Prohibition ;
-        odrl:action odrl:use ;
-        odrl:constraint [
-            a odrl:Constraint ;
-            odrl:leftOperand odrl:dateTime ;
-            odrl:operator odrl:gt ;
-            odrl:rightOperand "2025-03-01T23:59:59"^^xsd:dateTime ;
-            rdfs:comment "No access after expiration date"@en
-        ]
     ] .
-
-# Time-Limited Dataset Template
-drk:TimeLimitedDataset a drk:Dataset, odrl:Asset ;
-    odrl:uid "TimeLimitedDataset" ;
-    dct:title "Time-Limited Access Dataset"@en ;
-    dct:description "Dataset with access restricted to specific time period"@en ;
-    dct:temporal "2024-03-01/2025-03-01"^^xsd:string ;
-    dct:accessRights "restricted"^^xsd:string ;
-    odrl:hasPolicy drk:TimeWindowPolicy .
 
 ###############################################
 #Cultural Data Exchange Policies
@@ -185,7 +165,6 @@ drk:TimeLimitedDataset a drk:Dataset, odrl:Asset ;
 # - Simple reference check mechanism
 # - Binary allow/deny based on match
 
-# Connector Reference Policy
 # Connector Reference Policy
 drk:ConnectorReferencePolicy a odrl:Policy ;
     odrl:uid <https://w3id.org/drk/resource/ConnectorReferencePolicy> ;
@@ -209,11 +188,3 @@ drk:ConnectorReferencePolicy a odrl:Policy ;
             Values can be either string names or URIs - the evaluator handles both formats."""@en
         ]
     ] .
-
-# Additional documentation about connector identification
-drk:ConnectorIdentification a rdfs:Class ;
-    rdfs:label "Connector Identification"@en ;
-    rdfs:comment """Connectors can be identified by:
-    1. String-based names (e.g., 'connector-a')
-    2. URIs (e.g., 'https://connector-b.example.com')
-    The policy evaluator will normalize and compare these identifiers during evaluation."""@en .
