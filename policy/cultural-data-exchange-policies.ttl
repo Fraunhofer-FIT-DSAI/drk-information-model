@@ -247,43 +247,34 @@ drk:TimeLimitedDataset a drk:Dataset, odrl:Asset ;
 # - Binary allow/deny based on match
 
 # Connector Reference Policy
+# Connector Reference Policy
 drk:ConnectorReferencePolicy a odrl:Policy ;
-    odrl:uid "ConnectorReferencePolicy" ;
+    odrl:uid <https://w3id.org/drk/resource/ConnectorReferencePolicy> ;
     rdfs:label "Connector Reference Access Policy"@en ;
-    dct:description "Policy governing access based on connector ID reference"@en ;
+    dct:description """Policy governing access based on connector identification. 
+    The policy evaluator will compare the provided connector name/ID against allowed values.
+    Connectors may be identified by either string names or URIs."""@en ;
     odrl:permission [
         a odrl:Permission ;
         odrl:action odrl:use ;
         odrl:constraint [
             a odrl:Constraint ;
-            odrl:leftOperand drk:connectorId ;  # Custom leftOperand for connector ID
-            odrl:operator odrl:eq ;
-            odrl:rightOperand "{connector-id}"^^xsd:string ;  # Placeholder for actual connector ID
-            rdfs:comment "Access allowed only for matching connector ID"@en
-        ]
-    ] ;
-    odrl:prohibition [
-        a odrl:Prohibition ;
-        odrl:action odrl:use ;
-        odrl:constraint [
-            a odrl:Constraint ;
-            odrl:leftOperand drk:connectorId ;
-            odrl:operator odrl:neq ;
-            odrl:rightOperand "{connector-id}"^^xsd:string ;
-            rdfs:comment "Access denied for non-matching connector ID"@en
+            odrl:leftOperand odrl:purpose ;
+            odrl:operator odrl:isAnyOf ;
+            odrl:rightOperand (
+                "connector-a"^^xsd:string 
+                "https://connector-b.example.com"^^xsd:anyURI
+                "Connector-C"^^xsd:string
+            ) ;
+            rdfs:comment """The policy evaluator will match these values against the connector's identifier.
+            Values can be either string names or URIs - the evaluator handles both formats."""@en
         ]
     ] .
 
-# Connector ID Definition
-drk:connectorId a odrl:LeftOperand ;
-    rdfs:label "Connector Identifier"@en ;
-    rdfs:comment "Identifies a specific connector for access control"@en .
-
-# Protected Resource Template
-drk:ConnectorProtectedResource a drk:Resource, odrl:Asset ;
-    odrl:uid "ConnectorProtectedResource" ;
-    dct:title "Connector Protected Resource"@en ;
-    dct:description "Resource accessible only through specific connector ID"@en ;
-    dct:accessRights "restricted"^^xsd:string ;
-    drk:intendedConnectorId "{connector-id}" ;  # Placeholder for actual connector ID
-    odrl:hasPolicy drk:ConnectorReferencePolicy .
+# Additional documentation about connector identification
+drk:ConnectorIdentification a rdfs:Class ;
+    rdfs:label "Connector Identification"@en ;
+    rdfs:comment """Connectors can be identified by:
+    1. String-based names (e.g., 'connector-a')
+    2. URIs (e.g., 'https://connector-b.example.com')
+    The policy evaluator will normalize and compare these identifiers during evaluation."""@en .
