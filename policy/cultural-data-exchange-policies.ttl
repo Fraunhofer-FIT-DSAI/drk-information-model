@@ -27,7 +27,7 @@
 
 
 # Temporal and Spatial Access Policy
-drk:GeoTemporalAccessPolicy a odrl:Policy ;
+drkr:GeoTemporalAccessPolicy a odrl:Policy ;
     odrl:uid <https://w3id.org/drk/resource/GeoTemporalAccessPolicy> ;
     rdfs:label "Geographical and Time-Based Access Policy"@en ;
     odrl:permission [
@@ -60,7 +60,7 @@ drk:GeoTemporalAccessPolicy a odrl:Policy ;
 # - No fee policy implementation
 
  # Research Access Policy
-drk:ResearchAccessPolicy a odrl:Policy ;
+drkr:ResearchAccessPolicy a odrl:Policy ;
     odrl:uid <https://w3id.org/drk/resource/ResearchAccessPolicy> ;
     rdfs:label "Free Access Policy for Research"@en ;
     dct:description "Policy governing free access for academic research"@en ;
@@ -102,7 +102,7 @@ drk:ScientificUse a skos:Concept ;
 # - Modification allowed
 
 # OpenAccess Policy Definition
-drk:OpenAccessPolicy a odrl:Policy ;
+drkr:OpenAccessPolicy a odrl:Policy ;
     odrl:uid <https://w3id.org/drk/resource/OpenAccessPolicy> ;
     rdfs:label "Perpetual Open Access Policy"@en ;
     dct:description "Policy governing unrestricted access to open cultural data"@en ;
@@ -129,7 +129,7 @@ drk:OpenAccessPolicy a odrl:Policy ;
 # - Access expires automatically after end date
 
 # TimeWindow Policy Definition
-drk:TimeWindowPolicy a odrl:Policy ;
+drkr:TimeWindowPolicy a odrl:Policy ;
     odrl:uid <https://w3id.org/drk/resource/TimeWindowPolicy> ;
     rdfs:label "Time-Limited Access Policy"@en ;
     dct:description "Policy governing access within a specific time window"@en ;
@@ -166,7 +166,7 @@ drk:TimeWindowPolicy a odrl:Policy ;
 # - Binary allow/deny based on match
 
 # Connector Reference Policy
-drk:ConnectorReferencePolicy a odrl:Policy ;
+drkr:ConnectorReferencePolicy a odrl:Policy ;
     odrl:uid <https://w3id.org/drk/resource/ConnectorReferencePolicy> ;
     rdfs:label "Connector Reference Access Policy"@en ;
     dct:description """Policy governing access based on connector identification. 
