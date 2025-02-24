@@ -21,11 +21,7 @@
 # - Simple reference check mechanism
 # - Binary allow/deny based on match
 
-# Protected Resource Template
-drk:ConnectorProtectedResource a drk:Resource, odrl:Asset ;
-    odrl:uid "ConnectorProtectedResource" ;
-    dct:title "Connector Protected Resource"@en ;
-    dct:description "Resource accessible only through specific connector ID"@en ;
-    dct:accessRights "restricted"^^xsd:string ;
-    drk:intendedConnectorId "{connector-id}" ;  # Placeholder for actual connector ID
+# Example of applying the policy to a protected resource
+drk:SensitiveDataset a drk:Resource ;
+    dct:title "Protected Research Data" ;
     odrl:hasPolicy drk:ConnectorReferencePolicy .
