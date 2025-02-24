@@ -28,7 +28,7 @@
 
 # TimeWindow Policy Definition
 drkr:TimeWindowPolicy a odrl:Policy ;
-    odrl:uri <https://w3id.org/drk/resource/TimeWindowPolicy> ;
+    odrl:uid <https://w3id.org/drk/resource/TimeWindowPolicy> ;
     rdfs:label "Time-Limited Access Policy"@en ;
     dct:description "Policy governing access within a specific time window"@en ;
     odrl:permission [
