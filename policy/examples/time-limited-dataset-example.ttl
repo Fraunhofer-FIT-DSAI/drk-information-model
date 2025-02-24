@@ -1,5 +1,5 @@
 @prefix drk: <https://w3id.org/drk/ontology/> .
-@prefix drk: <https://w3id.org/drk/resource/> .
+@prefix drkr: <https://w3id.org/drk/resource/> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
@@ -13,10 +13,10 @@
 
 
 # Time-Limited Dataset Template
-drk:TimeLimitedDataset a odrl:Asset ;
+drkr:TimeLimitedDataset a odrl:Asset ;
     odrl:uid "TimeLimitedDataset" ;
     dct:title "Time-Limited Access Dataset"@en ;
     dct:description "Dataset with access restricted to specific time period"@en ;
     dct:temporal "2024-03-01/2025-03-01"^^xsd:string ;
     dct:accessRights "restricted"^^xsd:string ;
-    odrl:hasPolicy drk:TimeWindowPolicy .
+    odrl:hasPolicy drkr:TimeWindowPolicy .
