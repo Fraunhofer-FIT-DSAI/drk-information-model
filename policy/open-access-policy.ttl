@@ -29,7 +29,7 @@
 
 # OpenAccess Policy Definition
 drk:OpenAccessPolicy a odrl:Policy ;
-    odrl:uid "OpenAccessPolicy" ;
+    odrl:uri <https://w3id.org/drk/resource/OpenAccessPolicy> ;
     rdfs:label "Perpetual Open Access Policy"@en ;
     dct:description "Policy governing unrestricted access to open cultural data"@en ;
     odrl:permission [
@@ -42,12 +42,7 @@ drk:OpenAccessPolicy a odrl:Policy ;
             a odrl:Duty ;
             odrl:action odrl:attribute ;
             rdfs:comment "Attribution required when using the data"@en
-        ] ;
-        # Note: No constraints on:
-        # - Time (perpetual access)
-        # - Geography (worldwide)
-        # - Payment (always free)
-        # - Purpose (any purpose allowed)
+        ]
     ] .
 
 # Open Data Usage Rights Definition
@@ -56,9 +51,9 @@ drk:OpenDataUse a skos:Concept ;
     skos:definition "Unrestricted usage rights for open cultural data"@en ;
     skos:scopeNote "Includes commercial use, modification, and redistribution rights"@en .
 
-# Template for Open Cultural Dataset (example structure)
+# Open Cultural Dataset
 drk:OpenCulturalDataset a drk:Dataset, odrl:Asset ;
-    odrl:uid "OpenCulturalDataset" ;
+    odrl:uri <https://w3id.org/drk/resource/OpenCulturalDataset> ;
     dct:title "Open Cultural Dataset"@en ;
     dct:description "Cultural dataset available under open access terms"@en ;
     dct:license <http://creativecommons.org/licenses/by/4.0/> ;
