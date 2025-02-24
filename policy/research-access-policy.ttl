@@ -27,7 +27,7 @@
 
  Research Access Policy
 drkr:ResearchAccessPolicy a odrl:Policy ;
-    odrl:uri <https://w3id.org/drk/resource/ResearchAccessPolicy> ;
+    odrl:uid <https://w3id.org/drk/resource/ResearchAccessPolicy> ;
     rdfs:label "Free Access Policy for Research"@en ;
     dct:description "Policy governing free access for academic research"@en ;
     odrl:permission [
