@@ -49,15 +49,6 @@ drkr:GeoTemporalAccessPolicy a odrl:Policy ;
         ] 
     ] .
 
-###############################################
-# Scenario 2: Educational Archive Access
-###############################################
-# Scenario Description:
-# - Historical archives access for educational purposes
-# - Free access for scientific research
-# - Collaboration with local university
-# - Specific constraints on usage purpose
-# - No fee policy implementation
 
 ###############################################
 # Scenario 2: Educational Archive Access
