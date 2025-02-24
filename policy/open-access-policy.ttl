@@ -28,7 +28,7 @@
 # - Modification allowed
 
 # OpenAccess Policy Definition
-drk:OpenAccessPolicy a odrl:Policy ;
+drkr:OpenAccessPolicy a odrl:Policy ;
     odrl:uri <https://w3id.org/drk/resource/OpenAccessPolicy> ;
     rdfs:label "Perpetual Open Access Policy"@en ;
     dct:description "Policy governing unrestricted access to open cultural data"@en ;
@@ -52,7 +52,7 @@ drk:OpenDataUse a skos:Concept ;
     skos:scopeNote "Includes commercial use, modification, and redistribution rights"@en .
 
 # Open Cultural Dataset example:
-drk:OpenCulturalDataset a odrl:Asset ;
+drkr:OpenCulturalDataset a odrl:Asset ;
     odrl:uri <https://w3id.org/drk/resource/OpenCulturalDataset> ;
     dct:title "Open Cultural Dataset"@en ;
     dct:description "Cultural dataset available under open access terms"@en ;
