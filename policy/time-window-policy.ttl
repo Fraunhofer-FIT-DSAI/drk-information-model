@@ -27,8 +27,9 @@
 # - Access expires automatically after end date
 
 # TimeWindow Policy Definition
-drk:TimeWindowPolicy a odrl:Policy ;
-    odrl:uid "TimeWindowPolicy" ;
+# Time Window Policy
+drkr:TimeWindowPolicy a odrl:Policy ;
+    odrl:uri <https://w3id.org/drk/resource/TimeWindowPolicy> ;
     rdfs:label "Time-Limited Access Policy"@en ;
     dct:description "Policy governing access within a specific time window"@en ;
     odrl:permission [
@@ -48,21 +49,10 @@ drk:TimeWindowPolicy a odrl:Policy ;
             odrl:rightOperand "2025-03-01T23:59:59"^^xsd:dateTime ;
             rdfs:comment "Access ends on March 1, 2025"@en
         ]
-    ] ;
-    odrl:prohibition [
-        a odrl:Prohibition ;
-        odrl:action odrl:use ;
-        odrl:constraint [
-            a odrl:Constraint ;
-            odrl:leftOperand odrl:dateTime ;
-            odrl:operator odrl:gt ;
-            odrl:rightOperand "2025-03-01T23:59:59"^^xsd:dateTime ;
-            rdfs:comment "No access after expiration date"@en
-        ]
     ] .
 
 # Time-Limited Dataset Template
-drk:TimeLimitedDataset a drk:Dataset, odrl:Asset ;
+drk:TimeLimitedDataset a  odrl:Asset ;
     odrl:uid "TimeLimitedDataset" ;
     dct:title "Time-Limited Access Dataset"@en ;
     dct:description "Dataset with access restricted to specific time period"@en ;
