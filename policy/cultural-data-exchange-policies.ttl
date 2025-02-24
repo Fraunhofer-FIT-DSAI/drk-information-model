@@ -158,7 +158,7 @@ drk:NoFeePolicy a odrl:Policy ;
 
 # OpenAccess Policy Definition
 drk:OpenAccessPolicy a odrl:Policy ;
-    odrl:uid "OpenAccessPolicy" ;
+    odrl:uri <https://w3id.org/drk/resource/OpenAccessPolicy> ;
     rdfs:label "Perpetual Open Access Policy"@en ;
     dct:description "Policy governing unrestricted access to open cultural data"@en ;
     odrl:permission [
@@ -171,14 +171,8 @@ drk:OpenAccessPolicy a odrl:Policy ;
             a odrl:Duty ;
             odrl:action odrl:attribute ;
             rdfs:comment "Attribution required when using the data"@en
-        ] ;
-        # Note: No constraints on:
-        # - Time (perpetual access)
-        # - Geography (worldwide)
-        # - Payment (always free)
-        # - Purpose (any purpose allowed)
+        ]
     ] .
-
 ###############################################
 # Scenario 4: Time-Limited Access Policy
 ###############################################
