@@ -1,0 +1,42 @@
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf:     <http://purl.org/vocommons/voaf#> .
+@prefix wikidata: <https://www.wikidata.org/entity/> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+@prefix tevent:   <http://w3id.org/drk/vocabs/theatrical-event-types#> .
+
+tevent:
+    a                             voaf:Vocabulary, skos:ConceptScheme ;
+    dcterms:title                 "Theatrical Event Types Vocabulary"@en ;
+    dcterms:description           "A controlled vocabulary for listing and describing theatrical event types."@en ;
+    rdfs:label                    "Theatrical Event Types Vocabulary"@en ;
+    rdfs:comment                  "A controlled vocabulary for listing and describing theatrical event types."@en ;
+    dcterms:hasVersion            "0.0.1"^^xsd:string ;
+    vann:preferredNamespacePrefix "tevent" ;
+    vann:preferredNamespaceUri    "http://w3id.org/drk/vocabs/theatrical-event-types#" .
+
+tevent:LastPerformance
+    a               skos:Concept ;
+    skos:inScheme   tevent: ;
+    rdfs:label      "Last Performance"@en, "Dernière"@de ;
+    rdfs:comment    "The final performance of a theatrical production at a specific venue."@en ;
+    skos:exactMatch wikidata:Q1200301 .
+
+tevent:Premiere
+    a               skos:Concept ;
+    skos:inScheme   tevent: ;
+    rdfs:label      "Première"@en, "Premiere"@de ;
+    skos:altLabel   "Premiere"@en ;
+    rdfs:comment    "The first public performance of a theatrical creative work, such as a play, dance, or musical composition."@en ;
+    skos:exactMatch wikidata:Q204854 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Premiere> .
+
+tevent:GuestPerformance
+    a               skos:Concept ;
+    skos:inScheme   tevent: ;
+    rdfs:label      "Guest Performance"@en, "Gastspiel"@de ;
+    rdfs:comment    "A performance by a theater company or artist presented at a venue where they are not the resident performers."@en ;
+    skos:exactMatch wikidata:Q40249767 .

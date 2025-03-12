@@ -1,0 +1,49 @@
+@prefix drk: <https://w3id.org/drk/ontology/> .
+@prefix drkr: <https://w3id.org/drk/resource/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+###############################################
+#Cultural Data Exchange Policies
+###############################################
+
+###############################################
+# Scenario 1: Cultural API Access Management
+###############################################
+# Scenario Description:
+# - The Augsburg State Theater provides a ShowTimes API
+# - Access is restricted geographically to Germany
+# - Time-limited access until May 10, 2025
+# - Three types of subscribers have access rights
+# - Access is managed through a TempoSpatialAccess policy
+
+# Temporal and Spatial Access Policy
+drkr:GeoTemporalAccessPolicy a odrl:Policy ;
+    odrl:uid <https://w3id.org/drk/resource/GeoTemporalAccessPolicy> ;
+    rdfs:label "Geographical and Time-Based Access Policy"@en ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:action odrl:use ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:spatial ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand "DE"^^xsd:string ;
+            rdfs:comment "Access restricted to Germany"@en
+        ] ,
+        [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:dateTime ;
+            odrl:operator odrl:lteq ;
+            odrl:rightOperand "2025-05-10T23:59:59"^^xsd:dateTime ;
+            rdfs:comment "Access expires on May 10, 2025"@en
+        ] 
+    ] .

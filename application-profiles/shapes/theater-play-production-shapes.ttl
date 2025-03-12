@@ -1,0 +1,26 @@
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix schema:  <https://schema.org/> .
+@prefix drk:     <http://w3id.org/drk/ontology/> .
+@prefix tgenres: <http://w3id.org/drk/vocabs/theatrical-genres#> .
+
+# Constraints: Theatrical PlayProduction must have at least one name, one description, and one genre from the DRK Theatrical Genres Vocabulary
+drk:PlayProductionShape
+    a              sh:NodeShape ;
+    sh:targetClass drk:PlayProduction ;
+
+    # Constraint 1: At least one schema:name
+    sh:property    [ sh:path     schema:name ;
+                     sh:minCount 1 ;
+                     sh:message  "A Play Production must have at least one name."@en ; ] ;
+
+    # Constraint 2: At least one schema:description
+    sh:property    [ sh:path     schema:description ;
+                     sh:minCount 1 ;
+                     sh:message  "A Play Production must have at least one description."@en ; ] ;
+
+    # Constraint 3: At least one schema:genre from the theatrical genres vocabulary
+    sh:property    [ sh:path     schema:genre ;
+                     sh:minCount 1 ;
+                     sh:nodeKind sh:IRI ;
+                     sh:in       ( tgenres: ) ;
+                     sh:message  "A Play Production must have at least one genre from the DRK Theatrical Genres Vocabulary."@en ; ] .

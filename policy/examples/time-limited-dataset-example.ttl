@@ -1,0 +1,22 @@
+@prefix drk: <https://w3id.org/drk/ontology/> .
+@prefix drkr: <https://w3id.org/drk/resource/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+
+# Time-Limited Dataset Template
+drkr:TimeLimitedDataset a odrl:Asset ;
+    odrl:uid "TimeLimitedDataset" ;
+    dct:title "Time-Limited Access Dataset"@en ;
+    dct:description "Dataset with access restricted to specific time period"@en ;
+    dct:temporal "2024-03-01/2025-03-01"^^xsd:string ;
+    dct:accessRights "restricted"^^xsd:string ;
+    odrl:hasPolicy drkr:TimeWindowPolicy .

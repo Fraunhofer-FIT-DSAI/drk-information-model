@@ -1,0 +1,27 @@
+@prefix drk: <https://w3id.org/drk/ontology/> .
+@prefix drkr: <https://w3id.org/drk/resource/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+
+###############################################
+# Scenario 5: Connector Reference Access Policy
+###############################################
+# Scenario Description:
+# - Access based on connector ID validation
+# - Must match intended connector identifier
+# - Simple reference check mechanism
+# - Binary allow/deny based on match
+
+# Example of applying the policy to a protected resource
+drkr:SensitiveDataset a odrl:Asset ;
+    dct:title "Protected Research Data" ;
+    odrl:hasPolicy drkr:ConnectorReferencePolicy .
