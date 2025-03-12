@@ -180,7 +180,6 @@ drk:
     rdfs:subClassOf [
         a owl:Class ;
         owl:unionOf (
-            schema:InstructionSchedule 
             event:Event
             time:TemporalEntity
             ncal:Calendar
