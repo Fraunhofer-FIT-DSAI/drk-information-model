@@ -338,19 +338,6 @@ drk:hasUser
 :hasStudentExperienceLevel
     a owl:ObjectProperty ;
     rdfs:domain :MusicInstructor ;
-    rdfs:range [
-        a owl:Class ;
-        owl:oneOf (
-            :BeginnerLevel
-            :IntermediateLevel
-            :AdvancedLevel
-        )
-    ] ;
-    skos:definition "Experience levels of students that the instructor is willing to teach."@en .
-    
-:hasStudentExperienceLevel
-    a owl:ObjectProperty ;
-    rdfs:domain :MusicInstructor ;
     rdfs:range :MusicExperienceLevel ;
     skos:definition "Experience levels of students that the instructor is willing to teach."@en .
 
