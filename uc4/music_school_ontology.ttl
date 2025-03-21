@@ -341,6 +341,17 @@ drk:hasUser
     rdfs:range :MusicExperienceLevel ;
     skos:definition "Experience levels of students that the instructor is willing to teach."@en .
 
+:linksToService
+   a owl:ObjectProperty ;
+   rdfs:domain :MusicInstructorIntegration ;
+   rdfs:range :ExternalMusicService ;
+   skos:definition "Connects an integration record to the external service it represents."@en .
+
+:hasInstructorIntegration
+   a owl:ObjectProperty ;
+   rdfs:domain :MusicInstructor ;
+   rdfs:range :MusicInstructorIntegration ;
+   skos:definition "Links an instructor to their service integration records."@en .
 
 :hasPreferredLocation
     a owl:ObjectProperty ;
