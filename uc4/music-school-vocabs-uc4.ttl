@@ -11,7 +11,7 @@
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
 
 
-
+# change to SKOS
 # Language System
 :MusicSchoolLanguage
     a owl:Class ;
@@ -30,41 +30,41 @@
     rdfs:label "German"@en ;
     skos:prefLabel "German"@en .
 
-# Role System
-:MusicSchoolMemberRole
-    a owl:Class ;
-    rdfs:label "Music School Member Role"@en ;
-    skos:definition "System roles for music school members"@en ;
-    owl:oneOf ( :RootAdminRole :SchoolAdminRole :MusicInstructorRole :MusicLearnerRole) .
+# # Role System
+# :MusicSchoolMemberRole
+#     a owl:Class ;
+#     rdfs:label "Music School Member Role"@en ;
+#     skos:definition "System roles for music school members"@en ;
+#     owl:oneOf ( :RootAdminRole :SchoolAdminRole :MusicInstructorRole :MusicLearnerRole) .
 
-# Root Administrator Role
-:RootAdminRole
-    a :MusicSchoolMemberRole ;
-    rdfs:label "Root Administrator"@en ;
-    skos:prefLabel "Root Admin"@en ;
-    skos:definition "The highest-level administrator with full system access, managing all music schools and users."@en .
+# # Root Administrator Role
+# :RootAdminRole
+#     a :MusicSchoolMemberRole ;
+#     rdfs:label "Root Administrator"@en ;
+#     skos:prefLabel "Root Admin"@en ;
+#     skos:definition "The highest-level administrator with full system access, managing all music schools and users."@en .
 
 
-# School Administrator Role
-:SchoolAdminRole
-    a :MusicSchoolMemberRole ;
-    rdfs:label "School Administrator"@en ;
-    skos:prefLabel "School Admin"@en ;
-    skos:definition "An administrator responsible for managing a specific music school, including its instructors and learners."@en .
+# # School Administrator Role
+# :SchoolAdminRole
+#     a :MusicSchoolMemberRole ;
+#     rdfs:label "School Administrator"@en ;
+#     skos:prefLabel "School Admin"@en ;
+#     skos:definition "An administrator responsible for managing a specific music school, including its instructors and learners."@en .
 
-# Music Instructor Role
-:MusicInstructorRole
-    a :MusicSchoolMemberRole ;
-    rdfs:label "Music Instructor"@en ;
-    skos:prefLabel "Instructor"@en ;
-    skos:definition "A teacher who provides music instruction to learners within the system."@en .
+# # Music Instructor Role
+# :MusicInstructorRole
+#     a :MusicSchoolMemberRole ;
+#     rdfs:label "Music Instructor"@en ;
+#     skos:prefLabel "Instructor"@en ;
+#     skos:definition "A teacher who provides music instruction to learners within the system."@en .
 
-# Music Learner Role
-:MusicLearnerRole
-    a :MusicSchoolMemberRole ;
-    rdfs:label "Music Learner"@en ;
-    skos:prefLabel "Learner"@en ;
-    skos:definition "A student who is enrolled in music lessons within the system."@en .
+# # Music Learner Role
+# :MusicLearnerRole
+#     a :MusicSchoolMemberRole ;
+#     rdfs:label "Music Learner"@en ;
+#     skos:prefLabel "Learner"@en ;
+#     skos:definition "A student who is enrolled in music lessons within the system."@en .
 
 
 # Gender System
@@ -97,22 +97,22 @@
     skos:prefLabel "Other"@en ;
     skos:definition "A person identifying with another gender not listed."@en .
 
-# Confirmation System
-:MusicSchoolMemberConfirmationType
-    a owl:Class ;
-    rdfs:label "Music School Member Confirmation Type"@en ;
-    skos:definition "Types of member verification processes"@en ;
-    owl:oneOf ( :RegistrationConfirmation :RecoveryConfirmation) .
+# # Confirmation System
+# :MusicSchoolMemberConfirmationType
+#     a owl:Class ;
+#     rdfs:label "Music School Member Confirmation Type"@en ;
+#     skos:definition "Types of member verification processes"@en ;
+#     owl:oneOf ( :RegistrationConfirmation :RecoveryConfirmation) .
 
-:RegistrationConfirmation
-    a :MusicSchoolMemberConfirmationType ;
-    rdfs:label "Registration Confirmation"@en ;
-    skos:definition "Confirmation process required to verify a new user's registration."@en .
+# :RegistrationConfirmation
+#     a :MusicSchoolMemberConfirmationType ;
+#     rdfs:label "Registration Confirmation"@en ;
+#     skos:definition "Confirmation process required to verify a new user's registration."@en .
 
-:RecoveryConfirmation
-    a :MusicSchoolMemberConfirmationType ;
-    rdfs:label "Recovery Confirmation"@en ;
-    skos:definition "Confirmation process used to recover a lost or forgotten account."@en .
+# :RecoveryConfirmation
+#     a :MusicSchoolMemberConfirmationType ;
+#     rdfs:label "Recovery Confirmation"@en ;
+#     skos:definition "Confirmation process used to recover a lost or forgotten account."@en .
 
 
 # Instruction Place
@@ -227,81 +227,81 @@
     schema:identifier "canceled" ;
     schema:actionStatus schema:FailedActionStatus .
 
-# Document Categories
-:MusicSchoolDocumentType
-    a owl:Class ;
-    rdfs:label "Music School Document Type"@en ;
-    skos:definition "Types of documents in music school system"@en ;
-    owl:oneOf (
-          :AvatarDocument
-      ) .
+# # Document Categories
+# :MusicSchoolDocumentType
+#     a owl:Class ;
+#     rdfs:label "Music School Document Type"@en ;
+#     skos:definition "Types of documents in music school system"@en ;
+#     owl:oneOf (
+#           :AvatarDocument
+#       ) .
 
-# Document Type Instance
-:AvatarDocument
-    a :MusicSchoolDocumentType ;
-    rdfs:label "Avatar Document"@en ;
-    skos:definition "Profile image document for member representation"@en ;
-    schema:identifier "avatar" ;
-    rdfs:seeAlso schema:ImageObject ;
-    schema:encodingFormat [
-          schema:identifier "image/*" ;
-          schema:description "Image file formats suitable for profile pictures"
-      ] .
+# # Document Type Instance
+# :AvatarDocument
+#     a :MusicSchoolDocumentType ;
+#     rdfs:label "Avatar Document"@en ;
+#     skos:definition "Profile image document for member representation"@en ;
+#     schema:identifier "avatar" ;
+#     rdfs:seeAlso schema:ImageObject ;
+#     schema:encodingFormat [
+#           schema:identifier "image/*" ;
+#           schema:description "Image file formats suitable for profile pictures"
+#       ] .
 
-# Preference System
-:MusicSchoolMemberGenderPreference
-    a owl:Class ;
-    rdfs:label "Music School Member Gender Preference"@en ;
-    skos:definition "Gender preferences for instruction matching"@en ;
-    owl:oneOf (
-          :MalePreference
-          :FemalePreference
-          :AnyGenderPreference
-      ) .
+# # Preference System
+# :MusicSchoolMemberGenderPreference
+#     a owl:Class ;
+#     rdfs:label "Music School Member Gender Preference"@en ;
+#     skos:definition "Gender preferences for instruction matching"@en ;
+#     owl:oneOf (
+#           :MalePreference
+#           :FemalePreference
+#           :AnyGenderPreference
+#       ) .
 
-# Gender Preference Instances
-:MalePreference
-    a :MusicSchoolMemberGenderPreference ;
-    rdfs:label "Male Preference"@en ;
-    skos:definition "Preference for male instructor or student pairing"@en ;
-    rdfs:seeAlso schema:GenderType .
+# # Gender Preference Instances
+# :MalePreference
+#     a :MusicSchoolMemberGenderPreference ;
+#     rdfs:label "Male Preference"@en ;
+#     skos:definition "Preference for male instructor or student pairing"@en ;
+#     rdfs:seeAlso schema:GenderType .
 
-:FemalePreference
-    a :MusicSchoolMemberGenderPreference ;
-    rdfs:label "Female Preference"@en ;
-    skos:definition "Preference for female instructor or student pairing"@en ;
-    rdfs:seeAlso schema:GenderType .
+# :FemalePreference
+#     a :MusicSchoolMemberGenderPreference ;
+#     rdfs:label "Female Preference"@en ;
+#     skos:definition "Preference for female instructor or student pairing"@en ;
+#     rdfs:seeAlso schema:GenderType .
 
-:AnyGenderPreference
-    a :MusicSchoolMemberGenderPreference ;
-    rdfs:label "Any Gender Preference"@en ;
-    skos:definition "No specific gender preference for instruction pairing"@en ;
-    rdfs:seeAlso schema:GenderType .
+# :AnyGenderPreference
+#     a :MusicSchoolMemberGenderPreference ;
+#     rdfs:label "Any Gender Preference"@en ;
+#     skos:definition "No specific gender preference for instruction pairing"@en ;
+#     rdfs:seeAlso schema:GenderType .
 
-# Notification System
-:MusicSchoolMatchNotification
-    a owl:Class ;
-    rdfs:label "Music School Match Notification"@en ;
-    skos:definition "Notification routing for match events"@en ;
-    owl:oneOf (
-          :SendToSchoolNotification
-          :SendToTeacherNotification
-      ) .
+# # Notification System
+# :MusicSchoolMatchNotification
+#     a owl:Class ;
+#     rdfs:label "Music School Match Notification"@en ;
+#     skos:definition "Notification routing for match events"@en ;
+#     owl:oneOf (
+#           :SendToSchoolNotification
+#           :SendToTeacherNotification
+#       ) .
 
-# Match Notification Instances
-:SendToSchoolNotification
-    a :MusicSchoolMatchNotification ;
-    rdfs:label "Send to School"@en ;
-    skos:definition "Match notifications are routed to school administration"@en ;
-    schema:identifier "send_to_school" ;
-    schema:actionStatus schema:PotentialActionStatus .
+# # Match Notification Instances
+# :SendToSchoolNotification
+#     a :MusicSchoolMatchNotification ;
+#     rdfs:label "Send to School"@en ;
+#     skos:definition "Match notifications are routed to school administration"@en ;
+#     schema:identifier "send_to_school" ;
+#     schema:actionStatus schema:PotentialActionStatus .
 
-:SendToTeacherNotification
-    a :MusicSchoolMatchNotification ;
-    rdfs:label "Send to Teacher"@en ;
-    skos:definition "Match notifications are routed directly to teachers"@en ;
-    schema:identifier "send_to_teacher" ;
-    schema:actionStatus schema:PotentialActionStatus .
+# :SendToTeacherNotification
+#     a :MusicSchoolMatchNotification ;
+#     rdfs:label "Send to Teacher"@en ;
+#     skos:definition "Match notifications are routed directly to teachers"@en ;
+#     schema:identifier "send_to_teacher" ;
+#     schema:actionStatus schema:PotentialActionStatus .
 
 
 # Experience Level System
