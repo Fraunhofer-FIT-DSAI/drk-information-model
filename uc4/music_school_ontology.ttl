@@ -79,69 +79,40 @@ drk:
    rdfs:isDefinedBy drk: ;
    rdfs:label "Music School"@en ;
    skos:definition "An educational School specialized in music education."@en ;
-    rdfs:subClassOf [
-        a owl:Class ;
-        owl:unionOf (
-            schema:EducationalOrganization
-            schema:Organization
-            foaf:Organization
-            vcard:Organization
-        )
-    ] ;
-   rdfs:seeAlso <http://dbpedia.org/resource/Music_school> ;
-    rdfs:seeAlso schema:EducationalOrganization .
+   rdfs:subClassOf schema:EducationalOrganization .
 
 :MusicSchoolMember
-   a rdfs:Class, owl:Class, skos:Concept ;
+   a rdfs:Class, owl:Class;
    rdfs:isDefinedBy drk: ;
    rdfs:label "Music School Member"@en ;
    skos:definition "A person who interacts with the music school system, including students, teachers, and administrators."@en ;
-   rdfs:subClassOf [
-        a owl:Class ;
-        owl:unionOf (
-            schema:Person
-            foaf:Person
-            vcard:Individual
-        )
-    ] ;
-    rdfs:seeAlso schema:Person .
-
-:MusicInstructor
-    a rdfs:Class, owl:Class, skos:Concept ;
+   rdfs:subClassOf schema:Person .
+           
+# :MusicInstructor
+:MusicTeacher
+    a rdfs:Class, owl:Class ;
     rdfs:isDefinedBy drk: ;
     rdfs:label "Music Instructor"@en ;
     skos:definition "Professional music educator."@en ;
     rdfs:subClassOf :MusicSchoolMember .
 
-:MusicLearner
-    a rdfs:Class, owl:Class, skos:Concept ;
+# :MusicLearner
+:MusicStudent
+    a rdfs:Class, owl:Class ;
     rdfs:isDefinedBy drk: ;
     rdfs:label "Music Learner"@en ;
     skos:definition "Student enrolled for music education."@en ;
     rdfs:subClassOf :MusicSchoolMember .
 
-:MusicInstruction
-    a rdfs:Class, owl:Class, skos:Concept ;
+# :MusicInstruction
+:MusicCourse
+    a rdfs:Class, owl:Class ;
     rdfs:isDefinedBy drk: ;
     rdfs:label "Music Instruction"@en ;
-    skos:definition "An instructional session conducted by a teacher for one or more students, focusing on a specific musical subject or skill."@en ;
-    rdfs:subClassOf [
-          a owl:Class ;
-          owl:unionOf (
-                schema:Event
-                event:Event
-                mo:Performance
-            )
-      ] ;
-    rdfs:seeAlso mo:Performance .
-# could be a property 
-:TeacherStudentPairing
-    a rdfs:Class, owl:Class, skos:Concept ;
-    rdfs:isDefinedBy drk: ;
-    rdfs:label "Teacher Student Pairing"@en ;
-    skos:definition "Match between instructor and learner."@en ;
-    rdfs:subClassOf prov:Association .
+    skos:definition "A cours conducted by a teacher for one or more students, focusing on a specific musical subject or skill."@en ;
+    rdfs:subClassOf schema:Course .
 
+# change to VOCAB ENM
 :MusicGenreCategory
     a rdfs:Class, owl:Class, skos:Concept ;
     rdfs:isDefinedBy drk: ;
@@ -149,6 +120,8 @@ drk:
     skos:definition "Style of music."@en ;
     owl:equivalentClass mo:Genre .
 
+# https://app.musiq.me/sign-up
+# change to VOCAB ENM 
 :MusicalInstrumentType
     a rdfs:Class, owl:Class, skos:Concept ;
     rdfs:isDefinedBy drk: ;
@@ -157,67 +130,90 @@ drk:
     owl:equivalentClass dbo:MusicalInstrument ;
     owl:equivalentClass mo:Instrument .
 
-# Secondary Classes
-:MusicSchoolDocument
-    a rdfs:Class, owl:Class, skos:Concept ;
-    rdfs:isDefinedBy drk: ;
-    rdfs:label "Music School Document"@en ;
-    skos:definition "Digital asset in music school system."@en ;
-    rdfs:subClassOf [
-        a owl:Class ;
-        owl:unionOf (
-            schema:MediaObject
-            dcat:Distribution
-            nfo:MusicSchoolDocumentDataObject
-        )
-    ] .
 
-:InstructionSchedule
-    a rdfs:Class, owl:Class, skos:Concept ;
-    rdfs:isDefinedBy drk: ;
-    rdfs:label "Instruction Schedule"@en ;
-    skos:definition "Timing for music instruction."@en ;
-    rdfs:subClassOf [
-        a owl:Class ;
-        owl:unionOf (
-            event:Event
-            time:TemporalEntity
-            ncal:Calendar
-        )
-    ] .
+# files remove it  as class and keep some properties reuse 
+# :MusicSchoolDocument
+#     a rdfs:Class, owl:Class, skos:Concept ;
+#     rdfs:isDefinedBy drk: ;
+#     rdfs:label "Music School Document"@en ;
+#     skos:definition "Digital asset in music school system."@en ;
+#     rdfs:subClassOf [
+#         a owl:Class ;
+#         owl:unionOf (
+#             schema:MediaObject
+#             dcat:Distribution
+#             nfo:MusicSchoolDocumentDataObject
+#         )
+#     ] .
 
-:ExternalMusicService
-    a rdfs:Class, owl:Class, skos:Concept ;
-    rdfs:isDefinedBy drk: ;
-    rdfs:label "External Music Service"@en ;
-    skos:definition "Third-party service integration."@en ;
-    rdfs:subClassOf schema:ServiceChannel .
+# # :MusicCourse
+# :InstructionSchedule
+#     a rdfs:Class, owl:Class, skos:Concept ;
+#     rdfs:isDefinedBy drk: ;
+#     rdfs:label "Instruction Schedule"@en ;
+#     skos:definition "Timing for music instruction."@en ;
+#     rdfs:subClassOf [
+#         a owl:Class ;
+#         owl:unionOf (
+#             event:Event
+#             time:TemporalEntity
+#             ncal:Calendar
+#         )
+#     ] .
 
-:MusicSchoolMemberConfirmation
-    a rdfs:Class, owl:Class, skos:Concept ;
-    rdfs:isDefinedBy drk: ;
-    rdfs:label "Member Confirmation"@en ;
-    skos:definition "Member verification event."@en ;
-    rdfs:subClassOf [
-        a owl:Class ;
-        owl:unionOf (
-            schema:VerifyAction
-            prov:Activity
-        )
-    ] .
+# :ExternalMusicService
+#     a rdfs:Class, owl:Class, skos:Concept ;
+#     rdfs:isDefinedBy drk: ;
+#     rdfs:label "External Music Service"@en ;
+#     skos:definition "Third-party service integration."@en ;
+#     rdfs:subClassOf schema:ServiceChannel .
 
-:MusicInstructorIntegration
-    a rdfs:Class, owl:Class, skos:Concept ;
-    rdfs:isDefinedBy drk: ;
-    rdfs:label "Instructor Integration"@en ;
-    skos:definition "Instructor's service connection."@en ;
-    rdfs:subClassOf [
-        a owl:Class ;
-        owl:unionOf (
-            schema:ServiceChannel
-            prov:Association
-        )
-    ] .
+# :MusicSchoolMemberConfirmation
+#     a rdfs:Class, owl:Class, skos:Concept ;
+#     rdfs:isDefinedBy drk: ;
+#     rdfs:label "Member Confirmation"@en ;
+#     skos:definition "Member verification event."@en ;
+#     rdfs:subClassOf [
+#         a owl:Class ;
+#         owl:unionOf (
+#             schema:VerifyAction
+#             prov:Activity
+#         )
+#     ] .
+
+# :MusicInstructorIntegration
+#     a rdfs:Class, owl:Class, skos:Concept ;
+#     rdfs:isDefinedBy drk: ;
+#     rdfs:label "Instructor Integration"@en ;
+#     skos:definition "Instructor's service connection."@en ;
+#     rdfs:subClassOf [
+#         a owl:Class ;
+#         owl:unionOf (
+#             schema:ServiceChannel
+#             prov:Association
+#         )
+#     ] .
+
+# :TeacherStudentPairing
+#     a rdfs:Class, owl:Class, skos:Concept ;
+#     rdfs:isDefinedBy drk: ;
+#     rdfs:label "Teacher Student Pairing"@en ;
+#     skos:definition "Match between instructor and learner."@en ;
+#     rdfs:subClassOf prov:Association .
+
+# :MusicInstructorIntegration
+#     a rdfs:Class, owl:Class, skos:Concept ;
+#     rdfs:isDefinedBy drk: ;
+#     rdfs:label "Instructor Integration"@en ;
+#     skos:definition "Instructor's service connection."@en ;
+#     rdfs:subClassOf [
+#         a owl:Class ;
+#         owl:unionOf (
+#             schema:ServiceChannel
+#             prov:Association
+#         )
+#     ] .
+
 
 # Core User Relations object property;
 drk:hasUser
