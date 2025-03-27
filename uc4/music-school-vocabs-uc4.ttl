@@ -9,6 +9,10 @@
 @prefix schema:       <https://schema.org/> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix mo:           <http://purl.org/ontology/mo/> .
+@prefix dbpedia:      <http://dbpedia.org/ontology/> .
+@prefix event:        <http://purl.org/NET/c4dm/event.owl#> .
+@prefix dbo:          <http://dbpedia.org/ontology/> .
 
 
 # MusicGenreCategory Vocabulary Enumeration 
