@@ -11,6 +11,76 @@
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
 
 
+# MusicGenreCategory Vocabulary Enumeration
+:GenreVocabulary 
+    a skos:ConceptScheme ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:label "Music Genres"@en ;
+    skos:definition "Enumeration of music styles and genres"@en .
+
+# Concepts based on the genres from your image
+:Blues 
+    a skos:Concept ;
+    skos:inScheme :GenreVocabulary ;
+    skos:prefLabel "Blues"@en .
+
+:Electronic 
+    a skos:Concept ;
+    skos:inScheme :GenreVocabulary ;
+    skos:prefLabel "Electronic"@en .
+
+:HipHop 
+    a skos:Concept ;
+    skos:inScheme :GenreVocabulary ;
+    skos:prefLabel "Hip Hop"@en .
+
+:Jazz 
+    a skos:Concept ;
+    skos:inScheme :GenreVocabulary ;
+    skos:prefLabel "Jazz"@en .
+
+:Classical 
+    a skos:Concept ;
+    skos:inScheme :GenreVocabulary ;
+    skos:prefLabel "Classical"@en .
+
+# Add other genres as needed ...>
+
+# InstrumentVocabulary Enumeration
+:InstrumentVocabulary 
+    a skos:ConceptScheme ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:label "Musical Instruments"@en ;
+    skos:definition "Enumeration of musical instruments"@en .
+
+# Concepts based on the instruments from your image
+:BassGuitar 
+    a skos:Concept ;
+    skos:inScheme :InstrumentVocabulary ;
+    skos:prefLabel "Bass Guitar"@en .
+
+:Flute 
+    a skos:Concept ;
+    skos:inScheme :InstrumentVocabulary ;
+    skos:prefLabel "Flute"@en .
+
+:Vocals 
+    a skos:Concept ;
+    skos:inScheme :InstrumentVocabulary ;
+    skos:prefLabel "Vocals"@en .
+
+:Guitar 
+    a skos:Concept ;
+    skos:inScheme :InstrumentVocabulary ;
+    skos:prefLabel "Guitar"@en .
+
+:Keyboard 
+    a skos:Concept ;
+    skos:inScheme :InstrumentVocabulary ;
+    skos:prefLabel "Keyboard"@en .
+
+# Add other instruments as needed ...>
+
 # Language Vocabulary
 :LanguageVocabulary a skos:ConceptScheme ;
     rdfs:label "Languages"@en ;
