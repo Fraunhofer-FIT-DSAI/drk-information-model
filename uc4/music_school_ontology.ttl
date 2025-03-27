@@ -87,8 +87,7 @@ drk:
    rdfs:label "Music School Member"@en ;
    skos:definition "A person who interacts with the music school system, including students, teachers, and administrators."@en ;
    rdfs:subClassOf schema:Person .
-           
-# :MusicInstructor
+    
 :MusicTeacher
     a rdfs:Class, owl:Class ;
     rdfs:isDefinedBy drk: ;
@@ -96,7 +95,6 @@ drk:
     skos:definition "Professional music educator."@en ;
     rdfs:subClassOf :MusicSchoolMember .
 
-# :MusicLearner
 :MusicStudent
     a rdfs:Class, owl:Class ;
     rdfs:isDefinedBy drk: ;
@@ -104,115 +102,12 @@ drk:
     skos:definition "Student enrolled for music education."@en ;
     rdfs:subClassOf :MusicSchoolMember .
 
-# :MusicInstruction
 :MusicCourse
     a rdfs:Class, owl:Class ;
     rdfs:isDefinedBy drk: ;
     rdfs:label "Music Instruction"@en ;
     skos:definition "A cours conducted by a teacher for one or more students, focusing on a specific musical subject or skill."@en ;
     rdfs:subClassOf schema:Course .
-
-# change to VOCAB ENM
-:MusicGenreCategory
-    a rdfs:Class, owl:Class ;
-    rdfs:isDefinedBy drk: ;
-    rdfs:label "Music Genre Category"@en ;
-    skos:definition "Style of music."@en ;
-    owl:equivalentClass mo:Genre .
-
-# https://app.musiq.me/sign-up
-# change to VOCAB ENM 
-:MusicalInstrumentType
-    a rdfs:Class, owl:Class ;
-    rdfs:isDefinedBy drk: ;
-    rdfs:label "Musical Instrument Type"@en ;
-    skos:definition "Device for producing musical sound."@en ;
-    owl:equivalentClass dbo:MusicalInstrument ;
-    owl:equivalentClass mo:Instrument .
-
-
-# files remove it  as class and keep some properties reuse 
-# :MusicSchoolDocument
-#     a rdfs:Class, owl:Class, skos:Concept ;
-#     rdfs:isDefinedBy drk: ;
-#     rdfs:label "Music School Document"@en ;
-#     skos:definition "Digital asset in music school system."@en ;
-#     rdfs:subClassOf [
-#         a owl:Class ;
-#         owl:unionOf (
-#             schema:MediaObject
-#             dcat:Distribution
-#             nfo:MusicSchoolDocumentDataObject
-#         )
-#     ] .
-
-# # :MusicCourse
-# :InstructionSchedule
-#     a rdfs:Class, owl:Class, skos:Concept ;
-#     rdfs:isDefinedBy drk: ;
-#     rdfs:label "Instruction Schedule"@en ;
-#     skos:definition "Timing for music instruction."@en ;
-#     rdfs:subClassOf [
-#         a owl:Class ;
-#         owl:unionOf (
-#             event:Event
-#             time:TemporalEntity
-#             ncal:Calendar
-#         )
-#     ] .
-
-# :ExternalMusicService
-#     a rdfs:Class, owl:Class, skos:Concept ;
-#     rdfs:isDefinedBy drk: ;
-#     rdfs:label "External Music Service"@en ;
-#     skos:definition "Third-party service integration."@en ;
-#     rdfs:subClassOf schema:ServiceChannel .
-
-# :MusicSchoolMemberConfirmation
-#     a rdfs:Class, owl:Class, skos:Concept ;
-#     rdfs:isDefinedBy drk: ;
-#     rdfs:label "Member Confirmation"@en ;
-#     skos:definition "Member verification event."@en ;
-#     rdfs:subClassOf [
-#         a owl:Class ;
-#         owl:unionOf (
-#             schema:VerifyAction
-#             prov:Activity
-#         )
-#     ] .
-
-# :MusicInstructorIntegration
-#     a rdfs:Class, owl:Class, skos:Concept ;
-#     rdfs:isDefinedBy drk: ;
-#     rdfs:label "Instructor Integration"@en ;
-#     skos:definition "Instructor's service connection."@en ;
-#     rdfs:subClassOf [
-#         a owl:Class ;
-#         owl:unionOf (
-#             schema:ServiceChannel
-#             prov:Association
-#         )
-#     ] .
-
-# :TeacherStudentPairing
-#     a rdfs:Class, owl:Class, skos:Concept ;
-#     rdfs:isDefinedBy drk: ;
-#     rdfs:label "Teacher Student Pairing"@en ;
-#     skos:definition "Match between instructor and learner."@en ;
-#     rdfs:subClassOf prov:Association .
-
-# :MusicInstructorIntegration
-#     a rdfs:Class, owl:Class, skos:Concept ;
-#     rdfs:isDefinedBy drk: ;
-#     rdfs:label "Instructor Integration"@en ;
-#     skos:definition "Instructor's service connection."@en ;
-#     rdfs:subClassOf [
-#         a owl:Class ;
-#         owl:unionOf (
-#             schema:ServiceChannel
-#             prov:Association
-#         )
-#     ] .
 
 # Core User Relations object property;
 # School-Member Relationships
@@ -292,7 +187,7 @@ drk:teachesInstrument a rdf:Property, owl:ObjectProperty ;
     rdfs:label "teaches instrument"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicTeacher ;
-    rdfs:range :MusicalInstrumentType ;
+    rdfs:range :InstrumentVocabulary ;
     rdfs:comment "Indicates which instruments a teacher provides instruction for."@en ;
     skos:definition "Skill-based relationship connecting an instructor to musical instruments they are qualified to teach."@en .
 
@@ -300,7 +195,7 @@ drk:learnsInstrument a rdf:Property, owl:ObjectProperty ;
     rdfs:label "learns instrument"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicStudent ;
-    rdfs:range :MusicalInstrumentType ;
+    rdfs:range :InstrumentVocabulary  ;
     rdfs:comment "Indicates which instruments a student is learning to play."@en ;
     skos:definition "Skill-acquisition relationship connecting a student to musical instruments they are studying."@en .
 
@@ -317,7 +212,7 @@ drk:teachesGenre a rdf:Property, owl:ObjectProperty ;
     rdfs:label "teaches genre"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicTeacher ;
-    rdfs:range :MusicGenreCategory ;
+    rdfs:range :GenreVocabulary   ;
     rdfs:comment "Indicates which music genres a teacher specializes in teaching."@en ;
     skos:definition "Expertise-based relationship connecting an instructor to music styles they are qualified to teach."@en .
 
@@ -325,7 +220,7 @@ drk:learnsGenre a rdf:Property, owl:ObjectProperty ;
     rdfs:label "learns genre"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicStudent ;
-    rdfs:range :MusicGenreCategory ;
+    rdfs:range :GenreVocabulary ;
     rdfs:comment "Indicates which music genres a student is interested in learning."@en ;
     skos:definition "Interest-based relationship connecting a student to music styles they wish to study."@en .
 
@@ -333,7 +228,7 @@ drk:offersGenre a rdf:Property, owl:ObjectProperty ;
     rdfs:label "offers genre"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicEducationSchool ;
-    rdfs:range :MusicGenreCategory ;
+    rdfs:range :GenreVocabulary ;
     rdfs:comment "Indicates which music genres are taught at a music school."@en ;
     skos:definition "Curriculum-based relationship connecting an educational institution to music styles included in their programs."@en .
 
