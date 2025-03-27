@@ -11,14 +11,15 @@
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
 
 
-# MusicGenreCategory Vocabulary Enumeration
+# MusicGenreCategory Vocabulary Enumeration 
 :GenreVocabulary 
     a skos:ConceptScheme ;
     rdfs:isDefinedBy drk: ;
     rdfs:label "Music Genres"@en ;
-    skos:definition "Enumeration of music styles and genres"@en .
+    skos:definition "Enumeration of music styles and genres"@en ;
+    owl:equivalentClass mo:Genre .
 
-# Concepts based on the genres from your image
+# Concepts based on the genres https://app.musiq.me/
 :Blues 
     a skos:Concept ;
     skos:inScheme :GenreVocabulary ;
@@ -51,9 +52,11 @@
     a skos:ConceptScheme ;
     rdfs:isDefinedBy drk: ;
     rdfs:label "Musical Instruments"@en ;
-    skos:definition "Enumeration of musical instruments"@en .
+    skos:definition "Enumeration of musical instruments"@en ;
+    owl:equivalentClass dbo:MusicalInstrument ;
+    owl:equivalentClass mo:Instrument .
 
-# Concepts based on the instruments from your image
+# Concepts based on the instruments https://app.musiq.me/
 :BassGuitar 
     a skos:Concept ;
     skos:inScheme :InstrumentVocabulary ;
