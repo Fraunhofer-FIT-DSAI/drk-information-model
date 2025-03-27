@@ -355,6 +355,125 @@ drk:hasSchedule a rdf:Property, owl:ObjectProperty ;
     rdfs:comment "Links teachers or students to their availability schedules."@en ;
     skos:definition "Time management relationship that defines when an individual is available for music instruction."@en .
 
+# School Language Property
+drk:schoolLanguage a rdf:Property, owl:ObjectProperty ;
+    rdfs:label "school language"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicEducationSchool ;
+    rdfs:range :LanguageVocabulary ;
+    rdfs:comment "Primary language used by the music school."@en ;
+    skos:definition "Language setting that defines the default communication language for the school."@en .
+
+# Match Notification Property
+drk:matchNotificationType a rdf:Property, owl:ObjectProperty ;
+    rdfs:label "match notification type"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicEducationSchool ;
+    rdfs:range :NotificationRoutingVocabulary ;
+    rdfs:comment "Defines how teacher-student match notifications are routed."@en ;
+    skos:definition "Configuration setting that determines whether match notifications are sent to school administrators or directly to teachers."@en .
+
+# Member Language Property
+drk:preferredLanguage a rdf:Property, owl:ObjectProperty ;
+    rdfs:label "preferred language"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicSchoolMember ;
+    rdfs:range :LanguageVocabulary ;
+    rdfs:comment "The language a member prefers for communication."@en ;
+    skos:definition "User-selected language preference for system interactions."@en .
+
+# Member Role Property
+drk:userRole a rdf:Property, owl:ObjectProperty ;
+    rdfs:label "user role"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicSchoolMember ;
+    rdfs:range :RoleVocabulary ;
+    rdfs:comment "The system role assigned to the member."@en ;
+    skos:definition "Access control categorization that determines permissions and capabilities."@en .
+
+# Member Gender Property
+drk:gender a rdf:Property, owl:ObjectProperty ;
+    rdfs:label "gender"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicSchoolMember ;
+    rdfs:range :GenderVocabulary ;
+    rdfs:comment "The gender identity of the member."@en ;
+    skos:definition "Self-identified gender used for profile information and matching."@en .
+
+# Teaching Location Types
+drk:teachingLocationTypes a rdf:Property, owl:ObjectProperty ;
+    rdfs:label "teaching location types"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicTeacher ;
+    rdfs:range :LocationVocabulary ;
+    rdfs:comment "Where a teacher conducts lessons."@en ;
+    skos:definition "Setting that indicates whether a teacher offers online lessons, in-person lessons, or both."@en .
+
+# Student Experience Level Preference
+drk:preferredStudentLevel a rdf:Property, owl:ObjectProperty ;
+    rdfs:label "preferred student level"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicTeacher ;
+    rdfs:range :ExperienceLevelVocabulary ;
+    rdfs:comment "The experience levels a teacher prefers to teach."@en ;
+    skos:definition "Teacher-specified preference for student skill levels."@en .
+
+# Student Experience Level
+drk:experienceLevel a rdf:Property, owl:ObjectProperty ;
+    rdfs:label "experience level"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicStudent ;
+    rdfs:range :ExperienceLevelVocabulary ;
+    rdfs:comment "The current experience level of the student."@en ;
+    skos:definition "Classification of a student's proficiency in their musical studies."@en .
+
+# Preferred Learning Location
+drk:preferredLearningLocation a rdf:Property, owl:ObjectProperty ;
+    rdfs:label "preferred learning location"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicStudent ;
+    rdfs:range :LocationVocabulary ;
+    rdfs:comment "Where a student prefers to take lessons."@en ;
+    skos:definition "Setting that indicates whether a student prefers online lessons, in-person lessons, or both."@en .
+# Lesson Place Property
+drk:lessonPlace a rdf:Property, owl:ObjectProperty ;
+    rdfs:label "lesson place"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicCourse ;
+    rdfs:range :LocationVocabulary ;
+    rdfs:comment "The location type for the music lesson."@en ;
+    skos:definition "Setting that specifies whether the lesson takes place online or in person."@en .
+
+# Lesson Type Property
+drk:lessonType a rdf:Property, owl:ObjectProperty ;
+    rdfs:label "lesson type"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicCourse ;
+    rdfs:range :LessonTypeVocabulary ;
+    rdfs:comment "The type of instructional session."@en ;
+    skos:definition "Classification indicating whether the lesson is a trial, single session, or recurring lesson."@en .
+
+# Lesson Duration Property
+drk:lessonDuration a rdf:Property, owl:ObjectProperty ;
+    rdfs:label "lesson duration"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicCourse ;
+    rdfs:range :DurationVocabulary ;
+    rdfs:comment "The scheduled duration of the lesson."@en ;
+    skos:definition "Time length setting for the instructional session."@en .
+
+# Lesson Status Property
+drk:lessonStatus a rdf:Property, owl:ObjectProperty ;
+    rdfs:label "lesson status"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicCourse ;
+    rdfs:range :StatusVocabulary ;
+    rdfs:comment "The current status of the lesson."@en ;
+    skos:definition "State indicator for the lesson's lifecycle stage."@en .
+
+
+
+
 # MusicEducationSchool Data Properties
 drk:schoolName a owl:DatatypeProperty ;
     rdfs:label "school name"@en ;
