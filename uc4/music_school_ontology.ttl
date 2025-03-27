@@ -214,23 +214,257 @@ drk:
 #         )
 #     ] .
 
-
 # Core User Relations object property;
-drk:hasUser
-    a owl:ObjectProperty ;
-    rdfs:label "has user"@en ;
+# School-Member Relationships
+drk:hasMember a owl:ObjectProperty ;
+    rdfs:label "has member"@en ;
     rdfs:isDefinedBy drk: ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (
-            drk:MusicInstructor 
-            drk:MusicLearner
-        )
-    ] ;
-    rdfs:range drk:MusicSchoolMember ;
-    owl:inverseOf drk:isUserOf ;
-    rdfs:comment "Links a Teacher or Student to their associated User profile in the system."@en ;
-    skos:definition "Core relationship that connects the specialized roles (Teacher/Student) to their fundamental User entity, ensuring each role has exactly one user profile."@en .
+    rdfs:domain :MusicEducationSchool ;
+    rdfs:range :MusicSchoolMember ;
+    rdfs:comment "Connects a music school to its members (teachers and students)."@en ;
+    skos:definition "Core relationship that links a music education institution to individuals who are part of the school community."@en .
+
+drk:memberOfSchool a owl:ObjectProperty ;
+    rdfs:label "member of school"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicSchoolMember ;
+    rdfs:range :MusicEducationSchool ;
+    owl:inverseOf drk:hasMember ;
+    rdfs:comment "Indicates which school a member belongs to."@en ;
+    skos:definition "Relationship connecting an individual to their affiliated music education institution."@en .
+
+# Teacher-School Relationships
+drk:teachesAtSchool a owl:ObjectProperty ;
+    rdfs:label "teaches at school"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicTeacher ;
+    rdfs:range :MusicEducationSchool ;
+    rdfs:subPropertyOf drk:memberOfSchool ;
+    rdfs:comment "Links a teacher to the school where they provide instruction."@en ;
+    skos:definition "Specialized relationship that connects music instructors to their affiliated educational institution."@en .
+
+# Student-School Relationships
+drk:studiesAtSchool a owl:ObjectProperty ;
+    rdfs:label "studies at school"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicStudent ;
+    rdfs:range :MusicEducationSchool ;
+    rdfs:subPropertyOf drk:memberOfSchool ;
+    rdfs:comment "Links a student to the school where they receive music education."@en ;
+    skos:definition "Specialized relationship that connects music learners to their affiliated educational institution."@en .
+
+# Teacher-Student Relationships
+drk:teachesStudent a owl:ObjectProperty ;
+    rdfs:label "teaches student"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicTeacher ;
+    rdfs:range :MusicStudent ;
+    rdfs:comment "Connects a teacher to students they instruct."@en ;
+    skos:definition "Educational relationship between an instructor and learner in the music education context."@en .
+
+drk:hasMatch a owl:ObjectProperty ;
+    rdfs:label "has match"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicTeacher ;
+    rdfs:range :MusicStudent ;
+    rdfs:comment "Represents a formal pairing between a teacher and student."@en ;
+    skos:definition "System-mediated connection that indicates a teacher-student match based on preferences, instruments, and genres."@en .
+
+# Course/Lesson Relationships
+drk:conductsCourse a owl:ObjectProperty ;
+    rdfs:label "conducts course"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicTeacher ;
+    rdfs:range :MusicCourse ;
+    rdfs:comment "Links a teacher to courses they lead or instruct."@en ;
+    skos:definition "Relationship connecting an instructor to specific music instruction sessions they provide."@en .
+
+drk:attendsCourse a owl:ObjectProperty ;
+    rdfs:label "attends course"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicStudent ;
+    rdfs:range :MusicCourse ;
+    rdfs:comment "Links a student to courses they participate in."@en ;
+    skos:definition "Relationship connecting a learner to specific music instruction sessions they receive."@en .
+
+# Instrument Relationships
+drk:teachesInstrument a owl:ObjectProperty ;
+    rdfs:label "teaches instrument"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicTeacher ;
+    rdfs:range :MusicalInstrumentType ;
+    rdfs:comment "Indicates which instruments a teacher provides instruction for."@en ;
+    skos:definition "Skill-based relationship connecting an instructor to musical instruments they are qualified to teach."@en .
+
+drk:learnsInstrument a owl:ObjectProperty ;
+    rdfs:label "learns instrument"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicStudent ;
+    rdfs:range :MusicalInstrumentType ;
+    rdfs:comment "Indicates which instruments a student is learning to play."@en ;
+    skos:definition "Skill-acquisition relationship connecting a student to musical instruments they are studying."@en .
+
+drk:offersInstrument a owl:ObjectProperty ;
+    rdfs:label "offers instrument"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicEducationSchool ;
+    rdfs:range :MusicalInstrumentType ;
+    rdfs:comment "Indicates which instruments are taught at a music school."@en ;
+    skos:definition "Curriculum-based relationship connecting an educational institution to musical instruments included in their programs."@en .
+
+# Genre Relationships
+drk:teachesGenre a owl:ObjectProperty ;
+    rdfs:label "teaches genre"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicTeacher ;
+    rdfs:range :MusicGenreCategory ;
+    rdfs:comment "Indicates which music genres a teacher specializes in teaching."@en ;
+    skos:definition "Expertise-based relationship connecting an instructor to music styles they are qualified to teach."@en .
+
+drk:learnsGenre a owl:ObjectProperty ;
+    rdfs:label "learns genre"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicStudent ;
+    rdfs:range :MusicGenreCategory ;
+    rdfs:comment "Indicates which music genres a student is interested in learning."@en ;
+    skos:definition "Interest-based relationship connecting a student to music styles they wish to study."@en .
+
+drk:offersGenre a owl:ObjectProperty ;
+    rdfs:label "offers genre"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicEducationSchool ;
+    rdfs:range :MusicGenreCategory ;
+    rdfs:comment "Indicates which music genres are taught at a music school."@en ;
+    skos:definition "Curriculum-based relationship connecting an educational institution to music styles included in their programs."@en .
+
+# Integration Relationships
+drk:hasIntegration a owl:ObjectProperty ;
+    rdfs:label "has integration"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicTeacher, :MusicEducationSchool ;
+    rdfs:range schema:ServiceChannel ;
+    rdfs:comment "Links teachers or schools to external service integrations."@en ;
+    skos:definition "Connection that enables interoperability with third-party music education platforms or tools."@en .
+
+# Schedule Relationships
+drk:hasSchedule a owl:ObjectProperty ;
+    rdfs:label "has schedule"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicTeacher, :MusicStudent ;
+    rdfs:range time:TemporalEntity ;
+    rdfs:comment "Links teachers or students to their availability schedules."@en ;
+    skos:definition "Time management relationship that defines when an individual is available for music instruction."@en .
+
+# MusicEducationSchool Data Properties
+drk:schoolName a owl:DatatypeProperty ;
+    rdfs:label "school name"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicEducationSchool ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The official name of the music education institution."@en ;
+    skos:definition "Primary identifier for a music school as displayed to users and in communications."@en .
+
+drk:isConfirmed a owl:DatatypeProperty ;
+    rdfs:label "is confirmed"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicEducationSchool ;
+    rdfs:range xsd:boolean ;
+    rdfs:comment "Indicates whether the school's registration has been confirmed."@en ;
+    skos:definition "Status flag that determines if a music school has completed the basic registration process."@en .
+
+drk:isValidated a owl:DatatypeProperty ;
+    rdfs:label "is validated"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicEducationSchool ;
+    rdfs:range xsd:boolean ;
+    rdfs:comment "Indicates whether the school has been officially validated."@en ;
+    skos:definition "Status flag that determines if a music school has been verified by system administrators."@en .
+
+drk:teachersAmount a owl:DatatypeProperty ;
+    rdfs:label "teachers amount"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicEducationSchool ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "The number of teachers associated with the school."@en ;
+    skos:definition "Counter that tracks the total number of instructors affiliated with a music education institution."@en .
+
+drk:studentsAmount a owl:DatatypeProperty ;
+    rdfs:label "students amount"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicEducationSchool ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "The number of students enrolled in the school."@en ;
+    skos:definition "Counter that tracks the total number of learners enrolled in a music education institution."@en .
+
+drk:schoolLanguage a owl:DatatypeProperty ;
+    rdfs:label "school language"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicEducationSchool ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The primary language used for instruction at the school."@en ;
+    skos:definition "Primary communication language used by the music education institution for teaching and administration."@en .
+
+drk:matchNotificationType a owl:DatatypeProperty ;
+    rdfs:label "match notification type"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicEducationSchool ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Specifies how match notifications are handled at the school."@en ;
+    skos:definition "Configuration that determines the routing of teacher-student matching notifications within the institution."@en .
+
+drk:schoolWebsite a owl:DatatypeProperty ;
+    rdfs:label "school website"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicEducationSchool ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The URL of the school's official website."@en ;
+    skos:definition "Web address where additional information about the music education institution can be found."@en .
+
+drk:schoolDescription a owl:DatatypeProperty ;
+    rdfs:label "school description"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicEducationSchool ;
+    rdfs:range xsd:string ;
+    rdfs:comment "A description of the music school and its offerings."@en ;
+    skos:definition "Narrative text that explains the music school's mission, approach, and educational philosophy."@en .
+
+drk:postalCode a owl:DatatypeProperty ;
+    rdfs:label "postal code"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicEducationSchool, :MusicSchoolMember ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The postal code of the physical location."@en ;
+    skos:definition "Geographic identifier used for mail delivery and location-based services."@en .
+
+drk:city a owl:DatatypeProperty ;
+    rdfs:label "city"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicEducationSchool, :MusicSchoolMember ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The city where the entity is located."@en ;
+    skos:definition "Geographic location identifier for urban area association."@en .
+
+drk:phoneNumber a owl:DatatypeProperty ;
+    rdfs:label "phone number"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicEducationSchool, :MusicSchoolMember ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Contact phone number for the entity."@en ;
+    skos:definition "Telecommunication identifier used for direct voice communication."@en .
+
+drk:priceRange a owl:DatatypeProperty ;
+    rdfs:label "price range"@en ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:domain :MusicEducationSchool, :MusicTeacher ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The range of prices for lessons or services."@en ;
+    skos:definition "Financial information detailing the minimum and maximum cost of music instruction services."@en .
+
+
+
+
+
+
 
 # School-Member Relations
 :hasSchoolAssociation
