@@ -75,7 +75,7 @@ drk:
 
 # Core Classes
 :MusicEducationSchool
-   a rdfs:Class, owl:Class, skos:Concept ;
+   a rdfs:Class, owl:Class ;
    rdfs:isDefinedBy drk: ;
    rdfs:label "Music School"@en ;
    skos:definition "An educational School specialized in music education."@en ;
@@ -114,7 +114,7 @@ drk:
 
 # change to VOCAB ENM
 :MusicGenreCategory
-    a rdfs:Class, owl:Class, skos:Concept ;
+    a rdfs:Class, owl:Class ;
     rdfs:isDefinedBy drk: ;
     rdfs:label "Music Genre Category"@en ;
     skos:definition "Style of music."@en ;
@@ -123,7 +123,7 @@ drk:
 # https://app.musiq.me/sign-up
 # change to VOCAB ENM 
 :MusicalInstrumentType
-    a rdfs:Class, owl:Class, skos:Concept ;
+    a rdfs:Class, owl:Class ;
     rdfs:isDefinedBy drk: ;
     rdfs:label "Musical Instrument Type"@en ;
     skos:definition "Device for producing musical sound."@en ;
@@ -216,7 +216,7 @@ drk:
 
 # Core User Relations object property;
 # School-Member Relationships
-drk:hasMember a owl:ObjectProperty ;
+drk:hasMember a rdf:Property, owl:DatatypeProperty ;
     rdfs:label "has member"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicEducationSchool ;
@@ -224,7 +224,7 @@ drk:hasMember a owl:ObjectProperty ;
     rdfs:comment "Connects a music school to its members (teachers and students)."@en ;
     skos:definition "Core relationship that links a music education institution to individuals who are part of the school community."@en .
 
-drk:memberOfSchool a owl:ObjectProperty ;
+drk:memberOfSchool a rdf:Property, owl:ObjectProperty ;
     rdfs:label "member of school"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicSchoolMember ;
@@ -234,7 +234,7 @@ drk:memberOfSchool a owl:ObjectProperty ;
     skos:definition "Relationship connecting an individual to their affiliated music education institution."@en .
 
 # Teacher-School Relationships
-drk:teachesAtSchool a owl:ObjectProperty ;
+drk:teachesAtSchool a rdf:Property, owl:ObjectProperty ;
     rdfs:label "teaches at school"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicTeacher ;
@@ -244,7 +244,7 @@ drk:teachesAtSchool a owl:ObjectProperty ;
     skos:definition "Specialized relationship that connects music instructors to their affiliated educational institution."@en .
 
 # Student-School Relationships
-drk:studiesAtSchool a owl:ObjectProperty ;
+drk:studiesAtSchool a rdf:Property, owl:ObjectProperty ;
     rdfs:label "studies at school"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicStudent ;
@@ -254,7 +254,7 @@ drk:studiesAtSchool a owl:ObjectProperty ;
     skos:definition "Specialized relationship that connects music learners to their affiliated educational institution."@en .
 
 # Teacher-Student Relationships
-drk:teachesStudent a owl:ObjectProperty ;
+drk:teachesStudent a rdf:Property, owl:ObjectProperty ;
     rdfs:label "teaches student"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicTeacher ;
@@ -262,7 +262,7 @@ drk:teachesStudent a owl:ObjectProperty ;
     rdfs:comment "Connects a teacher to students they instruct."@en ;
     skos:definition "Educational relationship between an instructor and learner in the music education context."@en .
 
-drk:hasMatch a owl:ObjectProperty ;
+drk:hasMatch a rdf:Property, owl:ObjectProperty ;
     rdfs:label "has match"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicTeacher ;
@@ -271,7 +271,7 @@ drk:hasMatch a owl:ObjectProperty ;
     skos:definition "System-mediated connection that indicates a teacher-student match based on preferences, instruments, and genres."@en .
 
 # Course/Lesson Relationships
-drk:conductsCourse a owl:ObjectProperty ;
+drk:conductsCourse a rdf:Property, owl:ObjectProperty ;
     rdfs:label "conducts course"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicTeacher ;
@@ -279,7 +279,7 @@ drk:conductsCourse a owl:ObjectProperty ;
     rdfs:comment "Links a teacher to courses they lead or instruct."@en ;
     skos:definition "Relationship connecting an instructor to specific music instruction sessions they provide."@en .
 
-drk:attendsCourse a owl:ObjectProperty ;
+drk:attendsCourse a rdf:Property, owl:ObjectProperty ;
     rdfs:label "attends course"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicStudent ;
@@ -288,7 +288,7 @@ drk:attendsCourse a owl:ObjectProperty ;
     skos:definition "Relationship connecting a learner to specific music instruction sessions they receive."@en .
 
 # Instrument Relationships
-drk:teachesInstrument a owl:ObjectProperty ;
+drk:teachesInstrument a rdf:Property, owl:ObjectProperty ;
     rdfs:label "teaches instrument"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicTeacher ;
@@ -296,7 +296,7 @@ drk:teachesInstrument a owl:ObjectProperty ;
     rdfs:comment "Indicates which instruments a teacher provides instruction for."@en ;
     skos:definition "Skill-based relationship connecting an instructor to musical instruments they are qualified to teach."@en .
 
-drk:learnsInstrument a owl:ObjectProperty ;
+drk:learnsInstrument a rdf:Property, owl:ObjectProperty ;
     rdfs:label "learns instrument"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicStudent ;
@@ -304,7 +304,7 @@ drk:learnsInstrument a owl:ObjectProperty ;
     rdfs:comment "Indicates which instruments a student is learning to play."@en ;
     skos:definition "Skill-acquisition relationship connecting a student to musical instruments they are studying."@en .
 
-drk:offersInstrument a owl:ObjectProperty ;
+drk:offersInstrument a rdf:Property, owl:ObjectProperty ;
     rdfs:label "offers instrument"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicEducationSchool ;
@@ -313,7 +313,7 @@ drk:offersInstrument a owl:ObjectProperty ;
     skos:definition "Curriculum-based relationship connecting an educational institution to musical instruments included in their programs."@en .
 
 # Genre Relationships
-drk:teachesGenre a owl:ObjectProperty ;
+drk:teachesGenre a rdf:Property, owl:ObjectProperty ;
     rdfs:label "teaches genre"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicTeacher ;
@@ -321,7 +321,7 @@ drk:teachesGenre a owl:ObjectProperty ;
     rdfs:comment "Indicates which music genres a teacher specializes in teaching."@en ;
     skos:definition "Expertise-based relationship connecting an instructor to music styles they are qualified to teach."@en .
 
-drk:learnsGenre a owl:ObjectProperty ;
+drk:learnsGenre a rdf:Property, owl:ObjectProperty ;
     rdfs:label "learns genre"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicStudent ;
@@ -329,7 +329,7 @@ drk:learnsGenre a owl:ObjectProperty ;
     rdfs:comment "Indicates which music genres a student is interested in learning."@en ;
     skos:definition "Interest-based relationship connecting a student to music styles they wish to study."@en .
 
-drk:offersGenre a owl:ObjectProperty ;
+drk:offersGenre a rdf:Property, owl:ObjectProperty ;
     rdfs:label "offers genre"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicEducationSchool ;
@@ -338,7 +338,7 @@ drk:offersGenre a owl:ObjectProperty ;
     skos:definition "Curriculum-based relationship connecting an educational institution to music styles included in their programs."@en .
 
 # Integration Relationships
-drk:hasIntegration a owl:ObjectProperty ;
+drk:hasIntegration a rdf:Property, owl:ObjectProperty ;
     rdfs:label "has integration"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicTeacher, :MusicEducationSchool ;
@@ -347,7 +347,7 @@ drk:hasIntegration a owl:ObjectProperty ;
     skos:definition "Connection that enables interoperability with third-party music education platforms or tools."@en .
 
 # Schedule Relationships
-drk:hasSchedule a owl:ObjectProperty ;
+drk:hasSchedule a rdf:Property, owl:ObjectProperty ;
     rdfs:label "has schedule"@en ;
     rdfs:isDefinedBy drk: ;
     rdfs:domain :MusicTeacher, :MusicStudent ;
