@@ -1,0 +1,1672 @@
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms:      <http://purl.org/dc/terms/> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf:         <http://purl.org/vocommons/voaf#> .
+@prefix schema:       <https://schema.org/> .
+@prefix vann:         <http://purl.org/vocab/vann/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+@prefix loclang:      <http://id.loc.gov/vocabulary/iso639-1/> .
+@prefix lang:         <https://w3id.org/drk/vocabs/languages-iso639-1#> .
+
+lang:
+    a                             voaf:Vocabulary, skos:ConceptScheme ;
+    dcterms:title                 "Languages Vocabulary Based on ISO639-1"@en ;
+    dcterms:description           "A controlled vocabulary for languages based on ISO 639-1. Each language in this vocabulary is defined as an instance of the `schema:Language` class. ISO 639-1:2002 is the first part of the ISO 639 series of international standards for language codes, providing two-character codes for languages. This standard covers the world's major languages and is widely used across the web."@en ;
+    rdfs:label                    "Languages Vocabulary Based on ISO639-1"@en ;
+    rdfs:comment                  "A controlled vocabulary for languages based on ISO 639-1. Each language in this vocabulary is defined as an instance of the `schema:Language` class. ISO 639-1:2002 is the first part of the ISO 639 series of international standards for language codes, providing two-character codes for languages. This standard covers the world's major languages and is widely used across the web."@en ;
+    dcterms:hasVersion            "0.0.1"^^xsd:string ;
+    vann:preferredNamespacePrefix "lang" ;
+    vann:preferredNamespaceUri    "https://w3id.org/drk/vocabs/languages-iso639-1#" ;
+    dcterms:source                loclang: ;
+    rdfs:seeAlso                  <https://id.loc.gov/vocabulary/iso639-1.html> .
+
+lang:aa
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Afar"@en, "Danakil-Sprache"@de, "afar"@fr ;
+    rdfs:comment         "Afar language."@en ;
+    schema:alternateName "aa"@en ;
+    skos:exactMatch      loclang:aa ;
+    skos:notation        "aa"@en .
+
+lang:ab
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Abkhazian"@en, "Abchasisch"@de, "abkhaze"@fr ;
+    rdfs:comment         "Abkhazian language."@en ;
+    schema:alternateName "ab"@en ;
+    skos:exactMatch      loclang:ab ;
+    skos:notation        "ab"@en .
+
+lang:ae
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Avestan"@en, "Avestisch"@de, "avestique"@fr ;
+    rdfs:comment         "Avestan language."@en ;
+    schema:alternateName "ae"@en ;
+    skos:exactMatch      loclang:ae ;
+    skos:notation        "ae"@en .
+
+lang:af
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Afrikaans"@en, "Afrikaans"@de, "afrikaans"@fr ;
+    rdfs:comment         "Afrikaans language."@en ;
+    schema:alternateName "af"@en ;
+    skos:exactMatch      loclang:af ;
+    skos:notation        "af"@en .
+
+lang:ak
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Akan"@en, "Akan-Sprache"@de, "akan"@fr ;
+    rdfs:comment         "Akan language."@en ;
+    schema:alternateName "ak"@en ;
+    skos:exactMatch      loclang:ak ;
+    skos:notation        "ak"@en .
+
+lang:am
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Amharic"@en, "Amharisch"@de, "amharique"@fr ;
+    rdfs:comment         "Amharic language."@en ;
+    schema:alternateName "am"@en ;
+    skos:exactMatch      loclang:am ;
+    skos:notation        "am"@en .
+
+lang:an
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Aragonese"@en, "Aragonesisch"@de, "aragonais"@fr ;
+    rdfs:comment         "Aragonese language."@en ;
+    schema:alternateName "an"@en ;
+    skos:exactMatch      loclang:an ;
+    skos:notation        "an"@en .
+
+lang:ar
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Arabic"@en, "Arabisch"@de, "arabe"@fr ;
+    rdfs:comment         "Arabic language."@en ;
+    schema:alternateName "ar"@en ;
+    skos:exactMatch      loclang:ar ;
+    skos:notation        "ar"@en .
+
+lang:as
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Assamese"@en, "Assamesisch"@de, "assamais"@fr ;
+    rdfs:comment         "Assamese language."@en ;
+    schema:alternateName "as"@en ;
+    skos:exactMatch      loclang:as ;
+    skos:notation        "as"@en .
+
+lang:av
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Avaric"@en, "Awarisch"@de, "avar"@fr ;
+    rdfs:comment         "Avaric language."@en ;
+    schema:alternateName "av"@en ;
+    skos:exactMatch      loclang:av ;
+    skos:notation        "av"@en .
+
+lang:ay
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Aymara"@en, "Aymará-Sprache"@de, "aymara"@fr ;
+    rdfs:comment         "Aymara language."@en ;
+    schema:alternateName "ay"@en ;
+    skos:exactMatch      loclang:ay ;
+    skos:notation        "ay"@en .
+
+lang:az
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Azerbaijani"@en, "Aserbeidschanisch"@de, "azéri"@fr ;
+    rdfs:comment         "Azerbaijani language."@en ;
+    schema:alternateName "az"@en ;
+    skos:exactMatch      loclang:az ;
+    skos:notation        "az"@en .
+
+lang:ba
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Bashkir"@en, "Baschkirisch"@de, "bachkir"@fr ;
+    rdfs:comment         "Bashkir language."@en ;
+    schema:alternateName "ba"@en ;
+    skos:exactMatch      loclang:ba ;
+    skos:notation        "ba"@en .
+
+lang:be
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Belarusian"@en, "Weißrussisch"@de, "biélorusse"@fr ;
+    rdfs:comment         "Belarusian language."@en ;
+    schema:alternateName "be"@en ;
+    skos:exactMatch      loclang:be ;
+    skos:notation        "be"@en .
+
+lang:bg
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Bulgarian"@en, "Bulgarisch"@de, "bulgare"@fr ;
+    rdfs:comment         "Bulgarian language."@en ;
+    schema:alternateName "bg"@en ;
+    skos:exactMatch      loclang:bg ;
+    skos:notation        "bg"@en .
+
+lang:bi
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Bislama"@en, "Beach-la-mar"@de, "bichlamar"@fr ;
+    rdfs:comment         "Bislama language."@en ;
+    schema:alternateName "bi"@en ;
+    skos:exactMatch      loclang:bi ;
+    skos:notation        "bi"@en .
+
+lang:bm
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Bambara"@en, "Bambara-Sprache"@de, "bambara"@fr ;
+    rdfs:comment         "Bambara language."@en ;
+    schema:alternateName "bm"@en ;
+    skos:exactMatch      loclang:bm ;
+    skos:notation        "bm"@en .
+
+lang:bn
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Bengali"@en, "Bengali"@de, "bengali"@fr ;
+    rdfs:comment         "Bengali language."@en ;
+    schema:alternateName "bn"@en ;
+    skos:exactMatch      loclang:bn ;
+    skos:notation        "bn"@en .
+
+lang:bo
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Tibetan"@en, "Tibetisch"@de, "tibétain"@fr ;
+    rdfs:comment         "Tibetan language."@en ;
+    schema:alternateName "bo"@en ;
+    skos:exactMatch      loclang:bo ;
+    skos:notation        "bo"@en .
+
+lang:br
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Breton"@en, "Bretonisch"@de, "breton"@fr ;
+    rdfs:comment         "Breton language."@en ;
+    schema:alternateName "br"@en ;
+    skos:exactMatch      loclang:br ;
+    skos:notation        "br"@en .
+
+lang:bs
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Bosnian"@en, "Bosnisch"@de, "bosniaque"@fr ;
+    rdfs:comment         "Bosnian language."@en ;
+    schema:alternateName "bs"@en ;
+    skos:exactMatch      loclang:bs ;
+    skos:notation        "bs"@en .
+
+lang:ca
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Catalan | Valencian"@en, "Katalanisch"@de, "catalan | valencien"@fr ;
+    rdfs:comment         "Catalan | Valencian language."@en ;
+    schema:alternateName "ca"@en ;
+    skos:exactMatch      loclang:ca ;
+    skos:notation        "ca"@en .
+
+lang:ce
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Chechen"@en, "Tschetschenisch"@de, "tchétchène"@fr ;
+    rdfs:comment         "Chechen language."@en ;
+    schema:alternateName "ce"@en ;
+    skos:exactMatch      loclang:ce ;
+    skos:notation        "ce"@en .
+
+lang:ch
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Chamorro"@en, "Chamorro-Sprache"@de, "chamorro"@fr ;
+    rdfs:comment         "Chamorro language."@en ;
+    schema:alternateName "ch"@en ;
+    skos:exactMatch      loclang:ch ;
+    skos:notation        "ch"@en .
+
+lang:co
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Corsican"@en, "Korsisch"@de, "corse"@fr ;
+    rdfs:comment         "Corsican language."@en ;
+    schema:alternateName "co"@en ;
+    skos:exactMatch      loclang:co ;
+    skos:notation        "co"@en .
+
+lang:cr
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Cree"@en, "Cree-Sprache"@de, "cree"@fr ;
+    rdfs:comment         "Cree language."@en ;
+    schema:alternateName "cr"@en ;
+    skos:exactMatch      loclang:cr ;
+    skos:notation        "cr"@en .
+
+lang:cs
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Czech"@en, "Tschechisch"@de, "tchèque"@fr ;
+    rdfs:comment         "Czech language."@en ;
+    schema:alternateName "cs"@en ;
+    skos:exactMatch      loclang:cs ;
+    skos:notation        "cs"@en .
+
+lang:cu
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Church Slavic | Old Slavonic | Church Slavonic | Old Bulgarian | Old Church Slavonic"@en,
+                         "Kirchenslawisch"@de, "slavon d'église | vieux slave | slavon liturgique | vieux bulgare"@fr ;
+    rdfs:comment         "Church Slavic | Old Slavonic | Church Slavonic | Old Bulgarian | Old Church Slavonic language."@en ;
+    schema:alternateName "cu"@en ;
+    skos:exactMatch      loclang:cu ;
+    skos:notation        "cu"@en .
+
+lang:cv
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Chuvash"@en, "Tschuwaschisch"@de, "tchouvache"@fr ;
+    rdfs:comment         "Chuvash language."@en ;
+    schema:alternateName "cv"@en ;
+    skos:exactMatch      loclang:cv ;
+    skos:notation        "cv"@en .
+
+lang:cy
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Welsh"@en, "Kymrisch"@de, "gallois"@fr ;
+    rdfs:comment         "Welsh language."@en ;
+    schema:alternateName "cy"@en ;
+    skos:exactMatch      loclang:cy ;
+    skos:notation        "cy"@en .
+
+lang:da
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Danish"@en, "Dänisch"@de, "danois"@fr ;
+    rdfs:comment         "Danish language."@en ;
+    schema:alternateName "da"@en ;
+    skos:exactMatch      loclang:da ;
+    skos:notation        "da"@en .
+
+lang:de
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "German"@en, "Deutsch"@de, "allemand"@fr ;
+    rdfs:comment         "German language."@en ;
+    schema:alternateName "de"@en ;
+    skos:exactMatch      loclang:de ;
+    skos:notation        "de"@en .
+
+lang:dv
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Divehi | Dhivehi | Maldivian"@en, "Maledivisch"@de, "maldivien"@fr ;
+    rdfs:comment         "Divehi | Dhivehi | Maldivian language."@en ;
+    schema:alternateName "dv"@en ;
+    skos:exactMatch      loclang:dv ;
+    skos:notation        "dv"@en .
+
+lang:dz
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Dzongkha"@en, "Dzongkha"@de, "dzongkha"@fr ;
+    rdfs:comment         "Dzongkha language."@en ;
+    schema:alternateName "dz"@en ;
+    skos:exactMatch      loclang:dz ;
+    skos:notation        "dz"@en .
+
+lang:ee
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Ewe"@en, "Ewe-Sprache"@de, "éwé"@fr ;
+    rdfs:comment         "Ewe language."@en ;
+    schema:alternateName "ee"@en ;
+    skos:exactMatch      loclang:ee ;
+    skos:notation        "ee"@en .
+
+lang:el
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Greek, Modern (1453-)"@en, "Neugriechisch"@de, "grec moderne (après 1453)"@fr ;
+    rdfs:comment         "Greek, Modern (1453-) language."@en ;
+    schema:alternateName "el"@en ;
+    skos:exactMatch      loclang:el ;
+    skos:notation        "el"@en .
+
+lang:en
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "English"@en, "Englisch"@de, "anglais"@fr ;
+    rdfs:comment         "English language."@en ;
+    schema:alternateName "en"@en ;
+    skos:exactMatch      loclang:en ;
+    skos:notation        "en"@en .
+
+lang:eo
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Esperanto"@en, "Esperanto"@de, "espéranto"@fr ;
+    rdfs:comment         "Esperanto language."@en ;
+    schema:alternateName "eo"@en ;
+    skos:exactMatch      loclang:eo ;
+    skos:notation        "eo"@en .
+
+lang:es
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Spanish | Castilian"@en, "Spanisch"@de, "espagnol | castillan"@fr ;
+    rdfs:comment         "Spanish | Castilian language."@en ;
+    schema:alternateName "es"@en ;
+    skos:exactMatch      loclang:es ;
+    skos:notation        "es"@en .
+
+lang:et
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Estonian"@en, "Estnisch"@de, "estonien"@fr ;
+    rdfs:comment         "Estonian language."@en ;
+    schema:alternateName "et"@en ;
+    skos:exactMatch      loclang:et ;
+    skos:notation        "et"@en .
+
+lang:eu
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Basque"@en, "Baskisch"@de, "basque"@fr ;
+    rdfs:comment         "Basque language."@en ;
+    schema:alternateName "eu"@en ;
+    skos:exactMatch      loclang:eu ;
+    skos:notation        "eu"@en .
+
+lang:fa
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Persian"@en, "Persisch"@de, "persan"@fr ;
+    rdfs:comment         "Persian language."@en ;
+    schema:alternateName "fa"@en ;
+    skos:exactMatch      loclang:fa ;
+    skos:notation        "fa"@en .
+
+lang:ff
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Fulah"@en, "Ful"@de, "peul"@fr ;
+    rdfs:comment         "Fulah language."@en ;
+    schema:alternateName "ff"@en ;
+    skos:exactMatch      loclang:ff ;
+    skos:notation        "ff"@en .
+
+lang:fi
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Finnish"@en, "Finnisch"@de, "finnois"@fr ;
+    rdfs:comment         "Finnish language."@en ;
+    schema:alternateName "fi"@en ;
+    skos:exactMatch      loclang:fi ;
+    skos:notation        "fi"@en .
+
+lang:fj
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Fijian"@en, "Fidschi-Sprache"@de, "fidjien"@fr ;
+    rdfs:comment         "Fijian language."@en ;
+    schema:alternateName "fj"@en ;
+    skos:exactMatch      loclang:fj ;
+    skos:notation        "fj"@en .
+
+lang:fo
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Faroese"@en, "Färöisch"@de, "féroïen"@fr ;
+    rdfs:comment         "Faroese language."@en ;
+    schema:alternateName "fo"@en ;
+    skos:exactMatch      loclang:fo ;
+    skos:notation        "fo"@en .
+
+lang:fr
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "French"@en, "Französisch"@de, "français"@fr ;
+    rdfs:comment         "French language."@en ;
+    schema:alternateName "fr"@en ;
+    skos:exactMatch      loclang:fr ;
+    skos:notation        "fr"@en .
+
+lang:fy
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Western Frisian"@en, "Friesisch"@de, "frison occidental"@fr ;
+    rdfs:comment         "Western Frisian language."@en ;
+    schema:alternateName "fy"@en ;
+    skos:exactMatch      loclang:fy ;
+    skos:notation        "fy"@en .
+
+lang:ga
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Irish"@en, "Irisch"@de, "irlandais"@fr ;
+    rdfs:comment         "Irish language."@en ;
+    schema:alternateName "ga"@en ;
+    skos:exactMatch      loclang:ga ;
+    skos:notation        "ga"@en .
+
+lang:gd
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Gaelic | Scottish Gaelic"@en, "Gälisch-Schottisch"@de, "gaélique | gaélique écossais"@fr ;
+    rdfs:comment         "Gaelic | Scottish Gaelic language."@en ;
+    schema:alternateName "gd"@en ;
+    skos:exactMatch      loclang:gd ;
+    skos:notation        "gd"@en .
+
+lang:gl
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Galician"@en, "Galicisch"@de, "galicien"@fr ;
+    rdfs:comment         "Galician language."@en ;
+    schema:alternateName "gl"@en ;
+    skos:exactMatch      loclang:gl ;
+    skos:notation        "gl"@en .
+
+lang:gn
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Guarani"@en, "Guaraní-Sprache"@de, "guarani"@fr ;
+    rdfs:comment         "Guarani language."@en ;
+    schema:alternateName "gn"@en ;
+    skos:exactMatch      loclang:gn ;
+    skos:notation        "gn"@en .
+
+lang:gu
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Gujarati"@en, "Gujarati-Sprache"@de, "goudjrati"@fr ;
+    rdfs:comment         "Gujarati language."@en ;
+    schema:alternateName "gu"@en ;
+    skos:exactMatch      loclang:gu ;
+    skos:notation        "gu"@en .
+
+lang:gv
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Manx"@en, "Manx"@de, "manx | mannois"@fr ;
+    rdfs:comment         "Manx language."@en ;
+    schema:alternateName "gv"@en ;
+    skos:exactMatch      loclang:gv ;
+    skos:notation        "gv"@en .
+
+lang:ha
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Hausa"@en, "Haussa-Sprache"@de, "haoussa"@fr ;
+    rdfs:comment         "Hausa language."@en ;
+    schema:alternateName "ha"@en ;
+    skos:exactMatch      loclang:ha ;
+    skos:notation        "ha"@en .
+
+lang:he
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Hebrew"@en, "Hebräisch"@de, "hébreu"@fr ;
+    rdfs:comment         "Hebrew language."@en ;
+    schema:alternateName "he"@en ;
+    skos:exactMatch      loclang:he ;
+    skos:notation        "he"@en .
+
+lang:hi
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Hindi"@en, "Hindi"@de, "hindi"@fr ;
+    rdfs:comment         "Hindi language."@en ;
+    schema:alternateName "hi"@en ;
+    skos:exactMatch      loclang:hi ;
+    skos:notation        "hi"@en .
+
+lang:ho
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Hiri Motu"@en, "Hiri-Motu"@de, "hiri motu"@fr ;
+    rdfs:comment         "Hiri Motu language."@en ;
+    schema:alternateName "ho"@en ;
+    skos:exactMatch      loclang:ho ;
+    skos:notation        "ho"@en .
+
+lang:hr
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Croatian"@en, "Kroatisch"@de, "croate"@fr ;
+    rdfs:comment         "Croatian language."@en ;
+    schema:alternateName "hr"@en ;
+    skos:exactMatch      loclang:hr ;
+    skos:notation        "hr"@en .
+
+lang:ht
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Haitian | Haitian Creole"@en, "Haïtien (Haiti-Kreolisch)"@de, "haïtien | créole haïtien"@fr ;
+    rdfs:comment         "Haitian | Haitian Creole language."@en ;
+    schema:alternateName "ht"@en ;
+    skos:exactMatch      loclang:ht ;
+    skos:notation        "ht"@en .
+
+lang:hu
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Hungarian"@en, "Ungarisch"@de, "hongrois"@fr ;
+    rdfs:comment         "Hungarian language."@en ;
+    schema:alternateName "hu"@en ;
+    skos:exactMatch      loclang:hu ;
+    skos:notation        "hu"@en .
+
+lang:hy
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Armenian"@en, "Armenisch"@de, "arménien"@fr ;
+    rdfs:comment         "Armenian language."@en ;
+    schema:alternateName "hy"@en ;
+    skos:exactMatch      loclang:hy ;
+    skos:notation        "hy"@en .
+
+lang:hz
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Herero"@en, "Herero-Sprache"@de, "herero"@fr ;
+    rdfs:comment         "Herero language."@en ;
+    schema:alternateName "hz"@en ;
+    skos:exactMatch      loclang:hz ;
+    skos:notation        "hz"@en .
+
+lang:ia
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Interlingua (International Auxiliary Language Association)"@en, "Interlingua"@de,
+                         "interlingua (langue auxiliaire internationale)"@fr ;
+    rdfs:comment         "Interlingua (International Auxiliary Language Association) language."@en ;
+    schema:alternateName "ia"@en ;
+    skos:exactMatch      loclang:ia ;
+    skos:notation        "ia"@en .
+
+lang:id
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Indonesian"@en, "Bahasa Indonesia"@de, "indonésien"@fr ;
+    rdfs:comment         "Indonesian language."@en ;
+    schema:alternateName "id"@en ;
+    skos:exactMatch      loclang:id ;
+    skos:notation        "id"@en .
+
+lang:ie
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Interlingue | Occidental"@en, "Interlingue"@de, "interlingue"@fr ;
+    rdfs:comment         "Interlingue | Occidental language."@en ;
+    schema:alternateName "ie"@en ;
+    skos:exactMatch      loclang:ie ;
+    skos:notation        "ie"@en .
+
+lang:ig
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Igbo"@en, "Ibo-Sprache"@de, "igbo"@fr ;
+    rdfs:comment         "Igbo language."@en ;
+    schema:alternateName "ig"@en ;
+    skos:exactMatch      loclang:ig ;
+    skos:notation        "ig"@en .
+
+lang:ii
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Sichuan Yi | Nuosu"@en, "Lalo-Sprache"@de, "yi de Sichuan"@fr ;
+    rdfs:comment         "Sichuan Yi | Nuosu language."@en ;
+    schema:alternateName "ii"@en ;
+    skos:exactMatch      loclang:ii ;
+    skos:notation        "ii"@en .
+
+lang:ik
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Inupiaq"@en, "Inupik"@de, "inupiaq"@fr ;
+    rdfs:comment         "Inupiaq language."@en ;
+    schema:alternateName "ik"@en ;
+    skos:exactMatch      loclang:ik ;
+    skos:notation        "ik"@en .
+
+lang:io
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Ido"@en, "Ido"@de, "ido"@fr ;
+    rdfs:comment         "Ido language."@en ;
+    schema:alternateName "io"@en ;
+    skos:exactMatch      loclang:io ;
+    skos:notation        "io"@en .
+
+lang:is
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Icelandic"@en, "Isländisch"@de, "islandais"@fr ;
+    rdfs:comment         "Icelandic language."@en ;
+    schema:alternateName "is"@en ;
+    skos:exactMatch      loclang:is ;
+    skos:notation        "is"@en .
+
+lang:it
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Italian"@en, "Italienisch"@de, "italien"@fr ;
+    rdfs:comment         "Italian language."@en ;
+    schema:alternateName "it"@en ;
+    skos:exactMatch      loclang:it ;
+    skos:notation        "it"@en .
+
+lang:iu
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Inuktitut"@en, "Inuktitut"@de, "inuktitut"@fr ;
+    rdfs:comment         "Inuktitut language."@en ;
+    schema:alternateName "iu"@en ;
+    skos:exactMatch      loclang:iu ;
+    skos:notation        "iu"@en .
+
+lang:ja
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Japanese"@en, "Japanisch"@de, "japonais"@fr ;
+    rdfs:comment         "Japanese language."@en ;
+    schema:alternateName "ja"@en ;
+    skos:exactMatch      loclang:ja ;
+    skos:notation        "ja"@en .
+
+lang:jv
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Javanese"@en, "Javanisch"@de, "javanais"@fr ;
+    rdfs:comment         "Javanese language."@en ;
+    schema:alternateName "jv"@en ;
+    skos:exactMatch      loclang:jv ;
+    skos:notation        "jv"@en .
+
+lang:ka
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Georgian"@en, "Georgisch"@de, "géorgien"@fr ;
+    rdfs:comment         "Georgian language."@en ;
+    schema:alternateName "ka"@en ;
+    skos:exactMatch      loclang:ka ;
+    skos:notation        "ka"@en .
+
+lang:kg
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Kongo"@en, "Kongo-Sprache"@de, "kongo"@fr ;
+    rdfs:comment         "Kongo language."@en ;
+    schema:alternateName "kg"@en ;
+    skos:exactMatch      loclang:kg ;
+    skos:notation        "kg"@en .
+
+lang:ki
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Kikuyu | Gikuyu"@en, "Kikuyu-Sprache"@de, "kikuyu"@fr ;
+    rdfs:comment         "Kikuyu | Gikuyu language."@en ;
+    schema:alternateName "ki"@en ;
+    skos:exactMatch      loclang:ki ;
+    skos:notation        "ki"@en .
+
+lang:kj
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Kuanyama | Kwanyama"@en, "Kwanyama-Sprache"@de, "kuanyama | kwanyama"@fr ;
+    rdfs:comment         "Kuanyama | Kwanyama language."@en ;
+    schema:alternateName "kj"@en ;
+    skos:exactMatch      loclang:kj ;
+    skos:notation        "kj"@en .
+
+lang:kk
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Kazakh"@en, "Kasachisch"@de, "kazakh"@fr ;
+    rdfs:comment         "Kazakh language."@en ;
+    schema:alternateName "kk"@en ;
+    skos:exactMatch      loclang:kk ;
+    skos:notation        "kk"@en .
+
+lang:kl
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Kalaallisut | Greenlandic"@en, "Grönländisch"@de, "groenlandais"@fr ;
+    rdfs:comment         "Kalaallisut | Greenlandic language."@en ;
+    schema:alternateName "kl"@en ;
+    skos:exactMatch      loclang:kl ;
+    skos:notation        "kl"@en .
+
+lang:km
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Central Khmer"@en, "Kambodschanisch"@de, "khmer central"@fr ;
+    rdfs:comment         "Central Khmer language."@en ;
+    schema:alternateName "km"@en ;
+    skos:exactMatch      loclang:km ;
+    skos:notation        "km"@en .
+
+lang:kn
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Kannada"@en, "Kannada"@de, "kannada"@fr ;
+    rdfs:comment         "Kannada language."@en ;
+    schema:alternateName "kn"@en ;
+    skos:exactMatch      loclang:kn ;
+    skos:notation        "kn"@en .
+
+lang:ko
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Korean"@en, "Koreanisch"@de, "coréen"@fr ;
+    rdfs:comment         "Korean language."@en ;
+    schema:alternateName "ko"@en ;
+    skos:exactMatch      loclang:ko ;
+    skos:notation        "ko"@en .
+
+lang:kr
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Kanuri"@en, "Kanuri-Sprache"@de, "kanouri"@fr ;
+    rdfs:comment         "Kanuri language."@en ;
+    schema:alternateName "kr"@en ;
+    skos:exactMatch      loclang:kr ;
+    skos:notation        "kr"@en .
+
+lang:ks
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Kashmiri"@en, "Kaschmiri"@de, "kashmiri"@fr ;
+    rdfs:comment         "Kashmiri language."@en ;
+    schema:alternateName "ks"@en ;
+    skos:exactMatch      loclang:ks ;
+    skos:notation        "ks"@en .
+
+lang:ku
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Kurdish"@en, "Kurdisch"@de, "kurde"@fr ;
+    rdfs:comment         "Kurdish language."@en ;
+    schema:alternateName "ku"@en ;
+    skos:exactMatch      loclang:ku ;
+    skos:notation        "ku"@en .
+
+lang:kv
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Komi"@en, "Komi-Sprache"@de, "kom"@fr ;
+    rdfs:comment         "Komi language."@en ;
+    schema:alternateName "kv"@en ;
+    skos:exactMatch      loclang:kv ;
+    skos:notation        "kv"@en .
+
+lang:kw
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Cornish"@en, "Kornisch"@de, "cornique"@fr ;
+    rdfs:comment         "Cornish language."@en ;
+    schema:alternateName "kw"@en ;
+    skos:exactMatch      loclang:kw ;
+    skos:notation        "kw"@en .
+
+lang:ky
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Kirghiz | Kyrgyz"@en, "Kirgisisch"@de, "kirghiz"@fr ;
+    rdfs:comment         "Kirghiz | Kyrgyz language."@en ;
+    schema:alternateName "ky"@en ;
+    skos:exactMatch      loclang:ky ;
+    skos:notation        "ky"@en .
+
+lang:la
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Latin"@en, "Latein"@de, "latin"@fr ;
+    rdfs:comment         "Latin language."@en ;
+    schema:alternateName "la"@en ;
+    skos:exactMatch      loclang:la ;
+    skos:notation        "la"@en .
+
+lang:lb
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Luxembourgish | Letzeburgesch"@en, "Luxemburgisch"@de, "luxembourgeois"@fr ;
+    rdfs:comment         "Luxembourgish | Letzeburgesch language."@en ;
+    schema:alternateName "lb"@en ;
+    skos:exactMatch      loclang:lb ;
+    skos:notation        "lb"@en .
+
+lang:lg
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Ganda"@en, "Ganda-Sprache"@de, "ganda"@fr ;
+    rdfs:comment         "Ganda language."@en ;
+    schema:alternateName "lg"@en ;
+    skos:exactMatch      loclang:lg ;
+    skos:notation        "lg"@en .
+
+lang:li
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Limburgan | Limburger | Limburgish"@en, "Limburgisch"@de, "limbourgeois"@fr ;
+    rdfs:comment         "Limburgan | Limburger | Limburgish language."@en ;
+    schema:alternateName "li"@en ;
+    skos:exactMatch      loclang:li ;
+    skos:notation        "li"@en .
+
+lang:ln
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Lingala"@en, "Lingala"@de, "lingala"@fr ;
+    rdfs:comment         "Lingala language."@en ;
+    schema:alternateName "ln"@en ;
+    skos:exactMatch      loclang:ln ;
+    skos:notation        "ln"@en .
+
+lang:lo
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Lao"@en, "Laotisch"@de, "lao"@fr ;
+    rdfs:comment         "Lao language."@en ;
+    schema:alternateName "lo"@en ;
+    skos:exactMatch      loclang:lo ;
+    skos:notation        "lo"@en .
+
+lang:lt
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Lithuanian"@en, "Litauisch"@de, "lituanien"@fr ;
+    rdfs:comment         "Lithuanian language."@en ;
+    schema:alternateName "lt"@en ;
+    skos:exactMatch      loclang:lt ;
+    skos:notation        "lt"@en .
+
+lang:lu
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Luba-Katanga"@en, "Luba-Katanga-Sprache"@de, "luba-katanga"@fr ;
+    rdfs:comment         "Luba-Katanga language."@en ;
+    schema:alternateName "lu"@en ;
+    skos:exactMatch      loclang:lu ;
+    skos:notation        "lu"@en .
+
+lang:lv
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Latvian"@en, "Lettisch"@de, "letton"@fr ;
+    rdfs:comment         "Latvian language."@en ;
+    schema:alternateName "lv"@en ;
+    skos:exactMatch      loclang:lv ;
+    skos:notation        "lv"@en .
+
+lang:mg
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Malagasy"@en, "Malagassi-Sprache"@de, "malgache"@fr ;
+    rdfs:comment         "Malagasy language."@en ;
+    schema:alternateName "mg"@en ;
+    skos:exactMatch      loclang:mg ;
+    skos:notation        "mg"@en .
+
+lang:mh
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Marshallese"@en, "Marschallesisch"@de, "marshall"@fr ;
+    rdfs:comment         "Marshallese language."@en ;
+    schema:alternateName "mh"@en ;
+    skos:exactMatch      loclang:mh ;
+    skos:notation        "mh"@en .
+
+lang:mi
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Maori"@en, "Maori-Sprache"@de, "maori"@fr ;
+    rdfs:comment         "Maori language."@en ;
+    schema:alternateName "mi"@en ;
+    skos:exactMatch      loclang:mi ;
+    skos:notation        "mi"@en .
+
+lang:mk
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Macedonian"@en, "Makedonisch"@de, "macédonien"@fr ;
+    rdfs:comment         "Macedonian language."@en ;
+    schema:alternateName "mk"@en ;
+    skos:exactMatch      loclang:mk ;
+    skos:notation        "mk"@en .
+
+lang:ml
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Malayalam"@en, "Malayalam"@de, "malayalam"@fr ;
+    rdfs:comment         "Malayalam language."@en ;
+    schema:alternateName "ml"@en ;
+    skos:exactMatch      loclang:ml ;
+    skos:notation        "ml"@en .
+
+lang:mn
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Mongolian"@en, "Mongolisch"@de, "mongol"@fr ;
+    rdfs:comment         "Mongolian language."@en ;
+    schema:alternateName "mn"@en ;
+    skos:exactMatch      loclang:mn ;
+    skos:notation        "mn"@en .
+
+lang:mr
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Marathi"@en, "Marathi"@de, "marathe"@fr ;
+    rdfs:comment         "Marathi language."@en ;
+    schema:alternateName "mr"@en ;
+    skos:exactMatch      loclang:mr ;
+    skos:notation        "mr"@en .
+
+lang:ms
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Malay"@en, "Malaiisch"@de, "malais"@fr ;
+    rdfs:comment         "Malay language."@en ;
+    schema:alternateName "ms"@en ;
+    skos:exactMatch      loclang:ms ;
+    skos:notation        "ms"@en .
+
+lang:mt
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Maltese"@en, "Maltesisch"@de, "maltais"@fr ;
+    rdfs:comment         "Maltese language."@en ;
+    schema:alternateName "mt"@en ;
+    skos:exactMatch      loclang:mt ;
+    skos:notation        "mt"@en .
+
+lang:my
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Burmese"@en, "Birmanisch"@de, "birman"@fr ;
+    rdfs:comment         "Burmese language."@en ;
+    schema:alternateName "my"@en ;
+    skos:exactMatch      loclang:my ;
+    skos:notation        "my"@en .
+
+lang:na
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Nauru"@en, "Nauruanisch"@de, "nauruan"@fr ;
+    rdfs:comment         "Nauru language."@en ;
+    schema:alternateName "na"@en ;
+    skos:exactMatch      loclang:na ;
+    skos:notation        "na"@en .
+
+lang:nb
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Bokmål, Norwegian | Norwegian Bokmål"@en, "Bokmål"@de, "norvégien bokmål"@fr ;
+    rdfs:comment         "Bokmål, Norwegian | Norwegian Bokmål language."@en ;
+    schema:alternateName "nb"@en ;
+    skos:exactMatch      loclang:nb ;
+    skos:notation        "nb"@en .
+
+lang:nd
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Ndebele, North | North Ndebele"@en, "Ndebele-Sprache (Simbabwe)"@de, "ndébélé du Nord"@fr ;
+    rdfs:comment         "Ndebele, North | North Ndebele language."@en ;
+    schema:alternateName "nd"@en ;
+    skos:exactMatch      loclang:nd ;
+    skos:notation        "nd"@en .
+
+lang:ne
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Nepali"@en, "Nepali"@de, "népalais"@fr ;
+    rdfs:comment         "Nepali language."@en ;
+    schema:alternateName "ne"@en ;
+    skos:exactMatch      loclang:ne ;
+    skos:notation        "ne"@en .
+
+lang:ng
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Ndonga"@en, "Ndonga"@de, "ndonga"@fr ;
+    rdfs:comment         "Ndonga language."@en ;
+    schema:alternateName "ng"@en ;
+    skos:exactMatch      loclang:ng ;
+    skos:notation        "ng"@en .
+
+lang:nl
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Dutch | Flemish"@en, "Niederländisch"@de, "néerlandais | flamand"@fr ;
+    rdfs:comment         "Dutch | Flemish language."@en ;
+    schema:alternateName "nl"@en ;
+    skos:exactMatch      loclang:nl ;
+    skos:notation        "nl"@en .
+
+lang:nn
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Norwegian Nynorsk | Nynorsk, Norwegian"@en, "Nynorsk"@de,
+                         "norvégien nynorsk | nynorsk, norvégien"@fr ;
+    rdfs:comment         "Norwegian Nynorsk | Nynorsk, Norwegian language."@en ;
+    schema:alternateName "nn"@en ;
+    skos:exactMatch      loclang:nn ;
+    skos:notation        "nn"@en .
+
+lang:no
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Norwegian"@en, "Norwegisch"@de, "norvégien"@fr ;
+    rdfs:comment         "Norwegian language."@en ;
+    schema:alternateName "no"@en ;
+    skos:exactMatch      loclang:no ;
+    skos:notation        "no"@en .
+
+lang:nr
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Ndebele, South | South Ndebele"@en, "Ndebele-Sprache (Transvaal)"@de, "ndébélé du Sud"@fr ;
+    rdfs:comment         "Ndebele, South | South Ndebele language."@en ;
+    schema:alternateName "nr"@en ;
+    skos:exactMatch      loclang:nr ;
+    skos:notation        "nr"@en .
+
+lang:nv
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Navajo | Navaho"@en, "Navajo-Sprache"@de, "navaho"@fr ;
+    rdfs:comment         "Navajo | Navaho language."@en ;
+    schema:alternateName "nv"@en ;
+    skos:exactMatch      loclang:nv ;
+    skos:notation        "nv"@en .
+
+lang:ny
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Chichewa | Chewa | Nyanja"@en, "Nyanja-Sprache"@de, "chichewa | chewa | nyanja"@fr ;
+    rdfs:comment         "Chichewa | Chewa | Nyanja language."@en ;
+    schema:alternateName "ny"@en ;
+    skos:exactMatch      loclang:ny ;
+    skos:notation        "ny"@en .
+
+lang:oc
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Occitan (post 1500)"@en, "Okzitanisch"@de, "occitan (après 1500)"@fr ;
+    rdfs:comment         "Occitan (post 1500) language."@en ;
+    schema:alternateName "oc"@en ;
+    skos:exactMatch      loclang:oc ;
+    skos:notation        "oc"@en .
+
+lang:oj
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Ojibwa"@en, "Ojibwa-Sprache"@de, "ojibwa"@fr ;
+    rdfs:comment         "Ojibwa language."@en ;
+    schema:alternateName "oj"@en ;
+    skos:exactMatch      loclang:oj ;
+    skos:notation        "oj"@en .
+
+lang:om
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Oromo"@en, "Galla-Sprache"@de, "galla"@fr ;
+    rdfs:comment         "Oromo language."@en ;
+    schema:alternateName "om"@en ;
+    skos:exactMatch      loclang:om ;
+    skos:notation        "om"@en .
+
+lang:or
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Oriya"@en, "Oriya-Sprache"@de, "oriya"@fr ;
+    rdfs:comment         "Oriya language."@en ;
+    schema:alternateName "or"@en ;
+    skos:exactMatch      loclang:or ;
+    skos:notation        "or"@en .
+
+lang:os
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Ossetian | Ossetic"@en, "Ossetisch"@de, "ossète"@fr ;
+    rdfs:comment         "Ossetian | Ossetic language."@en ;
+    schema:alternateName "os"@en ;
+    skos:exactMatch      loclang:os ;
+    skos:notation        "os"@en .
+
+lang:pa
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Panjabi | Punjabi"@en, "Pandschabi-Sprache"@de, "pendjabi"@fr ;
+    rdfs:comment         "Panjabi | Punjabi language."@en ;
+    schema:alternateName "pa"@en ;
+    skos:exactMatch      loclang:pa ;
+    skos:notation        "pa"@en .
+
+lang:pi
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Pali"@en, "Pali"@de, "pali"@fr ;
+    rdfs:comment         "Pali language."@en ;
+    schema:alternateName "pi"@en ;
+    skos:exactMatch      loclang:pi ;
+    skos:notation        "pi"@en .
+
+lang:pl
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Polish"@en, "Polnisch"@de, "polonais"@fr ;
+    rdfs:comment         "Polish language."@en ;
+    schema:alternateName "pl"@en ;
+    skos:exactMatch      loclang:pl ;
+    skos:notation        "pl"@en .
+
+lang:ps
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Pushto | Pashto"@en, "Paschtu"@de, "pachto"@fr ;
+    rdfs:comment         "Pushto | Pashto language."@en ;
+    schema:alternateName "ps"@en ;
+    skos:exactMatch      loclang:ps ;
+    skos:notation        "ps"@en .
+
+lang:pt
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Portuguese"@en, "Portugiesisch"@de, "portugais"@fr ;
+    rdfs:comment         "Portuguese language."@en ;
+    schema:alternateName "pt"@en ;
+    skos:exactMatch      loclang:pt ;
+    skos:notation        "pt"@en .
+
+lang:qu
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Quechua"@en, "Quechua-Sprache"@de, "quechua"@fr ;
+    rdfs:comment         "Quechua language."@en ;
+    schema:alternateName "qu"@en ;
+    skos:exactMatch      loclang:qu ;
+    skos:notation        "qu"@en .
+
+lang:rm
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Romansh"@en, "Rätoromanisch"@de, "romanche"@fr ;
+    rdfs:comment         "Romansh language."@en ;
+    schema:alternateName "rm"@en ;
+    skos:exactMatch      loclang:rm ;
+    skos:notation        "rm"@en .
+
+lang:rn
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Rundi"@en, "Rundi-Sprache"@de, "rundi"@fr ;
+    rdfs:comment         "Rundi language."@en ;
+    schema:alternateName "rn"@en ;
+    skos:exactMatch      loclang:rn ;
+    skos:notation        "rn"@en .
+
+lang:ro
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Romanian | Moldavian | Moldovan"@en, "Rumänisch"@de, "roumain | moldave"@fr ;
+    rdfs:comment         "Romanian | Moldavian | Moldovan language."@en ;
+    schema:alternateName "ro"@en ;
+    skos:exactMatch      loclang:ro ;
+    skos:notation        "ro"@en .
+
+lang:ru
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Russian"@en, "Russisch"@de, "russe"@fr ;
+    rdfs:comment         "Russian language."@en ;
+    schema:alternateName "ru"@en ;
+    skos:exactMatch      loclang:ru ;
+    skos:notation        "ru"@en .
+
+lang:rw
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Kinyarwanda"@en, "Rwanda-Sprache"@de, "rwanda"@fr ;
+    rdfs:comment         "Kinyarwanda language."@en ;
+    schema:alternateName "rw"@en ;
+    skos:exactMatch      loclang:rw ;
+    skos:notation        "rw"@en .
+
+lang:sa
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Sanskrit"@en, "Sanskrit"@de, "sanskrit"@fr ;
+    rdfs:comment         "Sanskrit language."@en ;
+    schema:alternateName "sa"@en ;
+    skos:exactMatch      loclang:sa ;
+    skos:notation        "sa"@en .
+
+lang:sc
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Sardinian"@en, "Sardisch"@de, "sarde"@fr ;
+    rdfs:comment         "Sardinian language."@en ;
+    schema:alternateName "sc"@en ;
+    skos:exactMatch      loclang:sc ;
+    skos:notation        "sc"@en .
+
+lang:sd
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Sindhi"@en, "Sindhi-Sprache"@de, "sindhi"@fr ;
+    rdfs:comment         "Sindhi language."@en ;
+    schema:alternateName "sd"@en ;
+    skos:exactMatch      loclang:sd ;
+    skos:notation        "sd"@en .
+
+lang:se
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Northern Sami"@en, "Nordsaamisch"@de, "sami du Nord"@fr ;
+    rdfs:comment         "Northern Sami language."@en ;
+    schema:alternateName "se"@en ;
+    skos:exactMatch      loclang:se ;
+    skos:notation        "se"@en .
+
+lang:sg
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Sango"@en, "Sango-Sprache"@de, "sango"@fr ;
+    rdfs:comment         "Sango language."@en ;
+    schema:alternateName "sg"@en ;
+    skos:exactMatch      loclang:sg ;
+    skos:notation        "sg"@en .
+
+lang:si
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Sinhala | Sinhalese"@en, "Singhalesisch"@de, "singhalais"@fr ;
+    rdfs:comment         "Sinhala | Sinhalese language."@en ;
+    schema:alternateName "si"@en ;
+    skos:exactMatch      loclang:si ;
+    skos:notation        "si"@en .
+
+lang:sk
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Slovak"@en, "Slowakisch"@de, "slovaque"@fr ;
+    rdfs:comment         "Slovak language."@en ;
+    schema:alternateName "sk"@en ;
+    skos:exactMatch      loclang:sk ;
+    skos:notation        "sk"@en .
+
+lang:sl
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Slovenian"@en, "Slowenisch"@de, "slovène"@fr ;
+    rdfs:comment         "Slovenian language."@en ;
+    schema:alternateName "sl"@en ;
+    skos:exactMatch      loclang:sl ;
+    skos:notation        "sl"@en .
+
+lang:sm
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Samoan"@en, "Samoanisch"@de, "samoan"@fr ;
+    rdfs:comment         "Samoan language."@en ;
+    schema:alternateName "sm"@en ;
+    skos:exactMatch      loclang:sm ;
+    skos:notation        "sm"@en .
+
+lang:sn
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Shona"@en, "Schona-Sprache"@de, "shona"@fr ;
+    rdfs:comment         "Shona language."@en ;
+    schema:alternateName "sn"@en ;
+    skos:exactMatch      loclang:sn ;
+    skos:notation        "sn"@en .
+
+lang:so
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Somali"@en, "Somali"@de, "somali"@fr ;
+    rdfs:comment         "Somali language."@en ;
+    schema:alternateName "so"@en ;
+    skos:exactMatch      loclang:so ;
+    skos:notation        "so"@en .
+
+lang:sq
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Albanian"@en, "Albanisch"@de, "albanais"@fr ;
+    rdfs:comment         "Albanian language."@en ;
+    schema:alternateName "sq"@en ;
+    skos:exactMatch      loclang:sq ;
+    skos:notation        "sq"@en .
+
+lang:sr
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Serbian"@en, "Serbisch"@de, "serbe"@fr ;
+    rdfs:comment         "Serbian language."@en ;
+    schema:alternateName "sr"@en ;
+    skos:exactMatch      loclang:sr ;
+    skos:notation        "sr"@en .
+
+lang:ss
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Swati"@en, "Swasi-Sprache"@de, "swati"@fr ;
+    rdfs:comment         "Swati language."@en ;
+    schema:alternateName "ss"@en ;
+    skos:exactMatch      loclang:ss ;
+    skos:notation        "ss"@en .
+
+lang:st
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Sotho, Southern"@en, "Süd-Sotho-Sprache"@de, "sotho du Sud"@fr ;
+    rdfs:comment         "Sotho, Southern language."@en ;
+    schema:alternateName "st"@en ;
+    skos:exactMatch      loclang:st ;
+    skos:notation        "st"@en .
+
+lang:su
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Sundanese"@en, "Sundanesisch"@de, "soundanais"@fr ;
+    rdfs:comment         "Sundanese language."@en ;
+    schema:alternateName "su"@en ;
+    skos:exactMatch      loclang:su ;
+    skos:notation        "su"@en .
+
+lang:sv
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Swedish"@en, "Schwedisch"@de, "suédois"@fr ;
+    rdfs:comment         "Swedish language."@en ;
+    schema:alternateName "sv"@en ;
+    skos:exactMatch      loclang:sv ;
+    skos:notation        "sv"@en .
+
+lang:sw
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Swahili"@en, "Swahili"@de, "swahili"@fr ;
+    rdfs:comment         "Swahili language."@en ;
+    schema:alternateName "sw"@en ;
+    skos:exactMatch      loclang:sw ;
+    skos:notation        "sw"@en .
+
+lang:ta
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Tamil"@en, "Tamil"@de, "tamoul"@fr ;
+    rdfs:comment         "Tamil language."@en ;
+    schema:alternateName "ta"@en ;
+    skos:exactMatch      loclang:ta ;
+    skos:notation        "ta"@en .
+
+lang:te
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Telugu"@en, "Telugu-Sprache"@de, "télougou"@fr ;
+    rdfs:comment         "Telugu language."@en ;
+    schema:alternateName "te"@en ;
+    skos:exactMatch      loclang:te ;
+    skos:notation        "te"@en .
+
+lang:tg
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Tajik"@en, "Tadschikisch"@de, "tadjik"@fr ;
+    rdfs:comment         "Tajik language."@en ;
+    schema:alternateName "tg"@en ;
+    skos:exactMatch      loclang:tg ;
+    skos:notation        "tg"@en .
+
+lang:th
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Thai"@en, "Thailändisch"@de, "thaï"@fr ;
+    rdfs:comment         "Thai language."@en ;
+    schema:alternateName "th"@en ;
+    skos:exactMatch      loclang:th ;
+    skos:notation        "th"@en .
+
+lang:ti
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Tigrinya"@en, "Tigrinja-Sprache"@de, "tigrigna"@fr ;
+    rdfs:comment         "Tigrinya language."@en ;
+    schema:alternateName "ti"@en ;
+    skos:exactMatch      loclang:ti ;
+    skos:notation        "ti"@en .
+
+lang:tk
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Turkmen"@en, "Turkmenisch"@de, "turkmène"@fr ;
+    rdfs:comment         "Turkmen language."@en ;
+    schema:alternateName "tk"@en ;
+    skos:exactMatch      loclang:tk ;
+    skos:notation        "tk"@en .
+
+lang:tl
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Tagalog"@en, "Tagalog"@de, "tagalog"@fr ;
+    rdfs:comment         "Tagalog language."@en ;
+    schema:alternateName "tl"@en ;
+    skos:exactMatch      loclang:tl ;
+    skos:notation        "tl"@en .
+
+lang:tn
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Tswana"@en, "Tswana-Sprache"@de, "tswana"@fr ;
+    rdfs:comment         "Tswana language."@en ;
+    schema:alternateName "tn"@en ;
+    skos:exactMatch      loclang:tn ;
+    skos:notation        "tn"@en .
+
+lang:to
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Tonga (Tonga Islands)"@en, "Tongaisch"@de, "tongan (Îles Tonga)"@fr ;
+    rdfs:comment         "Tonga (Tonga Islands) language."@en ;
+    schema:alternateName "to"@en ;
+    skos:exactMatch      loclang:to ;
+    skos:notation        "to"@en .
+
+lang:tr
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Turkish"@en, "Türkisch"@de, "turc"@fr ;
+    rdfs:comment         "Turkish language."@en ;
+    schema:alternateName "tr"@en ;
+    skos:exactMatch      loclang:tr ;
+    skos:notation        "tr"@en .
+
+lang:ts
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Tsonga"@en, "Tsonga-Sprache"@de, "tsonga"@fr ;
+    rdfs:comment         "Tsonga language."@en ;
+    schema:alternateName "ts"@en ;
+    skos:exactMatch      loclang:ts ;
+    skos:notation        "ts"@en .
+
+lang:tt
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Tatar"@en, "Tatarisch"@de, "tatar"@fr ;
+    rdfs:comment         "Tatar language."@en ;
+    schema:alternateName "tt"@en ;
+    skos:exactMatch      loclang:tt ;
+    skos:notation        "tt"@en .
+
+lang:tw
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Twi"@en, "Twi-Sprache"@de, "twi"@fr ;
+    rdfs:comment         "Twi language."@en ;
+    schema:alternateName "tw"@en ;
+    skos:exactMatch      loclang:tw ;
+    skos:notation        "tw"@en .
+
+lang:ty
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Tahitian"@en, "Tahitisch"@de, "tahitien"@fr ;
+    rdfs:comment         "Tahitian language."@en ;
+    schema:alternateName "ty"@en ;
+    skos:exactMatch      loclang:ty ;
+    skos:notation        "ty"@en .
+
+lang:ug
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Uighur | Uyghur"@en, "Uigurisch"@de, "ouïgour"@fr ;
+    rdfs:comment         "Uighur | Uyghur language."@en ;
+    schema:alternateName "ug"@en ;
+    skos:exactMatch      loclang:ug ;
+    skos:notation        "ug"@en .
+
+lang:uk
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Ukrainian"@en, "Ukrainisch"@de, "ukrainien"@fr ;
+    rdfs:comment         "Ukrainian language."@en ;
+    schema:alternateName "uk"@en ;
+    skos:exactMatch      loclang:uk ;
+    skos:notation        "uk"@en .
+
+lang:ur
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Urdu"@en, "Urdu"@de, "ourdou"@fr ;
+    rdfs:comment         "Urdu language."@en ;
+    schema:alternateName "ur"@en ;
+    skos:exactMatch      loclang:ur ;
+    skos:notation        "ur"@en .
+
+lang:uz
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Uzbek"@en, "Usbekisch"@de, "ouszbek"@fr ;
+    rdfs:comment         "Uzbek language."@en ;
+    schema:alternateName "uz"@en ;
+    skos:exactMatch      loclang:uz ;
+    skos:notation        "uz"@en .
+
+lang:ve
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Venda"@en, "Venda-Sprache"@de, "venda"@fr ;
+    rdfs:comment         "Venda language."@en ;
+    schema:alternateName "ve"@en ;
+    skos:exactMatch      loclang:ve ;
+    skos:notation        "ve"@en .
+
+lang:vi
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Vietnamese"@en, "Vietnamesisch"@de, "vietnamien"@fr ;
+    rdfs:comment         "Vietnamese language."@en ;
+    schema:alternateName "vi"@en ;
+    skos:exactMatch      loclang:vi ;
+    skos:notation        "vi"@en .
+
+lang:vo
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Volapük"@en, "Volapük"@de, "volapük"@fr ;
+    rdfs:comment         "Volapük language."@en ;
+    schema:alternateName "vo"@en ;
+    skos:exactMatch      loclang:vo ;
+    skos:notation        "vo"@en .
+
+lang:wa
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Walloon"@en, "Wallonisch"@de, "wallon"@fr ;
+    rdfs:comment         "Walloon language."@en ;
+    schema:alternateName "wa"@en ;
+    skos:exactMatch      loclang:wa ;
+    skos:notation        "wa"@en .
+
+lang:wo
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Wolof"@en, "Wolof-Sprache"@de, "wolof"@fr ;
+    rdfs:comment         "Wolof language."@en ;
+    schema:alternateName "wo"@en ;
+    skos:exactMatch      loclang:wo ;
+    skos:notation        "wo"@en .
+
+lang:xh
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Xhosa"@en, "Xhosa-Sprache"@de, "xhosa"@fr ;
+    rdfs:comment         "Xhosa language."@en ;
+    schema:alternateName "xh"@en ;
+    skos:exactMatch      loclang:xh ;
+    skos:notation        "xh"@en .
+
+lang:yi
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Yiddish"@en, "Jiddisch"@de, "yiddish"@fr ;
+    rdfs:comment         "Yiddish language."@en ;
+    schema:alternateName "yi"@en ;
+    skos:exactMatch      loclang:yi ;
+    skos:notation        "yi"@en .
+
+lang:yo
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Yoruba"@en, "Yoruba-Sprache"@de, "yoruba"@fr ;
+    rdfs:comment         "Yoruba language."@en ;
+    schema:alternateName "yo"@en ;
+    skos:exactMatch      loclang:yo ;
+    skos:notation        "yo"@en .
+
+lang:za
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Zhuang | Chuang"@en, "Zhuang"@de, "zhuang | chuang"@fr ;
+    rdfs:comment         "Zhuang | Chuang language."@en ;
+    schema:alternateName "za"@en ;
+    skos:exactMatch      loclang:za ;
+    skos:notation        "za"@en .
+
+lang:zh
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Chinese"@en, "Chinesisch"@de, "chinois"@fr ;
+    rdfs:comment         "Chinese language."@en ;
+    schema:alternateName "zh"@en ;
+    skos:exactMatch      loclang:zh ;
+    skos:notation        "zh"@en .
+
+lang:zu
+    a                    schema:Language, skos:Concept ;
+    skos:inScheme        lang: ;
+    rdfs:label           "Zulu"@en, "Zulu-Sprache"@de, "zoulou"@fr ;
+    rdfs:comment         "Zulu language."@en ;
+    schema:alternateName "zu"@en ;
+    skos:exactMatch      loclang:zu ;
+    skos:notation        "zu"@en .

@@ -1,0 +1,238 @@
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms:      <http://purl.org/dc/terms/> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf:         <http://purl.org/vocommons/voaf#> .
+@prefix gndkg:        <http://d-nb.info/gnd/> .
+@prefix kanzaki:      <http://www.kanzaki.com/ns/music#> .
+@prefix dbo:          <http://dbpedia.org/ontology/> .
+@prefix wikidata:     <https://www.wikidata.org/entity/> .
+@prefix vann:         <http://purl.org/vocab/vann/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+@prefix tgenres:      <http://w3id.org/drk/vocabs/theatrical-genres#> .
+
+tgenres:
+    a                             voaf:Vocabulary, skos:ConceptScheme ;
+    dcterms:title                 "Theatrical Genres Vocabulary"@en ;
+    dcterms:description           "A controlled vocabulary for listing and describing theatrical genres."@en ;
+    rdfs:label                    "Theatrical Genres Vocabulary"@en ;
+    rdfs:comment                  "A controlled vocabulary for listing and describing theatrical genres."@en ;
+    dcterms:hasVersion            "0.0.1"^^xsd:string ;
+    rdfs:seeAlso                  wikidata:Q7777573, <https://en.wikipedia.org/wiki/Category:Theatrical_genres> ;
+    vann:preferredNamespacePrefix "tgenres" ;
+    vann:preferredNamespaceUri    "http://w3id.org/drk/vocabs/theatrical-genres#" .
+
+tgenres:Audiowalk
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Audiowalk"@en, "Audiowalk"@de ;
+    rdfs:comment  "A guided walk with an audio commentary that leads participants through a physical space."@en ;
+    rdfs:seeAlso  <https://de.wikipedia.org/wiki/Audiowalk> .
+
+tgenres:Ballet
+    a               skos:Concept ;
+    skos:inScheme   tgenres: ;
+    rdfs:label      "Ballet"@en, "Ballett"@de ;
+    skos:exactMatch gndkg:4004351-4, kanzaki:Ballet ;
+    # Description source: https://www.britannica.com/art/ballet
+    rdfs:comment    "A theatrical dance in which a formal academic dance technique—the danse d’école—is combined with other artistic elements such as music, costume, and stage scenery."@en ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Ballet>, <https://www.britannica.com/art/ballet> .
+
+tgenres:Concert
+    a               skos:Concept ;
+    skos:inScheme   tgenres: ;
+    rdfs:label      "Concert"@en, "Konzert"@de ;
+    # skos:exactMatch gndkg:7623027-2 ???
+    skos:exactMatch kanzaki:Concert ;
+    rdfs:comment    "A live music performance in front of an audience."@en ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Concert> .
+
+tgenres:DigitalTheater
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Digital Theater"@en ;
+    rdfs:comment  "A genre of theater that incorporates digital technology in its production or presentation."@en ;
+    rdfs:seeAlso  <https://en.wikipedia.org/wiki/Digital_theatre> .
+
+tgenres:GameTheater
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Game Theater"@en ;
+    rdfs:comment  "A genre of theater that integrates elements of game design, often involving audience participation."@en .
+
+tgenres:LiveRadioPlay
+    a               skos:Concept ;
+    skos:inScheme   tgenres: ;
+    rdfs:label      "Live Radio Play"@en, "Live-Hörspiel"@de ;
+    skos:altLabel   "Live Radio Drama"@en, "Live Audio Drama"@en, "Live Audio Play"@en, "Livehörspiel"@de ;
+    rdfs:comment    "A dramatized, purely acoustic performance, performed in front of a live audience."@en ;
+    skos:closeMatch gndkg:4025435-5 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Radio_drama> .
+
+tgenres:ImprovisationalTheater
+    a               skos:Concept ;
+    skos:inScheme   tgenres: ;
+    rdfs:label      "Improvisational Theater"@en, "Improtheater"@de ;
+    skos:altLabel   "Improvisationstheater"@de, "Stegreiftheater"@de ;
+    rdfs:comment    "A form of theater where most or all of what is performed is created spontaneously without a script."@en ;
+    skos:exactMatch gndkg:4183004-0 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Improvisational_theatre> .
+
+tgenres:Installation
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Installation"@en ;
+    rdfs:comment  "An art form that uses three-dimensional works designed to transform the perception of a space."@en .
+
+tgenres:Cabaret
+    a               skos:Concept ;
+    skos:inScheme   tgenres: ;
+    rdfs:label      "Cabaret"@en, "Kabarett"@de ;
+    rdfs:comment    "A form of cabaret known for its political satire and humorous content, particularly popular in German-speaking countries."@en ;
+    skos:exactMatch gndkg:4029104-2 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Cabaret> .
+
+tgenres:CabaretComedy
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Cabaret Comedy"@en, "Kabarett-Comedy"@de ;
+    rdfs:comment  "A genre that blends cabaret-style performances with comedic elements."@en .
+
+tgenres:ChamberMusicConcert
+    a               skos:Concept ;
+    skos:inScheme   tgenres: ;
+    rdfs:label      "Chamber Music Concert"@en, "Kammerkonzert"@de ;
+    rdfs:comment    "A genre featuring chamber music concert, typically performed by a small group of musicians."@en ;
+    skos:exactMatch gndkg:7727959-1, kanzaki:Chamber_Music .
+
+tgenres:LecturePerformance
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Lecture Performance"@en, "Lecture Performance"@de ;
+    rdfs:comment  "A hybrid genre that combines the delivery of a lecture with performance art."@en .
+
+tgenres:Reading
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Reading"@en, "Lesung"@de ;
+    rdfs:comment  "A public event where literature is read aloud to an audience."@en .
+
+tgenres:Musical
+    a               skos:Concept ;
+    skos:inScheme   tgenres: ;
+    rdfs:label      "Musical"@en, "Musical"@de ;
+    rdfs:comment    "A genre of theatrical performance that combines songs, spoken dialogue, acting, and dance."@en ;
+    skos:exactMatch gndkg:4040801-2 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Musical_theatre> .
+
+tgenres:MusicTheater
+    a               skos:Concept ;
+    skos:inScheme   tgenres: ;
+    rdfs:label      "Music Theater"@en, "Musiktheater"@de ;
+    rdfs:comment    "A genre that encompasses both opera and other forms of musical performance on stage."@en ;
+    skos:exactMatch gndkg:4040874-7 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Music_theatre> .
+
+tgenres:ObjectTheater
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Object Theater"@en, "Objekttheater"@de ;
+    rdfs:comment  "A genre of theater where everyday objects are used as primary elements in performance."@en ;
+    rdfs:seeAlso  <https://wepa.unima.org/en/object-theatre> .
+
+tgenres:Opera
+    a               skos:Concept ;
+    skos:inScheme   tgenres: ;
+    rdfs:label      "Opera"@en, "Oper"@de ;
+    rdfs:comment    "A genre of music theater in which a dramatic work is performed by singers and musicians."@en ;
+    skos:exactMatch gndkg:4043582-9, dbo:Opera, kanzaki:Opera ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Opera> .
+
+tgenres:Operetta
+    a               skos:Concept ;
+    skos:inScheme   tgenres: ;
+    rdfs:label      "Operetta"@en, "Operette"@de ;
+    rdfs:comment    "A genre of light opera, with spoken dialogue, songs, and dances."@en ;
+    skos:exactMatch gndkg:4043602-0 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Operetta> .
+
+tgenres:Performance
+    a               skos:Concept ;
+    skos:inScheme   tgenres: ;
+    rdfs:label      "Performance"@en, "Performance"@de ;
+    rdfs:comment    "A genre that emphasizes the act of performing, often breaking the traditional boundaries of theater."@en ;
+    skos:exactMatch gndkg:4173750-7 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Performance_art> .
+
+tgenres:PhysicalTheatre
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Physical Theater"@en, "Physical Theatre"@de ;
+    rdfs:comment  "A genre that focuses on physical movement and body language as the primary means of storytelling."@en ;
+    rdfs:seeAlso  <https://en.wikipedia.org/wiki/Physical_theatre> .
+
+tgenres:PuppetTheater
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Puppet Theater"@en, "Puppentheater"@de ;
+    rdfs:comment  "A form of theater where puppets, rather than live actors, are the main performers."@en ;
+    rdfs:seeAlso  <https://en.wikipedia.org/wiki/Puppetry> .
+
+tgenres:SymphonyConcert
+    a               skos:Concept ;
+    skos:inScheme   tgenres: ;
+    rdfs:label      "Symphony Concert"@en, "Sinfoniekonzert"@de ;
+    rdfs:comment    "A concert featuring a symphony orchestra performing symphonic works."@en ;
+    skos:exactMatch gndkg:4359937-0, kanzaki:Symphony ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Symphony> .
+
+tgenres:SpokenTheater
+    a               skos:Concept ;
+    skos:inScheme   tgenres: ;
+    rdfs:label      "Spoken Theater"@en, "Sprechtheater"@de ;
+    rdfs:comment    "A form of theater in which spoken language is the primary means of communication."@en ;
+    skos:exactMatch gndkg:4182552-4, wikidata:Q39892385 ;
+    rdfs:seeAlso    <http://ladydayonbroadway.com/spoken-theater-an-overview> .
+
+tgenres:StagedReading
+    a               skos:Concept ;
+    skos:inScheme   tgenres: ;
+    rdfs:label      "Staged Reading"@en, "Szenische Lesung"@de ;
+    skos:altLabel   "Szenisches Lesen"@de, "Inszenierte Lesung"@de, "Leseinszenierung"@de ;
+    rdfs:comment    "A reading of a play or script where actors perform with minimal staging."@en ;
+    skos:exactMatch gndkg:1077446063 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Stage_reading> .
+
+tgenres:StagedConcert
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Staged Concert"@en, "Szenisches Konzert"@de ;
+    rdfs:comment  "A concert that incorporates theatrical elements such as staging and choreography."@en .
+
+tgenres:Dance
+    a               skos:Concept ;
+    skos:inScheme   tgenres: ;
+    rdfs:label      "Dance"@en, "Tanztheater"@de ;
+    rdfs:comment    "A genre that uses movement to express ideas or tell a story."@en ;
+    skos:exactMatch gndkg:4184451-8 .
+
+tgenres:OutdoorTheater
+    a               skos:Concept ;
+    skos:inScheme   tgenres: ;
+    rdfs:label      "Outdoor Theater"@en, "Theater im öffentlichen Raum"@de ;
+    skos:altLabel   "Open-air Theatre"@en ;
+    rdfs:comment    "A form of theater that is performed in outdoor, public spaces."@en ;
+    skos:exactMatch wikidata:Q11183017 .
+
+tgenres:Workshop
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Workshop"@en ;
+    rdfs:comment  "A genre of educational performance or interactive event where participants learn or practice skills."@en .
+
+tgenres:ContemporaryDance
+    a             skos:Concept ;
+    skos:inScheme tgenres: ;
+    rdfs:label    "Contemporary Dance"@en, "Zeitgenössischer Tanz"@de ;
+    rdfs:comment  "A genre of dance that draws on various styles and techniques to create modern movement vocabulary."@en ;
+    rdfs:seeAlso  <https://en.wikipedia.org/wiki/Contemporary_dance> .

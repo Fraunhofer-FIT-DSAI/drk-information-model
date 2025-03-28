@@ -1,0 +1,88 @@
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms:      <http://purl.org/dc/terms/> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf:         <http://purl.org/vocommons/voaf#> .
+@prefix wikidata:     <https://www.wikidata.org/entity/> .
+@prefix dbo:          <https://dbpedia.org/ontology/> .
+@prefix schema:       <https://schema.org/> .
+@prefix foaf:         <http://xmlns.com/foaf/0.1/> .
+@prefix vann:         <http://purl.org/vocab/vann/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+@prefix tperf:        <http://w3id.org/drk/vocabs/performer-types#> .
+
+tperf:
+    a                             voaf:Vocabulary, skos:ConceptScheme ;
+    dcterms:title                 "Performer Types Vocabulary"@en ;
+    dcterms:description           "A controlled vocabulary for listing and describing various types of performers in a creative work such as a play or a movie."@en ;
+    rdfs:label                    "Performer Types Vocabulary"@en ;
+    rdfs:comment                  "A controlled vocabulary for listing and describing various types of performers in a creative work such as a play or a movie."@en ;
+    dcterms:hasVersion            "0.0.1"^^xsd:string ;
+    vann:preferredNamespacePrefix "tperf"@en ;
+    vann:preferredNamespaceUri    "http://w3id.org/drk/vocabs/performer-types#" .
+
+tperf:Person
+    a               skos:Concept ;
+    skos:inScheme   tperf: ;
+    rdfs:label      "Person Performer"@en ;
+    skos:altLabel   "Human Performer"@en ;
+    rdfs:comment    "A human individual that performs a role in the production or performance of a creative work such as a play or a movie. For example, William Shakespeare performed the role of author in the production of his play 'Romeo and Juliet'; Christian Bale performed the roles of 'Actor' and 'Protagonist' while playing the characters of 'Batman' and 'Bruce Wayne' in Christopher Nolan's 2008 movie 'The Dark Knight'."@en ;
+    skos:closeMatch foaf:Person, schema:Person, dbo:Person, wikidata:Q5 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Person> .
+
+tperf:Animal
+    a               skos:Concept ;
+    skos:inScheme   tperf: ;
+    rdfs:label      "Animal Performer"@en ;
+    rdfs:comment    "A non-human animal that performs a role in the production or performance of a creative work such as a play or a movie. For example, 'Crystal the Monkey' played the role of 'Dexter' in the 2006 movie 'Night at the Museum'."@en ;
+    skos:closeMatch dbo:Animal, wikidata:Q729 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Animal> .
+
+tperf:Organization
+    a               skos:Concept ;
+    skos:inScheme   tperf: ;
+    rdfs:label      "Organization Performer"@en ;
+    rdfs:comment    "A company or organization performing a role in the production of a creative work, e.g., by funding or sponsoring it."@en ;
+    skos:closeMatch schema:Organization, dbo:Organization, wikidata:Q43229 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Organization> .
+
+tperf:Puppet
+    a               skos:Concept ;
+    skos:inScheme   tperf: ;
+    rdfs:label      "Puppet Performer"@en ;
+    rdfs:comment    "An inanimate figure or model manipulated by a puppeteer that performs a role in a creative work such as a play or a movie. For example, the kermit puppet artifact that featured as 'Kermit the Frog' in 'The Muppet Show'. Jim Henson's original Kermit is currently on display at the National Museum of American History."@en ;
+    skos:closeMatch wikidata:Q1913135 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Puppet> .
+
+tperf:Puppeteer
+    a               skos:Concept ;
+    skos:inScheme   tperf: ;
+    rdfs:label      "Puppeteer Performer"@en ;
+    rdfs:comment    "A person who manipulates a puppet in the performance of a creative work such as a play or a movie. For example, Jim Henson as the puppeteer for 'Kermit the Frog' in 'The Muppet Movie' (1979)."@en ;
+    skos:exactMatch wikidata:Q2629392 ;
+    skos:closeMatch foaf:Person, schema:Person, dbo:Person, wikidata:Q5 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Puppeteer> .
+
+tperf:Robot
+    a               skos:Concept ;
+    skos:inScheme   tperf: ;
+    rdfs:label      "Robot Performer"@en ;
+    rdfs:comment    "A machine, especially one that can be programmed, that performs a role involving complex physical activities in a creative work such as a play or a movie. For example, 'Robby the Robot' from the 1956 film Forbidden Planet, which has been showcased at the Smithsonian National Museum of American History; 'T-800' from the Terminator film series, etc."@en ;
+    skos:closeMatch wikidata:Q11012 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Robot> .
+
+tperf:InanimateObject
+    a               skos:Concept ;
+    skos:inScheme   tperf: ;
+    rdfs:label      "Inanimate Object Performer"@en ;
+    rdfs:comment    "A physical non-living thing that performs a role in a creative work such as a play or a movie. Examples include Captain America's Shield from Marvel Cinematic Universe, 'Wilson the Volleyball' from the 2000 movie 'Cast Away'."@en ;
+    skos:closeMatch wikidata:Q61964280 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Physical_object> .
+
+tperf:CGI
+    a               skos:Concept ;
+    skos:inScheme   tperf: ;
+    rdfs:label      "Computer-Generated Imagery (CGI) Performer"@en ;
+    rdfs:comment    "CGI used to perform a character role in a creative work such as a play or a movie. Examples include 'The T-rex' from the 1993 movie 'Jurassic Park', 'Gollum' from 'The Lord of the Rings Trilogy', and 'WALL-E' from Pixar's 2008 movie 'WALL-E'."@en ;
+    skos:exactMatch wikidata:Q6002306 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Computer-generated_imagery> .
