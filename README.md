@@ -126,3 +126,16 @@ Data model
 - A schema is a more concrete representation of a data model.
 - Data models are often represented using UML Class Diagrams or Entity Relationship (ER) Diagrams. For a more concrete representation, a JSON Schema as a part of an OpenAPI spec is often used.
 - Example: [Data model of LinkSmart Service Catalog](https://github.com/linksmart/service-catalog/wiki/API-Documentation) (a service registry for Web Services) represented using a UML Class Diagram. Its OpenAPI specification [Swagger UI](https://linksmart.eu/swagger-ui/dist/?url=https://raw.githubusercontent.com/linksmart/service-catalog/master/apidoc/swagger.json#/) [JSON](https://raw.githubusercontent.com/linksmart/service-catalog/master/apidoc/swagger.json) captures its schema. On [Swagger UI](https://linksmart.eu/swagger-ui/dist/?url=https://raw.githubusercontent.com/linksmart/service-catalog/master/apidoc/swagger.json#/) page, see the "Service" schema under "Schemas".
+
+# FAQs
+1. What is the purpose of the DRK IM (Datenraum Kultur Information Model)?
+- The DRK Information Model is a semantic data model that defines formal concepts, relationships, and constraints for cultural data within the DRK (culture dataspace).
+- It ensures that metadata describing cultural assets is represented in a structured, consistent, and semantically rich way, thereby enabling providers to provide high-quality metadata and (potential) consumers to discover the assets/offerings using advanced multi-parameter queries.
+ 
+2. Who defines the classes and relationships within the DRK IM, and what assumptions guide this process?
+- Classes and relationships in the DRK Information Model are collaboratively defined by domain experts (UC partners) and Semantic Web experts (FIT DRK IM Group).
+- This is based on the idea that semantic consistency and real-world applicability can only be achieved through iterative and collaborative work between these two parties, and that this work must be grounded in actual data and real-world use cases.
+ 
+3. What is the scope of the DRK IM, and how far shall it be extended?
+- The current scope includes modeling metadata for theaters (especially, showtimes or play schedules), museums & collections, and music marketplaces, based on the DRK use cases, with the objective of making the models "work" within the framework of dataspaces. 
+- Any future extensions should be based on concrete use cases, real-world data sources, and availability of domain expertise.
