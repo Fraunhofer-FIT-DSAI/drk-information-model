@@ -17,6 +17,14 @@
 # Ontology Definition
 drk:
     a                             owl:Ontology, voaf:Vocabulary ;
+    # Add explicit imports of vocabularies
+    owl:imports                   <http://w3id.org/drk/vocabs/character-types> ;
+    owl:imports                   <http://w3id.org/drk/vocabs/performer-types> ;
+    owl:imports                   <http://w3id.org/drk/vocabs/theatrical-event-types> ;
+    owl:imports                   <http://w3id.org/drk/vocabs/theatrical-production-types> ;
+    owl:imports                   <http://w3id.org/drk/vocabs/personal-profile-for-accessibility> ;
+    owl:imports                   <http://w3id.org/drk/vocabs/languages-iso639-1> ;
+    owl:imports                   <http://w3id.org/drk/vocabs/theatrical-genres> ;
 
     # Basic Metadata
     rdfs:label                    "Culture Dataspace (DRK) Ontology"@en, "Datenraum Kultur (DRK) Ontologie"@de ;
