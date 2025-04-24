@@ -40,25 +40,31 @@ drk:
     # Dates
     dcterms:created               "2024-10-22"^^xsd:date ;
     dcterms:modified              "2025-04-24"^^xsd:date ;
-    dcterms:issued                "2024-11-07"^^xsd:date ;  # Date of a major release
+    dcterms:issued                "2025-04-24"^^xsd:date ;  # Date of a major release
 
-    # Creator Information
-    dcterms:creator               [ a                  foaf:Person ;
-                                    foaf:name          "Rohit A. Deshmukh"@en ;
-                                    foaf:mbox          <mailto:rohit.deshmukh@fit.fraunhofer.de> ;
-                                    foaf:homepage      <https://github.com/rohitadeshmukh13> ;
-                                    dcterms:identifier <https://orcid.org/0000-0003-2885-7076> ] ;
-    dcterms:creator               [ a                  foaf:Person ;
-                                    foaf:name          "Daham Mohammed Mustafa"@en ;
-                                    foaf:homepage      <https://github.com/Daham-Mustaf> ;
-                                    dcterms:identifier <https://orcid.org/0000-0003-1867-4428> ] ;
-    dcterms:creator               [ a                  foaf:Person ;
-                                    foaf:name          "Christoph Lange-Bever"@en ;
-                                    foaf:homepage      <https://github.com/clange> ;
-                                    dcterms:identifier <https://orcid.org/0000-0001-9879-3827> ] ;
-    dcterms:creator               [ a             foaf:Person ;
-                                    foaf:name     "Peter Retzlaff"@en ;
-                                    foaf:homepage <https://github.com/peret> ] ;
+    # Simple author strings for better tool compatibility
+    schema:author                 "Rohit A. Deshmukh" ;
+    schema:author                 "Daham Mohammed Mustafa" ;
+    schema:author                 "Christoph Lange-Bever" ;
+    schema:author                 "Peter Retzlaff" ;
+
+    # # Creator Information
+    # dcterms:creator               [ a                  foaf:Person ;
+    #                                 foaf:name          "Rohit A. Deshmukh"@en ;
+    #                                 foaf:mbox          <mailto:rohit.deshmukh@fit.fraunhofer.de> ;
+    #                                 foaf:homepage      <https://github.com/rohitadeshmukh13> ;
+    #                                 dcterms:identifier <https://orcid.org/0000-0003-2885-7076> ] ;
+    # dcterms:creator               [ a                  foaf:Person ;
+    #                                 foaf:name          "Daham Mohammed Mustafa"@en ;
+    #                                 foaf:homepage      <https://github.com/Daham-Mustaf> ;
+    #                                 dcterms:identifier <https://orcid.org/0000-0003-1867-4428> ] ;
+    # dcterms:creator               [ a                  foaf:Person ;
+    #                                 foaf:name          "Christoph Lange-Bever"@en ;
+    #                                 foaf:homepage      <https://github.com/clange> ;
+    #                                 dcterms:identifier <https://orcid.org/0000-0001-9879-3827> ] ;
+    # dcterms:creator               [ a             foaf:Person ;
+    #                                 foaf:name     "Peter Retzlaff"@en ;
+    #                                 foaf:homepage <https://github.com/peret> ] ;
 
     # Publisher Information
     dcterms:publisher             [ a             foaf:Organization ;
