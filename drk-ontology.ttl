@@ -13,6 +13,8 @@
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
 @prefix cc:           <http://creativecommons.org/ns#> .
 @prefix foaf:         <http://xmlns.com/foaf/0.1/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+
 
 # Ontology Definition
 drk:
@@ -36,11 +38,12 @@ drk:
     owl:versionIRI                <http://w3id.org/drk/ontology/1.0.1> ;
     owl:priorVersion              <http://w3id.org/drk/ontology/1.0.0> ;
     dcterms:hasVersion            "1.0.1"^^xsd:string ;
-
+    
     # Dates
     dcterms:created               "2024-10-22"^^xsd:date ;
     dcterms:modified              "2025-04-24"^^xsd:date ;
-    dcterms:issued                "2025-04-24"^^xsd:date ;  # Date of a major release
+    dcterms:issued                "2025-04-24"^^xsd:date ;
+    bibo:doi                      "10.5281/zenodo.15294907" ;
 
     # Simple author strings for better tool compatibility
     schema:author                 "Rohit A. Deshmukh" ;
