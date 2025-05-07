@@ -1,0 +1,440 @@
+@prefix drk:          <http://w3id.org/drk/ontology/> .
+@prefix :             <http://w3id.org/drk/ontology/> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:          <http://www.w3.org/2002/07/owl#> .
+@prefix lang:         <https://w3id.org/drk/vocabs/languages-iso639-1#> .
+@prefix dcterms:      <http://purl.org/dc/terms/> .
+@prefix vann:         <http://purl.org/vocab/vann/> .
+@prefix schema:       <https://schema.org/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix mo:           <http://purl.org/ontology/mo/> .
+@prefix dbpedia:      <http://dbpedia.org/ontology/> .
+@prefix event:        <http://purl.org/NET/c4dm/event.owl#> .
+@prefix dbo:          <http://dbpedia.org/ontology/> .
+
+
+# MusicGenreCategory Vocabulary Enumeration 
+:GenreVocabulary 
+    a skos:ConceptScheme ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:label "Music Genres"@en ;
+    skos:definition "Enumeration of music styles and genres"@en ;
+    owl:equivalentClass mo:Genre .
+
+# Concepts based on the genres https://app.musiq.me/
+:Blues 
+    a skos:Concept ;
+    skos:inScheme :GenreVocabulary ;
+    skos:prefLabel "Blues"@en .
+
+:Electronic 
+    a skos:Concept ;
+    skos:inScheme :GenreVocabulary ;
+    skos:prefLabel "Electronic"@en .
+
+:HipHop 
+    a skos:Concept ;
+    skos:inScheme :GenreVocabulary ;
+    skos:prefLabel "Hip Hop"@en .
+
+:Jazz 
+    a skos:Concept ;
+    skos:inScheme :GenreVocabulary ;
+    skos:prefLabel "Jazz"@en .
+
+:Classical 
+    a skos:Concept ;
+    skos:inScheme :GenreVocabulary ;
+    skos:prefLabel "Classical"@en .
+
+# Add other genres as needed ...>
+
+# InstrumentVocabulary Enumeration
+:InstrumentVocabulary 
+    a skos:ConceptScheme ;
+    rdfs:isDefinedBy drk: ;
+    rdfs:label "Musical Instruments"@en ;
+    skos:definition "Enumeration of musical instruments"@en ;
+    owl:equivalentClass dbo:MusicalInstrument ;
+    owl:equivalentClass mo:Instrument .
+
+# Concepts based on the instruments https://app.musiq.me/
+:BassGuitar 
+    a skos:Concept ;
+    skos:inScheme :InstrumentVocabulary ;
+    skos:prefLabel "Bass Guitar"@en .
+
+:Flute 
+    a skos:Concept ;
+    skos:inScheme :InstrumentVocabulary ;
+    skos:prefLabel "Flute"@en .
+
+:Vocals 
+    a skos:Concept ;
+    skos:inScheme :InstrumentVocabulary ;
+    skos:prefLabel "Vocals"@en .
+
+:Guitar 
+    a skos:Concept ;
+    skos:inScheme :InstrumentVocabulary ;
+    skos:prefLabel "Guitar"@en .
+
+:Keyboard 
+    a skos:Concept ;
+    skos:inScheme :InstrumentVocabulary ;
+    skos:prefLabel "Keyboard"@en .
+
+# Add other instruments as needed ...>
+
+# Language Vocabulary
+:LanguageVocabulary a skos:ConceptScheme ;
+    rdfs:label "Languages"@en ;
+    rdfs:label "Sprachen"@de ;
+    skos:definition "Standard language options"@en ;
+    dcterms:creator :MusicSchoolOntology .
+
+:English
+    a skos:Concept ;
+    skos:inScheme :LanguageVocabulary ;
+    skos:prefLabel "English"@en ;
+    skos:prefLabel "Englisch"@de ;
+    skos:definition "English language"@en ;
+    skos:notation "en" .
+
+:German
+    a skos:Concept ;
+    skos:inScheme :LanguageVocabulary ;
+    skos:prefLabel "German"@en ;
+    skos:prefLabel "Deutsch"@de ;
+    skos:definition "German language"@en ;
+    skos:notation "de" .
+
+# Gender Vocabulary
+:GenderVocabulary a skos:ConceptScheme ;
+    rdfs:label "Genders"@en ;
+    rdfs:label "Geschlechter"@de ;
+    skos:definition "Gender identity options"@en ;
+    dcterms:creator :MusicSchoolOntology .
+
+:Male
+    a skos:Concept ;
+    skos:inScheme :GenderVocabulary ;
+    skos:prefLabel "Male"@en ;
+    skos:prefLabel "Männlich"@de ;
+    skos:definition "A person identifying as male"@en ;
+    owl:sameAs schema:Male ;
+    skos:notation "male" .
+
+:Female
+    a skos:Concept ;
+    skos:inScheme :GenderVocabulary ;
+    skos:prefLabel "Female"@en ;
+    skos:prefLabel "Weiblich"@de ;
+    skos:definition "A person identifying as female"@en ;
+    owl:sameAs schema:Female ;
+    skos:notation "female" .
+
+:OtherGender
+    a skos:Concept ;
+    skos:inScheme :GenderVocabulary ;
+    skos:prefLabel "Other"@en ;
+    skos:prefLabel "Andere"@de ;
+    skos:definition "A person identifying with another gender"@en ;
+    skos:notation "other" .
+
+# Gender Preference Vocabulary
+:GenderPreferenceVocabulary a skos:ConceptScheme ;
+    rdfs:label "Gender Preferences"@en ;
+    rdfs:label "Geschlechtspräferenzen"@de ;
+    skos:definition "Gender preferences for matching"@en ;
+    dcterms:creator :MusicSchoolOntology .
+
+:MalePreference
+    a skos:Concept ;
+    skos:inScheme :GenderPreferenceVocabulary ;
+    skos:prefLabel "Male"@en ;
+    skos:prefLabel "Männlich"@de ;
+    skos:definition "Preference for male pairing"@en ;
+    skos:related :Male ;
+    skos:notation "male" .
+
+:FemalePreference
+    a skos:Concept ;
+    skos:inScheme :GenderPreferenceVocabulary ;
+    skos:prefLabel "Female"@en ;
+    skos:prefLabel "Weiblich"@de ;
+    skos:definition "Preference for female pairing"@en ;
+    skos:related :Female ;
+    skos:notation "female" .
+
+:AnyGenderPreference
+    a skos:Concept ;
+    skos:inScheme :GenderPreferenceVocabulary ;
+    skos:prefLabel "Any"@en ;
+    skos:prefLabel "Alle"@de ;
+    skos:definition "No specific gender preference"@en ;
+    skos:notation "any" .
+
+# User Role Vocabulary
+:RoleVocabulary a skos:ConceptScheme ;
+    rdfs:label "User Roles"@en ;
+    rdfs:label "Benutzerrollen"@de ;
+    skos:definition "System access roles"@en ;
+    dcterms:creator :MusicSchoolOntology .
+
+:RootAdmin
+    a skos:Concept ;
+    skos:inScheme :RoleVocabulary ;
+    skos:prefLabel "Root Administrator"@en ;
+    skos:prefLabel "Hauptadministrator"@de ;
+    skos:definition "System-wide administrator with full access"@en ;
+    skos:notation "root" .
+
+:SchoolAdmin
+    a skos:Concept ;
+    skos:inScheme :RoleVocabulary ;
+    skos:prefLabel "School Administrator"@en ;
+    skos:prefLabel "Schuladministrator"@de ;
+    skos:definition "Administrator for a specific school"@en ;
+    skos:notation "school_admin" .
+
+:Teacher
+    a skos:Concept ;
+    skos:inScheme :RoleVocabulary ;
+    skos:prefLabel "Teacher"@en ;
+    skos:prefLabel "Lehrer"@de ;
+    skos:definition "Music instruction provider"@en ;
+    skos:notation "teacher" .
+
+:Student
+    a skos:Concept ;
+    skos:inScheme :RoleVocabulary ;
+    skos:prefLabel "Student"@en ;
+    skos:prefLabel "Schüler"@de ;
+    skos:definition "Music instruction recipient"@en ;
+    skos:notation "student" .
+
+# Instruction Location Vocabulary
+:LocationVocabulary a skos:ConceptScheme ;
+    rdfs:label "Instruction Locations"@en ;
+    rdfs:label "Unterrichtsorte"@de ;
+    skos:definition "Types of instruction locations"@en ;
+    dcterms:creator :MusicSchoolOntology .
+
+:Online
+    a skos:Concept ;
+    skos:inScheme :LocationVocabulary ;
+    skos:prefLabel "Online"@en ;
+    skos:prefLabel "Online"@de ;
+    skos:definition "Virtual instruction through digital platforms"@en ;
+    skos:notation "online" .
+
+:InPerson
+    a skos:Concept ;
+    skos:inScheme :LocationVocabulary ;
+    skos:prefLabel "In Person"@en ;
+    skos:prefLabel "Persönlich"@de ;
+    skos:definition "Physical face-to-face instruction"@en ;
+    skos:notation "offline" .
+
+# Lesson Type Vocabulary
+:LessonTypeVocabulary a skos:ConceptScheme ;
+    rdfs:label "Lesson Types"@en ;
+    rdfs:label "Unterrichtsarten"@de ;
+    skos:definition "Types of instructional sessions"@en ;
+    dcterms:creator :MusicSchoolOntology .
+
+:Trial
+    a skos:Concept ;
+    skos:inScheme :LessonTypeVocabulary ;
+    skos:prefLabel "Trial Lesson"@en ;
+    skos:prefLabel "Probestunde"@de ;
+    skos:definition "Introductory lesson for new students"@en ;
+    skos:notation "trial" .
+
+:Single
+    a skos:Concept ;
+    skos:inScheme :LessonTypeVocabulary ;
+    skos:prefLabel "Single Lesson"@en ;
+    skos:prefLabel "Einzelstunde"@de ;
+    skos:definition "One-time standalone lesson"@en ;
+    skos:notation "single" .
+
+:Recurring
+    a skos:Concept ;
+    skos:inScheme :LessonTypeVocabulary ;
+    skos:prefLabel "Recurring Lesson"@en ;
+    skos:prefLabel "Wiederkehrende Stunde"@de ;
+    skos:definition "Regular scheduled lesson series"@en ;
+    skos:notation "repeat" .
+
+# Lesson Duration Vocabulary
+:DurationVocabulary a skos:ConceptScheme ;
+    rdfs:label "Lesson Durations"@en ;
+    rdfs:label "Unterrichtsdauer"@de ;
+    skos:definition "Standard time lengths for lessons"@en ;
+    dcterms:creator :MusicSchoolOntology .
+
+:Duration35
+    a skos:Concept ;
+    skos:inScheme :DurationVocabulary ;
+    skos:prefLabel "35 Minutes"@en ;
+    skos:prefLabel "35 Minuten"@de ;
+    skos:definition "Thirty-five minute lesson"@en ;
+    schema:duration "PT35M"^^xsd:duration ;
+    skos:notation "35m" .
+
+:Duration45
+    a skos:Concept ;
+    skos:inScheme :DurationVocabulary ;
+    skos:prefLabel "45 Minutes"@en ;
+    skos:prefLabel "45 Minuten"@de ;
+    skos:definition "Forty-five minute lesson"@en ;
+    schema:duration "PT45M"^^xsd:duration ;
+    skos:notation "45m" .
+
+:Duration60
+    a skos:Concept ;
+    skos:inScheme :DurationVocabulary ;
+    skos:prefLabel "60 Minutes"@en ;
+    skos:prefLabel "60 Minuten"@de ;
+    skos:definition "Sixty minute lesson"@en ;
+    schema:duration "PT60M"^^xsd:duration ;
+    skos:notation "60m" .
+
+# Lesson Status Vocabulary
+:StatusVocabulary a skos:ConceptScheme ;
+    rdfs:label "Status States"@en ;
+    rdfs:label "Status"@de ;
+    skos:definition "Progress states for activities"@en ;
+    dcterms:creator :MusicSchoolOntology .
+
+:Pending
+    a skos:Concept ;
+    skos:inScheme :StatusVocabulary ;
+    skos:prefLabel "Pending"@en ;
+    skos:prefLabel "Ausstehend"@de ;
+    skos:definition "Awaiting confirmation or action"@en ;
+    schema:actionStatus schema:PotentialActionStatus ;
+    skos:notation "pending" .
+
+:Accepted
+    a skos:Concept ;
+    skos:inScheme :StatusVocabulary ;
+    skos:prefLabel "Accepted"@en ;
+    skos:prefLabel "Akzeptiert"@de ;
+    skos:definition "Confirmed and scheduled"@en ;
+    schema:actionStatus schema:ActiveActionStatus ;
+    skos:notation "accepted" .
+
+:Completed
+    a skos:Concept ;
+    skos:inScheme :StatusVocabulary ;
+    skos:prefLabel "Completed"@en ;
+    skos:prefLabel "Abgeschlossen"@de ;
+    skos:definition "Successfully finished"@en ;
+    schema:actionStatus schema:CompletedActionStatus ;
+    skos:notation "completed" .
+
+:Canceled
+    a skos:Concept ;
+    skos:inScheme :StatusVocabulary ;
+    skos:prefLabel "Canceled"@en ;
+    skos:prefLabel "Abgesagt"@de ;
+    skos:definition "Will not take place"@en ;
+    schema:actionStatus schema:FailedActionStatus ;
+    skos:notation "canceled" .
+
+# Verification Type Vocabulary
+:VerificationTypeVocabulary a skos:ConceptScheme ;
+    rdfs:label "Verification Types"@en ;
+    rdfs:label "Verifizierungstypen"@de ;
+    skos:definition "Types of account verification processes"@en ;
+    dcterms:creator :MusicSchoolOntology .
+
+:Registration
+    a skos:Concept ;
+    skos:inScheme :VerificationTypeVocabulary ;
+    skos:prefLabel "Registration"@en ;
+    skos:prefLabel "Registrierung"@de ;
+    skos:definition "New account verification"@en ;
+    skos:notation "registration" .
+
+:Recovery
+    a skos:Concept ;
+    skos:inScheme :VerificationTypeVocabulary ;
+    skos:prefLabel "Recovery"@en ;
+    skos:prefLabel "Wiederherstellung"@de ;
+    skos:definition "Account recovery process"@en ;
+    skos:notation "recovery" .
+
+# Document Type Vocabulary
+:DocumentTypeVocabulary a skos:ConceptScheme ;
+    rdfs:label "Document Types"@en ;
+    rdfs:label "Dokumenttypen"@de ;
+    skos:definition "Categories of digital assets"@en ;
+    dcterms:creator :MusicSchoolOntology .
+
+:Avatar
+    a skos:Concept ;
+    skos:inScheme :DocumentTypeVocabulary ;
+    skos:prefLabel "Avatar"@en ;
+    skos:prefLabel "Profilbild"@de ;
+    skos:definition "Profile picture or visual representation"@en ;
+    skos:notation "avatar" .
+
+# Notification Routing Vocabulary
+:NotificationRoutingVocabulary a skos:ConceptScheme ;
+    rdfs:label "Notification Routes"@en ;
+    rdfs:label "Benachrichtigungswege"@de ;
+    skos:definition "Delivery paths for system notifications"@en ;
+    dcterms:creator :MusicSchoolOntology .
+
+:ToSchool
+    a skos:Concept ;
+    skos:inScheme :NotificationRoutingVocabulary ;
+    skos:prefLabel "To School"@en ;
+    skos:prefLabel "An Schule"@de ;
+    skos:definition "Notifications sent to school administration"@en ;
+    skos:notation "send_to_school" .
+
+:ToTeacher
+    a skos:Concept ;
+    skos:inScheme :NotificationRoutingVocabulary ;
+    skos:prefLabel "To Teacher"@en ;
+    skos:prefLabel "An Lehrer"@de ;
+    skos:definition "Notifications sent directly to teachers"@en ;
+    skos:notation "send_to_teacher" .
+
+# Experience Level Vocabulary
+:ExperienceLevelVocabulary a skos:ConceptScheme ;
+    rdfs:label "Experience Levels"@en ;
+    rdfs:label "Erfahrungsstufen"@de ;
+    skos:definition "Classifications of skill proficiency"@en ;
+    dcterms:creator :MusicSchoolOntology .
+
+:Beginner
+    a skos:Concept ;
+    skos:inScheme :ExperienceLevelVocabulary ;
+    skos:prefLabel "Beginner"@en ;
+    skos:prefLabel "Anfänger"@de ;
+    skos:definition "Entry level with minimal experience"@en ;
+    skos:notation "beginner" .
+
+:Intermediate
+    a skos:Concept ;
+    skos:inScheme :ExperienceLevelVocabulary ;
+    skos:prefLabel "Intermediate"@en ;
+    skos:prefLabel "Mittelstufe"@de ;
+    skos:definition "Medium level with some experience"@en ;
+    skos:notation "intermediate" .
+
+:Advanced
+    a skos:Concept ;
+    skos:inScheme :ExperienceLevelVocabulary ;
+    skos:prefLabel "Advanced"@en ;
+    skos:prefLabel "Fortgeschritten"@de ;
+    skos:definition "High level with significant experience"@en ;
+    skos:notation "advanced" .

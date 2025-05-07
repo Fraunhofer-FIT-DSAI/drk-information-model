@@ -1,350 +1,224 @@
-# DRK Musikschul-Manager Ontology Documentation
-## Overview
-This document describes the translation of the Hamburger Konservatorium's Musikschul-Manager PostgreSQL database schema into an RDF/OWL ontology for the DRK (Datenraum Kultur) system.
 
-# Database to OWL Translation Documentation
-This project translates the Hamburger Konservatorium's Musikschul-Manager PostgreSQL database schema into an RDF/OWL ontology for the DRK (Datenraum Kultur) system. The translation preserves the semantic relationships while enabling semantic web capabilities.
+# Music School Information Model: Database to OWL Mapping 🎵
 
-## Translation Statistics
-- **Domain Classes**: 14 core classes from database tables
-- **Enumeration Classes**: 12 from database enums
-- **Properties**: 108 total
-  - 89 data properties from database columns
-  - 19 object properties from relationships
+## Overview 📋
+ This document describes the mapping between the **Music School Database** schema ([view schema here](https://dbdiagram.io/d/MUSIQ-DB-65169a08ffbf5169f0baba29)) and its corresponding **OWL ontology** representation. The ontology was designed to be more generic and reusable while maintaining specific music school domain concepts.  
 
-## Key Mappings
+## Key Mapping Principles 🔑
+- Database table names were generalized into music-specific OWL classes.
+- Enumerations were converted to controlled vocabularies.
+- Relationships were preserved through object properties.
 
-### Database → OWL Class Mappings
-```
-Database Tables → OWL Classes
-- migrations      → Migrations
-- auth           → Auth
-- schools        → School
-- users          → User
-- teachers       → Teacher
-- students       → Student
-- schedules      → Schedule
-- lessons        → Lesson
-- matches        → Match
-- files          → File
-- integrations   → Integration
-...and more
-```
+## Core Class Mappings 🏛️
 
-### Enum → OWL Class Mappings
-```
-Database Enums → OWL Enumeration Classes
-language
-user_role
-user_gender
-user_confirmation
-lesson_place
-lesson_type
-lesson_duration
-lesson_status
-file_type
-gender_preference
-school_language
-school_match_notification
-```
+Database Table → OWL Class:
+- `schools` → `MusicEducationSchool`
+- `users` → `MusicSchoolMember`
+- `teachers` → `MusicInstructor`
+- `students` → `MusicLearner`
+- `lessons` → `MusicInstruction`
+- `matches` → `TeacherStudentPairing`
 
-### Property Mappings
-```
-Database Column Types → OWL Properties
+### Supporting Classes 🔧
+Additional classes were created for better domain modeling:
+- `MusicGenreCategory` (from genres[] columns)
+- `MusicalInstrumentType` (from instruments[] columns)
+- `MusicSchoolDocument` (from files table)
+- `InstructionSchedule` (from schedules table)
+
+### Integration Classes 🔌
+- `ExternalMusicService` (from integrations table)
+- `MusicInstructorIntegration` (from teacher_integrations table)
+
+### Enumerations to OWL Classes and Instances 📚
+Database enumerations were converted to semantic concepts:
+
+# Enumerations to OWL Classes and Instances 📚
+
+Database enumerations were converted to semantic concepts with proper class hierarchies:
+
+1. Language System 🗣️ (`language`, `school_language`):
+   - OWL Class: `MusicSchoolLanguage`
+   - Instances: `EnglishLanguage`, `GermanLanguage`
+
+2. User Roles 👥 (`user_role`):
+   - OWL Class: `MusicSchoolMemberRole`
+   - Instances: 
+     * `RootAdminRole`
+     * `SchoolAdminRole`
+     * `MusicInstructorRole`
+     * `MusicLearnerRole`
+
+3. Gender and Preferences 👤:
+   - Gender Class: `MusicSchoolMemberGender`
+     * Instances: `MaleGender`, `FemaleGender`, `OtherGender`
+   - Preference Class: `MusicSchoolMemberGenderPreference`
+     * Instances: `MalePreference`, `FemalePreference`, `AnyGenderPreference`
+
+4. Lesson Related 📖:
+   - Place Class: `MusicInstructionPlace`
+     * Instances: `OnlineInstruction`, `OfflineInstruction`
+   - Type Class: `MusicInstructionType`
+     * Instances: `TrialInstruction`, `SingleInstruction`, `RepeatInstruction`
+   - Duration Class: `MusicInstructionDuration`
+     * Instances: `Duration35Minutes`, `Duration45Minutes`, `Duration60Minutes`
+   - Status Class: `MusicInstructionStatus`
+     * Instances: `PendingStatus`, `AcceptedStatus`, `CompletedStatus`, `CanceledStatus`
+
+5. Document Types 📄 (`file_type`):
+   - OWL Class: `MusicSchoolDocumentType`
+   - Instance: `AvatarDocument`
+
+6. Confirmation Types 🔐 (`user_confirmation`):
+   - OWL Class: `MusicSchoolMemberConfirmationType`
+   - Instances:
+     * `RegistrationConfirmation`
+     * `RecoveryConfirmation`
+
+7. Notification System 🔔 (`school_match_notification`):
+   - OWL Class: `MusicSchoolMatchNotification`
+   - Instances: 
+     * `SendToSchoolNotification`
+     * `SendToTeacherNotification`
+
+8. Experience Levels 📈:
+   - OWL Class: `MusicExperienceLevel`
+   - Instances: 
+     * `BeginnerLevel`
+     * `IntermediateLevel`
+     * `AdvancedLevel`
+
+
+## Database Column to OWL Property Mappings 🔄
+
+Database Column Types → OWL Properties:
 - Primary Keys (uuid) → URI identifiers
-- Foreign Keys       → owl:ObjectProperty
-- Regular Columns    → owl:DatatypeProperty
+- Foreign Keys → owl:ObjectProperty
+- Regular Columns → owl:DatatypeProperty
+
+### Examples 💡:
+- `teachers.id` (Primary Key) → URI for MusicInstructor instances
+- `teachers.school_id` (Foreign Key) → ObjectProperty linking MusicInstructor to MusicEducationSchool
+- `teachers.years_experience` (Regular Column) → DatatypeProperty with xsd:integer range
+
+
+## Object Properties 🔗
+
+1. Relationship Properties 🤝
+```
+hasUser                  # 👤 Links Teacher/Student to User profile
+hasSchoolAssociation     # 🏫 Links School to Members/Documents
+hasInstructionParticipant # 👥 Links Instruction to Participants
+hasInstructionSchedule   # 📅 Links to Time Slots
+hasServiceIntegration    # 🔌 External Service Connections
+hasMemberConfirmation    # ✅ Links to Verification Events
+hasAssociatedDocument    # 📄 Links to Related Documents
+hasTeacherStudentMatch   # 🤝 Links Teachers to Students
 ```
 
-## Database Constraints Translation
+2. Profile & Preference Properties 👤
 ```
-Database           │ OWL
-───────────────────┼──────────────────
-NOT NULL           │ owl:cardinality 1
-Optional           │ owl:maxCardinality 1
-ENUM              │ owl:oneOf
-```
-
-## Core Classes (Primary Domain Classes)
-Core classes represent the fundamental entities in the music school domain:
-
-- **School**: Music education institution
-- **User**: Base class for system participants
-- **Teacher**: Music education professionals (subclass of User)
-- **Student**: Music learners (subclass of User)
-- **Lesson**: Instructional sessions
-- **Match**: Teacher-student pairing entity
-- **Genre**: Musical styles and categories
-- **Instrument**: Musical instruments used in education
-
-## Secondary Classes (Supporting Classes)
-Secondary classes provide supporting functionality:
-
-- **File**: Digital assets and documents
-- **Schedule**: Time management and availability
-- **Integration**: Third-party service connections
-- **UserConfirmation**: Verification processes
-- **TeacherIntegration**: Teacher-specific external service connections
-
-Each class maintains semantic relationships through standard vocabularies (Schema.org, FOAF, Music Ontology) while adding domain-specific attributes for music education.
-
-
-# Object Properties Mapping
-
-## Core User Relations
-| Property | Domain | Range | Description |
-|----------|---------|--------|-------------|
-| `hasUser` | `Teacher`, `Student` | `User` | Links Teacher/Student to their base User profile |
-| `managesSchool` | `User` | `School` | Links admin User to School they manage |
-| `belongsToSchool` | `Teacher` | `School` | Links Teacher to their School |
-| `attendsSchool` | `Student` | `School` | Links Student to their School |
-
-## Teaching Relations
-| Property | Domain | Range | Description |
-|----------|---------|--------|-------------|
-| `teachesLesson` | `Teacher` | `Lesson` | Links Teacher to Lessons they teach |
-| `attendsLesson` | `Student` | `Lesson` | Links Student to Lessons they attend |
-| `hasSchedule` | `User` | `Schedule` | Links User to their Schedule |
-
-## Matching System
-| Property | Domain | Range | Description |
-|----------|---------|--------|-------------|
-| `teacherMatch` | `Teacher` | `Match` | Links Teacher to their Matches |
-| `studentMatch` | `Student` | `Match` | Links Student to their Matches |
-
-## Resource Relations
-| Property | Domain | Range | Description |
-|----------|---------|--------|-------------|
-| `hasInstrument` | `Teacher`, `Student`, `School`, `Match` | `Instrument` | Links entities to Instruments |
-| `hasGenre` | `Teacher`, `Student`, `School`, `Match` | `Genre` | Links entities to Genres |
-| `hasFile` | `User`, `School` | `File` | Links entities to their Files |
-
-## Integration Relations
-| Property | Domain | Range | Description |
-|----------|---------|--------|-------------|
-| `hasIntegration` | `Teacher`, `School` | `Integration`, `TeacherIntegration` | Links to Integration systems |
-
-### Enumeration Classes (12)
-```
-Enum Classes:
-- language
-- user_role
-- user_gender
-- user_confirmation
-- lesson_place
-- lesson_type
-- lesson_duration
-- lesson_status
-- file_type
-- gender_preference
-- school_language
-- school_match_notification
+hasMusicalProfile        # 🎵 Links to Instruments/Genres
+hasTeachingPreference    # 👩‍🏫 Teaching Preferences
+hasGenderPreference      # ⚧️ Gender Teaching Preferences
+hasAgePreference        # 👶 Age Group Preferences
+hasExperienceLevel      # 📈 Experience Classification
+hasPreferredLocation    # 📍 Teaching/Learning Locations
+hasNotificationPreference # 🔔 Match Notification Settings
+hasStudentExperienceLevel # 📚 Student Experience Level
 ```
 
-### Properties with Enum Types
+3. Classification Properties 🏷️
+```
+hasType                 # 📑 Entity Type Classification
+hasStatus              # 📊 Current State
+hasRole                # 👥 System Role Assignment
+hasCurrency            # 💰 Currency Specification
+hasPrimaryLanguage     # 🗣️ Primary Communication Language
+hasSpokenLanguages     # 🌐 Additional Languages
+hasPriceRange         # 💲 Price Structure
+```
 
-- **`users`**
-  - `language` → `language` (Enum)
-  - `role` → `user_role` (Enum)
-  - `gender` → `user_gender` (Enum)
+## Datatype Properties 📊
 
-- **`user_confirmations`**
-  - `type` → `user_confirmation` (Enum)
+1. Identification Properties 🪪
+```
+hasFirstName           # 📛 Person First Name
+hasLastName            # 📛 Person Last Name
+hasEmail              # 📧 Email Address
+hasPhoneNumber        # 📱 Contact Number
+hasDescription        # 📝 Detailed Description
+hasWebsite            # 🌐 Website URL
+hasPasswordHash       # 🔑 Password Storage
+```
 
-- **`schools`**
-  - `language` → `school_language` (Enum)
-  - `match_notification` → `school_match_notification` (Enum)
+2. Location Properties 📍
+```
+hasCity               # 🏙️ City Location
+hasPostalCode         # 📮 Postal Code
+hasLocation           # 📌 Location Details
+hasCoordinates        # 🗺️ Geographic Coordinates
+```
 
-- **`teachers`**
-  - `gender_preference` → `gender_preference` (Enum)
+3. Temporal Properties ⏰
+```
+hasCreationTime       # 🆕 Creation Timestamp
+hasModificationTime   # 🔄 Last Modified Time
+hasDeletionTime      # ❌ Deletion Time
+hasBirthday          # 🎂 Date of Birth
+hasStartTime         # ▶️ Event Start
+hasEndTime           # ⏹️ Event End
+```
 
-- **`students`**
-  - `gender_preference` → `gender_preference` (Enum)
+4. Numerical Properties 🔢
+```
+hasMusicInstructorsAmount  # 👩‍🏫 Number of Instructors
+hasMusicLearnersAmount     # 👨‍🎓 Number of Students
+hasYearsExperience        # ⏳ Teaching Experience
+hasNoticePeriod           # ⏰ Required Notice
+hasRoomId                # 🚪 Room Assignment
+```
 
-- **`lessons`**
-  - `place` → `lesson_place` (Enum)
-  - `type` → `lesson_type` (Enum)
-  - `duration` → `lesson_duration` (Enum)
-  - `status` → `lesson_status` (Enum)
+5. Status Properties (Boolean) ✅
+```
+isConfirmed           # ✔️ Confirmation Status
+isValidated           # ✅ Validation Status
+canTeachMinors        # 🧒 Minor Teaching Authorization
+allowsEmailContact    # 📧 Email Permission
+allowsPhoneContact    # 📱 Phone Permission
+hasTeacherAcceptance  # 👩‍🏫 Teacher Match Acceptance
+hasStudentAcceptance  # 👨‍🎓 Student Match Acceptance
+isTerminated          # 🛑 Termination Status
+isTopTen             # 🏆 Top 10 Status
+isAvailableInMusiq   # ✨ Platform Availability
+```
 
-- **`files`**
-  - `type` → `file_type` (Enum)
+6. Complex Data Properties (JSON) 📦
+```
+hasEducation          # 🎓 Educational Background
+hasSocialMedia        # 📱 Social Media Presence
+hasUnionMemberships   # 🤝 Professional Affiliations
+```
 
+7. Resource Identifier Properties 🔍
+```
+hasUrl               # 🔗 Resource URL
+hasLink              # 🔗 Integration Link
+hasKey               # 🔑 Unique Key
+hasGndIdentifier     # 🏷️ Authority Reference
+hasWikidataIdentifier # 📚 Wikidata Reference
+hasMimoIdentifier    # 🎵 MIMO Reference
+```
 
-# Core Identification Data Properties
-1. id
-   Domains: [School, User, Teacher, Student, Schedule, Lesson, Match, File, Integration, TeacherIntegration, Genre, Instrument]
+```
 
-2. name
-   Domains: [School, Integration]
-   Sub-properties: nameDe, nameEn, nameVariant (Domains: [Genre, Instrument])
+## Ontology Improvements 🚀
+1. More specific naming conventions aligned with music domain.
+2. Proper class hierarchies with rdfs:subClassOf relationships.
+3. Integration with standard ontologies (schema.org, FOAF, etc.)
+4. Clear separation of administrative and domain concepts
 
-3. description
-   Domains: [School, Teacher, Integration, Lesson]
-
-# Contact Properties
-4. email
-   Domains: [User, UserConfirmation]
-
-5. phoneNumber
-   Domains: [School, User]
-
-6. website
-   Domains: [School]
-
-# Location Properties
-7. city
-   Domains: [School, User]
-
-8. postalCode
-   Domains: [School, User]
-
-9. location
-   Domains: [Lesson]
-   
-10. teachingLocation
-    Domains: [Teacher, Student]
-
-# Temporal Properties
-11. created
-    Domains: [School, User, UserConfirmation, Teacher, Student, Schedule, Lesson, Match, File, Integration, TeacherIntegration]
-
-12. modified
-    Domains: [School, User, UserConfirmation, Teacher, Student, Lesson, Integration, TeacherIntegration]
-
-13. deleted
-    Domains: [School]
-
-14. birthday
-    Domains: [User]
-
-15. startTime
-    Domains: [Schedule, Lesson]
-
-16. endTime
-    Domains: [Schedule, Lesson]
-
-# Language Properties
-17. language
-    Domains: [School, User]
-
-18. spokenLanguages
-    Domains: [User]
-
-# Numerical Properties
-19. teachersAmount
-    Domains: [School]
-
-20. studentsAmount
-    Domains: [School, Teacher]
-
-21. yearsExperience
-    Domains: [Teacher]
-
-22. notice
-    Domains: [Schedule, Lesson]
-
-23. roomId
-    Domains: [Lesson]
-
-# Boolean Properties
-24. confirmed
-    Domains: [School, UserConfirmation]
-
-25. validated
-    Domains: [School, Teacher]
-
-26. workWithMinors
-    Domains: [Teacher]
-
-27. allowEmailContact
-    Domains: [User]
-
-28. allowPhoneContact
-    Domains: [User]
-
-29. acceptTeacher
-    Domains: [Match]
-
-30. acceptStudent
-    Domains: [Match]
-
-31. terminated
-    Domains: [Match]
-
-32. top10
-    Domains: [Genre, Instrument]
-
-33. availableInMusiq
-    Domains: [Genre, Instrument]
-
-# Preference Properties
-34. genderPreference
-    Domains: [Teacher, Student]
-
-35. agePreference
-    Domains: [Teacher]
-
-36. experienceLevel
-    Domains: [Student]
-    
-37. studentsExperienceLevel
-    Domains: [Teacher]
-
-# External Reference Properties
-38. gnd
-    Domains: [Genre, Instrument]
-
-39. wikidata
-    Domains: [Genre, Instrument]
-
-40. mimo
-    Domains: [Genre, Instrument]
-
-# JSON/Complex Properties
-41. priceRange
-    Domains: [School, Teacher]
-
-42. socials
-    Domains: [School, Teacher]
-
-43. education
-    Domains: [Teacher]
-
-44. coordinate
-    Domains: [User]
-
-45. unions
-    Domains: [School]
-
-# Authentication Properties
-46. password
-    Domains: [User]
-
-47. token
-    Domains: [Auth]
-
-# Type/Status Properties
-48. type
-    Domains: [UserConfirmation, Lesson, File]
-
-49. status
-    Domains: [Lesson]
-
-# Link Properties
-50. url
-    Domains: [File]
-
-51. link
-    Domains: [TeacherIntegration]
-
-52. key
-    Domains: [File, UserConfirmation]
-
-# Role Properties
-53. role
-    Domains: [User]
-
-Total Count: 53 distinct data properties
-
-
+## Notes 📝
+- The ontology maintains backward compatibility with the database schema
+- Additional semantic relationships were added for richer domain modeling
+- Class names reflect music-specific concepts for better reusability
