@@ -13,10 +13,20 @@
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
 @prefix cc:           <http://creativecommons.org/ns#> .
 @prefix foaf:         <http://xmlns.com/foaf/0.1/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+
 
 # Ontology Definition
 drk:
     a                             owl:Ontology, voaf:Vocabulary ;
+    # Add explicit imports of vocabularies
+    owl:imports                   <http://w3id.org/drk/vocabs/character-types> ;
+    owl:imports                   <http://w3id.org/drk/vocabs/performer-types> ;
+    owl:imports                   <http://w3id.org/drk/vocabs/theatrical-event-types> ;
+    owl:imports                   <http://w3id.org/drk/vocabs/theatrical-production-types> ;
+    owl:imports                   <http://w3id.org/drk/vocabs/personal-profile-for-accessibility> ;
+    owl:imports                   <http://w3id.org/drk/vocabs/languages-iso639-1> ;
+    owl:imports                   <http://w3id.org/drk/vocabs/theatrical-genres> ;
 
     # Basic Metadata
     rdfs:label                    "Culture Dataspace (DRK) Ontology"@en, "Datenraum Kultur (DRK) Ontologie"@de ;
@@ -24,32 +34,40 @@ drk:
     dcterms:title                 "Culture Dataspace (DRK) Ontology"@en, "Datenraum Kultur (DRK) Ontologie"@de ;
 
     # Version Information
-    owl:versionInfo               "1.0.0"^^xsd:string ;
-    # owl:priorVersion             <http://w3id.org/drk/ontology/0.9.0> ;
-    dcterms:hasVersion            "1.0.0"^^xsd:string ;
-
+    owl:versionInfo               "1.0.1"^^xsd:string ;
+    owl:versionIRI                <http://w3id.org/drk/ontology/1.0.1> ;
+    owl:priorVersion              <http://w3id.org/drk/ontology/1.0.0> ;
+    dcterms:hasVersion            "1.0.1"^^xsd:string ;
+    
     # Dates
     dcterms:created               "2024-10-22"^^xsd:date ;
-    dcterms:modified              "2024-11-07"^^xsd:date ;
-    dcterms:issued                "2024-11-07"^^xsd:date ;  # Date of a major release
+    dcterms:modified              "2025-04-24"^^xsd:date ;
+    dcterms:issued                "2025-04-24"^^xsd:date ;
+    bibo:doi                      "10.5281/zenodo.15294907" ;
 
-    # Creator Information
-    dcterms:creator               [ a                  foaf:Person ;
-                                    foaf:name          "Rohit A. Deshmukh"@en ;
-                                    foaf:mbox          <mailto:rohit.deshmukh@fit.fraunhofer.de> ;
-                                    foaf:homepage      <https://github.com/rohitadeshmukh13> ;
-                                    dcterms:identifier <https://orcid.org/0000-0003-2885-7076> ] ;
-    dcterms:creator               [ a                  foaf:Person ;
-                                    foaf:name          "Daham Mohammed Mustafa"@en ;
-                                    foaf:homepage      <https://github.com/Daham-Mustaf> ;
-                                    dcterms:identifier <https://orcid.org/0000-0003-1867-4428> ] ;
-    dcterms:creator               [ a                  foaf:Person ;
-                                    foaf:name          "Christoph Lange-Bever"@en ;
-                                    foaf:homepage      <https://github.com/clange> ;
-                                    dcterms:identifier <https://orcid.org/0000-0001-9879-3827> ] ;
-    dcterms:creator               [ a             foaf:Person ;
-                                    foaf:name     "Peter Retzlaff"@en ;
-                                    foaf:homepage <https://github.com/peret> ] ;
+    # Simple author strings for better tool compatibility
+    schema:author                 "Rohit A. Deshmukh" ;
+    schema:author                 "Daham Mohammed Mustafa" ;
+    schema:author                 "Christoph Lange-Bever" ;
+    schema:author                 "Peter Retzlaff" ;
+
+    # # Creator Information
+    # dcterms:creator               [ a                  foaf:Person ;
+    #                                 foaf:name          "Rohit A. Deshmukh"@en ;
+    #                                 foaf:mbox          <mailto:rohit.deshmukh@fit.fraunhofer.de> ;
+    #                                 foaf:homepage      <https://github.com/rohitadeshmukh13> ;
+    #                                 dcterms:identifier <https://orcid.org/0000-0003-2885-7076> ] ;
+    # dcterms:creator               [ a                  foaf:Person ;
+    #                                 foaf:name          "Daham Mohammed Mustafa"@en ;
+    #                                 foaf:homepage      <https://github.com/Daham-Mustaf> ;
+    #                                 dcterms:identifier <https://orcid.org/0000-0003-1867-4428> ] ;
+    # dcterms:creator               [ a                  foaf:Person ;
+    #                                 foaf:name          "Christoph Lange-Bever"@en ;
+    #                                 foaf:homepage      <https://github.com/clange> ;
+    #                                 dcterms:identifier <https://orcid.org/0000-0001-9879-3827> ] ;
+    # dcterms:creator               [ a             foaf:Person ;
+    #                                 foaf:name     "Peter Retzlaff"@en ;
+    #                                 foaf:homepage <https://github.com/peret> ] ;
 
     # Publisher Information
     dcterms:publisher             [ a             foaf:Organization ;
