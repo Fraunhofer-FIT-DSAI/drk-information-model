@@ -20,7 +20,7 @@
 - **Prefixes**: In DRK Ontology, we use https://prefix.cc/ to abbreviate URIs
 - **Versioning**: DRK IM release snapshots will follow the [Semantic Versioning Specification 2.0.0](https://semver.org/spec/v2.0.0.html) (SemVer - Major.Minor.Patch)
 
-# AP-first (Application Profile-first) Methodology for deveoping the Culture IM (DRK IM)
+# AP-first (Application Profile-first) Methodology for developing the Culture IM (DRK IM)
 
 ## Goals
 - This code repository aims to enable collaboration among domain experts (Use Case (UC) partners) and Semantic Web experts (FIT DRK IM Group) to develop the DRK IM.
