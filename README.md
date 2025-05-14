@@ -1,8 +1,8 @@
-# DRK Information Model (Culture IM)
-**Datenraum Kultur Information Model (DRK IM)**: The DRK IM is a Semantic Information Model that aims to define formal specifications of concepts, relationships, and constraints (application profiles) within the culture dataspace. This formalization provides a structured framework for understanding and organizing information within the DRK project. In addition, this forms a basis for representing information in DRK in the form of a Knowledge Graph (DRK KG) with more advanced querying, inference, and reasoning capabilities.
+# Culture Information Model (Culture IM / DRK IM)
+**Culture Information Model (Culture IM) / Datenraum Kultur Information Model (DRK IM)**: The DRK IM is a Semantic Information Model that aims to define formal specifications of concepts, relationships, and constraints (application profiles) within the culture dataspace. This formalization provides a structured framework for understanding and organizing information within the DRK project. In addition, this forms a basis for representing information in DRK in the form of a Knowledge Graph (DRK KG) with more advanced querying, inference, and reasoning capabilities.
 
-# DRK IM Contents
-- The DRK Ontology
+# Culture/DRK IM Contents
+- The Culture (DRK) Ontology
   - Common modules for organizations, places and accessibility, creative works, events, roles, and data services.
   - Culture sector (subdomain) specific modules for performing arts theater showtimes, museums and collections, and music marketplaces
 - Extensible semantic schemas (metadata templates) and their visual models (in the form of editable UML class diagrams)
@@ -14,6 +14,9 @@
 - Competency questions for scoping and validating the information model and modeling discussions (in the form of Issues and comments)
 - Example instances and queries (in the form of SPARQL queries based on competency questions)
 - Documentation (currently, in the form of README files)
+
+# Culture (DRK) Ontology Documentation
+[WIDOCO-generated Documentation](https://fraunhofer-fit-dsai.github.io/drk-information-model/)
 
 # Naming Conventions
 - **Directories and files**: All small letters, separated by hyphens (-). Example: `drk-ontology.ttl`
