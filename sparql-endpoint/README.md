@@ -285,8 +285,6 @@ ORDER BY ?importedOntology
 - **Use DESCRIBE ?uri** to explore specific resources
 - **Try CONSTRUCT queries** to create new RDF graphs
 
-### 🔗 **More Queries Available:**
-For the complete collection of 25+ specialized queries, check the [full query documentation](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/sparql-endpoint)
 
 ## 🔧 Configuration
 
