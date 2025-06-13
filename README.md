@@ -14,7 +14,7 @@
   <a href="https://oops.linkeddata.es/">
     <img src="https://img.shields.io/badge/OOPS!%20Validation-✅%20Zero%20Pitfalls-brightgreen.svg" alt="OOPS Validation"/>
   </a>
-  <a href="https://w3id.org/foops">
+  <a href="https://catalogue.fair-impact.eu/resources/foops">
     <img src="https://img.shields.io/badge/FAIR%20Compliance-71%25-orange" alt="FAIR Compliance"/>
   </a>
 </p>
