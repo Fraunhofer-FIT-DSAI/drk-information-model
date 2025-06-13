@@ -10,6 +10,14 @@
     <img src="https://img.shields.io/badge/Namespace-drk%3A-purple.svg" alt="Namespace Prefix"/>
   </a>
 </p>
+<p align="center">
+  <a href="https://oops.linkeddata.es/">
+    <img src="https://img.shields.io/badge/OOPS!%20Validation-✅%20Zero%20Pitfalls-brightgreen.svg" alt="OOPS Validation"/>
+  </a>
+  <a href="https://w3id.org/foops">
+    <img src="https://img.shields.io/badge/FAIR%20Compliance-71%25-orange" alt="FAIR Compliance"/>
+  </a>
+</p>
 
 # Culture Information Model (Culture IM / DRK IM)
 **Culture Information Model (Culture IM) / Datenraum Kultur Information Model (DRK IM)**: The DRK IM is a Semantic Information Model that aims to define formal specifications of concepts, relationships, and constraints (application profiles) within the culture dataspace. This formalization provides a structured framework for understanding and organizing information within the DRK project. In addition, this forms a basis for representing information in DRK in the form of a Knowledge Graph (DRK KG) with more advanced querying, inference, and reasoning capabilities.
