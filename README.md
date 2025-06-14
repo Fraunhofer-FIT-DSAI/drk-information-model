@@ -1,4 +1,6 @@
-**🆔 Primary Identifiers**
+
+## 🆔 Primary Identifiers
+
 <p align="center">
   <a href="https://w3id.org/drk/ontology/">
     <img src="https://img.shields.io/badge/Ontology%20URI-w3id.org/drk/ontology-blue.svg" alt="Ontology URI"/>
@@ -9,7 +11,11 @@
   <a href="https://prefix.cc/drk">
     <img src="https://img.shields.io/badge/Namespace-drk%3A-purple.svg" alt="Namespace Prefix"/>
   </a>
+  <a href="https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/sparql-endpoint">
+    <img src="https://img.shields.io/badge/SPARQL%20Endpoint-Query%20Now-red.svg" alt="SPARQL Endpoint"/>
+  </a>
 </p>
+
 <p align="center">
   <a href="https://oops.linkeddata.es/">
     <img src="https://img.shields.io/badge/OOPS!%20Validation-✅%20Zero%20Pitfalls-brightgreen.svg" alt="OOPS Validation"/>
