@@ -42,6 +42,16 @@
 - Example instances and queries (in the form of SPARQL queries based on competency questions)
 - Documentation (currently, in the form of README files)
 
+## 🔍 Quick Access
+
+- **📖 [Browse Ontology](https://fraunhofer-fit-dsai.github.io/drk-information-model/)**
+- **⚡ [SPARQL Query Endpoint](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/sparql-endpoint)** - Query the DRK Knowledge Graph
+- **🎯 [Example Queries](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/blob/main/sparql-endpoint/README.md)** - Pre-built queries to get started
+- **📋 [Download Ontology](drk-ontology.ttl)** - RDF/Turtle format
+- **📐 [Visual Models](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/visual-models)** - UML diagrams and visual representations
+
+---
+
 # Culture (DRK) Ontology Documentation
 [WIDOCO-generated Documentation](https://fraunhofer-fit-dsai.github.io/drk-information-model/)
 
