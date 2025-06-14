@@ -42,23 +42,57 @@
 - Example instances and queries (in the form of SPARQL queries based on competency questions)
 - Documentation (currently, in the form of README files)
 
-## 🔍 Quick Access
-
-- **📖 [Browse Ontology](https://fraunhofer-fit-dsai.github.io/drk-information-model/)**
-- **⚡ [SPARQL Query Endpoint](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/sparql-endpoint)** - Query the DRK Knowledge Graph
-- **🎯 [Example Queries](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/blob/main/sparql-endpoint/README.md)** - Pre-built queries to get started
-- **📋 [Download Ontology](drk-ontology.ttl)** - RDF/Turtle format
-- **📐 [Visual Models](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/visual-models)** - UML diagrams and visual representations
-
 ---
+## 📚 Documentation & Standards
 
-# Culture (DRK) Ontology Documentation
-[WIDOCO-generated Documentation](https://fraunhofer-fit-dsai.github.io/drk-information-model/)
+### 📖 Ontology Documentation
+- **[📋 Complete Documentation](https://fraunhofer-fit-dsai.github.io/drk-information-model/)** - WIDOCO-generated comprehensive reference
+- **[⚡ SPARQL Query Endpoint](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/sparql-endpoint)** - Query the DRK Knowledge Graph
+- **[🎯Example Queries](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/blob/main/sparql-endpoint/README.md)** - Pre-built queries to get started
+- **[🔍 Browse Ontology](https://w3id.org/drk/ontology/)** - Interactive exploration
+- **[⬇️ Download RDF](drk-ontology.ttl)** - Turtle format for direct use
 
-# Naming Conventions
-- **Directories and files**: All small letters, separated by hyphens (-). Example: `drk-ontology.ttl`
-- **Prefixes**: In DRK Ontology, we use https://prefix.cc/ to abbreviate URIs
-- **Versioning**: DRK IM release snapshots will follow the [Semantic Versioning Specification 2.0.0](https://semver.org/spec/v2.0.0.html) (SemVer - Major.Minor.Patch)
+### 🎨 Visual Resources
+- **[📐 UML Diagrams](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/visual-models)** - Visual class relationships
+
+### 📏 Development Standards
+
+#### 📁 **File & Directory Conventions**
+```
+✅ Correct:   drk-ontology.ttl, application-profiles/
+✅ Correct:   sparql-endpoint/, visual-models/
+❌ Avoid:    DRK_Ontology.TTL, ApplicationProfiles/
+```
+- **Format**: All lowercase, separated by hyphens (`-`)
+- **Extensions**: Standard semantic web formats (`.ttl`, `.rdf`, `.jsonld`)
+
+#### 🏷️ **Namespace & Prefix Standards**
+| Prefix | Namespace | Usage |
+|--------|-----------|-------|
+| `drk:` | `https://w3id.org/drk/ontology/` | DRK-specific concepts |
+| `schema:` | `https://schema.org/` | General web semantics |
+| `dcat:` | `http://www.w3.org/ns/dcat#` | Data catalog metadata |
+
+#### 📦 **Versioning Strategy**
+Following [Semantic Versioning 2.0.0](https://semver.org/):
+
+```
+MAJOR.MINOR.PATCH (e.g., 1.2.3)
+```
+
+- **MAJOR** (`1.x.x`): Breaking changes to ontology structure
+- **MINOR** (`x.1.x`): New classes/properties (backward compatible)
+- **PATCH** (`x.x.1`): Bug fixes, documentation updates
+
+**Current Version**: ![Version](https://img.shields.io/badge/version-1.0.0-blue) (Latest: [Release Notes](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/releases/tag/v1.0.0))
+
+#### 🔗 **URI Pattern Guidelines**
+```turtle
+# Recommended URI patterns
+drk:Organization          # Classes (PascalCase)
+drk:hasLocation          # Properties (camelCase)
+drk:CulturalEvent        # Domain-specific concepts
+```
 
 # AP-first (Application Profile-first) Methodology for developing the Culture IM (DRK IM)
 
