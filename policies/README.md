@@ -34,48 +34,7 @@ ODRL (Open Digital Rights Language) is more expressive than CC licenses. We can 
    - CC "ShareAlike" → ODRL "shareAlike" duty
    - CC "NonCommercial" → ODRL "commercialize" action (prohibited)
    - CC "NoDerivatives" → ODRL "derive" action (prohibited)
-
-3. **Create ODRL Policy**: Structure an ODRL policy that represents the CC license terms.
-
-4. **Example translations**:
-
-   CC BY 4.0 in ODRL:
-   ```json
-   {
-     "@context": "http://www.w3.org/ns/odrl.jsonld",
-     "@type": "Set",
-     "uid": "http://example.com/policy:cc-by-4.0",
-     "permission": [{
-       "action": "use",
-       "duty": [{
-         "action": "attribute"
-       }]
-     }]
-   }
-   ```
-
-   CC BY-NC 4.0 in ODRL:
-   ```json
-   {
-     "@context": "http://www.w3.org/ns/odrl.jsonld",
-     "@type": "Set",
-     "uid": "http://example.com/policy:cc-by-nc-4.0",
-     "permission": [{
-       "action": "use",
-       "duty": [{
-         "action": "attribute"
-       }],
-       "constraint": [{
-         "leftOperand": "purpose",
-         "operator": "neq",
-         "rightOperand": "commercialize"
-       }]
-     }]
-   }
-   ```
-
-5. **Validate**: Ensure the ODRL representation accurately captures the CC license terms.
-
+     
 ## 🌐 ODRL in Dataspaces
 
 ODRL serves as a crucial policy language within the context of Dataspaces. Dataspaces are an emerging approach to data management that aim to provide a unified view of data across multiple heterogeneous sources.
@@ -95,32 +54,6 @@ ODRL serves as a crucial policy language within the context of Dataspaces. Datas
 
 In the context of Dataspaces and modern data management practices, there's often a requirement for data to be published as open source. This aligns with principles of transparency, reproducibility, and collaborative innovation.
 
-### Using ODRL for Open Source Data:
-
-ODRL can be used to express open source requirements for data. Here's a simple example of how an ODRL policy might look for open source data:
-
-```json
-{
-  "@context": "http://www.w3.org/ns/odrl.jsonld",
-  "@type": "Set",
-  "uid": "http://example.com/policy:open-source-data",
-  "permission": [{
-    "action": "use",
-    "constraint": [{
-      "leftOperand": "purpose",
-      "operator": "isAnyOf",
-      "rightOperand": ["research", "commercial", "non-commercial"]
-    }],
-    "duty": [{
-      "action": "attribute"
-    }, {
-      "action": "shareAlike"
-    }]
-  }]
-}
-```
-
-This policy allows the use of data for any purpose (research, commercial, or non-commercial) with the duties of attribution and sharing derivative works under the same terms.
 
 ## ⚠️ Important Considerations
 
