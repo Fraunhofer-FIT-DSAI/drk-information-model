@@ -68,4 +68,3 @@ In the context of Dataspaces and modern data management practices, there's often
 - [ODRL Information Model](https://www.w3.org/TR/odrl-model/)
 - [W3C ODRL Community Group](https://www.w3.org/community/odrl/)
 - [International Data Spaces Association](https://internationaldataspaces.org/)
-- 
