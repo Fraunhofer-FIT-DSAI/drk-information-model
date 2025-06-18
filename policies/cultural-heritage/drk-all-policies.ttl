@@ -1,0 +1,344 @@
+@prefix drk: <https://w3id.org/drk#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# =============================================================================
+# CULTURAL HERITAGE POLICY COLLECTION
+# DRK (Datenraum Kultur) ODRL Policies for Museums and Cultural Institutions
+# =============================================================================
+
+<https://w3id.org/drk/policies> a odrl:Set ;
+    dct:title "DRK Cultural Heritage Policy Collection"@en ;
+    dct:description "Complete set of ODRL policies for cultural heritage institutions"@en ;
+    dct:creator "Daham Mustafa" ;
+    dct:created "2025-06-18"^^xsd:date ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skos:note "Comprehensive policies covering usage rights, fees, quality requirements, and ethical standards for cultural heritage materials"@en .
+
+# =============================================================================
+# USAGE-BASED POLICIES
+# =============================================================================
+
+drk:PrivateScientificFreePolicy a odrl:Set ;
+    odrl:uid "private-scientific-free"^^xsd:string ;
+    dct:title "Private and Scientific Use - Free Policy"@en ;
+    dct:description "No fees apply for private or scientific use of cultural heritage materials"@en ;
+    skos:note "Supports academic research and personal use while maintaining accessibility"@en ;
+    dct:subject "usage-fees", "private-use", "scientific-use" ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target drk:ImageArtwork, drk:PhysicalArtwork ;
+        odrl:action odrl:use ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:purpose ;
+            odrl:operator odrl:isAnyOf ;
+            odrl:rightOperand ( drk:PrivateUse drk:ScientificUse )
+        ] ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand drk:fees ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand drk:NoFees
+        ]
+    ] .
+
+drk:CommercialFeePolicy a odrl:Set ;
+    odrl:uid "commercial-fee"^^xsd:string ;
+    dct:title "Commercial Use - Fee Policy"@en ;
+    dct:description "Fees apply for commercial use of cultural heritage materials"@en ;
+    skos:note "Ensures fair compensation for commercial exploitation of cultural assets"@en ;
+    dct:subject "usage-fees", "commercial-use", "licensing" ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target drk:ImageArtwork, drk:PhysicalArtwork ;
+        odrl:action odrl:use ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:purpose ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand drk:CommercialUse
+        ] ;
+        odrl:duty [
+            a odrl:Duty ;
+            odrl:action odrl:compensate ;
+            odrl:constraint [
+                a odrl:Constraint ;
+                odrl:leftOperand odrl:payAmount ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperand "50.00"^^xsd:decimal ;
+                odrl:unit <http://dbpedia.org/resource/Euro>
+            ]
+        ]
+    ] .
+
+drk:InstitutionalBenefitPolicy a odrl:Set ;
+    odrl:uid "institutional-benefit-free"^^xsd:string ;
+    dct:title "Institutional Benefit - Free Use"@en ;
+    dct:description "No fees for uses that provide mutual benefit to cultural institutions"@en ;
+    skos:note "Encourages collaboration and partnership between cultural organizations"@en ;
+    dct:subject "institutional-cooperation", "outreach", "reputation" ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target drk:CDFPortal, drk:ImageArtwork, drk:PhysicalArtwork ;
+        odrl:action odrl:use ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:purpose ;
+            odrl:operator odrl:isAnyOf ;
+            odrl:rightOperand ( 
+                drk:CooperationProjects 
+                drk:EnlargingOutreach 
+                drk:IncreaseOfReputation 
+                drk:MarketingAndPromotion 
+            )
+        ] ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand drk:fees ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand drk:NoFees
+        ]
+    ] .
+
+# =============================================================================
+# QUALITY AND TECHNICAL POLICIES
+# =============================================================================
+
+drk:HighQualityAvailablePolicy a odrl:Set ;
+    odrl:uid "high-quality-available"^^xsd:string ;
+    dct:title "High Quality Data Available - No Additional Fees"@en ;
+    dct:description "No additional fees when high-quality image data is already available"@en ;
+    skos:note "Avoids duplicate digitization costs when quality materials exist"@en ;
+    dct:subject "image-quality", "digitization", "service-fees" ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target drk:ImageArtwork ;
+        odrl:action odrl:use ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:purpose ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand drk:HighQualityData
+        ] ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand drk:fees ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand drk:NoFees
+        ]
+    ] .
+
+drk:DigitizationFeePolicy a odrl:Set ;
+    odrl:uid "digitization-fee"^^xsd:string ;
+    dct:title "Digitization Service - Fee Policy"@en ;
+    dct:description "Fees apply when digitization services are required for physical artworks"@en ;
+    skos:note "Covers costs of professional digitization services and equipment"@en ;
+    dct:subject "digitization", "service-fees", "physical-to-digital" ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target drk:PhysicalArtwork ;
+        odrl:action drk:digitize ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:purpose ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand drk:DigitizationPurpose
+        ] ;
+        odrl:duty [
+            a odrl:Duty ;
+            odrl:action odrl:compensate ;
+            odrl:constraint [
+                a odrl:Constraint ;
+                odrl:leftOperand odrl:payAmount ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperand "75.00"^^xsd:decimal ;
+                odrl:unit <http://dbpedia.org/resource/Euro>
+            ]
+        ]
+    ] .
+
+drk:PrintResolutionFeePolicy a odrl:Set ;
+    odrl:uid "print-resolution-fee"^^xsd:string ;
+    dct:title "Print Resolution - Fee Policy"@en ;
+    dct:description "Fees apply for high-resolution images suitable for print reproduction (>300 DPI)"@en ;
+    skos:note "Premium pricing for print-quality images requiring higher bandwidth and storage"@en ;
+    dct:subject "print-quality", "resolution", "dpi", "reproduction" ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target drk:ImageArtwork ;
+        odrl:action odrl:use ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:resolution ;
+            odrl:operator odrl:gteq ;
+            odrl:rightOperand "300"^^xsd:integer ;
+            odrl:unit <http://dbpedia.org/resource/Dots_per_inch>
+        ] ;
+        odrl:duty [
+            a odrl:Duty ;
+            odrl:action odrl:compensate ;
+            odrl:constraint [
+                a odrl:Constraint ;
+                odrl:leftOperand odrl:payAmount ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperand "25.00"^^xsd:decimal ;
+                odrl:unit <http://dbpedia.org/resource/Euro>
+            ]
+        ]
+    ] .
+
+drk:DigitalDisplayFreePolicy a odrl:Set ;
+    odrl:uid "digital-display-free"^^xsd:string ;
+    dct:title "Digital Display Resolution - Free Policy"@en ;
+    dct:description "No fees for resolution sufficient for digital display only"@en ;
+    skos:note "Encourages digital access and online cultural engagement"@en ;
+    dct:subject "digital-display", "web-resolution", "accessibility" ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target drk:ImageArtwork ;
+        odrl:action odrl:present ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:purpose ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand drk:ResolutionSufficiency
+        ] ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand drk:fees ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand drk:NoFees
+        ]
+    ] .
+
+# =============================================================================
+# RIGHTS-BASED POLICIES
+# =============================================================================
+
+drk:PublicDomainFreePolicy a odrl:Set ;
+    odrl:uid "public-domain-free"^^xsd:string ;
+    dct:title "Public Domain Works - Free Use"@en ;
+    dct:description "Free use and reproduction of public domain artworks"@en ;
+    skos:note "Promotes access to cultural heritage in the public domain"@en ;
+    dct:subject "public-domain", "copyright-free", "cultural-commons" ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target drk:ImageArtwork, drk:PhysicalArtwork ;
+        odrl:action odrl:use, odrl:reproduce ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:purpose ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand drk:PublicDomain
+        ]
+    ] .
+
+drk:IPProtectedRestrictedPolicy a odrl:Set ;
+    odrl:uid "ip-protected-restricted"^^xsd:string ;
+    dct:title "IP Protected Works - Restricted Use"@en ;
+    dct:description "Restricted use and licensing fees for works protected by intellectual property law"@en ;
+    skos:note "Ensures compliance with copyright and IP protection requirements"@en ;
+    dct:subject "intellectual-property", "copyright", "licensing", "restricted-use" ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target drk:ImageArtwork, drk:PhysicalArtwork ;
+        odrl:action odrl:use ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:purpose ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand drk:ProtectedByIPLaw
+        ] ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:purpose ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand drk:NotInPublicDomain
+        ] ;
+        odrl:duty [
+            a odrl:Duty ;
+            odrl:action odrl:compensate ;
+            odrl:constraint [
+                a odrl:Constraint ;
+                odrl:leftOperand odrl:payAmount ;
+                odrl:operator odrl:eq ;
+                odrl:rightOperand "100.00"^^xsd:decimal ;
+                odrl:unit <http://dbpedia.org/resource/Euro>
+            ]
+        ]
+    ] .
+
+# =============================================================================
+# ETHICAL AND CONTENT POLICIES
+# =============================================================================
+
+drk:EthicalStandardsProhibitionPolicy a odrl:Set ;
+    odrl:uid "ethical-standards-prohibition"^^xsd:string ;
+    dct:title "Ethical Standards Violation - Prohibited Use"@en ;
+    dct:description "Use prohibited when purpose contradicts institutional ethical, scientific, or social standards"@en ;
+    skos:note "Protects institutional reputation and maintains ethical standards"@en ;
+    dct:subject "ethics", "standards", "prohibited-use", "content-policy" ;
+    odrl:prohibition [
+        a odrl:Prohibition ;
+        odrl:target drk:CDFPortal, drk:ImageArtwork, drk:PhysicalArtwork ;
+        odrl:action odrl:use ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:purpose ;
+            odrl:operator odrl:isAnyOf ;
+            odrl:rightOperand ( 
+                drk:ContradictsEthicalStandards 
+                drk:ContradictsScientificStandards 
+                drk:ContradictsSocialStandards 
+            )
+        ]
+    ] .
+
+drk:ContentReviewPolicy a odrl:Set ;
+    odrl:uid "content-review-required"^^xsd:string ;
+    dct:title "Content Review Required - Special Permission"@en ;
+    dct:description "Special review and approval required for sensitive or controversial content"@en ;
+    skos:note "Ensures careful consideration of potentially sensitive cultural materials"@en ;
+    dct:subject "content-review", "approval-required", "sensitive-content" ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target drk:CDFPortal, drk:ImageArtwork, drk:PhysicalArtwork ;
+        odrl:action odrl:use ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:purpose ;
+            odrl:operator odrl:eq ;
+            odrl:rightOperand drk:FinalPermission
+        ] ;
+        odrl:duty [
+            a odrl:Duty ;
+            odrl:action odrl:reviewPolicy
+        ]
+    ] .
+
+# =============================================================================
+# TEMPORAL POLICIES
+# =============================================================================
+
+drk:TimeLimitedUsePolicy a odrl:Set ;
+    odrl:uid "time-limited-use"^^xsd:string ;
+    dct:title "Time-Limited Use Policy"@en ;
+    dct:description "Use permitted only within specified time range"@en ;
+    skos:note "Allows temporary access for specific projects or exhibitions"@en ;
+    dct:subject "temporal-limits", "time-restricted", "project-based" ;
+    odrl:permission [
+        a odrl:Permission ;
+        odrl:target drk:ImageArtwork, drk:PhysicalArtwork ;
+        odrl:action odrl:use ;
+        odrl:constraint [
+            a odrl:Constraint ;
+            odrl:leftOperand odrl:dateTime ;
+            odrl:operator odrl:lt ;
+            odrl:rightOperand "2025-12-31T23:59:59"^^xsd:dateTime
+        ]
+    ] .
