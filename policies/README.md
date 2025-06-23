@@ -1,70 +1,69 @@
-# Creative Commons Licenses, ODRL Translation, and Dataspaces
+# DRK Information Model - Policies
 
-## 📜 Creative Commons Licenses
+This directory contains policy definitions and translations for the DRK (Data Rights and Knowledge) information model, focusing on data space governance and rights management.
 
-Creative Commons (CC) licenses are a set of copyright licenses that allow creators to specify how others can use their work. To apply a CC license to your work, you need:
+## Directory Structure
 
-1. **Original work**: You must be the creator or copyright holder of the work you want to license.
+### [`creative-commons/`](./creative-commons/)
+ODRL translations of Creative Commons licenses for data space policy-based negotiation and automated contract generation. Contains machine-readable CC license policies in JSON-LD format.
 
-2. **Understanding of license types**: You should know which CC license best suits your needs. There are several types:
+### [`cultural-heritage/`](./cultural-heritage/)
+Specialized policies for cultural heritage data management and access control.
 
-   - CC BY (Attribution)
-   - CC BY-SA (Attribution-ShareAlike)
-   - CC BY-NC (Attribution-NonCommercial)
-   - CC BY-ND (Attribution-NoDerivs)
-   - CC BY-NC-SA (Attribution-NonCommercial-ShareAlike)
-   - CC BY-NC-ND (Attribution-NonCommercial-NoDerivs)
+### Core Policy Files
+- **`drk_odrl_profile.ttl`** - DRK-specific ODRL profile definitions
+- **`drk-all-policies.ttl`** - Comprehensive policy collection in Turtle format
 
-3. **Decision on usage**: Each license type allows different uses of your work.
+## ODRL in Data Spaces
 
-### 🔍 How to Apply a CC License
+**ODRL (Open Digital Rights Language)** serves as the standard policy language for data spaces, enabling:
 
-1. Choose the appropriate license on the Creative Commons website.
-2. Get the license code or text.
-3. Add this information to your work, whether it's online or offline.
+- **Policy-based negotiation** between data space participants
+- **Automated contract generation** and rights management
+- **Interoperability** across heterogeneous data space implementations
+- **Fine-grained policy expression** for data usage, access, and sharing
 
-## 🔄 Translating Creative Commons Licenses to ODRL
+## Key Concepts
 
-ODRL (Open Digital Rights Language) is more expressive than CC licenses. We can represent CC licenses in ODRL, but not always vice versa. Here's a general approach to translate CC licenses to ODRL:
+### Policy Translation
+Traditional licenses (like Creative Commons) must be translated to ODRL format to enable:
+- Machine-readable policy processing
+- Automated rights validation
+- Data space connector integration
+- Scalable federated data governance
 
-1. **Identify the CC License**: Determine which CC license you're working with.
+### Data Space Requirements
+Modern data spaces require:
+- **Standardized policy language** (ODRL) for interoperability
+- **Open data publication** capabilities with clear licensing
+- **Automated policy enforcement** and compliance monitoring
+- **Rights-aware data sharing** across organizational boundaries
 
-2. **Map CC terms to ODRL concepts**:
-   - CC "Attribution" → ODRL "attribute" action
-   - CC "ShareAlike" → ODRL "shareAlike" duty
-   - CC "NonCommercial" → ODRL "commercialize" action (prohibited)
-   - CC "NoDerivatives" → ODRL "derive" action (prohibited)
-     
-## 🌐 ODRL in Dataspaces
+## Usage
 
-ODRL serves as a crucial policy language within the context of Dataspaces. Dataspaces are an emerging approach to data management that aim to provide a unified view of data across multiple heterogeneous sources.
+1. **For Creative Commons licensing**: See [`creative-commons/`](./creative-commons/) for ODRL translations
+2. **For cultural heritage data**: See [`cultural-heritage/`](./cultural-heritage/) for specialized policies
+3. **For custom policies**: Reference `drk_odrl_profile.ttl` for DRK-specific vocabulary extensions
 
-### Key Points:
+## Integration with Data Spaces
 
-1. **Policy Expression**: ODRL allows for the expression of fine-grained policies that govern data usage, access, and sharing within Dataspaces.
+These policies enable:
+- **Automated contract negotiation** between data providers and consumers
+- **Policy-compliant data access** through data space connectors
+- **Rights-aware data federation** across multiple organizations
+- **Compliance monitoring** and violation detection
 
-2. **Interoperability**: By using ODRL, Dataspaces can maintain consistent policy interpretation across different systems and organizations.
-
-3. **Rights Management**: ODRL enables the clear articulation of rights and obligations associated with data assets in a Dataspace ecosystem.
-
-4. **Open Source Requirement**: In many Dataspace implementations, there's a growing emphasis on open-source data publication. ODRL can be used to express these open-source requirements formally.
-
-
-## 🔓 Open Source Data Publication
-
-In the context of Dataspaces and modern data management practices, there's often a requirement for data to be published as open source. This aligns with principles of transparency, reproducibility, and collaborative innovation.
-
-
-## ⚠️ Important Considerations
-
-- The examples provided are for illustrative purposes only.
-- Always consult with legal experts when dealing with licensing issues.
-- Keep up to date with the latest versions of both CC licenses and ODRL specifications.
-- When implementing ODRL in Dataspaces, consider the specific requirements and constraints of your Dataspace ecosystem.
-
-## 📚 Further Reading
+## Resources
 
 - [Creative Commons Official Website](https://creativecommons.org/)
 - [ODRL Information Model](https://www.w3.org/TR/odrl-model/)
 - [W3C ODRL Community Group](https://www.w3.org/community/odrl/)
 - [International Data Spaces Association](https://internationaldataspaces.org/)
+
+## Contributing
+
+When adding new policies:
+1. Follow existing ODRL structure and vocabulary
+2. Ensure compatibility with DRK profile (`drk_odrl_profile.ttl`)
+3. Test policy validity and data space integration
+4. Update relevant subdirectory documentation
