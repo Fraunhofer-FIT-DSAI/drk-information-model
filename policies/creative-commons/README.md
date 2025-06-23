@@ -113,7 +113,6 @@ When adding new license files:
 - [Creative Commons Licenses](https://creativecommons.org/licenses/)
 - [ODRL Vocabulary](https://www.w3.org/TR/odrl-vocab/)
 - [JSON-LD Specification](https://json-ld.org/)
+- [ODRL Creative Commons Profile](https://www.w3.org/2012/09/odrl/archive/odrl.net/Profiles/CC/SPEC.html)
 
-## License
 
-This repository and its contents are made available under the terms specified in each individual license file.
