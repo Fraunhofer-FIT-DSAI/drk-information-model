@@ -40,6 +40,36 @@ This endpoint is automatically deployed to Railway from this repository.
 - **Supported Formats**: JSON, XML, CSV, TSV
 - **HTTP Methods**: GET (query in URL) or POST (query in body)
 
+### 🔄 Alternative: Using with GraphDB
+
+The DRK ontology and all sample queries in this README can also be used with **Ontotext GraphDB**:
+
+#### Setup with GraphDB:
+1. **Download GraphDB:** Get GraphDB Free or Enterprise from [graphdb.ontotext.com](https://graphdb.ontotext.com/)
+2. **Start GraphDB:** Launch GraphDB Desktop or Server
+3. **Access:** http://localhost:7200
+4. **Create Repository:** Setup → Repositories → Create new repository
+5. **Import DRK Ontology:**
+   - Go to **Import** tab
+   - Use **Import RDF data from URL**
+   - URL: `https://raw.githubusercontent.com/Fraunhofer-FIT-DSAI/drk-information-model/refs/heads/main/drk-ontology.ttl`
+   - Click **Import**
+
+#### Running Queries in GraphDB:
+1. **Navigate to SPARQL tab** in GraphDB Workbench
+2. **Copy any query** from the "📊 Comprehensive Sample Queries" section below
+3. **Paste into query editor** and click **Execute** ▶️
+4. **View results** in table/graph format
+5. **Export results** as JSON, CSV, TSV, or XML
+
+#### GraphDB Advantages:
+- ✅ **Visual graph exploration** with interactive node/edge browsing
+- ✅ **SHACL validation** for data quality constraints  
+- ✅ **Talk to Your Graph (TTYG)** for natural language querying
+- ✅ **Advanced reasoning** with multiple rule sets
+- ✅ **Full-text search** integration
+- ✅ **Enterprise features** and clustering support
+
 ## 📊 Comprehensive Sample Queries
 
 ### 🎭 Quick Start Queries
