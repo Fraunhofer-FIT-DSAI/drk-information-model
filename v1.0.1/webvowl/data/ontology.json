@@ -1,0 +1,1544 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "de", "en", "undefined" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://purl.org/vocommons/voaf", "http://www.w3.org/2000/01/rdf-schema", "https://schema.org", "http://www.w3.org/2001/XMLSchema", "http://xmlns.com/foaf/0.1", "http://w3id.org/drk/ontology", "http://www.w3.org/2004/02/skos/core" ],
+    "title" : {
+      "de" : "Datenraum Kultur (DRK) Ontologie",
+      "en" : "Culture Dataspace (DRK) Ontology"
+    },
+    "iri" : "http://w3id.org/drk/ontology/",
+    "version" : "1.0.1",
+    "description" : {
+      "en" : "\n        The DRK (Datenraum Kultur) ontology provides a comprehensive vocabulary for describing theatrical productions and cultural events.\n        It includes concepts for:\n        - Theatrical productions and events\n        - Characters, roles and performances\n        - Venues and their accessibility\n        - Event scheduling and management\n\n        The ontology is designed to be extensible and interoperable with other cultural heritage vocabularies.\n    "
+    },
+    "labels" : {
+      "de" : "Datenraum Kultur (DRK) Ontologie",
+      "en" : "Culture Dataspace (DRK) Ontology"
+    },
+    "comments" : {
+      "en" : "The DRK ontology is designed for the cultural dataspace, providing extensible semantic concepts, properties, and their interrelationships for modeling metadata related to theaters, theatrical productions, and their showtimes."
+    },
+    "other" : {
+      "coverage" : [ {
+        "identifier" : "coverage",
+        "language" : "en",
+        "value" : "Global",
+        "type" : "label"
+      } ],
+      "priorVersion" : [ {
+        "identifier" : "priorVersion",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/1.0.0",
+        "type" : "iri"
+      } ],
+      "audience" : [ {
+        "identifier" : "audience",
+        "language" : "en",
+        "value" : "Theater professionals",
+        "type" : "label"
+      }, {
+        "identifier" : "audience",
+        "language" : "en",
+        "value" : "Cultural institutions",
+        "type" : "label"
+      }, {
+        "identifier" : "audience",
+        "language" : "en",
+        "value" : "Researchers",
+        "type" : "label"
+      } ],
+      "created" : [ {
+        "identifier" : "created",
+        "language" : "undefined",
+        "value" : "2024-10-22",
+        "type" : "label"
+      } ],
+      "author" : [ {
+        "identifier" : "author",
+        "language" : "undefined",
+        "value" : "Rohit A. Deshmukh",
+        "type" : "label"
+      }, {
+        "identifier" : "author",
+        "language" : "undefined",
+        "value" : "Christoph Lange-Bever",
+        "type" : "label"
+      }, {
+        "identifier" : "author",
+        "language" : "undefined",
+        "value" : "Daham Mohammed Mustafa",
+        "type" : "label"
+      }, {
+        "identifier" : "author",
+        "language" : "undefined",
+        "value" : "Peter Retzlaff",
+        "type" : "label"
+      } ],
+      "subject" : [ {
+        "identifier" : "subject",
+        "language" : "en",
+        "value" : "Theater",
+        "type" : "label"
+      }, {
+        "identifier" : "subject",
+        "language" : "en",
+        "value" : "Performing Arts",
+        "type" : "label"
+      }, {
+        "identifier" : "subject",
+        "language" : "en",
+        "value" : "Play Production",
+        "type" : "label"
+      }, {
+        "identifier" : "subject",
+        "language" : "en",
+        "value" : "Cultural Events",
+        "type" : "label"
+      } ],
+      "hasVersion" : [ {
+        "identifier" : "hasVersion",
+        "language" : "undefined",
+        "value" : "1.0.1",
+        "type" : "label"
+      } ],
+      "language" : [ {
+        "identifier" : "language",
+        "language" : "undefined",
+        "value" : "https://w3id.org/drk/vocabs/languages-iso639-1#de",
+        "type" : "iri"
+      }, {
+        "identifier" : "language",
+        "language" : "undefined",
+        "value" : "https://w3id.org/drk/vocabs/languages-iso639-1#en",
+        "type" : "iri"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "1.0.1",
+        "type" : "label"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "de",
+        "value" : "Datenraum Kultur (DRK) Ontologie",
+        "type" : "label"
+      }, {
+        "identifier" : "title",
+        "language" : "en",
+        "value" : "Culture Dataspace (DRK) Ontology",
+        "type" : "label"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://github.com/Fraunhofer-FIT-DSAI/drk-information-model",
+        "type" : "iri"
+      } ],
+      "example" : [ {
+        "identifier" : "example",
+        "language" : "undefined",
+        "value" : "https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/examples",
+        "type" : "iri"
+      } ],
+      "license" : [ {
+        "identifier" : "license",
+        "language" : "undefined",
+        "value" : "http://creativecommons.org/licenses/by/4.0/",
+        "type" : "iri"
+      }, {
+        "identifier" : "license",
+        "language" : "undefined",
+        "value" : "http://creativecommons.org/licenses/by/4.0/",
+        "type" : "iri"
+      } ],
+      "preferredNamespacePrefix" : [ {
+        "identifier" : "preferredNamespacePrefix",
+        "language" : "undefined",
+        "value" : "drk",
+        "type" : "label"
+      } ],
+      "rights" : [ {
+        "identifier" : "rights",
+        "language" : "en",
+        "value" : "This ontology is distributed under Creative Commons Attribution 4.0 International License",
+        "type" : "label"
+      } ],
+      "publisher" : [ {
+        "identifier" : "publisher",
+        "language" : "undefined",
+        "value" : "_:genid2147483656",
+        "type" : "label"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2025-04-24",
+        "type" : "label"
+      } ],
+      "preferredNamespaceUri" : [ {
+        "identifier" : "preferredNamespaceUri",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "label"
+      } ],
+      "issued" : [ {
+        "identifier" : "issued",
+        "language" : "undefined",
+        "value" : "2025-04-24",
+        "type" : "label"
+      } ],
+      "doi" : [ {
+        "identifier" : "doi",
+        "language" : "undefined",
+        "value" : "10.5281/zenodo.15294907",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "13",
+    "type" : "owl:Class"
+  }, {
+    "id" : "17",
+    "type" : "owl:Class"
+  }, {
+    "id" : "19",
+    "type" : "owl:Class"
+  }, {
+    "id" : "20",
+    "type" : "owl:Class"
+  }, {
+    "id" : "23",
+    "type" : "owl:Class"
+  }, {
+    "id" : "14",
+    "type" : "owl:Class"
+  }, {
+    "id" : "26",
+    "type" : "owl:Class"
+  }, {
+    "id" : "7",
+    "type" : "owl:Class"
+  }, {
+    "id" : "30",
+    "type" : "owl:Class"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "33",
+    "type" : "owl:Class"
+  }, {
+    "id" : "4",
+    "type" : "owl:Class"
+  }, {
+    "id" : "49",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "50",
+    "type" : "owl:Class"
+  }, {
+    "id" : "16",
+    "type" : "owl:Class"
+  }, {
+    "id" : "22",
+    "type" : "owl:Class"
+  }, {
+    "id" : "54",
+    "type" : "owl:Class"
+  }, {
+    "id" : "55",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "35",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "56",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "58",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "59",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "41",
+    "type" : "owl:Class"
+  }, {
+    "id" : "29",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "1",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "2",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "46",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "61",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "39",
+    "type" : "owl:Class"
+  }, {
+    "id" : "10",
+    "type" : "owl:Class"
+  }, {
+    "id" : "27",
+    "type" : "owl:Class"
+  }, {
+    "id" : "24",
+    "type" : "owl:Class"
+  }, {
+    "id" : "21",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "http://w3id.org/drk/ontology/PlayProduction",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "PlayProduction",
+      "en" : "Play Production"
+    },
+    "comment" : {
+      "en" : "A class that includes all stages of Play Production from writing, planning, casting, and staging to rehearsal, but excludes the final presentation or performance, which is modeled as an Event using the drk:TheaterEvent class."
+    },
+    "id" : "3",
+    "superClasses" : [ "4" ]
+  }, {
+    "iri" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "baseIri" : "http://www.w3.org/2004/02/skos/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Concept"
+    },
+    "attributes" : [ "external" ],
+    "id" : "8"
+  }, {
+    "iri" : "https://schema.org/Role",
+    "baseIri" : "https://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Role"
+    },
+    "subClasses" : [ "14" ],
+    "attributes" : [ "external" ],
+    "id" : "13"
+  }, {
+    "iri" : "https://schema.org/Language",
+    "baseIri" : "https://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Language"
+    },
+    "attributes" : [ "external" ],
+    "id" : "17"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/Character",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Character",
+      "en" : "Character"
+    },
+    "comment" : {
+      "en" : "A class that represents a character in a creative work such as a Play.\n    Examples of characters include:\n    Romeo (from Romeo and Juliet by William Shakespeare; character type: Person),\n    Alexander Hamilton (from Hamilton musical by Lin-Manuel Miranda; character type: Person),\n    Simba (from The Lion King; character type: Animal),\n    Kermit the Frog (from The Muppet Show; character type: Puppet),\n    WALL-E (from Pixar's WALL-E movie; character type: Robot),\n    Puck (from A Midsummer Night's Dream by William Shakespeare; character type: Imaginary Entity/Fairy),\n    the flying Magic Carpet (from Aladdin; character type: Inanimate Object), etc."
+    },
+    "id" : "19"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/Place",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Place",
+      "en" : "Place"
+    },
+    "subClasses" : [ "22" ],
+    "comment" : {
+      "en" : "A class that describes a physical place or location. The drk:Place class extends schema:Place to describe the accessibility features available at the place."
+    },
+    "id" : "20",
+    "superClasses" : [ "21" ]
+  }, {
+    "iri" : "http://xmlns.com/foaf/0.1/Organization",
+    "baseIri" : "http://xmlns.com/foaf/0.1",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Organization"
+    },
+    "attributes" : [ "external" ],
+    "id" : "23"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/Role",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Role",
+      "en" : "Role"
+    },
+    "subClasses" : [ "10", "24" ],
+    "comment" : {
+      "en" : "A class that links a role to its performer.\n    Roles can, in general, be of various types such as character roles, production roles, event roles, onstage roles, offstage or behind-the-scenes roles.\n    Examples of role names include creator, writer, playwright, actor, protagonist, puppeteer, singer, cameo, costume designer, stage designer, choreographer, makeup artist, understudy, funder, sponsor, etc.\n    Performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI) in a creative work or during an event."
+    },
+    "id" : "14",
+    "superClasses" : [ "13" ]
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/Event",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Event",
+      "en" : "Event"
+    },
+    "subClasses" : [ "16" ],
+    "comment" : {
+      "en" : "A class that describes a thing happening at a particular location and at a particular time such as a theatrical play performance, movie screening, concert, or festival."
+    },
+    "id" : "26",
+    "superClasses" : [ "27" ]
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/WheelchairPlaces",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ],
+      "source" : [ {
+        "identifier" : "source",
+        "language" : "undefined",
+        "value" : "https://sozialhelden.github.io/a11yjson/describing-objects/0-model/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "WheelchairPlaces",
+      "en" : "Wheelchair Places"
+    },
+    "comment" : {
+      "en" : "A class that describes the presence of reserved spots for wheelchairs at a place."
+    },
+    "id" : "7"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/AnimalPolicy",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ],
+      "source" : [ {
+        "identifier" : "source",
+        "language" : "undefined",
+        "value" : "https://sozialhelden.github.io/a11yjson/describing-objects/0-model/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "AnimalPolicy",
+      "en" : "Animal Policy Class"
+    },
+    "comment" : {
+      "en" : "A class that describes the policies of a place concerning bringing animals along."
+    },
+    "id" : "30"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/Performer",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Performer",
+      "en" : "Role"
+    },
+    "comment" : {
+      "en" : "A class that specifies the performer of a role in a creative work or event. Performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI)."
+    },
+    "id" : "12"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/PlaceAccessibilityFeature",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ],
+      "source" : [ {
+        "identifier" : "source",
+        "language" : "undefined",
+        "value" : "https://sozialhelden.github.io/a11yjson/describing-objects/0-model/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "PlaceAccessibilityFeature",
+      "en" : "Place Accessibility Feature Class"
+    },
+    "comment" : {
+      "en" : "A class that describes the physical (and sometimes human-rated) accessibility of a physical place."
+    },
+    "id" : "6"
+  }, {
+    "iri" : "https://schema.org/URL",
+    "baseIri" : "https://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "URL"
+    },
+    "attributes" : [ "external" ],
+    "id" : "33"
+  }, {
+    "iri" : "https://schema.org/CreativeWork",
+    "baseIri" : "https://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CreativeWork"
+    },
+    "subClasses" : [ "3" ],
+    "attributes" : [ "external" ],
+    "id" : "4"
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "49",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://purl.org/vocommons/voaf#Vocabulary",
+    "baseIri" : "http://purl.org/vocommons/voaf",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Vocabulary"
+    },
+    "individuals" : [ {
+      "iri" : "http://w3id.org/drk/ontology/",
+      "baseIri" : "http://w3id.org/drk",
+      "labels" : { }
+    } ],
+    "attributes" : [ "external" ],
+    "id" : "50"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/TheaterEvent",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "TheaterEvent",
+      "en" : "Theater Event"
+    },
+    "comment" : {
+      "en" : "A class that describes the presentation of a theatrical creative work such as a play."
+    },
+    "id" : "16",
+    "superClasses" : [ "26", "39" ]
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/PerformingArtsTheater",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "PerformingArtsTheater",
+      "en" : "Performing Arts Theater"
+    },
+    "comment" : {
+      "en" : "A place such as a building, a group of buildings, or an event site that is designated for organizing theatrical events such as plays."
+    },
+    "id" : "22",
+    "superClasses" : [ "20", "41" ]
+  }, {
+    "iri" : "https://schema.org/Text",
+    "baseIri" : "https://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Text"
+    },
+    "attributes" : [ "external" ],
+    "id" : "54"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "55",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "35",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "56",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "58",
+    "label" : {
+      "IRI-based" : "nonNegativeInteger"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "59",
+    "label" : {
+      "IRI-based" : "nonNegativeInteger"
+    }
+  }, {
+    "iri" : "https://schema.org/PerformingArtsTheater",
+    "baseIri" : "https://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PerformingArtsTheater"
+    },
+    "subClasses" : [ "22" ],
+    "attributes" : [ "external" ],
+    "id" : "41"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "29",
+    "label" : {
+      "IRI-based" : "nonNegativeInteger"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "1",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "2",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "46",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "61",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "https://schema.org/TheaterEvent",
+    "baseIri" : "https://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TheaterEvent"
+    },
+    "subClasses" : [ "16" ],
+    "attributes" : [ "external" ],
+    "id" : "39"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/CharacterPerformanceRole",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "CharacterPerformanceRole",
+      "en" : "Character Performance Role Class"
+    },
+    "comment" : {
+      "en" : "A class that links a character role to its performer.\n    Characters can be from a creative work such as a Play.\n    Examples of characters include Romeo (from Romeo and Juliet by William Shakespeare; characterType: Person), Alexander Hamilton (from Hamilton musical by Lin-Manuel Miranda; characterType: Person), Simba (from The Lion King; characterType: Animal), Kermit the Frog (from The Muppet Show; characterType: Puppet), WALL-E (from Pixar's WALL-E movie; characterType: Robot), Puck (from A Midsummer Night's Dream by William Shakespeare; characterType: Imaginary Entity (Fairy)), the flying Magic Carpet (from Aladdin; characterType: Inanimate Object), etc.\n    Performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI) in a creative work or during an event."
+    },
+    "id" : "10",
+    "superClasses" : [ "14" ]
+  }, {
+    "iri" : "https://schema.org/Event",
+    "baseIri" : "https://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Event"
+    },
+    "subClasses" : [ "26" ],
+    "attributes" : [ "external" ],
+    "id" : "27"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/ProductionRole",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ProductionRole",
+      "en" : "Production Role"
+    },
+    "comment" : {
+      "en" : "A class that links a production role to its performer.\n    Production roles can, in general, include creator roles, non-character roles, offstage or behind-the-scenes roles.\n    Examples of production roles include creator, writer, playwright, costume designer, stage designer, choreographer, makeup artist, understudy, usher, funder, sponsor, etc."
+    },
+    "id" : "24",
+    "superClasses" : [ "14" ]
+  }, {
+    "iri" : "https://schema.org/Place",
+    "baseIri" : "https://schema.org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Place"
+    },
+    "subClasses" : [ "20" ],
+    "attributes" : [ "external" ],
+    "id" : "21"
+  } ],
+  "property" : [ {
+    "id" : "0",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "5",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "9",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "11",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "15",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "18",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "25",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "28",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "31",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "32",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "34",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "36",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "37",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "38",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "40",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "42",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "43",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "44",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "45",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "47",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "48",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "51",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "52",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "53",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "57",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "60",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "62",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "63",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "64",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "65",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "66",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "67",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "68",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "69",
+    "type" : "owl:datatypeProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "http://w3id.org/drk/ontology/navigationMapURL",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "2",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "navigationMapURL",
+      "en" : "Map Location URL"
+    },
+    "domain" : "1",
+    "comment" : {
+      "en" : "A URL linking to the geographical location of the specified place on a digital map service for navigation purposes (e.g., Google Maps, OpenStreetMap, Apple Maps). This differs from a venue map or seating chart by offering a direct navigation point, such as <https://maps.app.goo.gl/v1XhJ3uVdixjGgY2A>."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "0"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/wheelchairPlaces",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "7",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ],
+      "source" : [ {
+        "identifier" : "source",
+        "language" : "undefined",
+        "value" : "https://sozialhelden.github.io/a11yjson/describing-objects/0-model/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "wheelchairPlaces",
+      "en" : "Wheelchair Places Property"
+    },
+    "domain" : "6",
+    "comment" : {
+      "en" : "A property that is used to describe the presence of reserved spots for wheelchairs at a place."
+    },
+    "attributes" : [ "object" ],
+    "id" : "5"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/characterRole",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "10",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "characterRole",
+      "en" : "Character Role"
+    },
+    "domain" : "3",
+    "comment" : {
+      "en" : "A property that is used to specify the characters and the roles played by them in a theatrical play. For example, the role of 'Romeo' in 'Romeo and Juliet' by William Shakespeare is a character role."
+    },
+    "attributes" : [ "object" ],
+    "id" : "9"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/performerType",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "8",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "performerType",
+      "en" : "Performer Type"
+    },
+    "domain" : "12",
+    "comment" : {
+      "en" : "A property that specifies the type of performer that performs a role in a creative work or event. Examples of performer types include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI)."
+    },
+    "attributes" : [ "object" ],
+    "id" : "11"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/subtitleLanguage",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "17",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "subtitleLanguage",
+      "en" : "Subtitle Language"
+    },
+    "domain" : "16",
+    "comment" : {
+      "en" : "A property that specifies the languages in which subtitles or captions are available during a Theatrical Event."
+    },
+    "attributes" : [ "object" ],
+    "id" : "15"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/characterPerformanceRole",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "10",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "characterPerformanceRole",
+      "en" : "Character Performance Role Property"
+    },
+    "domain" : "16",
+    "comment" : {
+      "en" : "A property that is used to specify and link the details of characters in a creative work such as a play to the respective performers and the roles played by them."
+    },
+    "attributes" : [ "object" ],
+    "id" : "18"
+  }, {
+    "range" : "21",
+    "domain" : "20",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "25"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/wheelchairUserCapacity",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "29",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ],
+      "source" : [ {
+        "identifier" : "source",
+        "language" : "undefined",
+        "value" : "https://sozialhelden.github.io/a11yjson/describing-objects/0-model/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "wheelchairUserCapacity",
+      "en" : "Wheelchair User Capacity Property"
+    },
+    "domain" : "7",
+    "comment" : {
+      "en" : "A property that specifies the number of people using a wheelchair that can be accommodated at the same time. This property should be used when there is no designated space for wheelchair users, but the number is known."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "28"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/productionType",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "8",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "productionType",
+      "en" : "Production Type"
+    },
+    "domain" : "3",
+    "comment" : {
+      "en" : "A property that specifies the production type of a creative work, such as 'World Premiere', 'Language Premiere', etc."
+    },
+    "attributes" : [ "object" ],
+    "id" : "31"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/eventType",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "8",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "eventType",
+      "en" : "Event Type"
+    },
+    "domain" : "26",
+    "comment" : {
+      "en" : "A property that specifies theatrical event types such as Premiere, Last Performance, Guest Performance, etc."
+    },
+    "attributes" : [ "object" ],
+    "id" : "32"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/allowsServiceAnimals",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "35",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ],
+      "source" : [ {
+        "identifier" : "source",
+        "language" : "undefined",
+        "value" : "https://sozialhelden.github.io/a11yjson/describing-objects/0-model/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "allowsServiceAnimals",
+      "en" : "Allows Service Animals"
+    },
+    "domain" : "30",
+    "comment" : {
+      "en" : "A property that describes if the place allows visitors to bring service animals along. A Service Animal is an animal that has been trained to assist a disabled person (source: https://en.wikipedia.org/wiki/Service_animal). While dogs are the most common service animals, other animals (like miniature horses, ferrets, parrots, and monkeys) may also serve in this role, depending upon regional regulations."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "34"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/animalPolicy",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "30",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ],
+      "source" : [ {
+        "identifier" : "source",
+        "language" : "undefined",
+        "value" : "https://sozialhelden.github.io/a11yjson/describing-objects/0-model/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "animalPolicy",
+      "en" : "Animal Policy Property"
+    },
+    "domain" : "6",
+    "comment" : {
+      "en" : "A property that is used to describe the policies of a place concerning bringing animals along."
+    },
+    "attributes" : [ "object" ],
+    "id" : "36"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/characterType",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "8",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "characterType",
+      "en" : "Character Type"
+    },
+    "domain" : "19",
+    "comment" : {
+      "en" : "A property that specifies the type of a character in a creative work or during an event. Examples of character types include person, animal, organization, puppet, robot, inanimate object, imaginary entity, etc."
+    },
+    "attributes" : [ "object" ],
+    "id" : "37"
+  }, {
+    "range" : "39",
+    "domain" : "16",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "38"
+  }, {
+    "range" : "41",
+    "domain" : "22",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "40"
+  }, {
+    "range" : "27",
+    "domain" : "26",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "42"
+  }, {
+    "range" : "14",
+    "domain" : "24",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "43"
+  }, {
+    "range" : "14",
+    "domain" : "10",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "44"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/allowsAssistanceDogs",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "46",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ],
+      "source" : [ {
+        "identifier" : "source",
+        "language" : "undefined",
+        "value" : "https://sozialhelden.github.io/a11yjson/describing-objects/0-model/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "allowsAssistanceDogs",
+      "en" : "Allows Assistance/Service Dogs"
+    },
+    "domain" : "30",
+    "comment" : {
+      "en" : "A property that describes if the place allows visitors to bring assistance/service dogs. Assistance dogs, also referred to as a service dogs, are a specific type of service animals that receive specialized training to aid an individual with a disability in navigating everyday life (source: https://en.wikipedia.org/wiki/Assistance_dog)."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "45"
+  }, {
+    "range" : "4",
+    "domain" : "3",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "47"
+  }, {
+    "range" : "26",
+    "domain" : "16",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "48"
+  }, {
+    "range" : "20",
+    "domain" : "22",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "51"
+  }, {
+    "range" : "13",
+    "domain" : "14",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "52"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/creatorRole",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "24",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "creatorRole",
+      "en" : "Creator Role"
+    },
+    "domain" : "3",
+    "comment" : {
+      "en" : "A property that is used to specify the names of creator roles involved in a play's production that are not characters in the play. For example, William Shakespeare performed the roles of playwright and creator in the production of his play 'Romeo and Juliet'."
+    },
+    "attributes" : [ "object" ],
+    "id" : "53"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/intermissionCount",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "58",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "intermissionCount",
+      "en" : "Intermission Count"
+    },
+    "domain" : "26",
+    "comment" : {
+      "en" : "A property that specifies the number of intermissions or breaks during an Event."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "57"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/hasAccessibilityFeature",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "6",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasAccessibilityFeature",
+      "en" : "Has Accessibility Feature Property"
+    },
+    "domain" : "20",
+    "comment" : {
+      "en" : "A property that is used to describe the physical (and sometimes human-rated) accessibility of a physical place."
+    },
+    "attributes" : [ "object" ],
+    "id" : "60"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/accessibleWith",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "8",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ],
+      "source" : [ {
+        "identifier" : "source",
+        "language" : "undefined",
+        "value" : "https://sozialhelden.github.io/a11yjson/describing-objects/0-model/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "accessibleWith",
+      "en" : "Accessible With Personal (Disability) Profile Property"
+    },
+    "domain" : "6",
+    "comment" : {
+      "en" : "A property that is used to specify with what disability profile can a person access the given place. For example, the place owner or an external agency might specify that the given place can be comfortably accessed by a person who uses a wheelchair, or who has a visual impairment."
+    },
+    "attributes" : [ "object" ],
+    "id" : "62"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/performer",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "12",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "performer",
+      "en" : "Performer"
+    },
+    "domain" : "14",
+    "comment" : {
+      "en" : "A property that is used to specify the performer of a role in a creative work or event."
+    },
+    "attributes" : [ "object" ],
+    "id" : "63"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/accessibilityDescription",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "54",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ],
+      "source" : [ {
+        "identifier" : "source",
+        "language" : "undefined",
+        "value" : "https://sozialhelden.github.io/a11yjson/describing-objects/0-model/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "accessibilityDescription",
+      "en" : "Accessibility Description"
+    },
+    "domain" : "6",
+    "comment" : {
+      "en" : "A property that can be used to provide a human-readable description of facilities at a place concerning accessibility. For example, whether the given place is accessible with a wheelchair, or with a guide dog, does the place offer all the necessary facilities for access by a person who has a visual impairment, is the place equipped with 'accessible toilets', etc."
+    },
+    "attributes" : [ "object" ],
+    "id" : "64"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/hasSpaceForAssistant",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "56",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ],
+      "source" : [ {
+        "identifier" : "source",
+        "language" : "undefined",
+        "value" : "https://sozialhelden.github.io/a11yjson/describing-objects/0-model/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasSpaceForAssistant",
+      "en" : "Has Space For Wheelchair Assistant Property"
+    },
+    "domain" : "7",
+    "comment" : {
+      "en" : "A property that specifies whether the place has additional space for a wheelchair assistant."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "65"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/eventRole",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "24",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "eventRole",
+      "en" : "Event Role Property"
+    },
+    "domain" : "26",
+    "comment" : {
+      "en" : "A property that is used to link the production roles in an event that features theatrical work such as a play to its performers. Event roles are (mostly off-stage) production roles that are performed during the preparation or performance of an Event. Examples include director, costume designer, stage manager, set/stage designer, lighting designer, sound designer, sound engineer, technical director, makeup artist, choreographer, understudy, usher, production manager, producer, funder, sponsor, front of house manager, etc."
+    },
+    "attributes" : [ "object" ],
+    "id" : "66"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/allowsDogs",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "61",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ],
+      "source" : [ {
+        "identifier" : "source",
+        "language" : "undefined",
+        "value" : "https://sozialhelden.github.io/a11yjson/describing-objects/0-model/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "allowsDogs",
+      "en" : "Allows Dogs"
+    },
+    "domain" : "30",
+    "comment" : {
+      "en" : "A property that describes if the place allows visitors to bring dogs in general."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "67"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/allowsGuideDogs",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "55",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ],
+      "source" : [ {
+        "identifier" : "source",
+        "language" : "undefined",
+        "value" : "https://sozialhelden.github.io/a11yjson/describing-objects/0-model/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "allowsGuideDogs",
+      "en" : "Allows Guide Dogs"
+    },
+    "domain" : "30",
+    "comment" : {
+      "en" : "A property that describes if the place allows visitors to bring guide dogs. Guide dogs are a specialized type of assistance dogs, trained to lead individuals who are blind or visually impaired around obstacles (source: https://en.wikipedia.org/wiki/Guide_dog)."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "68"
+  }, {
+    "iri" : "http://w3id.org/drk/ontology/wheelchairPlacesCount",
+    "baseIri" : "http://w3id.org/drk/ontology",
+    "range" : "59",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://w3id.org/drk/ontology/",
+        "type" : "iri"
+      } ],
+      "source" : [ {
+        "identifier" : "source",
+        "language" : "undefined",
+        "value" : "https://sozialhelden.github.io/a11yjson/describing-objects/0-model/",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "wheelchairPlacesCount",
+      "en" : "Wheelchair Places Count Property"
+    },
+    "domain" : "7",
+    "comment" : {
+      "en" : "A property that specifies the number of designated places for wheelchairs, for example, in a theater place or a cinema hall."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "69"
+  } ]
+}

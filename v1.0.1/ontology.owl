@@ -1,0 +1,927 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://w3id.org/drk/ontology/"
+     xml:base="http://w3id.org/drk/ontology/"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:bibo="http://purl.org/ontology/bibo/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:schema="https://schema.org/">
+    <owl:Ontology rdf:about="http://w3id.org/drk/ontology/">
+        <owl:versionIRI rdf:resource="http://w3id.org/drk/ontology/1.0.1"/>
+        <ns:license rdf:resource="http://creativecommons.org/licenses/by/4.0/"/>
+        <terms:audience xml:lang="en">Cultural institutions</terms:audience>
+        <terms:audience xml:lang="en">Researchers</terms:audience>
+        <terms:audience xml:lang="en">Theater professionals</terms:audience>
+        <terms:coverage xml:lang="en">Global</terms:coverage>
+        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-10-22</terms:created>
+        <terms:description xml:lang="en">
+        The DRK (Datenraum Kultur) ontology provides a comprehensive vocabulary for describing theatrical productions and cultural events.
+        It includes concepts for:
+        - Theatrical productions and events
+        - Characters, roles and performances
+        - Venues and their accessibility
+        - Event scheduling and management
+
+        The ontology is designed to be extensible and interoperable with other cultural heritage vocabularies.
+    </terms:description>
+        <terms:hasVersion>1.0.1</terms:hasVersion>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-04-24</terms:issued>
+        <terms:language rdf:resource="https://w3id.org/drk/vocabs/languages-iso639-1#de"/>
+        <terms:language rdf:resource="https://w3id.org/drk/vocabs/languages-iso639-1#en"/>
+        <terms:license rdf:resource="http://creativecommons.org/licenses/by/4.0/"/>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-04-24</terms:modified>
+        <terms:publisher rdf:nodeID="genid1"/>
+        <terms:rights xml:lang="en">This ontology is distributed under Creative Commons Attribution 4.0 International License</terms:rights>
+        <terms:subject xml:lang="en">Cultural Events</terms:subject>
+        <terms:subject xml:lang="en">Performing Arts</terms:subject>
+        <terms:subject xml:lang="en">Play Production</terms:subject>
+        <terms:subject xml:lang="en">Theater</terms:subject>
+        <terms:title xml:lang="en">Culture Dataspace (DRK) Ontology</terms:title>
+        <terms:title xml:lang="de">Datenraum Kultur (DRK) Ontologie</terms:title>
+        <bibo:doi>10.5281/zenodo.15294907</bibo:doi>
+        <vann:example rdf:resource="https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/examples"/>
+        <vann:preferredNamespacePrefix>drk</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>http://w3id.org/drk/ontology/</vann:preferredNamespaceUri>
+        <rdfs:comment xml:lang="en">The DRK ontology is designed for the cultural dataspace, providing extensible semantic concepts, properties, and their interrelationships for modeling metadata related to theaters, theatrical productions, and their showtimes.</rdfs:comment>
+        <rdfs:label xml:lang="en">Culture Dataspace (DRK) Ontology</rdfs:label>
+        <rdfs:label xml:lang="de">Datenraum Kultur (DRK) Ontologie</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://github.com/Fraunhofer-FIT-DSAI/drk-information-model"/>
+        <owl:priorVersion rdf:resource="http://w3id.org/drk/ontology/1.0.0"/>
+        <owl:versionInfo>1.0.1</owl:versionInfo>
+        <schema:author>Christoph Lange-Bever</schema:author>
+        <schema:author>Daham Mohammed Mustafa</schema:author>
+        <schema:author>Peter Retzlaff</schema:author>
+        <schema:author>Rohit A. Deshmukh</schema:author>
+    </owl:Ontology>
+    <rdf:Description rdf:nodeID="genid1">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <foaf:homepage rdf:resource="https://www.fit.fraunhofer.de/"/>
+        <foaf:name>Fraunhofer FIT</foaf:name>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://creativecommons.org/ns#license -->
+
+
+    <owl:AnnotationProperty rdf:about="http://creativecommons.org/ns#license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/audience -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/audience"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/coverage -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/coverage"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/hasVersion -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/hasVersion"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/issued"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/language -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/language"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/publisher -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/publisher"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/rights -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/rights"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/source -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/source"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/subject -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/subject"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/doi -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/ontology/bibo/doi"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/example -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/example"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/homepage -->
+
+
+    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/homepage"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/name -->
+
+
+    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/name"/>
+    
+
+
+    <!-- https://schema.org/author -->
+
+
+    <owl:AnnotationProperty rdf:about="https://schema.org/author"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://w3id.org/drk/ontology/accessibilityDescription -->
+
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/drk/ontology/accessibilityDescription">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/PlaceAccessibilityFeature"/>
+        <rdfs:range rdf:resource="https://schema.org/Text"/>
+        <terms:source rdf:resource="https://sozialhelden.github.io/a11yjson/describing-objects/0-model/"/>
+        <rdfs:comment xml:lang="en">A property that can be used to provide a human-readable description of facilities at a place concerning accessibility. For example, whether the given place is accessible with a wheelchair, or with a guide dog, does the place offer all the necessary facilities for access by a person who has a visual impairment, is the place equipped with &apos;accessible toilets&apos;, etc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Accessibility Description</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/accessibleWith -->
+
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/drk/ontology/accessibleWith">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/PlaceAccessibilityFeature"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <terms:source rdf:resource="https://sozialhelden.github.io/a11yjson/describing-objects/0-model/"/>
+        <rdfs:comment xml:lang="en">A property that is used to specify with what disability profile can a person access the given place. For example, the place owner or an external agency might specify that the given place can be comfortably accessed by a person who uses a wheelchair, or who has a visual impairment.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Accessible With Personal (Disability) Profile Property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/animalPolicy -->
+
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/drk/ontology/animalPolicy">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/PlaceAccessibilityFeature"/>
+        <rdfs:range rdf:resource="http://w3id.org/drk/ontology/AnimalPolicy"/>
+        <terms:source rdf:resource="https://sozialhelden.github.io/a11yjson/describing-objects/0-model/"/>
+        <rdfs:comment xml:lang="en">A property that is used to describe the policies of a place concerning bringing animals along.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Animal Policy Property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/characterPerformanceRole -->
+
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/drk/ontology/characterPerformanceRole">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/TheaterEvent"/>
+        <rdfs:range rdf:resource="http://w3id.org/drk/ontology/CharacterPerformanceRole"/>
+        <rdfs:comment xml:lang="en">A property that is used to specify and link the details of characters in a creative work such as a play to the respective performers and the roles played by them.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Character Performance Role Property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/characterRole -->
+
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/drk/ontology/characterRole">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/PlayProduction"/>
+        <rdfs:range rdf:resource="http://w3id.org/drk/ontology/CharacterPerformanceRole"/>
+        <rdfs:comment xml:lang="en">A property that is used to specify the characters and the roles played by them in a theatrical play. For example, the role of &apos;Romeo&apos; in &apos;Romeo and Juliet&apos; by William Shakespeare is a character role.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Character Role</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/characterType -->
+
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/drk/ontology/characterType">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/Character"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="en">A property that specifies the type of a character in a creative work or during an event. Examples of character types include person, animal, organization, puppet, robot, inanimate object, imaginary entity, etc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Character Type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/creatorRole -->
+
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/drk/ontology/creatorRole">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/PlayProduction"/>
+        <rdfs:range rdf:resource="http://w3id.org/drk/ontology/ProductionRole"/>
+        <rdfs:comment xml:lang="en">A property that is used to specify the names of creator roles involved in a play&apos;s production that are not characters in the play. For example, William Shakespeare performed the roles of playwright and creator in the production of his play &apos;Romeo and Juliet&apos;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Creator Role</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/eventRole -->
+
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/drk/ontology/eventRole">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/Event"/>
+        <rdfs:range rdf:resource="http://w3id.org/drk/ontology/ProductionRole"/>
+        <rdfs:comment xml:lang="en">A property that is used to link the production roles in an event that features theatrical work such as a play to its performers. Event roles are (mostly off-stage) production roles that are performed during the preparation or performance of an Event. Examples include director, costume designer, stage manager, set/stage designer, lighting designer, sound designer, sound engineer, technical director, makeup artist, choreographer, understudy, usher, production manager, producer, funder, sponsor, front of house manager, etc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Event Role Property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/eventType -->
+
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/drk/ontology/eventType">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="en">A property that specifies theatrical event types such as Premiere, Last Performance, Guest Performance, etc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Event Type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/hasAccessibilityFeature -->
+
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/drk/ontology/hasAccessibilityFeature">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/Place"/>
+        <rdfs:range rdf:resource="http://w3id.org/drk/ontology/PlaceAccessibilityFeature"/>
+        <rdfs:comment xml:lang="en">A property that is used to describe the physical (and sometimes human-rated) accessibility of a physical place.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Has Accessibility Feature Property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/navigationMapURL -->
+
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/drk/ontology/navigationMapURL">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/Place"/>
+        <rdfs:range rdf:resource="https://schema.org/URL"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/performer -->
+
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/drk/ontology/performer">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/Role"/>
+        <rdfs:range rdf:resource="http://w3id.org/drk/ontology/Performer"/>
+        <rdfs:comment xml:lang="en">A property that is used to specify the performer of a role in a creative work or event.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Performer</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/performerType -->
+
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/drk/ontology/performerType">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/Performer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="en">A property that specifies the type of performer that performs a role in a creative work or event. Examples of performer types include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Performer Type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/productionType -->
+
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/drk/ontology/productionType">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/PlayProduction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment xml:lang="en">A property that specifies the production type of a creative work, such as &apos;World Premiere&apos;, &apos;Language Premiere&apos;, etc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Production Type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/subtitleLanguage -->
+
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/drk/ontology/subtitleLanguage">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/TheaterEvent"/>
+        <rdfs:range rdf:resource="https://schema.org/Language"/>
+        <rdfs:comment xml:lang="en">A property that specifies the languages in which subtitles or captions are available during a Theatrical Event.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Subtitle Language</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/wheelchairPlaces -->
+
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/drk/ontology/wheelchairPlaces">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/PlaceAccessibilityFeature"/>
+        <rdfs:range rdf:resource="http://w3id.org/drk/ontology/WheelchairPlaces"/>
+        <terms:source rdf:resource="https://sozialhelden.github.io/a11yjson/describing-objects/0-model/"/>
+        <rdfs:comment xml:lang="en">A property that is used to describe the presence of reserved spots for wheelchairs at a place.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Wheelchair Places Property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://w3id.org/drk/ontology/allowsAssistanceDogs -->
+
+
+    <owl:DatatypeProperty rdf:about="http://w3id.org/drk/ontology/allowsAssistanceDogs">
+        <rdfs:subPropertyOf rdf:resource="http://w3id.org/drk/ontology/allowsDogs"/>
+        <rdfs:subPropertyOf rdf:resource="http://w3id.org/drk/ontology/allowsServiceAnimals"/>
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/AnimalPolicy"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <terms:source rdf:resource="https://sozialhelden.github.io/a11yjson/describing-objects/0-model/"/>
+        <rdfs:comment xml:lang="en">A property that describes if the place allows visitors to bring assistance/service dogs. Assistance dogs, also referred to as a service dogs, are a specific type of service animals that receive specialized training to aid an individual with a disability in navigating everyday life (source: https://en.wikipedia.org/wiki/Assistance_dog).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Allows Assistance/Service Dogs</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/allowsDogs -->
+
+
+    <owl:DatatypeProperty rdf:about="http://w3id.org/drk/ontology/allowsDogs">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/AnimalPolicy"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <terms:source rdf:resource="https://sozialhelden.github.io/a11yjson/describing-objects/0-model/"/>
+        <rdfs:comment xml:lang="en">A property that describes if the place allows visitors to bring dogs in general.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Allows Dogs</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/allowsGuideDogs -->
+
+
+    <owl:DatatypeProperty rdf:about="http://w3id.org/drk/ontology/allowsGuideDogs">
+        <rdfs:subPropertyOf rdf:resource="http://w3id.org/drk/ontology/allowsAssistanceDogs"/>
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/AnimalPolicy"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <terms:source rdf:resource="https://sozialhelden.github.io/a11yjson/describing-objects/0-model/"/>
+        <rdfs:comment xml:lang="en">A property that describes if the place allows visitors to bring guide dogs. Guide dogs are a specialized type of assistance dogs, trained to lead individuals who are blind or visually impaired around obstacles (source: https://en.wikipedia.org/wiki/Guide_dog).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Allows Guide Dogs</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/allowsServiceAnimals -->
+
+
+    <owl:DatatypeProperty rdf:about="http://w3id.org/drk/ontology/allowsServiceAnimals">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/AnimalPolicy"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <terms:source rdf:resource="https://sozialhelden.github.io/a11yjson/describing-objects/0-model/"/>
+        <rdfs:comment xml:lang="en">A property that describes if the place allows visitors to bring service animals along. A Service Animal is an animal that has been trained to assist a disabled person (source: https://en.wikipedia.org/wiki/Service_animal). While dogs are the most common service animals, other animals (like miniature horses, ferrets, parrots, and monkeys) may also serve in this role, depending upon regional regulations.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Allows Service Animals</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/hasSpaceForAssistant -->
+
+
+    <owl:DatatypeProperty rdf:about="http://w3id.org/drk/ontology/hasSpaceForAssistant">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/WheelchairPlaces"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <terms:source rdf:resource="https://sozialhelden.github.io/a11yjson/describing-objects/0-model/"/>
+        <rdfs:comment xml:lang="en">A property that specifies whether the place has additional space for a wheelchair assistant.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Has Space For Wheelchair Assistant Property</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/intermissionCount -->
+
+
+    <owl:DatatypeProperty rdf:about="http://w3id.org/drk/ontology/intermissionCount">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="en">A property that specifies the number of intermissions or breaks during an Event.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Intermission Count</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/navigationMapURL -->
+
+
+    <owl:DatatypeProperty rdf:about="http://w3id.org/drk/ontology/navigationMapURL">
+        <rdfs:subPropertyOf rdf:resource="https://schema.org/URL"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/wheelchairPlacesCount -->
+
+
+    <owl:DatatypeProperty rdf:about="http://w3id.org/drk/ontology/wheelchairPlacesCount">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/WheelchairPlaces"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <terms:source rdf:resource="https://sozialhelden.github.io/a11yjson/describing-objects/0-model/"/>
+        <rdfs:comment xml:lang="en">A property that specifies the number of designated places for wheelchairs, for example, in a theater place or a cinema hall.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Wheelchair Places Count Property</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/wheelchairUserCapacity -->
+
+
+    <owl:DatatypeProperty rdf:about="http://w3id.org/drk/ontology/wheelchairUserCapacity">
+        <rdfs:domain rdf:resource="http://w3id.org/drk/ontology/WheelchairPlaces"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <terms:source rdf:resource="https://sozialhelden.github.io/a11yjson/describing-objects/0-model/"/>
+        <rdfs:comment xml:lang="en">A property that specifies the number of people using a wheelchair that can be accommodated at the same time. This property should be used when there is no designated space for wheelchair users, but the number is known.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Wheelchair User Capacity Property</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://schema.org/URL -->
+
+
+    <owl:DatatypeProperty rdf:about="https://schema.org/URL"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/vocommons/voaf#Vocabulary -->
+
+
+    <owl:Class rdf:about="http://purl.org/vocommons/voaf#Vocabulary"/>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/AnimalPolicy -->
+
+
+    <owl:Class rdf:about="http://w3id.org/drk/ontology/AnimalPolicy">
+        <terms:source rdf:resource="https://sozialhelden.github.io/a11yjson/describing-objects/0-model/"/>
+        <rdfs:comment xml:lang="en">A class that describes the policies of a place concerning bringing animals along.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Animal Policy Class</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/Character -->
+
+
+    <owl:Class rdf:about="http://w3id.org/drk/ontology/Character">
+        <rdfs:comment xml:lang="en">A class that represents a character in a creative work such as a Play.
+    Examples of characters include:
+    Romeo (from Romeo and Juliet by William Shakespeare; character type: Person),
+    Alexander Hamilton (from Hamilton musical by Lin-Manuel Miranda; character type: Person),
+    Simba (from The Lion King; character type: Animal),
+    Kermit the Frog (from The Muppet Show; character type: Puppet),
+    WALL-E (from Pixar&apos;s WALL-E movie; character type: Robot),
+    Puck (from A Midsummer Night&apos;s Dream by William Shakespeare; character type: Imaginary Entity/Fairy),
+    the flying Magic Carpet (from Aladdin; character type: Inanimate Object), etc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Character</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/CharacterPerformanceRole -->
+
+
+    <owl:Class rdf:about="http://w3id.org/drk/ontology/CharacterPerformanceRole">
+        <rdfs:subClassOf rdf:resource="http://w3id.org/drk/ontology/Role"/>
+        <rdfs:comment xml:lang="en">A class that links a character role to its performer.
+    Characters can be from a creative work such as a Play.
+    Examples of characters include Romeo (from Romeo and Juliet by William Shakespeare; characterType: Person), Alexander Hamilton (from Hamilton musical by Lin-Manuel Miranda; characterType: Person), Simba (from The Lion King; characterType: Animal), Kermit the Frog (from The Muppet Show; characterType: Puppet), WALL-E (from Pixar&apos;s WALL-E movie; characterType: Robot), Puck (from A Midsummer Night&apos;s Dream by William Shakespeare; characterType: Imaginary Entity (Fairy)), the flying Magic Carpet (from Aladdin; characterType: Inanimate Object), etc.
+    Performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI) in a creative work or during an event.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Character Performance Role Class</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/Event -->
+
+
+    <owl:Class rdf:about="http://w3id.org/drk/ontology/Event">
+        <rdfs:subClassOf rdf:resource="https://schema.org/Event"/>
+        <rdfs:comment xml:lang="en">A class that describes a thing happening at a particular location and at a particular time such as a theatrical play performance, movie screening, concert, or festival.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Event</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/Performer -->
+
+
+    <owl:Class rdf:about="http://w3id.org/drk/ontology/Performer">
+        <rdfs:comment xml:lang="en">A class that specifies the performer of a role in a creative work or event. Performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/PerformingArtsTheater -->
+
+
+    <owl:Class rdf:about="http://w3id.org/drk/ontology/PerformingArtsTheater">
+        <rdfs:subClassOf rdf:resource="http://w3id.org/drk/ontology/Place"/>
+        <rdfs:subClassOf rdf:resource="https://schema.org/PerformingArtsTheater"/>
+        <rdfs:comment xml:lang="en">A place such as a building, a group of buildings, or an event site that is designated for organizing theatrical events such as plays.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Performing Arts Theater</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/Place -->
+
+
+    <owl:Class rdf:about="http://w3id.org/drk/ontology/Place">
+        <rdfs:subClassOf rdf:resource="https://schema.org/Place"/>
+        <rdfs:comment xml:lang="en">A class that describes a physical place or location. The drk:Place class extends schema:Place to describe the accessibility features available at the place.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Place</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/PlaceAccessibilityFeature -->
+
+
+    <owl:Class rdf:about="http://w3id.org/drk/ontology/PlaceAccessibilityFeature">
+        <terms:source rdf:resource="https://sozialhelden.github.io/a11yjson/describing-objects/0-model/"/>
+        <rdfs:comment xml:lang="en">A class that describes the physical (and sometimes human-rated) accessibility of a physical place.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Place Accessibility Feature Class</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/PlayProduction -->
+
+
+    <owl:Class rdf:about="http://w3id.org/drk/ontology/PlayProduction">
+        <rdfs:subClassOf rdf:resource="https://schema.org/CreativeWork"/>
+        <rdfs:comment xml:lang="en">A class that includes all stages of Play Production from writing, planning, casting, and staging to rehearsal, but excludes the final presentation or performance, which is modeled as an Event using the drk:TheaterEvent class.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Play Production</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/ProductionRole -->
+
+
+    <owl:Class rdf:about="http://w3id.org/drk/ontology/ProductionRole">
+        <rdfs:subClassOf rdf:resource="http://w3id.org/drk/ontology/Role"/>
+        <rdfs:comment xml:lang="en">A class that links a production role to its performer.
+    Production roles can, in general, include creator roles, non-character roles, offstage or behind-the-scenes roles.
+    Examples of production roles include creator, writer, playwright, costume designer, stage designer, choreographer, makeup artist, understudy, usher, funder, sponsor, etc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Production Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/Role -->
+
+
+    <owl:Class rdf:about="http://w3id.org/drk/ontology/Role">
+        <rdfs:subClassOf rdf:resource="https://schema.org/Role"/>
+        <rdfs:comment xml:lang="en">A class that links a role to its performer.
+    Roles can, in general, be of various types such as character roles, production roles, event roles, onstage roles, offstage or behind-the-scenes roles.
+    Examples of role names include creator, writer, playwright, actor, protagonist, puppeteer, singer, cameo, costume designer, stage designer, choreographer, makeup artist, understudy, funder, sponsor, etc.
+    Performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI) in a creative work or during an event.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/TheaterEvent -->
+
+
+    <owl:Class rdf:about="http://w3id.org/drk/ontology/TheaterEvent">
+        <rdfs:subClassOf rdf:resource="http://w3id.org/drk/ontology/Event"/>
+        <rdfs:subClassOf rdf:resource="https://schema.org/TheaterEvent"/>
+        <rdfs:comment xml:lang="en">A class that describes the presentation of a theatrical creative work such as a play.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Theater Event</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://w3id.org/drk/ontology/WheelchairPlaces -->
+
+
+    <owl:Class rdf:about="http://w3id.org/drk/ontology/WheelchairPlaces">
+        <terms:source rdf:resource="https://sozialhelden.github.io/a11yjson/describing-objects/0-model/"/>
+        <rdfs:comment xml:lang="en">A class that describes the presence of reserved spots for wheelchairs at a place.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Wheelchair Places</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Organization -->
+
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
+    
+
+
+    <!-- https://schema.org/CreativeWork -->
+
+
+    <owl:Class rdf:about="https://schema.org/CreativeWork"/>
+    
+
+
+    <!-- https://schema.org/Event -->
+
+
+    <owl:Class rdf:about="https://schema.org/Event"/>
+    
+
+
+    <!-- https://schema.org/Language -->
+
+
+    <owl:Class rdf:about="https://schema.org/Language"/>
+    
+
+
+    <!-- https://schema.org/PerformingArtsTheater -->
+
+
+    <owl:Class rdf:about="https://schema.org/PerformingArtsTheater"/>
+    
+
+
+    <!-- https://schema.org/Place -->
+
+
+    <owl:Class rdf:about="https://schema.org/Place"/>
+    
+
+
+    <!-- https://schema.org/Role -->
+
+
+    <owl:Class rdf:about="https://schema.org/Role"/>
+    
+
+
+    <!-- https://schema.org/Text -->
+
+
+    <owl:Class rdf:about="https://schema.org/Text"/>
+    
+
+
+    <!-- https://schema.org/TheaterEvent -->
+
+
+    <owl:Class rdf:about="https://schema.org/TheaterEvent"/>
+    
+
+
+    <!-- https://schema.org/URL -->
+
+
+    <owl:Class rdf:about="https://schema.org/URL"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://w3id.org/drk/ontology/ -->
+
+
+    <owl:NamedIndividual rdf:about="http://w3id.org/drk/ontology/">
+        <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description rdf:about="http://w3id.org/drk/ontology/navigationMapURL">
+        <rdfs:comment xml:lang="en">A URL linking to the geographical location of the specified place on a digital map service for navigation purposes (e.g., Google Maps, OpenStreetMap, Apple Maps). This differs from a venue map or seating chart by offering a direct navigation point, such as &lt;https://maps.app.goo.gl/v1XhJ3uVdixjGgY2A&gt;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/drk/ontology/"/>
+        <rdfs:label xml:lang="en">Map Location URL</rdfs:label>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+
