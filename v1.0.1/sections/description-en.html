@@ -1,3 +1,76 @@
 <h2 id="desc" class="list">Culture Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 
-<span class="markdown">The Culture ontology (aka DRK ontology) is designed for the Culture Dataspace, providing extensible semantic concepts, properties, and their interrelationships for modeling metadata in the culture domain. It comprises common modules for cross-cutting concepts (such as organizations, places, creative works, events, and roles) and domain-specific modules (such as those tailored to theater showtimes). The ontology is extensible and allows the addition of new modules, for sectors such as museums or music marketplaces, as future use cases arise.</span>
+<span class="markdown">
+The Culture ontology (aka DRK ontology) is designed for the Culture Dataspace, providing extensible semantic concepts, properties, and their interrelationships for modeling metadata in the culture domain. It comprises common modules for cross-cutting concepts (such as organizations, places, creative works, events, and roles) and domain-specific modules (such as those tailored to theater showtimes). The ontology is extensible and allows the addition of new modules, for sectors such as museums or music marketplaces, as future use cases arise.
+
+<h3>Culture IM's Theater Showtimes Model</h3>
+  <p>
+    The Culture IM's Theater Showtimes model comprises the Theater Showtimes module of the Culture Ontology and its associated general application profile (TS-GAP). Built on standards like Schema.org and DCAT, it defines structured concepts and relationships for theatrical productions and events.
+  </p>
+
+  <h4>Culture Ontology's Theater Showtimes Module</h4>
+  <p>
+    The Theater Showtimes module enhances the Culture ontology's core modules - Organization, Place, CreativeWork, Event, and Role - with specialized classes and properties for modeling theater-specific entities. Key classes include:
+  </p>
+
+  <ul>
+    <li><strong>drk:TheaterOrganization</strong>: Represents a performing arts institution that creates or organizes theatrical productions and events.</li>
+    <li><strong>drk:PlayProduction</strong>: Captures the entire lifecycle of a theatrical work, excluding the public performance.</li>
+    <li><strong>drk:TheatricalEvent</strong>: Represents an actual theatrical performance event.</li>
+    <li><strong>drk:PerformingArtsTheater</strong>: Models the theater venue itself.</li>
+  </ul>
+
+  <p>
+    The module reuses the Role module to articulate detailed concepts such as <code>drk:Character</code>, <code>drk:Role</code>, <code>drk:CharacterPerformanceRole</code>, and <code>drk:ProductionRole</code>, alongside properties like <code>drk:characterRole</code>, <code>drk:creatorRole</code>, and <code>drk:eventRole</code> to differentiate between onstage and offstage contributions.
+  </p>
+
+  <h4>Key Classes</h4>
+
+  <h5>drk:TheatricalProduction</h5>
+  <p>
+    This class encompasses the creation and development of a theatrical work, detailing production activities like writing, casting, and rehearsals, while excluding the final public performance. This class extends <code>schema:CreativeWork</code> and includes essential attributes such as:
+  </p>
+
+  <ul>
+    <li>Title</li>
+    <li>Description</li>
+    <li>Genre</li>
+    <li>Production type</li>
+    <li>Involved characters and roles</li>
+    <li>Languages</li>
+    <li>Audience type</li>
+    <li>Accessibility features</li>
+    <li>Sources of inspiration</li>
+  </ul>
+
+  <p>
+    This structured metadata aids cultural organizations in uniformly describing productions, enhancing discoverability and interoperability.
+  </p>
+
+  <h5>drk:TheatricalEvent</h5>
+  <p>
+    This class models the public presentation of a theatrical production, extending <code>schema:TheatricalEvent</code>, and links back to the corresponding <code>drk:TheatricalProduction</code> through the <code>schema:workPerformed</code> property. It captures event-specific details such as:
+  </p>
+
+  <ul>
+    <li>Venue</li>
+    <li>Dates (start and end)</li>
+    <li>Door opening times</li>
+    <li>Duration</li>
+    <li>Intermissions</li>
+    <li>Ticket offers</li>
+    <li>Languages spoken and subtitled</li>
+    <li>Character performances</li>
+    <li>Involved production roles</li>
+  </ul>
+
+  <p>
+    Standardized through controlled vocabularies and ISO formats, this class ensures a consistent, machine-readable representation of showtimes across theater organizations.
+  </p>
+</span>
+
+The following figure illustrates an excerpt from the visual representation of General Application Profile for Theater Showtimes. Please open the image in a new tab for better readability.
+<br><br>
+<img style="max-width: 100%; height: auto;" src="https://raw.githubusercontent.com/Fraunhofer-FIT-DSAI/drk-information-model/d4e988ccec7ac428ce59360c61949ea77db87a64/visual-models/theater-showtimes-model.drawio.svg">
+
+</span>
