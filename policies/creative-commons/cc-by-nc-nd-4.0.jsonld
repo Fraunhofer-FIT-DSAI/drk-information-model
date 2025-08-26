@@ -1,0 +1,26 @@
+{
+  "@context": {
+    "@vocab": "http://www.w3.org/ns/odrl/2/",
+    "cc": "https://creativecommons.org/ns#"
+  },
+  "uid": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+  "@type": "Policy",
+  "permission": [
+    {
+      "target": "https://example.org/resource123",
+      "action": "cc:Sharing",
+      "duty": {
+        "action": "cc:Attribution"
+      }
+    }
+  ],
+  "prohibition": [
+    {
+      "target": "https://example.org/resource123",
+      "action": [
+        "cc:CommercialUse",
+        "cc:DerivativeWorks"
+      ]
+    }
+  ]
+}
