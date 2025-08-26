@@ -1,28 +1,123 @@
-# DRK Information Model
-**Datenraum Kultur Information Model (DRK IM)**: The DRK IM is a Semantic Information Model that aims to define formal specifications of concepts, relationships, and constraints (application profiles) within the culture dataspace. This formalization provides a structured framework for understanding and organizing information within the DRK project. In addition, this forms a basis for representing information in DRK in the form of a Knowledge Graph (DRK KG) with more advanced querying, inference, and reasoning capabilities.
 
-# DRK IM Contents
-- The DRK Ontology
+## 🆔 Primary Identifiers
+
+<p align="center">
+  <a href="https://w3id.org/drk/ontology/">
+    <img src="https://img.shields.io/badge/Ontology%20URI-w3id.org/drk/ontology-blue.svg" alt="Ontology URI"/>
+  </a>
+  <a href="https://doi.org/10.5281/zenodo.15294907">
+    <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.15294907.svg" alt="DOI"/>
+  </a>
+  <a href="https://prefix.cc/drk">
+    <img src="https://img.shields.io/badge/Namespace-drk%3A-purple.svg" alt="Namespace Prefix"/>
+  </a>
+  <a href="https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/sparql-endpoint">
+    <img src="https://img.shields.io/badge/SPARQL%20Endpoint-Query%20Now-red.svg" alt="SPARQL Endpoint"/>
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://creativecommons.org/licenses/by/4.0/">
+    <img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" alt="License: CC BY 4.0"/>
+  </a>
+  <a href="https://oops.linkeddata.es/">
+    <img src="https://img.shields.io/badge/OOPS!%20Validation-✅%20Zero%20Pitfalls-brightgreen.svg" alt="OOPS Validation"/>
+  </a>
+  <a href="https://catalogue.fair-impact.eu/resources/foops">
+    <img src="https://img.shields.io/badge/FAIR%20Compliance-71%25-orange" alt="FAIR Compliance"/>
+  </a>
+</p>
+
+# Culture Information Model (Culture IM / DRK IM)
+**Culture Information Model (Culture IM) / Datenraum Kultur Information Model (DRK IM)**: The DRK IM is a Semantic Information Model that aims to define formal specifications of concepts, relationships, and constraints (application profiles) within the culture dataspace. This formalization provides a structured framework for understanding and organizing information within the DRK project. In addition, this forms a basis for representing information in DRK in the form of a Knowledge Graph (DRK KG) with more advanced querying, inference, and reasoning capabilities.
+
+# Culture/DRK IM Contents
+- The Culture (DRK) Ontology
+  - Common modules for organizations, places and accessibility, creative works, events, roles, and data services.
+  - Culture sector (subdomain) specific modules for performing arts theater showtimes, museums and collections, and music marketplaces
 - Extensible semantic schemas (metadata templates) and their visual models (in the form of editable UML class diagrams)
 - Application profiles (constraints: mandatory, recommended, optional - in the form of SHACL shapes)
+  - General Application Profiles (GAP) for general use case with a convention-based set of recommended concepts and attributes and common, minimum constraints foreseen to be applicable to all specific applications that will be drived from it.
+  - Specific Application Profiles (SAP) for specific use case scenarios with concrete data providers and their data sources, derived from  GAPs.
 - Controlled vocabularies for representing enumerations
 - Templates for access and usage policies (in the form of ODRL policy templates/examples)
 - Competency questions for scoping and validating the information model and modeling discussions (in the form of Issues and comments)
 - Example instances and queries (in the form of SPARQL queries based on competency questions)
 - Documentation (currently, in the form of README files)
 
-# Naming Conventions
-- **Directories and files**: All small letters, separated by hyphens (-). Example: `drk-ontology.ttl`
-- **Prefixes**: In DRK Ontology, we use https://prefix.cc/ to abbreviate URIs
-- **Versioning**: DRK IM release snapshots will follow the [Semantic Versioning Specification 2.0.0](https://semver.org/spec/v2.0.0.html) (SemVer - Major.Minor.Patch)
+---
+## 📚 Documentation & Standards
 
-# How-To (DRK IM Development Process)
+### 📖 Ontology Documentation
+- **[📋 Complete Documentation](https://fraunhofer-fit-dsai.github.io/drk-information-model/)** - WIDOCO-generated comprehensive reference
+- **[⚡ SPARQL Query Endpoint](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/sparql-endpoint)** - Query the DRK Knowledge Graph
+- **[🎯Example Queries](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/blob/main/sparql-endpoint/README.md)** - Pre-built queries to get started
+- **[🔍 Browse Ontology](https://w3id.org/drk/ontology/)** - Interactive exploration
+- **[⬇️ Download RDF](drk-ontology.ttl)** - Turtle format for direct use
+
+### 🎨 Visual Resources
+- **[📐 UML Diagrams](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/visual-models)** - Visual class relationships
+
+### 📏 Development Standards
+
+#### 📁 **File & Directory Conventions**
+```
+✅ Correct:   drk-ontology.ttl, application-profiles/
+✅ Correct:   sparql-endpoint/, visual-models/
+❌ Avoid:    DRK_Ontology.TTL, ApplicationProfiles/
+```
+- **Format**: All lowercase, separated by hyphens (`-`)
+- **Extensions**: Standard semantic web formats (`.ttl`, `.rdf`, `.jsonld`)
+
+#### 🏷️ **Namespace & Prefix Standards**
+| Prefix | Namespace | Usage |
+|--------|-----------|-------|
+| `drk:` | `https://w3id.org/drk/ontology/` | DRK-specific concepts |
+| `schema:` | `https://schema.org/` | General web semantics |
+| `dcat:` | `http://www.w3.org/ns/dcat#` | Data catalog metadata |
+
+#### 📦 **Versioning Strategy**
+Following [Semantic Versioning 2.0.0](https://semver.org/):
+
+```
+MAJOR.MINOR.PATCH (e.g., 1.2.3)
+```
+
+- **MAJOR** (`1.x.x`): Breaking changes to ontology structure
+- **MINOR** (`x.1.x`): New classes/properties (backward compatible)
+- **PATCH** (`x.x.1`): Bug fixes, documentation updates
+
+**Current Version**: ![Version](https://img.shields.io/badge/version-1.0.0-blue) (Latest: [Release Notes](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/releases/tag/v1.0.0))
+
+#### 🔗 **URI Pattern Guidelines**
+```turtle
+# Recommended URI patterns
+drk:Organization          # Classes (PascalCase)
+drk:hasLocation          # Properties (camelCase)
+drk:CulturalEvent        # Domain-specific concepts
+```
+
+# Namespace & Redirects
+- The Culture (DRK) Ontology
+  - Latest: https://w3id.org/drk OR https://w3id.org/drk/ontology -> With content negotiation enabled, it serves either
+    - the HTML docs (https://fraunhofer-fit-dsai.github.io/drk-information-model/latest/index.html) or 
+    - the TTL/JSONLD/OWL/NT file, as requested through the `Accept` header (https://fraunhofer-fit-dsai.github.io/drk-information-model/latest/ontology.{ttl,jsonld,owl,nt})
+  - Versioned: https://w3id.org/drk/ontology/{version} -> https://fraunhofer-fit-dsai.github.io/drk-information-model/{version}/ontology.ttl
+- Controlled vocabularies
+  - Theatrical genres vocabulary: https://w3id.org/drk/vocabs/theatrical-genres -> https://fraunhofer-fit-dsai.github.io/drk-information-model/vocabs/theatrical-genres.ttl
+  - Theatrical production types vocabulary: https://w3id.org/drk/vocabs/theatrical-production-types -> https://fraunhofer-fit-dsai.github.io/drk-information-model/vocabs/theatrical-production-types.ttl
+  - Theatrical event types vocabulary: https://w3id.org/drk/vocabs/theatrical-event-types -> https://fraunhofer-fit-dsai.github.io/drk-information-model/vocabs/theatrical-event-types.ttl
+  - Character types vocabulary: https://w3id.org/drk/vocabs/character-types -> https://fraunhofer-fit-dsai.github.io/drk-information-model/vocabs/character-types.ttl
+  - Performer types vocabulary: https://w3id.org/drk/vocabs/performer-types -> https://fraunhofer-fit-dsai.github.io/drk-information-model/vocabs/performer-types.ttl
+  - Personal profile for accessibility vocabulary: https://w3id.org/drk/vocabs/personal-profile-for-accessibility -> https://fraunhofer-fit-dsai.github.io/drk-information-model/vocabs/personal-profile-for-accessibility.ttl
+
+# AP-first (Application Profile-first) Methodology for developing the Culture IM (DRK IM)
 
 ## Goals
 - This code repository aims to enable collaboration among domain experts (Use Case (UC) partners) and Semantic Web experts (FIT DRK IM Group) to develop the DRK IM.
 - Here, we aim to create extensible semantic schemas (metadata templates) and application profiles (constraints: mandatory, recommended, and optional) for data sources from the DRK use cases.
 
-## Prerequisite
+## Prerequisites
 - Documentation of your data sources (APIs, Datasets) to be connected to the DRK infrastructure in this document: [Template Datennehmer-geber und Nutzungsvereinbarungen v1.1.xslx](https://acatechev.sharepoint.de/:x:/r/sites/DRKulturUseCasesTest/_layouts/15/doc2.aspx?sourcedoc=%7B675D2413-1C4F-4DF3-B64B-D1823BD7DDB8%7D&file=Template%20Datennehmer-geber%20und%20Nutzungsvereinbarungen%20v1.1.xlsx&action=default&mobileredirect=true) (This is an internal resource specific to the DRK project. Alternatively, you can use the following template to directly input this information in a new Github issue).
 - Template: To get started with semantic modelling, we generally need the following information:
 ---
@@ -48,7 +143,7 @@
 > An example workflow that illustrates the data source, the potential data consumers and data flow.
 ---
 
-## Steps
+## Main Process Steps
 
 ![DRK-IM-Development-Process](images/drk-im-dev-process.png)
 
@@ -90,7 +185,7 @@ DRK IM focuses on the interoperability aspects within the Technical and Semantic
 ![EIF iSHARE](images/eif_ishare.png)
 (Image sources: [iSHARE Cookbook for Data Spaces](https://ishare.eu/wp-content/uploads/2023/09/iShare-Data-Spaces-Kookboek_UK-v1.pdf), [EIF]( https://joinup.ec.europa.eu/collection/nifo-national-interoperability-framework-observatory/european-interoperability-framework-detail))
 
-### DRK IM Layers (Work in progress)
+### Existing Data Models Collection for Reuse - Culture/DRK IM Layers (Work in progress)
 
 To facilitate both the modular representation and FAIRness (Findability, Accessibility, Interoperability, and Reusability) of information, the DRK IM is structured into layers, as illustrated in the following figure. These layers are realized using the existing ontologies and vocabularies.
 

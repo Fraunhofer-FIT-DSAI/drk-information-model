@@ -1,0 +1,14 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "sparql-endpoint/Dockerfile"
+
+[deploy]
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+healthcheckPath = "/blazegraph/"
+healthcheckTimeout = 30
+
+[env]
+# Railway will automatically set PORT
+# Memory-optimized Java settings for Railway's free tier
+JAVA_OPTS = "-server -Xmx512m -XX:+UseG1GC -XX:MaxGCPauseMillis=200"
