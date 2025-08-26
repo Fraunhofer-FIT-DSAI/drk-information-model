@@ -1,0 +1,71 @@
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms:      <http://purl.org/dc/terms/> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix voaf:         <http://purl.org/vocommons/voaf#> .
+@prefix wikidata:     <https://www.wikidata.org/entity/> .
+@prefix schema:       <https://schema.org/> .
+@prefix foaf:         <http://xmlns.com/foaf/0.1/> .
+@prefix dbo:          <https://dbpedia.org/ontology/> .
+@prefix vann:         <http://purl.org/vocab/vann/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+@prefix tchar:        <http://w3id.org/drk/vocabs/character-types#> .
+
+tchar:
+    a                             voaf:Vocabulary, skos:ConceptScheme ;
+    dcterms:title                 "Character Types Vocabulary"@en ;
+    dcterms:description           "A controlled vocabulary for listing and describing various types of characters in creative works such as plays or movies."@en ;
+    rdfs:label                    "Character Types Vocabulary"@en ;
+    rdfs:comment                  "A controlled vocabulary for listing and describing various types of characters in creative works such as plays or movies."@en ;
+    dcterms:hasVersion            "0.0.1"^^xsd:string ;
+    vann:preferredNamespacePrefix "tchar" ;
+    vann:preferredNamespaceUri    "http://w3id.org/drk/vocabs/character-types#" .
+
+tchar:Person
+    a               skos:Concept ;
+    skos:inScheme   tchar: ;
+    rdfs:label      "Person Character"@en ;
+    skos:altLabel   "Human Character"@en ;
+    rdfs:comment    "A real or fictional human individual who is a character in a creative work such as a play. For example, 'Romeo' from Romeo and Juliet by William Shakespeare."@en ;
+    skos:closeMatch schema:Person, foaf:Person, wikidata:Q5 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Person> .
+
+tchar:Animal
+    a               skos:Concept ;
+    skos:inScheme   tchar: ;
+    rdfs:label      "Animal Character"@en ;
+    rdfs:comment    "A non-human animal character in a creative work such as a play. For example, 'Simba' from The Lion King."@en ;
+    skos:closeMatch dbo:Animal, wikidata:Q729 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Animal> .
+
+tchar:Puppet
+    a               skos:Concept ;
+    skos:inScheme   tchar: ;
+    rdfs:label      "Puppet Character"@en ;
+    rdfs:comment    "A figure or model character in a creative work such as a play that is meant to be manipulated by a puppeteer in performances. For example, 'Kermit the Frog' from The Muppet Show."@en ;
+    skos:closeMatch wikidata:Q1913135 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Puppet> .
+
+tchar:Robot
+    a               skos:Concept ;
+    skos:inScheme   tchar: ;
+    rdfs:label      "Robot Character"@en ;
+    rdfs:comment    "A machine character that is meant to perform physical activities in a creative work such as a play. For example, the 'WALL-E' robot from Pixar's WALL-E movie."@en ;
+    skos:closeMatch wikidata:Q11012 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Robot> .
+
+tchar:InanimateObject
+    a               skos:Concept ;
+    skos:inScheme   tchar: ;
+    rdfs:label      "Inanimate Object Character"@en ;
+    rdfs:comment    "A physical non-living thing character in a creative work such as a play. For example, the flying 'Magic Carpet' from Aladdin."@en ;
+    skos:closeMatch wikidata:Q61964280 ;
+    rdfs:seeAlso    <https://en.wikipedia.org/wiki/Physical_object> .
+
+tchar:ImaginaryEntity
+    a                skos:Concept ;
+    skos:inScheme    tchar: ;
+    rdfs:label       "Imaginary Entity Character"@en ;
+    rdfs:comment     "A fictional or mythical being, legendary creature, or a fantasy entity character in a creative work such as a play. For example, the fairy 'Puck' from A Midsummer Night's Dream."@en ;
+    skos:narrowMatch wikidata:Q8028 ;
+    rdfs:seeAlso     <https://en.wikipedia.org/wiki/Fairy>, <https://en.wikipedia.org/wiki/Legendary_creature> .
