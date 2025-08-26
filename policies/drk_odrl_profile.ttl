@@ -1,0 +1,205 @@
+@prefix drk: <https://w3id.org/drk#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+
+<https://w3id.org/drk> a owl:Ontology ;
+    dct:title "DRK ODRL Profile - Cultural Heritage Usage Policies"@en ;
+    dct:description "Custom ODRL vocabulary for cultural heritage institutions, museums, and galleries"@en ;
+    dct:creator "Daham Mustafa" ;
+    dct:created "2024-03-01"^^xsd:date ;
+    dct:modified "2025-06-18"^^xsd:date ;
+    vann:preferredNamespacePrefix "drk" ;
+    vann:preferredNamespaceUri "https://w3id.org/drk#" ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> .
+
+# =============================================================================
+# USAGE PURPOSE CONCEPTS
+# =============================================================================
+
+drk:PrivateUse a odrl:RightOperand, skos:Concept ;
+    skos:prefLabel "Private Use"@en ;
+    skos:definition "Use for personal, non-commercial purposes"@en ;
+    skos:scopeNote "Typically fee-free for cultural heritage materials"@en .
+
+drk:ScientificUse a odrl:RightOperand, skos:Concept ;
+    skos:prefLabel "Scientific Use"@en ;
+    skos:definition "Use for academic research, education, or scientific study"@en ;
+    skos:scopeNote "Usually fee-free to support research activities"@en .
+
+drk:CommercialUse a odrl:RightOperand, skos:Concept ;
+    skos:prefLabel "Commercial Use"@en ;
+    skos:definition "Use for commercial purposes, profit-making activities"@en ;
+    skos:scopeNote "Typically requires fees and specific licensing terms"@en .
+
+drk:DigitizationPurpose a odrl:RightOperand, skos:Concept ;
+    skos:prefLabel "Digitization Purpose"@en ;
+    skos:definition "Converting physical artworks to digital format"@en ;
+    skos:scopeNote "May incur fees if high-quality digitization is required"@en .
+
+# =============================================================================
+# PUBLICATION TYPE CONCEPTS
+# =============================================================================
+
+# Top-level publication concepts
+drk:DigitalPublication a skos:Concept ;
+    skos:prefLabel "Digital Publication"@en ;
+    skos:definition "Publications in digital format"@en ;
+    skos:topConceptOf drk:PublicationScheme .
+
+drk:PhysicalPublication a skos:Concept ;
+    skos:prefLabel "Physical Publication"@en ;
+    skos:definition "Publications in physical format"@en ;
+    skos:topConceptOf drk:PublicationScheme .
+
+# Specific publication types
+drk:Website a odrl:RightOperand, skos:Concept ;
+    skos:prefLabel "Website Publication"@en ;
+    skos:definition "Online digital publication or website"@en ;
+    skos:broader drk:DigitalPublication .
+
+drk:Project a odrl:RightOperand, skos:Concept ;
+    skos:prefLabel "Project Publication"@en ;
+    skos:definition "Project-related publications or materials"@en .
+
+drk:PrintMedia a odrl:RightOperand, skos:Concept ;
+    skos:prefLabel "Print Media"@en ;
+    skos:definition "Physical print publications (books, magazines, newspapers)"@en ;
+    skos:broader drk:PhysicalPublication .
+
+# =============================================================================
+# QUALITY AND TECHNICAL CONCEPTS
+# =============================================================================
+
+drk:HighQualityData a odrl:RightOperand, skos:Concept ;
+    skos:prefLabel "High Quality Data"@en ;
+    skos:definition "High-resolution, professional-grade image data"@en ;
+    skos:scopeNote "Suitable for print reproduction and commercial use"@en .
+
+drk:ResolutionSufficiency a odrl:RightOperand, skos:Concept ;
+    skos:prefLabel "Resolution Sufficiency"@en ;
+    skos:definition "Image resolution adequate for intended digital representation"@en ;
+    skos:scopeNote "Typically sufficient for web display but not print"@en .
+
+# =============================================================================
+# ETHICAL AND CONTENT STANDARDS
+# =============================================================================
+
+drk:ContradictsEthicalStandards a skos:Concept ;
+    skos:prefLabel "Contradicts Ethical Standards"@en ;
+    skos:definition "Purpose or content conflicts with institutional ethical principles"@en ;
+    skos:scopeNote "Use may be prohibited or require special review"@en .
+
+drk:ContradictsScientificStandards a skos:Concept ;
+    skos:prefLabel "Contradicts Scientific Standards"@en ;
+    skos:definition "Purpose or content conflicts with scientific principles"@en .
+
+drk:ContradictsSocialStandards a skos:Concept ;
+    skos:prefLabel "Contradicts Social Standards"@en ;
+    skos:definition "Purpose or content conflicts with social norms and values"@en .
+
+# =============================================================================
+# INSTITUTIONAL BENEFIT CONCEPTS
+# =============================================================================
+
+drk:CooperationProjects a odrl:RightOperand, skos:Concept ;
+    skos:prefLabel "Cooperation Projects"@en ;
+    skos:definition "Collaborative projects with other institutions"@en ;
+    skos:scopeNote "Often qualifies for fee exemptions"@en .
+
+drk:EnlargingOutreach a odrl:RightOperand, skos:Concept ;
+    skos:prefLabel "Enlarging Outreach"@en ;
+    skos:definition "Activities that expand institutional reach and audience"@en .
+
+drk:IncreaseOfReputation a odrl:RightOperand, skos:Concept ;
+    skos:prefLabel "Increase of Reputation"@en ;
+    skos:definition "Activities that enhance institutional standing and credibility"@en .
+
+drk:MarketingAndPromotion a odrl:RightOperand, skos:Concept ;
+    skos:prefLabel "Marketing and Promotion"@en ;
+    skos:definition "Marketing activities that promote the institution"@en .
+
+# =============================================================================
+# PERMISSION AND APPROVAL CONCEPTS
+# =============================================================================
+
+drk:FinalPermission a skos:Concept ;
+    skos:prefLabel "Final Permission Required"@en ;
+    skos:definition "Permission granted only after individual case review"@en ;
+    skos:scopeNote "Applied to sensitive or controversial content"@en .
+
+# =============================================================================
+# FEE-RELATED CONCEPTS
+# =============================================================================
+
+drk:NoFees a odrl:RightOperand, skos:Concept ;
+    skos:prefLabel "No Fees Applied"@en ;
+    skos:definition "No financial charges apply for the specified action"@en .
+
+drk:ApplyFees a odrl:RightOperand, skos:Concept ;
+    skos:prefLabel "Fees Applied"@en ;
+    skos:definition "Financial charges apply for the specified action"@en .
+
+# =============================================================================
+# COPYRIGHT AND RIGHTS CONCEPTS
+# =============================================================================
+
+drk:PublicDomain a odrl:RightOperand, skos:Concept ;
+    skos:prefLabel "Public Domain"@en ;
+    skos:definition "Work is in the public domain, free for use and distribution"@en ;
+    skos:scopeNote "Typically applies when creator has been deceased for more than 70 years"@en .
+
+drk:ProtectedByIPLaw a odrl:RightOperand, skos:Concept ;
+    skos:prefLabel "Protected by Intellectual Property Law"@en ;
+    skos:definition "Content is protected by copyright or other IP rights"@en .
+
+drk:NotInPublicDomain a odrl:RightOperand, skos:Concept ;
+    skos:prefLabel "Not in Public Domain"@en ;
+    skos:definition "Content remains under copyright protection"@en .
+
+# =============================================================================
+# CUSTOM ACTIONS
+# =============================================================================
+
+drk:digitize a odrl:Action ;
+    rdfs:label "Digitize"@en ;
+    skos:definition "Convert physical artwork to digital format"@en ;
+    rdfs:subPropertyOf odrl:use .
+
+# =============================================================================
+# CUSTOM LEFT OPERANDS
+# =============================================================================
+
+drk:fees a odrl:LeftOperand ;
+    rdfs:label "Fees"@en ;
+    skos:definition "Financial compensation required for use or service"@en .
+
+# =============================================================================
+# ASSET TYPES
+# =============================================================================
+
+drk:CDFPortal a odrl:AssetCollection, skos:Concept ;
+    skos:prefLabel "Cultural Data Portal"@en ;
+    skos:definition "Digital portal containing cultural heritage assets"@en .
+
+drk:ImageArtwork a odrl:Asset, skos:Concept ;
+    skos:prefLabel "Image Artwork"@en ;
+    skos:definition "Digital representation of artistic works"@en .
+
+drk:PhysicalArtwork a odrl:Asset, skos:Concept ;
+    skos:prefLabel "Physical Artwork"@en ;
+    skos:definition "Original physical artistic works (paintings, sculptures, etc.)"@en .
+
+# =============================================================================
+# CONCEPT SCHEMES
+# =============================================================================
+
+drk:PublicationScheme a skos:ConceptScheme ;
+    skos:prefLabel "Publication Type Scheme"@en ;
+    skos:definition "Classification scheme for different types of publications"@en ;
+    skos:hasTopConcept drk:DigitalPublication, drk:PhysicalPublication .
