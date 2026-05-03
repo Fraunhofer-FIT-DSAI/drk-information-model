@@ -21,7 +21,7 @@
     <img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" alt="License: CC BY 4.0"/>
   </a>
   <a href="https://oops.linkeddata.es/">
-    <img src="https://img.shields.io/badge/OOPS!%20Validation-✅%20Zero%20Pitfalls-brightgreen.svg" alt="OOPS Validation"/>
+    <img src="https://img.shields.io/badge/OOPS!%20Validation-%20Zero%20Pitfalls-brightgreen.svg" alt="OOPS Validation"/>
   </a>
   <a href="https://catalogue.fair-impact.eu/resources/foops">
     <img src="https://img.shields.io/badge/FAIR%20Compliance-71%25-orange" alt="FAIR Compliance"/>
@@ -46,37 +46,37 @@
 - Documentation (currently, in the form of README files)
 
 ---
-## 📚 Documentation & Standards
+## Documentation & Standards
 
-### 📖 Ontology Documentation
-- **[📋 Complete Documentation](https://fraunhofer-fit-dsai.github.io/drk-information-model/)** - WIDOCO-generated comprehensive reference
+### Ontology Documentation
+- **[Complete Documentation](https://fraunhofer-fit-dsai.github.io/drk-information-model/)** - WIDOCO-generated comprehensive reference
 - **[⚡ SPARQL Query Endpoint](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/sparql-endpoint)** - Query the DRK Knowledge Graph
-- **[🎯Example Queries](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/blob/main/sparql-endpoint/README.md)** - Pre-built queries to get started
-- **[🔍 Browse Ontology](https://w3id.org/drk/ontology/)** - Interactive exploration
-- **[⬇️ Download RDF](drk-ontology.ttl)** - Turtle format for direct use
+- **[Example Queries](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/blob/main/sparql-endpoint/README.md)** - Pre-built queries to get started
+- **[Browse Ontology](https://w3id.org/drk/ontology/)** - Interactive exploration
+- **[Download RDF](drk-ontology.ttl)** - Turtle format for direct use
 
-### 🎨 Visual Resources
-- **[📐 UML Diagrams](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/visual-models)** - Visual class relationships
+### Visual Resources
+- **[UML Diagrams](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/visual-models)** - Visual class relationships
 
-### 📏 Development Standards
+### Development Standards
 
-#### 📁 **File & Directory Conventions**
+#### **File & Directory Conventions**
 ```
-✅ Correct:   drk-ontology.ttl, application-profiles/
-✅ Correct:   sparql-endpoint/, visual-models/
-❌ Avoid:    DRK_Ontology.TTL, ApplicationProfiles/
+Correct:   drk-ontology.ttl, application-profiles/
+Correct:   sparql-endpoint/, visual-models/
+Avoid:    DRK_Ontology.TTL, ApplicationProfiles/
 ```
 - **Format**: All lowercase, separated by hyphens (`-`)
 - **Extensions**: Standard semantic web formats (`.ttl`, `.rdf`, `.jsonld`)
 
-#### 🏷️ **Namespace & Prefix Standards**
+#### **Namespace & Prefix Standards**
 | Prefix | Namespace | Usage |
 |--------|-----------|-------|
 | `drk:` | `https://w3id.org/drk/ontology/` | DRK-specific concepts |
 | `schema:` | `https://schema.org/` | General web semantics |
 | `dcat:` | `http://www.w3.org/ns/dcat#` | Data catalog metadata |
 
-#### 📦 **Versioning Strategy**
+#### **Versioning Strategy**
 Following [Semantic Versioning 2.0.0](https://semver.org/):
 
 ```
