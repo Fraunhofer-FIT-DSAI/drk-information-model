@@ -51,7 +51,7 @@ var respecConfig = {
       title: "Schema.org", href: "https://schema.org/", publisher: "Schema.org Community Group"
     },
     "A11YJSON": {
-      title: "A11yJSON — a standardised way to describe the accessibility of places",
+      title: "A11yJSON a standardised way to describe the accessibility of places",
       href: "https://sozialhelden.github.io/a11yjson/", publisher: "Sozialhelden e.V."
     },
     "DRK-IM": {
@@ -60,7 +60,7 @@ var respecConfig = {
       publisher: "Fraunhofer FIT", date: "2025"
     },
     "MOBILITYDCAT-AP": {
-      title: "mobilityDCAT-AP — a metadata specification for enhanced cross-border mobility data sharing",
+      title: "mobilityDCAT-AP a metadata specification for enhanced cross-border mobility data sharing",
       href: "https://w3id.org/mobilitydcat-ap/", publisher: "NAPCORE"
     }
   }
@@ -115,7 +115,6 @@ var respecConfig = {
 
 <!-- =================================================================== -->
 <section id="sotd" class="introductory">
-<h2>Status of this document</h2>
 <p>
   This is a working draft prepared in support of the revision of the DRK Information Model paper submitted to the
   <em>Semantic Web Journal</em> (SWJ). It is published as an <em>unofficial</em> document and does not represent a
@@ -162,12 +161,12 @@ var respecConfig = {
 </p>
 <ul>
   <li>
-    <strong>General Application Profile (GAP)</strong> — a convention-based set of recommended concepts and
+    <strong>General Application Profile (GAP)</strong> a convention-based set of recommended concepts and
     attributes with common, minimum constraints, foreseen to be applicable to all specific applications derived
     from it.
   </li>
   <li>
-    <strong>Specific Application Profile (SAP)</strong> — a profile for a concrete use-case scenario with concrete
+    <strong>Specific Application Profile (SAP)</strong> a profile for a concrete use-case scenario with concrete
     data providers and data sources, derived from a GAP.
   </li>
 </ul>
@@ -178,14 +177,6 @@ var respecConfig = {
   separately through the DRK ODRL profile.
 </p>
 </section>
-
-<section id="conformance">
-<h3>Conformance</h3>
-<p>
-  This section is normative. The key words <em>MUST</em>, <em>MUST NOT</em>, <em>REQUIRED</em>, <em>SHOULD</em>,
-  <em>SHOULD NOT</em>, <em>RECOMMENDED</em>, <em>MAY</em>, and <em>OPTIONAL</em> in this document are to be
-  interpreted as described in [[rfc2119]] and [[rfc8174]].
-</p>
 <p>
   An RDF graph conforms to this profile if, for every entity it contains that is typed with a class defined or
   reused by this profile, it satisfies the cardinality and value constraints stated in the corresponding
@@ -350,7 +341,7 @@ var respecConfig = {
 <h3>Theater Event (showtime)</h3>
 <table class="simple" id="table-class-theaterevent">
 <tbody>
-<tr><th scope="row">Definition</th><td>A class that describes the presentation of a theatrical creative work such as a play — i.e., an individual showtime.</td></tr>
+<tr><th scope="row">Definition</th><td>A class that describes the presentation of a theatrical creative work such as a play, i.e., an individual showtime.</td></tr>
 <tr><th scope="row">URI</th><td><code>drk:TheaterEvent</code></td></tr>
 <tr><th scope="row">Subclass of</th><td><a href="https://schema.org/TheaterEvent"><code>schema:TheaterEvent</code></a>, <a href="#class-event"><code>drk:Event</code></a></td></tr>
 <tr><th scope="row">Usage note</th><td>Each performance is a distinct instance. The work performed is linked with <a href="https://schema.org/workPerformed"><code>schema:workPerformed</code></a> to a <a href="#class-playproduction"><code>drk:PlayProduction</code></a>; the venue with <a href="https://schema.org/location"><code>schema:location</code></a> to a <a href="#class-performingartstheater"><code>drk:PerformingArtsTheater</code></a> (and optionally a <code>schema:VirtualLocation</code> for live streams).</td></tr>
