@@ -13,7 +13,7 @@
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
 @prefix cc:           <http://creativecommons.org/ns#> .
 @prefix foaf:         <http://xmlns.com/foaf/0.1/> .
-@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix bibo:         <http://purl.org/ontology/bibo/> .
 
 
 # Ontology Definition
@@ -34,15 +34,15 @@ drk:
     dcterms:title                 "Culture Dataspace (DRK) Ontology"@en, "Datenraum Kultur (DRK) Ontologie"@de ;
 
     # Version Information
-    owl:versionInfo               "1.0.1"^^xsd:string ;
-    owl:versionIRI                <http://w3id.org/drk/ontology/1.0.1> ;
-    owl:priorVersion              <http://w3id.org/drk/ontology/1.0.0> ;
-    dcterms:hasVersion            "1.0.1"^^xsd:string ;
+    owl:versionInfo               "2.0.0"^^xsd:string ;
+    owl:versionIRI                <http://w3id.org/drk/ontology/2.0.0> ;
+    owl:priorVersion              <http://w3id.org/drk/ontology/1.0.1> ;
+    dcterms:hasVersion            "2.0.0"^^xsd:string ;
     
     # Dates
     dcterms:created               "2024-10-22"^^xsd:date ;
-    dcterms:modified              "2025-04-24"^^xsd:date ;
-    dcterms:issued                "2025-04-24"^^xsd:date ;
+    dcterms:modified              "2026-05-20"^^xsd:date ;
+    dcterms:issued                "2026-06-10"^^xsd:date ;
     bibo:doi                      "10.5281/zenodo.15294907" ;
 
     # Simple author strings for better tool compatibility
@@ -284,9 +284,99 @@ drk:wheelchairUserCapacity
     dcterms:source   <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> ;
     rdfs:isDefinedBy drk: .
 
+drk:Organization
+    a                owl:Class, rdfs:Class ;
+    rdfs:subClassOf  schema:Organization ;
+    rdfs:label       "Organization"@en ;
+    rdfs:comment     "A class for describing organizations. It extends schema:Organization and can be associated with data services and other organizational metadata."@en ;
+    rdfs:isDefinedBy drk: .
+	
+drk:associatedDataService
+    a                rdf:Property, owl:ObjectProperty ;
+    rdfs:domain      drk:Organization ;
+    rdfs:range       dcat:DataService ;
+    rdfs:label       "Associated Data Service"@en ;
+    rdfs:comment     "A property that links an organization to an associated data service through which its data can be accessed or provided."@en ;
+    rdfs:isDefinedBy drk: .
+	
+drk:DataService
+    a                owl:Class, rdfs:Class ;
+    rdfs:subClassOf  dcat:DataService, schema:Service ;
+    rdfs:label       "Data Service"@en ;
+    rdfs:comment     "A class for data services that provide access to datasets or records."@en ;
+    rdfs:isDefinedBy drk: .
+
 ##########################################################################################################
 ### Common culture domain-specific concepts ###
 ##########################################################################################################
+
+drk:CulturalOrganization
+    a                owl:Class, rdfs:Class ;
+    rdfs:subClassOf  drk:Organization ;
+    rdfs:label       "Cultural Organization"@en ;
+    rdfs:comment     "A class for organizations in the culture domain, such as theaters, museums, libraries, orchestras, and cultural associations."@en ;
+    rdfs:isDefinedBy drk: .
+
+drk:TheaterOrganization
+    a                owl:Class, rdfs:Class ;
+    rdfs:subClassOf  drk:CulturalOrganization, schema:TheaterGroup ;
+    rdfs:label       "Theater Organization"@en ;
+    rdfs:comment     "A class for theater organizations, such as theater groups, companies, or associations, that provide information about theatrical productions and events."@en ;
+    rdfs:isDefinedBy drk: .
+
+drk:hasTheatricalProduction
+    a                rdf:Property, owl:ObjectProperty ;
+    rdfs:domain      drk:TheaterOrganization ;
+    rdfs:range       drk:TheatricalProduction ;
+    rdfs:label       "Has Theatrical Production"@en ;
+    rdfs:comment     "A property that links a theater organization to a theatrical production associated with that organization."@en ;
+    rdfs:isDefinedBy drk: .
+
+drk:hasTheatricalEvent
+    a                rdf:Property, owl:ObjectProperty ;
+    rdfs:domain      drk:TheaterOrganization ;
+    rdfs:range       drk:TheatricalEvent ;
+    rdfs:label       "Has Theatrical Event"@en ;
+    rdfs:comment     "A property that links a theater organization to a theatrical event associated with that organization."@en ;
+    rdfs:isDefinedBy drk: .
+
+drk:TheatricalProduction
+    a                owl:Class, rdfs:Class ;
+    rdfs:subClassOf  drk:PlayProduction ;
+    rdfs:label       "Theatrical Production"@en ;
+    rdfs:comment     "A class for theatrical creative works and production-related activities, such as plays or staged productions, excluding their individual presentations as events."@en ;
+    rdfs:isDefinedBy drk: .
+
+drk:theatricalGenre
+    a                  rdf:Property, owl:ObjectProperty ;
+    rdfs:subPropertyOf schema:genre ;
+    rdfs:domain        drk:TheatricalProduction ;
+    rdfs:range         skos:Concept ;
+    rdfs:label         "Theatrical Genre"@en ;
+    rdfs:comment       "A property that specifies the theatrical genre of a theatrical production."@en ;
+    rdfs:isDefinedBy   drk: .
+
+drk:TheatricalEvent
+    a                owl:Class, rdfs:Class ;
+    rdfs:subClassOf  drk:TheaterEvent ;
+    rdfs:label       "Theatrical Event"@en ;
+    rdfs:comment     "A class for an individual presentation or performance of a theatrical production at a particular time and physical, virtual, or hybrid location."@en ;
+    rdfs:isDefinedBy drk: .
+
+drk:TheaterShowtimesDataset
+    a                owl:Class, rdfs:Class ;
+    rdfs:subClassOf  dcat:Dataset, schema:Collection ;
+    rdfs:label       "Theater Showtimes Dataset"@en ;
+    rdfs:comment     "A class for datasets containing theater showtimes data, including records about theater organizations, productions, events, venues, offers, and related metadata."@en ;
+    rdfs:isDefinedBy drk: .
+
+drk:containsTheaterShowtimesRecord
+    a                rdf:Property, owl:ObjectProperty ;
+    rdfs:domain      drk:TheaterShowtimesDataset ;
+    rdfs:range       rdfs:Resource ;
+    rdfs:label       "Contains Theater Showtimes Record"@en ;
+    rdfs:comment     "A property that links a theater showtimes dataset to a theater showtimes record, for example a named graph or other RDF resource representing a record in the dataset."@en ;
+    rdfs:isDefinedBy drk: .
 
 # The drk:Character class represents a character in a creative work or during an event.
 drk:Character
@@ -364,6 +454,14 @@ drk:CharacterPerformanceRole
     Characters can be from a creative work such as a Play.
     Examples of characters include Romeo (from Romeo and Juliet by William Shakespeare; characterType: Person), Alexander Hamilton (from Hamilton musical by Lin-Manuel Miranda; characterType: Person), Simba (from The Lion King; characterType: Animal), Kermit the Frog (from The Muppet Show; characterType: Puppet), WALL-E (from Pixar's WALL-E movie; characterType: Robot), Puck (from A Midsummer Night's Dream by William Shakespeare; characterType: Imaginary Entity (Fairy)), the flying Magic Carpet (from Aladdin; characterType: Inanimate Object), etc.
     Performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI) in a creative work or during an event."""@en ;
+    rdfs:isDefinedBy drk: .
+
+drk:character
+    a                rdf:Property, owl:ObjectProperty ;
+    rdfs:domain      drk:CharacterPerformanceRole ;
+    rdfs:range       drk:Character ;
+    rdfs:label       "Character"@en ;
+    rdfs:comment     "A property that links a character performance role to the character represented or performed in that role."@en ;
     rdfs:isDefinedBy drk: .
 
 # The drk:ProductionRole class links a production role to its performer.
