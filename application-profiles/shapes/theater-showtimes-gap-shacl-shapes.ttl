@@ -1,0 +1,1097 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix drk: <https://w3id.org/drk/ontology/> .
+@prefix tsgap: <https://w3id.org/drk/ap/tsgap> .
+@prefix schema: <https://schema.org/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix spdx: <http://spdx.org/rdf/terms#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix tgenres: <http://w3id.org/drk/vocabs/theatrical-genres#> .
+@prefix tprod: <http://w3id.org/drk/vocabs/theatrical-production-types#> .
+@prefix tevent: <http://w3id.org/drk/vocabs/theatrical-event-types#> .
+@prefix tperf: <http://w3id.org/drk/vocabs/performer-types#> .
+@prefix tchar: <http://w3id.org/drk/vocabs/character-types#> .
+@prefix ppfa: <http://w3id.org/drk/vocabs/personal-profile-for-accessibility#> .
+@prefix lang: <http://publications.europa.eu/resource/authority/language/> .
+@prefix currency: <http://publications.europa.eu/resource/authority/currency/> .
+@prefix geonames: <https://sws.geonames.org/> .
+
+
+#################################################################
+# SHACL shapes graph metadata
+#################################################################
+
+tsgap:theater-showtimes-shapes
+    dcterms:title "SHACL Shapes for the Theater Showtimes General Application Profile v2.0.0"@en ;
+    dcterms:description "This SHACL shapes graph defines constraints corresponding to the Theater Showtimes Application Profile. schema:Text values are validated as xsd:string. Controlled vocabulary requirements are represented using reusable SHACL value shapes. DRK controlled vocabularies are validated as SKOS concepts belonging to the designated SKOS concept scheme. Schema.org enumerations are validated against their enumeration type. EU Authority Table and GeoNames values are validated as IRIs in the designated namespaces."@en ;
+    dcterms:hasVersion "2.0.0" ;
+    dcterms:issued "2026-05-02"^^xsd:date ;
+    dcterms:modified "2026-06-10"^^xsd:date .
+
+#################################################################
+# Reusable controlled-vocabulary value shapes
+#################################################################
+
+# DRK controlled vocabularies are modeled as SKOS concept schemes. These
+# constraints therefore require each value to be a skos:Concept that belongs
+# to the designated concept scheme via skos:inScheme. The corresponding
+# controlled vocabulary graph must be available to the SHACL validator.
+
+tsgap:DRKTheatricalGenreValueShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:class skos:Concept ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue tgenres:
+    ] ;
+    sh:message "Value must be a skos:Concept from the DRK theatrical genres controlled vocabulary." .
+
+tsgap:DRKTheatricalProductionTypeValueShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:class skos:Concept ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue tprod:
+    ] ;
+    sh:message "Value must be a skos:Concept from the DRK theatrical production types controlled vocabulary." .
+
+tsgap:DRKTheatricalEventTypeValueShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:class skos:Concept ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue tevent:
+    ] ;
+    sh:message "Value must be a skos:Concept from the DRK theatrical event types controlled vocabulary." .
+
+tsgap:DRKPerformerTypeValueShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:class skos:Concept ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue tperf:
+    ] ;
+    sh:message "Value must be a skos:Concept from the DRK performer types controlled vocabulary." .
+
+tsgap:DRKCharacterTypeValueShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:class skos:Concept ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue tchar:
+    ] ;
+    sh:message "Value must be a skos:Concept from the DRK character types controlled vocabulary." .
+
+tsgap:DRKPersonalProfileForAccessibilityValueShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:class skos:Concept ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue ppfa:
+    ] ;
+    sh:message "Value must be a skos:Concept from the DRK Personal Profile for Accessibility controlled vocabulary." .
+
+# Schema.org controlled vocabularies are represented as enumeration types.
+# These constraints require the schema.org vocabulary graph, or equivalent
+# typing triples for the enumeration values, to be available to the validator.
+
+tsgap:SchemaItemAvailabilityValueShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:class schema:ItemAvailability ;
+    sh:message "Value must be a schema.org ItemAvailability enumeration IRI." .
+
+tsgap:SchemaEventStatusTypeValueShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:class schema:EventStatusType ;
+    sh:message "Value must be a schema.org EventStatusType enumeration IRI." .
+
+tsgap:SchemaMapCategoryTypeValueShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:class schema:MapCategoryType ;
+    sh:message "Value must be a schema.org MapCategoryType enumeration IRI." .
+
+tsgap:SchemaTierBenefitEnumerationValueShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:class schema:TierBenefitEnumeration ;
+    sh:message "Value must be a schema.org TierBenefitEnumeration IRI." .
+
+# EU Authority Table and GeoNames restrictions are expressed as IRI namespace
+# checks so that the SHACL shapes do not need to copy all vocabulary members.
+# These checks verify that values use the designated authority namespace.
+
+tsgap:EULanguageValueShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:sparql [
+        sh:message "Value must be an IRI from the EU Language Authority Table namespace: http://publications.europa.eu/resource/authority/language/." ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                FILTER (!STRSTARTS(STR($this), "http://publications.europa.eu/resource/authority/language/"))
+            }
+        """
+    ] .
+
+tsgap:EUCurrencyValueShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:sparql [
+        sh:message "Value must be an IRI from the EU Currency Authority Table namespace: http://publications.europa.eu/resource/authority/currency/." ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                FILTER (!STRSTARTS(STR($this), "http://publications.europa.eu/resource/authority/currency/"))
+            }
+        """
+    ] .
+
+tsgap:GeoNamesValueShape a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:sparql [
+        sh:message "Value must be an IRI from the GeoNames namespace: https://sws.geonames.org/." ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                FILTER (!STRSTARTS(STR($this), "https://sws.geonames.org/"))
+            }
+        """
+    ] .
+
+tsgap:TheaterOrganizationShape a sh:NodeShape ;
+    sh:targetClass drk:TheaterOrganization ;
+    sh:property [
+        sh:path drk:hasTheatricalProduction ;
+        sh:class drk:TheatricalProduction
+    ] ;
+    sh:property [
+        sh:path drk:hasTheatricalEvent ;
+        sh:class drk:TheatricalEvent
+    ] .
+
+tsgap:TheatricalProductionShape a sh:NodeShape ;
+    sh:targetClass drk:TheatricalProduction ;
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:description ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:inLanguage ;
+        sh:node tsgap:EULanguageValueShape
+    ] ;
+    sh:property [
+        sh:path drk:theatricalGenre ;
+        sh:node tsgap:DRKTheatricalGenreValueShape
+    ] ;
+    sh:property [
+        sh:path schema:audience ;
+        sh:class schema:PeopleAudience
+    ] ;
+    sh:property [
+        sh:path drk:productionType ;
+        sh:node tsgap:DRKTheatricalProductionTypeValueShape
+    ] ;
+    sh:property [
+        sh:path drk:characterRole ;
+        sh:class drk:CharacterPerformanceRole
+    ] ;
+    sh:property [
+        sh:path drk:creatorRole ;
+        sh:class drk:ProductionRole
+    ] ;
+    sh:property [
+        sh:path schema:accessibilitySummary ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:alternativeHeadline ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:abstract ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:associatedMedia ;
+        sh:class schema:CreativeWork
+    ] ;
+    sh:property [
+        sh:path schema:accessModeSufficient ;
+        sh:class schema:ItemList ;
+        sh:description "Future work: use of a controlled vocabulary."@en
+    ] ;
+    sh:property [
+        sh:path schema:accessibilityHazard ;
+        sh:datatype xsd:string ;
+        sh:description "Future work: use of a controlled vocabulary."@en
+    ] ;
+    sh:property [
+        sh:path schema:isBasedOn ;
+        sh:class schema:CreativeWork
+    ] .
+
+tsgap:PostalAddressShape a sh:NodeShape ;
+    sh:targetClass schema:PostalAddress ;
+    sh:property [
+        sh:path schema:streetAddress ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:postalCode ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:addressLocality ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:node tsgap:GeoNamesValueShape
+    ] ;
+    sh:property [
+        sh:path schema:addressCountry ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:node tsgap:GeoNamesValueShape
+    ] ;
+    sh:property [
+        sh:path schema:name ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:addressRegion ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string
+    ] .
+
+tsgap:TheatricalEventShape a sh:NodeShape ;
+    sh:targetClass drk:TheatricalEvent ;
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:workPerformed ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class drk:TheatricalProduction
+    ] ;
+    sh:property [
+        sh:path schema:location ;
+        sh:minCount 1 ;
+        sh:or (
+            [
+              sh:class schema:Place
+            ]
+            [
+              sh:class schema:VirtualLocation
+            ]
+        )
+    ] ;
+    sh:property [
+        sh:path schema:startDate ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:dateTime
+    ] ;
+    sh:property [
+        sh:path schema:endDate ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:dateTime
+    ] ;
+    sh:property [
+        sh:path schema:doorTime ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:dateTime
+    ] ;
+    sh:property [
+        sh:path schema:duration ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:duration
+    ] ;
+    sh:property [
+        sh:path drk:intermissionCount ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:nonNegativeInteger
+    ] ;
+    sh:property [
+        sh:path schema:url ;
+        sh:nodeKind sh:IRI
+    ] ;
+    sh:property [
+        sh:path schema:inLanguage ;
+        sh:node tsgap:EULanguageValueShape
+    ] ;
+    sh:property [
+        sh:path drk:subtitleLanguage ;
+        sh:node tsgap:EULanguageValueShape
+    ] ;
+    sh:property [
+        sh:path schema:offers ;
+        sh:class schema:Offer
+    ] ;
+    sh:property [
+        sh:path drk:characterPerformanceRole ;
+        sh:class drk:CharacterPerformanceRole
+    ] ;
+    sh:property [
+        sh:path drk:eventRole ;
+        sh:class drk:ProductionRole
+    ] ;
+    sh:property [
+        sh:path drk:eventType ;
+        sh:node tsgap:DRKTheatricalEventTypeValueShape
+    ] ;
+    sh:property [
+        sh:path schema:eventStatus ;
+        sh:node tsgap:SchemaEventStatusTypeValueShape
+    ] ;
+    sh:property [
+        sh:path schema:previousStartDate ;
+        sh:datatype xsd:dateTime
+    ] .
+
+drk:PlaceAccessibilityFeatureShape a sh:NodeShape ;
+    sh:targetClass drk:PlaceAccessibilityFeature ;
+    sh:property [
+        sh:path drk:animalPolicy ;
+        sh:maxCount 1 ;
+        sh:class drk:AnimalPolicy
+    ] ;
+    sh:property [
+        sh:path drk:accessibleWith ;
+        sh:node tsgap:DRKPersonalProfileForAccessibilityValueShape
+    ] ;
+    sh:property [
+        sh:path drk:wheelchairPlaces ;
+        sh:class drk:WheelchairPlaces
+    ] ;
+    sh:property [
+        sh:path drk:accessibilityDescription ;
+        sh:datatype xsd:string
+    ] .
+
+tsgap:PlaceShape a sh:NodeShape ;
+    sh:targetClass drk:Place ;
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:address ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class schema:PostalAddress
+    ] ;
+    sh:property [
+        sh:path drk:hasAccessibilityFeature ;
+        sh:maxCount 1 ;
+        sh:class drk:PlaceAccessibilityFeature
+    ] ;
+    sh:property [
+        sh:path schema:latitude ;
+        sh:maxCount 1 ;
+        sh:or (
+            [
+              sh:or (
+                  [ sh:datatype xsd:decimal ]
+                  [ sh:datatype xsd:double ]
+                  [ sh:datatype xsd:integer ]
+              )
+            ]
+            [
+              sh:datatype xsd:string
+            ]
+        )
+    ] ;
+    sh:property [
+        sh:path schema:longitude ;
+        sh:maxCount 1 ;
+        sh:or (
+            [
+              sh:or (
+                  [ sh:datatype xsd:decimal ]
+                  [ sh:datatype xsd:double ]
+                  [ sh:datatype xsd:integer ]
+              )
+            ]
+            [
+              sh:datatype xsd:string
+            ]
+        )
+    ] ;
+    sh:property [
+        sh:path drk:navigationMapURL ;
+        sh:nodeKind sh:IRI
+    ] ;
+    sh:property [
+        sh:path schema:hasMap ;
+        sh:class schema:Map
+    ] .
+
+tsgap:OfferShape a sh:NodeShape ;
+    sh:targetClass schema:Offer ;
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:url ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI
+    ] ;
+    sh:property [
+        sh:path schema:availability ;
+        sh:node tsgap:SchemaItemAvailabilityValueShape
+    ] ;
+    sh:property [
+        sh:path schema:priceSpecification ;
+        sh:class schema:PriceSpecification
+    ] ;
+    sh:property [
+        sh:path schema:validFrom ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:dateTime
+    ] ;
+    sh:property [
+        sh:path schema:validThrough ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:dateTime
+    ] ;
+    sh:property [
+        sh:path schema:validForMemberTier ;
+        sh:class schema:MemberProgramTier
+    ] .
+
+tsgap:OrganizationShape a sh:NodeShape ;
+    sh:targetClass drk:Organization ;
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:description ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path drk:associatedDataService ;
+        sh:class dcat:DataService
+    ] ;
+    sh:property [
+        sh:path schema:address ;
+        sh:class schema:PostalAddress
+    ] ;
+    sh:property [
+        sh:path schema:logo ;
+        sh:nodeKind sh:IRI
+    ] ;
+    sh:property [
+        sh:path schema:url ;
+        sh:nodeKind sh:IRI
+    ] ;
+    sh:property [
+        sh:path schema:sameAs ;
+        sh:nodeKind sh:IRI
+    ] .
+
+tsgap:WheelchairPlacesShape a sh:NodeShape ;
+    sh:targetClass drk:WheelchairPlaces ;
+    sh:property [
+        sh:path drk:wheelchairPlacesCount ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:nonNegativeInteger
+    ] ;
+    sh:property [
+        sh:path drk:hasSpaceForAssistant ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:boolean
+    ] ;
+    sh:property [
+        sh:path drk:wheelchairUserCapacity ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:nonNegativeInteger
+    ] .
+
+tsgap:AnimalPolicyShape a sh:NodeShape ;
+    sh:targetClass drk:AnimalPolicy ;
+    sh:property [
+        sh:path drk:allowsDogs ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:boolean
+    ] ;
+    sh:property [
+        sh:path drk:allowsServiceAnimals ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:boolean
+    ] ;
+    sh:property [
+        sh:path drk:allowsAssistanceDogs ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:boolean
+    ] ;
+    sh:property [
+        sh:path drk:allowsGuideDogs ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:boolean
+    ] .
+
+tsgap:PerformingArtsTheaterShape a sh:NodeShape ;
+    sh:targetClass drk:PerformingArtsTheater .
+
+tsgap:PeopleAudienceShape a sh:NodeShape ;
+    sh:targetClass schema:PeopleAudience ;
+    sh:property [
+        sh:path schema:requiredMinAge ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:integer
+    ] ;
+    sh:property [
+        sh:path schema:requiredMaxAge ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:integer
+    ] ;
+    sh:property [
+        sh:path schema:audienceType ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:suggestedMinAge ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:datatype xsd:decimal ]
+            [ sh:datatype xsd:double ]
+            [ sh:datatype xsd:integer ]
+        )
+    ] ;
+    sh:property [
+        sh:path schema:suggestedMaxAge ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:datatype xsd:decimal ]
+            [ sh:datatype xsd:double ]
+            [ sh:datatype xsd:integer ]
+        )
+    ] .
+
+tsgap:CharacterPerformanceRoleShape a sh:NodeShape ;
+    sh:targetClass drk:CharacterPerformanceRole ;
+    sh:property [
+        sh:path drk:character ;
+        sh:class drk:Character
+    ] .
+
+tsgap:ProductionRoleShape a sh:NodeShape ;
+    sh:targetClass drk:ProductionRole .
+
+tsgap:EventShape a sh:NodeShape ;
+    sh:targetClass drk:Event ;
+    sh:property [
+        sh:path drk:intermissionCount ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:nonNegativeInteger
+    ] ;
+    sh:property [
+        sh:path drk:eventRole ;
+        sh:class drk:ProductionRole
+    ] ;
+    sh:property [
+        sh:path drk:eventType ;
+        sh:node tsgap:DRKTheatricalEventTypeValueShape
+    ] ;
+    sh:property [
+        sh:path schema:offers ;
+        sh:class schema:Offer
+    ] .
+
+tsgap:MemberProgramShape a sh:NodeShape ;
+    sh:targetClass schema:MemberProgram ;
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:description ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:hostingOrganization ;
+        sh:minCount 1 ;
+        sh:class schema:Organization
+    ] ;
+    sh:property [
+        sh:path schema:hasTiers ;
+        sh:class schema:MemberProgramTier
+    ] ;
+    sh:property [
+        sh:path schema:url ;
+        sh:nodeKind sh:IRI
+    ] .
+
+tsgap:PriceSpecificationShape a sh:NodeShape ;
+    sh:targetClass schema:PriceSpecification ;
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:priceCurrency ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:node tsgap:EUCurrencyValueShape
+    ] ;
+    sh:property [
+        sh:path schema:price ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:datatype xsd:decimal ]
+            [ sh:datatype xsd:double ]
+            [ sh:datatype xsd:integer ]
+        )
+    ] ;
+    sh:property [
+        sh:path schema:minPrice ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:datatype xsd:decimal ]
+            [ sh:datatype xsd:double ]
+            [ sh:datatype xsd:integer ]
+        )
+    ] ;
+    sh:property [
+        sh:path schema:maxPrice ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:datatype xsd:decimal ]
+            [ sh:datatype xsd:double ]
+            [ sh:datatype xsd:integer ]
+        )
+    ] ;
+    sh:or (
+        [
+            sh:property [
+                sh:path schema:price ;
+                sh:minCount 1
+            ]
+        ]
+        [
+            sh:and (
+                [
+                    sh:property [
+                        sh:path schema:minPrice ;
+                        sh:minCount 1
+                    ]
+                ]
+                [
+                    sh:property [
+                        sh:path schema:maxPrice ;
+                        sh:minCount 1
+                    ]
+                ]
+            )
+        ]
+    ) ;
+    sh:message "One of (schema:price OR (schema:minPrice AND schema:maxPrice)) must be present."  .
+
+tsgap:PerformerShape a sh:NodeShape ;
+    sh:targetClass drk:Performer ;
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path drk:performerType ;
+        sh:node tsgap:DRKPerformerTypeValueShape
+    ] ;
+    sh:property [
+        sh:path schema:sameAs ;
+        sh:nodeKind sh:IRI
+    ] .
+
+tsgap:RoleShape a sh:NodeShape ;
+    sh:targetClass drk:Role ;
+    sh:property [
+        sh:path schema:roleName ;
+        sh:minCount 1 ;
+        sh:or (
+            [
+              sh:datatype xsd:string
+            ]
+            [
+              sh:nodeKind sh:IRI
+            ]
+        )
+    ] ;
+    sh:property [
+        sh:path drk:performer ;
+        sh:class drk:Performer
+    ] .
+
+tsgap:CharacterShape a sh:NodeShape ;
+    sh:targetClass drk:Character ;
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path drk:characterType ;
+        sh:node tsgap:DRKCharacterTypeValueShape
+    ] ;
+    sh:property [
+        sh:path schema:sameAs ;
+        sh:nodeKind sh:IRI
+    ] .
+
+tsgap:VirtualLocationShape a sh:NodeShape ;
+    sh:targetClass schema:VirtualLocation ;
+    sh:property [
+        sh:path schema:url ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI
+    ] ;
+    sh:property [
+        sh:path schema:name ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:description ;
+        sh:datatype xsd:string
+    ] .
+
+tsgap:MemberProgramTierShape a sh:NodeShape ;
+    sh:targetClass schema:MemberProgramTier ;
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:description ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:isTierOf ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class schema:MemberProgram
+    ] ;
+    sh:property [
+        sh:path schema:hasTierBenefit ;
+        sh:node tsgap:SchemaTierBenefitEnumerationValueShape
+    ] .
+
+tsgap:TheaterShowtimesDatasetShape a sh:NodeShape ;
+    sh:targetClass drk:TheaterShowtimesDataset ;
+    sh:property [
+        sh:path dcterms:title ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal
+    ] ;
+    sh:property [
+        sh:path dcterms:description ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal
+    ] ;
+    sh:property [
+        sh:path dcat:distribution ;
+        sh:minCount 1 ;
+        sh:class dcat:Distribution
+    ] ;
+    sh:property [
+        sh:path dcat:version ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:Literal
+    ] ;
+    sh:property [
+        sh:path dcat:contactPoint ;
+        sh:minCount 1 ;
+        sh:class vcard:Kind
+    ] ;
+    sh:property [
+        sh:path dcat:keyword ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal
+    ] ;
+    sh:property [
+        sh:path dcterms:creator ;
+        sh:minCount 1 ;
+        sh:class foaf:Agent
+    ] ;
+    sh:property [
+        sh:path dcterms:publisher ;
+        sh:minCount 1 ;
+        sh:class foaf:Agent
+    ] ;
+    sh:property [
+        sh:path dcterms:issued ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:datatype xsd:date ]
+            [ sh:datatype xsd:dateTime ]
+        )
+    ] ;
+    sh:property [
+        sh:path dcterms:modified ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:datatype xsd:date ]
+            [ sh:datatype xsd:dateTime ]
+        )
+    ] ;
+    sh:property [
+        sh:path dcterms:license ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:class dcterms:LicenseDocument
+    ] ;
+    sh:property [
+        sh:path dcterms:accessRights ;
+        sh:minCount 1 ;
+        sh:class dcterms:RightsStatement
+    ] ;
+    sh:property [
+        sh:path dcterms:conformsTo ;
+        sh:class dcterms:Standard
+    ] ;
+    sh:property [
+        sh:path dcat:theme ;
+        sh:class skos:Concept
+    ] ;
+    sh:property [
+        sh:path dcterms:type ;
+        sh:datatype xsd:anyURI
+    ] ;
+    sh:property [
+        sh:path dcterms:language ;
+        sh:node tsgap:EULanguageValueShape
+    ] ;
+    sh:property [
+        sh:path odrl:hasPolicy ;
+        sh:class odrl:Policy
+    ] ;
+    sh:property [
+        sh:path dcterms:accrualPeriodicity ;
+        sh:maxCount 1 ;
+        sh:class dcterms:Frequency ;
+        sh:message "Use a value from the Dublin Core Collection Description Frequency Vocabulary."
+    ] ;
+    sh:property [
+        sh:path schema:collectionSize ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:integer
+    ] ;
+    sh:property [
+        sh:path dcterms:spatial ;
+        sh:class dcterms:Location
+    ] ;
+    sh:property [
+        sh:path dcterms:temporal ;
+        sh:class dcterms:PeriodOfTime
+    ] ;
+    sh:property [
+        sh:path drk:containsTheaterShowtimesRecord ;
+        sh:nodeKind sh:BlankNodeOrIRI
+    ] .
+
+tsgap:DistributionShape a sh:NodeShape ;
+    sh:targetClass dcat:Distribution ;
+    sh:property [
+        sh:path dcterms:title ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal
+    ] ;
+    sh:property [
+        sh:path dcterms:description ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal
+    ] ;
+    sh:property [
+        sh:path dcterms:modified ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:datatype xsd:date ]
+            [ sh:datatype xsd:dateTime ]
+        )
+    ] ;
+    sh:property [
+        sh:path dcterms:issued ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:datatype xsd:date ]
+            [ sh:datatype xsd:dateTime ]
+        )
+    ] ;
+    sh:property [
+        sh:path dcat:accessService ;
+        sh:class dcat:DataService
+    ] ;
+    sh:property [
+        sh:path dcat:accessURL ;
+        sh:nodeKind sh:Literal
+    ] ;
+    sh:property [
+        sh:path dcat:downloadURL ;
+        sh:nodeKind sh:Literal
+    ] ;
+    sh:property [
+        sh:path dcat:mediaType ;
+        sh:maxCount 1 ;
+        sh:class dcterms:MediaType
+    ] ;
+    sh:property [
+        sh:path spdx:checksum ;
+        sh:class spdx:Checksum
+    ] ;
+    sh:or (
+        [
+            sh:property [
+                sh:path dcat:accessService ;
+                sh:minCount 1
+            ]
+        ]
+        [
+            sh:and (
+                [
+                    sh:property [
+                        sh:path dcat:downloadURL ;
+                        sh:minCount 1
+                    ]
+                ]
+                [
+                    sh:property [
+                        sh:path dcat:mediaType ;
+                        sh:minCount 1
+                    ]
+                ]
+            )
+        ]
+    ) ;
+    sh:message "Must contain either (dcat:accessService OR (dcat:downloadURL AND dcat:mediaType))."  .
+
+tsgap:DataServiceShape a sh:NodeShape ;
+    sh:targetClass drk:DataService ;
+    sh:property [
+        sh:path dcterms:title ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal
+    ] ;
+    sh:property [
+        sh:path dcterms:description ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal
+    ] ;
+    sh:property [
+        sh:path dcat:servesDataset ;
+        sh:minCount 1 ;
+        sh:class dcat:Dataset
+    ] ;
+    sh:property [
+        sh:path dcat:endpointURL ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:Literal
+    ] ;
+    sh:property [
+        sh:path dcat:endpointDescription ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:BlankNodeOrIRI
+    ] ;
+    sh:property [
+        sh:path dcat:contactPoint ;
+        sh:minCount 1 ;
+        sh:class vcard:Kind
+    ] ;
+    sh:property [
+        sh:path dcterms:conformsTo ;
+        sh:class dcterms:Standard
+    ] ;
+    sh:property [
+        sh:path schema:offers ;
+        sh:class schema:Offer
+    ] .
+
+tsgap:CulturalOrganizationShape a sh:NodeShape ;
+    sh:targetClass drk:CulturalOrganization .
+
+tsgap:MapShape a sh:NodeShape ;
+    sh:targetClass schema:Map ;
+    sh:property [
+        sh:path schema:url ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI
+    ] ;
+    sh:property [
+        sh:path schema:mapType ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:node tsgap:SchemaMapCategoryTypeValueShape
+    ] ;
+    sh:property [
+        sh:path schema:name ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:description ;
+        sh:datatype xsd:string
+    ] .
+
+tsgap:MediaObjectShape a sh:NodeShape ;
+    sh:targetClass schema:MediaObject ;
+    sh:property [
+        sh:path schema:name ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:contentURL ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI
+    ] ;
+    sh:property [
+        sh:path schema:encodingFormat ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI
+    ] ;
+    sh:property [
+        sh:path schema:description ;
+        sh:datatype xsd:string
+    ] ;
+    sh:property [
+        sh:path schema:offers ;
+        sh:class schema:Offer
+    ] ;
+    sh:property [
+        sh:path schema:recordedAt ;
+        sh:maxCount 1 ;
+        sh:class schema:Event
+    ] .

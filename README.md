@@ -32,6 +32,10 @@
 **Culture Information Model (Culture IM) / Datenraum Kultur Information Model (DRK IM)**: The DRK IM is a Semantic Information Model that aims to define formal specifications of concepts, relationships, and constraints (application profiles) within the culture dataspace. This formalization provides a structured framework for understanding and organizing information within the DRK project. In addition, this forms a basis for representing information in DRK in the form of a Knowledge Graph (DRK KG) with more advanced querying, inference, and reasoning capabilities.
 
 # Culture/DRK IM Contents
+
+![Culture-IM-Building-Blocks](images/culture-im-building-blocks.drawio.png)
+
+The Culture consists of the following building blocks, as directed by the SIM (Semantic Information Modeling) Framework for Domain-specific Dataspaces.
 - The Culture (DRK) Ontology
   - Common modules for organizations, places and accessibility, creative works, events, roles, and data services.
   - Culture sector (subdomain) specific modules for performing arts theater showtimes, museums and collections, and music marketplaces
@@ -48,8 +52,10 @@
 ---
 ## Documentation & Standards
 
-### Ontology Documentation
-- **[Complete Documentation](https://fraunhofer-fit-dsai.github.io/drk-information-model/)** - WIDOCO-generated comprehensive reference
+### Culture IM Documentation
+- **[Complete Documentation Index](https://fraunhofer-fit-dsai.github.io/drk-information-model/)** - Links to Culture IM documentation & artifacts
+- **[Culture Ontology WIDOCO-style Documentation](https://fraunhofer-fit-dsai.github.io/drk-information-model/latest/index.html)** - WIDOCO-generated comprehensive reference
+- **[Theater Showtimes General Application Profile ReSpec-style Documentation](https://fraunhofer-fit-dsai.github.io/drk-information-model/latest/application-profiles/theater-showtimes/)** - With embedded constraints, usage notes, and examples
 - **[⚡ SPARQL Query Endpoint](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/tree/main/sparql-endpoint)** - Query the DRK Knowledge Graph
 - **[Example Queries](https://github.com/Fraunhofer-FIT-DSAI/drk-information-model/blob/main/sparql-endpoint/README.md)** - Pre-built queries to get started
 - **[Browse Ontology](https://w3id.org/drk/ontology/)** - Interactive exploration
@@ -189,7 +195,7 @@ DRK IM focuses on the interoperability aspects within the Technical and Semantic
 
 To facilitate both the modular representation and FAIRness (Findability, Accessibility, Interoperability, and Reusability) of information, the DRK IM is structured into layers, as illustrated in the following figure. These layers are realized using the existing ontologies and vocabularies.
 
-![DRK IM Layers](images/drk-im-layers.png)
+![DRK IM Layers](images/existing-data-models-collection.drawio.png)
 (Graphic: Rohit Deshmukh, Daham Mohammed Mustafa/Fraunhofer FIT)
 
 # Glossary
