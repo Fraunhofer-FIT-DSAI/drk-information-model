@@ -1,4 +1,4 @@
-@prefix drk:          <http://w3id.org/drk/ontology/> .
+@prefix drk:          <https://w3id.org/drk/ontology/> .
 @prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:          <http://www.w3.org/2002/07/owl#> .
@@ -20,13 +20,13 @@
 drk:
     a                             owl:Ontology, voaf:Vocabulary ;
     # Add explicit imports of vocabularies
-    owl:imports                   <http://w3id.org/drk/vocabs/character-types> ;
-    owl:imports                   <http://w3id.org/drk/vocabs/performer-types> ;
-    owl:imports                   <http://w3id.org/drk/vocabs/theatrical-event-types> ;
-    owl:imports                   <http://w3id.org/drk/vocabs/theatrical-production-types> ;
-    owl:imports                   <http://w3id.org/drk/vocabs/personal-profile-for-accessibility> ;
-    owl:imports                   <http://w3id.org/drk/vocabs/languages-iso639-1> ;
-    owl:imports                   <http://w3id.org/drk/vocabs/theatrical-genres> ;
+    owl:imports                   <https://w3id.org/drk/vocabs/character-types> ;
+    owl:imports                   <https://w3id.org/drk/vocabs/performer-types> ;
+    owl:imports                   <https://w3id.org/drk/vocabs/theatrical-event-types> ;
+    owl:imports                   <https://w3id.org/drk/vocabs/theatrical-production-types> ;
+    owl:imports                   <https://w3id.org/drk/vocabs/personal-profile-for-accessibility> ;
+    owl:imports                   <https://w3id.org/drk/vocabs/languages-iso639-1> ;
+    owl:imports                   <https://w3id.org/drk/vocabs/theatrical-genres> ;
 
     # Basic Metadata
     rdfs:label                    "Culture Dataspace (DRK) Ontology"@en, "Datenraum Kultur (DRK) Ontologie"@de ;
@@ -35,8 +35,8 @@ drk:
 
     # Version Information
     owl:versionInfo               "2.0.0"^^xsd:string ;
-    owl:versionIRI                <http://w3id.org/drk/ontology/2.0.0> ;
-    owl:priorVersion              <http://w3id.org/drk/ontology/1.0.1> ;
+    owl:versionIRI                <https://w3id.org/drk/ontology/2.0.0> ;
+    owl:priorVersion              <https://w3id.org/drk/ontology/1.0.1> ;
     dcterms:hasVersion            "2.0.0"^^xsd:string ;
     
     # Dates
@@ -81,7 +81,7 @@ drk:
 
     # Namespace Information
     vann:preferredNamespacePrefix "drk" ;
-    vann:preferredNamespaceUri    "http://w3id.org/drk/ontology/" ;
+    vann:preferredNamespaceUri    "https://w3id.org/drk/ontology/" ;
 
     # Documentation Links
     rdfs:seeAlso                  <https://github.com/Fraunhofer-FIT-DSAI/drk-information-model> ;
@@ -156,7 +156,7 @@ drk:animalPolicy
     rdfs:isDefinedBy drk: .
 
 # The drk:accessibleWith property is used to specify with what disability profile can a person access the given place.
-# The personal disability profile values should be URIs from a controlled vocabulary such as the DRK 'Personal Profile for Accessibility' vocabulary: `http://w3id.org/drk/vocabs/personal-profile-for-accessibility#`.
+# The personal disability profile values should be URIs from a controlled vocabulary such as the DRK 'Personal Profile for Accessibility' vocabulary: `https://w3id.org/drk/vocabs/personal-profile-for-accessibility#`.
 drk:accessibleWith
     a                rdf:Property, owl:ObjectProperty ;
     rdfs:domain      drk:PlaceAccessibilityFeature ;
@@ -381,7 +381,7 @@ drk:Character
 
 # The drk:characterType property specifies the type of a character in a creative work or during an event.
 # Examples of character types include person, animal, organization, puppet, robot, inanimate object, imaginary entity, etc.
-# Values should be URIs from a controlled vocabulary such as the DRK Character Types Vocabulary: `http://w3id.org/drk/vocabs/character-types#`.
+# Values should be URIs from a controlled vocabulary such as the DRK Character Types Vocabulary: `https://w3id.org/drk/vocabs/character-types#`.
 drk:characterType
     a                rdf:Property, owl:ObjectProperty ;
     rdfs:domain      drk:Character ;
@@ -399,7 +399,7 @@ drk:Performer
 
 # The drk:performerType property specifies the type of performer that performs a role in a creative work or event.
 # Examples of performer types include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI).
-# Values should be URIs from a controlled vocabulary such as the DRK Performer Types Vocabulary: `http://w3id.org/drk/vocabs/performer-types#`.
+# Values should be URIs from a controlled vocabulary such as the DRK Performer Types Vocabulary: `https://w3id.org/drk/vocabs/performer-types#`.
 drk:performerType
     a                rdf:Property, owl:ObjectProperty ;
     rdfs:domain      drk:Performer ;
@@ -489,7 +489,7 @@ drk:TheatricalProduction
     rdfs:isDefinedBy drk: .
 
 # The drk:productionType property specifies the production type of a creative work, such as 'World Premiere', 'Language Premiere', etc.
-# Values should be URIs from a controlled vocabulary such as the DRK Theatrical Production Types Vocabulary: `http://w3id.org/drk/vocabs/theatrical-production-types#`.
+# Values should be URIs from a controlled vocabulary such as the DRK Theatrical Production Types Vocabulary: `https://w3id.org/drk/vocabs/theatrical-production-types#`.
 drk:productionType
     a                rdf:Property, owl:ObjectProperty ;
     rdfs:domain      drk:TheatricalProduction ;
@@ -576,7 +576,7 @@ drk:eventRole
     rdfs:isDefinedBy drk: .
 
 # The drk:eventType property specifies event types such as Premiere, Last Performance, Guest Performance, etc.
-# Values should be URIs from a controlled vocabulary such as the DRK Theatrical Event Types Vocabulary: `http://w3id.org/drk/vocabs/theatrical-event-types#`.
+# Values should be URIs from a controlled vocabulary such as the DRK Theatrical Event Types Vocabulary: `https://w3id.org/drk/vocabs/theatrical-event-types#`.
 drk:eventType
     a                rdf:Property, owl:ObjectProperty ;
     rdfs:domain      drk:Event ;
