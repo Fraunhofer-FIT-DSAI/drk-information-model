@@ -101,7 +101,7 @@ drk:
 
     # Additional Metadata
     dcterms:language              lang:en, lang:de ;
-    dcterms:subject               "Theater"@en, "Play Production"@en, "Cultural Events"@en, "Performing Arts"@en ;
+    dcterms:subject               "Theater"@en, "Theatrical Production"@en, "Play Production"@en, "Cultural Events"@en, "Performing Arts"@en ;
     dcterms:audience              "Cultural institutions"@en, "Theater professionals"@en, "Researchers"@en ;
     dcterms:coverage              "Global"@en .
 
@@ -484,8 +484,8 @@ drk:Event
 drk:TheatricalProduction
     a                owl:Class, rdfs:Class ;
     rdfs:subClassOf  schema:CreativeWork ;
-    rdfs:label       "Play Production"@en ;
-    rdfs:comment     "A class that includes all stages of Play Production from writing, planning, casting, and staging to rehearsal, but excludes the final presentation or performance, which is modeled as an Event using the drk:TheatricalEvent class."@en ;
+    rdfs:label       "Theatrical Production"@en ;
+    rdfs:comment     "A class that includes all stages of Theatrical Production (including Play Production) from writing, planning, casting, and staging to rehearsal, but excludes the final presentation or performance, which is modeled as an Event using the drk:TheatricalEvent class."@en ;
     rdfs:isDefinedBy drk: .
 
 # The drk:productionType property specifies the production type of a creative work, such as 'World Premiere', 'Language Premiere', etc.
@@ -512,7 +512,7 @@ drk:characterRole
     rdfs:comment     "A property that is used to specify the characters and the roles played by them in a theatrical play. For example, the role of 'Romeo' in 'Romeo and Juliet' by William Shakespeare is a character role."@en ;
     rdfs:isDefinedBy drk: .
 
-# The drk:creatorRole property specifies the names of creator roles involved in a play's production and the performers of these roles.
+# The drk:creatorRole property specifies the names of creator roles involved in a theatrical production and the performers of these roles.
 # roleName examples (corresponding to creator roles): creator, writer, playwright, makeup artist, understudy, funder, sponsor, etc.
 # performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI).
 # Note: Use this property instead of schema:character
@@ -521,7 +521,7 @@ drk:creatorRole
     rdfs:domain      drk:TheatricalProduction ;
     rdfs:range       drk:ProductionRole ;
     rdfs:label       "Creator Role"@en ;
-    rdfs:comment     "A property that is used to specify the names of creator roles involved in a play's production that are not characters in the play. For example, William Shakespeare performed the roles of playwright and creator in the production of his play 'Romeo and Juliet'."@en ;
+    rdfs:comment     "A property that is used to specify the names of creator roles involved in a theatrical production that are, for instance, not characters in the play. For example, William Shakespeare performed the roles of playwright and creator in the production of his play 'Romeo and Juliet'."@en ;
     rdfs:isDefinedBy drk: .
 
 # The drk:TheatricalEvent describes the presentation of a theatrical creative work such as a play.
