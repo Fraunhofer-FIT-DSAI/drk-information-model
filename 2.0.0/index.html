@@ -66,7 +66,7 @@ $(function(){
 <div class="head">
 <div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
 <h1>Culture Ontology</h1>
-<h2>Release: 2024-10-22</h2>
+<h2>Release: 2026-06-16</h2>
 
 
 <dl>
@@ -101,14 +101,87 @@ $(function(){
 <span>Ontology Specification Draft</span>
 </div>
 </div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
-This is a placeholder text for the abstract. The abstract should contain a couple of sentences summarizing the ontology and its purpose.</span>
+The Culture Ontology serves as a foundational building block of the Culture Information Model (Culture IM), specifically designed for the Culture Dataspace (DRK: Datenraum Kultur). It offers an extensible and comprehensive vocabulary for modeling metadata related to theaters, theatrical productions, and showtimes. Key concepts within the ontology include theatrical events, characters, roles, venue accessibility, and event scheduling. Addressing the challenges of data interoperability in the culture domain, particularly in the performing arts sector, the Culture Ontology enables structured data representation that enhances the FAIRness (Findability, Accessibility, Interoperability, Reusability) of cultural data. By integrating with access and usage policies as well as application profiles, the Culture Ontology promotes seamless data exchange and management across diverse cultural institutions. Its modular and scalable design ensures it can adapt to various use cases, paving the way for innovative solutions in cultural heritage and performance management.</span>
 </div>
 <div id="toc"></div> 
 
 <!--INTRODUCTION SECTION-->
     <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-<span class="markdown">
-This is a place holder text for the introduction. The introduction should briefly describe the ontology, its motivation, state of the art and goals.</span>
+<div class="enhanced-content">
+  <p class="intro-paragraph">The Culture ontology (also known as the DRK ontology) is developed as the semantic backbone of the Culture Dataspace. It provides an extensible and modular vocabulary for describing metadata in the cultural domain, enabling interoperable, sovereign, and semantically rich data sharing across diverse cultural sectors.</p>
+  
+  <div class="highlight-box">
+    <p><strong>Core Features:</strong> The Culture ontology defines common modules for cross-cutting concepts—such as organizations, places and accessibility, creative works, events, roles, and data services—which are applicable across a wide range of cultural domains.</p>
+  </div>
+  
+  <p>In addition, it includes domain-specific modules for specialized use cases, such as theater showtimes, and is designed to support future extensions for sectors like museums, music education, or marketplaces for creative content.</p>
+  
+  <div class="two-column">
+    <div class="column">
+      <p><strong>Technical Foundation:</strong> The ontology builds on widely adopted web standards by using Schema.org as its foundational vocabulary. It also integrates and reuses concepts from DCAT for data services and distribution, and reengineers A11yJSON to describe accessibility-related features of cultural places.</p>
+    </div>
+    
+    <div class="column">
+      <p><strong>Benefits:</strong> The resulting model promotes interoperability with existing systems and facilitates reuse by data providers and consumers. To accommodate the diversity of cultural data, the Culture ontology follows a modular and extensible design.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .enhanced-content {
+    line-height: 1.6;
+    color: #333;
+    margin: 20px 0 30px 0;
+  }
+  
+  .intro-paragraph {
+    font-size: 1.1em;
+    border-left: 4px solid #3498db;
+    padding-left: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .highlight-box {
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    padding: 15px 20px;
+    margin: 20px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .highlight-box p {
+    margin: 0;
+  }
+  
+  .two-column {
+    display: flex;
+    gap: 30px;
+    margin: 25px 0;
+  }
+  
+  .column {
+    flex: 1;
+  }
+  
+  .column p {
+    margin: 0;
+    padding: 15px;
+    background-color: #f0f7fc;
+    border-radius: 5px;
+    height: 100%;
+  }
+  
+  strong {
+    color: #2c3e50;
+  }
+  
+  @media (max-width: 768px) {
+    .two-column {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+</style>
 <div id="namespacedeclarations">
 <h3 id="ns" class="list">Namespace declarations</h3>
 <div id="ns" align="center">
@@ -148,6 +221,19 @@ This is a place holder text for the introduction. The introduction should briefl
 <!--OVERVIEW SECTION-->
     <div id="overview"><h2 id="overv" class="list">Culture Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
+
+   <b>Theater Showtimes Concise Visual Model</b>
+   <br><br>
+   The following figure illustrates Theater Showtimes concise visual model. It reuses common modules such as Organization, Place, CreativeWork, Event, Role, and Offer and PriceSpecification. The figure also illustrates the use of controlled vocabularies for representing enumerations.
+   <br><br>
+
+   <img style="max-width: 100%; height: auto;" src="https://raw.githubusercontent.com/Fraunhofer-FIT-DSAI/drk-information-model/898acd19aa53b75ade4cd19b4bac277e1d62c059/visual-models/theater-showtimes-concise-model.drawio.svg">
+
+   <br><br>
+   The following figure illustrates an excerpt from the visual representation of General Application Profile for Theater Showtimes. Please open the image in a new tab for better readability.
+   <br><br>
+   <img style="max-width: 100%; height: auto;" src="https://raw.githubusercontent.com/Fraunhofer-FIT-DSAI/drk-information-model/898acd19aa53b75ade4cd19b4bac277e1d62c059/visual-models/theater-showtimes-model.drawio.svg">
+
 This ontology has the following classes and properties.</span>
 <h4>Classes</h4>
 <ul xmlns:widoco="https://w3id.org/widoco/vocab#"
