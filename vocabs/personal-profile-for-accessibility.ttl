@@ -7,7 +7,7 @@
 @prefix dbr:          <https://dbpedia.org/resource/> .
 @prefix wikidata:     <https://www.wikidata.org/entity/> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
-@prefix ppfa:         <http://w3id.org/drk/vocabs/personal-profile-for-accessibility#> .
+@prefix ppfa:         <https://w3id.org/drk/vocabs/personal-profile-for-accessibility#> .
 
 ppfa:
     a                             voaf:Vocabulary, skos:ConceptScheme ;
@@ -17,7 +17,7 @@ ppfa:
     rdfs:comment                  "A controlled vocabulary for identifying and describing personal profiles from a disability perspective, aimed at facilitating accessibility."@en ;
     dcterms:hasVersion            "0.0.1"^^xsd:string ;
     vann:preferredNamespacePrefix "ppfa" ;
-    vann:preferredNamespaceUri    "http://w3id.org/drk/vocabs/personal-profile-for-accessibility#" ;
+    vann:preferredNamespaceUri    "https://w3id.org/drk/vocabs/personal-profile-for-accessibility#" ;
     dcterms:source                <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/#personalprofile> ;
     rdfs:seeAlso                  <https://sozialhelden.github.io/a11yjson/describing-objects/0-model/> .
 
