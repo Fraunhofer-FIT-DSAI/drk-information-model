@@ -179,7 +179,7 @@ drk:wheelchairPlaces
 # The drk:accessibilityDescription property can be used to provide a human-readable description of facilities at a place concerning accessibility.
 # For example, whether the given place is accessible with a wheelchair, or with a guide dog, does the place offer all the necessary facilities for access by a person who has a visual impairment, is the place equipped with 'accessible toilets', etc.
 drk:accessibilityDescription
-    a                rdf:Property, owl:ObjectProperty ;
+    a                rdf:Property, owl:DatatypeProperty ;
     rdfs:domain      drk:PlaceAccessibilityFeature ;
     rdfs:range       schema:Text ;
     rdfs:label       "Accessibility Description"@en ;
@@ -393,7 +393,7 @@ drk:characterType
 # The drk:Performer class specifies the performer of a role in a creative work or event.
 drk:Performer
     a                owl:Class, rdfs:Class ;
-    rdfs:label       "Role"@en ;
+    rdfs:label       "Performer"@en ;
     rdfs:comment     "A class that specifies the performer of a role in a creative work or event. Performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI)."@en ;
     rdfs:isDefinedBy drk: .
 
