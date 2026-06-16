@@ -8,6 +8,7 @@
         - the HTML docs ([https://fraunhofer-fit-dsai.github.io/drk-information-model/latest/index.html](https://fraunhofer-fit-dsai.github.io/drk-information-model/latest/index.html)) or
         - the TTL/JSONLD/OWL/NT file, as requested through the `Accept` header ([https://fraunhofer-fit-dsai.github.io/drk-information-model/latest/ontology.{ttl,jsonld,owl,nt}](https://fraunhofer-fit-dsai.github.io/drk-information-model/latest/ontology.ttl))
     - Versioned: https://w3id.org/drk/ontology/{version} -> https://fraunhofer-fit-dsai.github.io/drk-information-model/{version}/ontology.ttl
+- Theater Showtimes General Application Profile (TSGAP) ReSpec-style Documentation: https://fraunhofer-fit-dsai.github.io/drk-information-model/latest/application-profiles/theater-showtimes/
 - Controlled vocabularies
     - Theatrical genres vocabulary: [https://w3id.org/drk/vocabs/theatrical-genres](https://w3id.org/drk/vocabs/theatrical-genres) -> [https://fraunhofer-fit-dsai.github.io/drk-information-model/vocabs/theatrical-genres.ttl](https://fraunhofer-fit-dsai.github.io/drk-information-model/vocabs/theatrical-genres.ttl)
     - Theatrical production types vocabulary: [https://w3id.org/drk/vocabs/theatrical-production-types](https://w3id.org/drk/vocabs/theatrical-production-types) -> [https://fraunhofer-fit-dsai.github.io/drk-information-model/vocabs/theatrical-production-types.ttl](https://fraunhofer-fit-dsai.github.io/drk-information-model/vocabs/theatrical-production-types.ttl)
