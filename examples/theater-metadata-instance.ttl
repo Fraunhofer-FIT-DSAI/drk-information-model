@@ -1,4 +1,4 @@
-    # Namespace of the DRK Ontology
+# Namespace of the Culture (DRK) Ontology (matching drk-ontology.ttl)
 @prefix drk:                   <https://w3id.org/drk/ontology/> .
 # Namespace of the DRK Knowledge Graph
 @prefix drkr:                  <https://w3id.org/drk/resources/> .
@@ -7,6 +7,8 @@
 @prefix rdfs:                  <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl:                   <http://www.w3.org/2002/07/owl#> .
 @prefix dct:                   <http://purl.org/dc/terms/> .
+@prefix foaf:                  <http://xmlns.com/foaf/0.1/> .
+@prefix vcard:                 <http://www.w3.org/2006/vcard/ns#> .
 @prefix vann:                  <http://purl.org/vocab/vann/> .
 @prefix schema:                <https://schema.org/> .
 @prefix ids:                   <https://w3id.org/idsa/core/> .
@@ -15,24 +17,27 @@
 @prefix xsd:                   <http://www.w3.org/2001/XMLSchema#> .
 @prefix wikidata:              <https://www.wikidata.org/entity/> .
 @prefix gnd-kg:                <https://d-nb.info/gnd/> .
+@prefix geonames:              <https://sws.geonames.org/> .
 @prefix lcc-3166-1:            <https://www.omg.org/spec/LCC/Countries/ISO3166-1-CountryCodes/> .
 @prefix lcc-3166-2-de:         <https://www.omg.org/spec/LCC/Countries/Regions/ISO3166-2-SubdivisionCodes-DE/> .
-@prefix lang:                  <https://w3id.org/drk/vocabs/languages-iso639-1#> .
-@prefix tgenres:               <http://w3id.org/drk/vocabs/theatrical-genres#> .
-@prefix tprod:                 <http://w3id.org/drk/vocabs/theatrical-production-types#> .
-@prefix tchar:                 <http://w3id.org/drk/vocabs/character-types#> .
-@prefix ppfa:                  <http://w3id.org/drk/vocabs/personal-profile-for-accessibility#> .
-@prefix tevent:                <http://w3id.org/drk/vocabs/theatrical-event-types#> .
-@prefix fibo-fnd-acc-4217:     <https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/ISO4217-CurrencyCodes/> .
-@prefix tperf:                 <http://w3id.org/drk/vocabs/performer-types#> .
+@prefix lang:                  <https://w3id.org/drk/vocabs/languages-iso639-1#> . # legacy DRK language vocabulary
+@prefix language:              <http://publications.europa.eu/resource/authority/language/> .
+@prefix tgenres:               <https://w3id.org/drk/vocabs/theatrical-genres#> .
+@prefix tprod:                 <https://w3id.org/drk/vocabs/theatrical-production-types#> .
+@prefix tchar:                 <https://w3id.org/drk/vocabs/character-types#> .
+@prefix ppfa:                  <https://w3id.org/drk/vocabs/personal-profile-for-accessibility#> .
+@prefix tevent:                <https://w3id.org/drk/vocabs/theatrical-event-types#> .
+@prefix fibo-fnd-acc-4217:     <https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/ISO4217-CurrencyCodes/> . # legacy currency vocabulary
+@prefix currency:              <http://publications.europa.eu/resource/authority/currency/> .
+@prefix tperf:                 <https://w3id.org/drk/vocabs/performer-types#> .
 
 # Note: This is just an example and it may not be factually correct.
 
 ####################################################################
-# Instance of schema:TheaterGroup (subclass of schema:Organization).
+# Instance of drk:TheaterOrganization (subclass of drk:CulturalOrganization and schema:TheaterGroup).
 # Theater (Organization) naming scheme used here: <ISO3166-1 Country code>_<City name>_<(Shortened) Theater name>.
 drkr:DE_Augsburg_STAugsburg
-    a              schema:TheaterGroup ;
+    a              drk:TheaterOrganization, schema:TheaterGroup, foaf:Agent ;
     schema:name    "Staatstheater Augsburg"@en, "Staatstheater Augsburg"@de ;
     schema:description
                    "Staatstheater (State Theater) Augsburg is a prominent German theater organization in Augsburg, offering a diverse range of performances including opera, theater, plays, ballet, and concerts."@en,
@@ -43,8 +48,8 @@ drkr:DE_Augsburg_STAugsburg
                      schema:streetAddress   "Provinostr. 52"@en ;
                      schema:postalCode      "86153" ;
                      schema:addressLocality "Augsburg"@en ;
-                     schema:addressRegion   lcc-3166-2-de:Bayern ;
-                     schema:addressCountry  lcc-3166-1:Germany ;
+                     schema:addressRegion   "Bavaria"@en ;
+                     schema:addressCountry  "Germany"@en ;
                      drk:navigationMapURL   <https://maps.app.goo.gl/C9oHeBUtVhWYFwX68> ] ;
     schema:address [ a                      schema:PostalAddress ;
                      schema:name            "Augsburg State Theater Visitor Service - at the Citizens' and Tourist Information Office"@en ;
@@ -52,19 +57,22 @@ drkr:DE_Augsburg_STAugsburg
                      schema:streetAddress   "Rathausplatz 1"@en ;
                      schema:postalCode      "86150" ;
                      schema:addressLocality "Augsburg"@en ;
-                     schema:addressRegion   lcc-3166-2-de:Bayern ;
-                     schema:addressCountry  lcc-3166-1:Germany ;
+                     schema:addressRegion   "Bavaria"@en ;
+                     schema:addressCountry  "Germany"@en ;
                      drk:navigationMapURL   <https://maps.app.goo.gl/GDtXMCb6VpeQawJY7> ] ;
     schema:logo    <https://upload.wikimedia.org/wikipedia/commons/c/c7/Staatstheater_Augsburg_Logo.svg> ;
     schema:url     <https://staatstheater-augsburg.de/> ;  # Official website
-    schema:sameAs  <https://en.wikipedia.org/wiki/Staatstheater_Augsburg>, wikidata:Q1441463, gnd-kg:1170044093 .
+    schema:sameAs  <https://en.wikipedia.org/wiki/Staatstheater_Augsburg>, wikidata:Q1441463, gnd-kg:1170044093 ;
+    drk:hasTheatricalProduction drkr:DE_STAugsburg_HedwigAngryInch ;
+    drk:hasTheatricalEvent      drkr:HedwigAngryInch_Event_20241228 ;
+    drk:associatedDataService   drkr:DE_Augsburg_STAugsburg_ShowtimesAPI .
 
 ####################################################################
-# Instance of drk:PlayProduction (subclass of schema:CreativeWork).
-# It includes every stage of Play Production from writing, planning, and casting, to rehearsal, except for the presentation of work (i.e., drk:TheaterEvent).
-# Play Production naming scheme used here: <ISO3166-1 Country code>_<(Shortened) Theater company name>_<(Shortened) Play Production name>
+# Instance of drk:TheatricalProduction (subclass of schema:CreativeWork).
+# It includes every stage of a theatrical production from writing, planning, casting, and staging to rehearsal, except for the public presentation of the work (i.e., drk:TheatricalEvent).
+# TheatricalProduction naming scheme used here: <ISO3166-1 Country code>_<(Shortened) Theater company name>_<(Shortened) Play Production name>
 drkr:DE_STAugsburg_HedwigAngryInch
-    a                           drk:PlayProduction ;
+    a                           drk:TheatricalProduction ;
     schema:name                 "Hedwig and the Angry Inch"@en ;
     schema:alternativeHeadline  "Musical by John Cameron Mitchell (book) and Stephen Trask (music and lyrics)"@en,
                                 "Musical von John Cameron Mitchell (Buch) und Stephen Trask (Musik und Gesangstexte)"@de ;
@@ -83,14 +91,14 @@ drkr:DE_STAugsburg_HedwigAngryInch
                                Das Musical, das 1998 in New York uraufgeführt wurde, hat eine einmalige Erfolgsgeschichte geschrieben.
 
                                Zuerst am Off-Broadway gezeigt, mit John Cameron Mitchell als Hedwig, wanderte es nur wenige Jahre später weiter auf die Leinwand und wurde als Film adaptiert. Auch international feierte das Werk Erfolge, sowohl als Theaterstück wie auch als Film. 2014 folgte schließlich dann die Premiere am Broadway, Hauptdarsteller damals war Neil Patrick Harris, die mit vier Tony-Awards ausgezeichnet wurde. Dies ist nur der letzte Beweis für den Kultstatus, den das Rockmusical und seine Hauptfigur, die Dragqueen Hedwig, erlangt hat."""@de ;
-    schema:genre                tgenres:Musical ;
+    drk:theatricalGenre         tgenres:Musical ;
     drk:productionType          tprod:Revival ;
     schema:accessibilitySummary """Please note that strobe lighting is used in this production.
                                Within the stage text, psychological violence is thematised and portrayed in individual scenes.
                                For this reason, we recommend school and group bookings from the age of 14. As a general rule, teachers know their groups best. If you have any questions, please contact us."""@en, """Bitte beachten Sie, dass bei dieser Inszenierung Stroboskoplicht zum Einsatz kommt.
                                Innerhalb des Bühnentextes wird psychische Gewalt thematisiert und in einzelnen Szenen dargestellt.
                                Aus diesem Grund empfehlen wir Schul- und Gruppenbuchungen ab 14 Jahren. Grundsätzlich gilt: Pädagog:innen kennen ihre Gruppen am besten. Bei Fragen kontaktieren Sie uns bitte."""@de ;
-    schema:inLanguage           lang:de ;
+    schema:inLanguage           language:DEU ;
     schema:audience             [ a                      schema:PeopleAudience ;
                                   schema:suggestedMinAge 14 ; # same as "14"^^xsd:integer
                                 ] ;
@@ -204,8 +212,8 @@ drkr:DE_Augsburg_STAugsburg_Place
                                   schema:streetAddress   "Am Alten Gaswerk 8"@en ;
                                   schema:postalCode      "86156" ;
                                   schema:addressLocality "Augsburg"@en ;
-                                  schema:addressRegion   lcc-3166-2-de:Bayern ;
-                                  schema:addressCountry  lcc-3166-1:Germany ;
+                                  schema:addressRegion   "Bavaria"@en ;
+                                  schema:addressCountry  "Germany"@en ;
                                   drk:navigationMapURL   <https://maps.app.goo.gl/v1XhJ3uVdixjGgY2A> ] ;
     drk:hasAccessibilityFeature [ a                  drk:PlaceAccessibilityFeature ;
                                   drk:animalPolicy   [ a                        drk:AnimalPolicy ;
@@ -214,24 +222,29 @@ drkr:DE_Augsburg_STAugsburg_Place
                                                        drk:allowsAssistanceDogs true ;
                                                        drk:allowsGuideDogs      true ; ] ;
                                   drk:accessibleWith ppfa:MobilityImpairment ;
-                                  drk:accessibleWith ppfa:Blindness, ppfa:VisualImpairment ; ] ;
-    drk:wheelchairPlaces        [ a                         drk:WheelchairPlaces ;
-                                  drk:wheelchairPlacesCount "11"^^xsd:nonNegativeInteger ;
-                                  drk:hasSpaceForAssistant  true ; ] ;
-    drk:accessibilityDescription
-                                """The theater campus as well as buildings are equipped with all the necessary facilities for access by a person who has a visual impairment and/or mobility impairment. The place is equipped with accessible toilets and braille script has been used at necessary points. Please mention accessibility related requirements while purchasing tickets to enable us to serve you better. Our staff members and ushers will be happy to assist you at the venue."""@en ;
+                                  drk:accessibleWith ppfa:Blindness, ppfa:VisualImpairment ;
+                                  drk:wheelchairPlaces [ a                         drk:WheelchairPlaces ;
+                                                         drk:wheelchairPlacesCount "11"^^xsd:nonNegativeInteger ;
+                                                         drk:hasSpaceForAssistant  true ;
+                                                         drk:wheelchairUserCapacity "11"^^xsd:nonNegativeInteger ; ] ;
+                                  drk:accessibilityDescription
+                                      """The theater campus as well as buildings are equipped with all the necessary facilities for access by a person who has a visual impairment and/or mobility impairment. The place is equipped with accessible toilets and braille script has been used at necessary points. Please mention accessibility-related requirements while purchasing tickets to enable us to serve you better. Our staff members and ushers will be happy to assist you at the venue."""@en ; ] ;
+    schema:hasMap               [ a              schema:Map ;
+                                  schema:name    "Venue map for Staatstheater Augsburg - brechtbühne im Gaswerk"@en ;
+                                  schema:url     <https://staatstheater-augsburg.de/spielstaetten/brechtbuehne> ;
+                                  schema:mapType schema:VenueMap ; ] ;
     schema:latitude             48.3874688 ;
     schema:longitude            10.8597226 ;
 .
 
 ####################################################################
-# Instance of drk:TheaterEvent.
+# Instance of drk:TheatricalEvent.
 # It is a subclass of schema:TheaterEvent (subclass of schema:Event).
-# TheaterEvent naming scheme used here: <(Shortened) name of work performed>_Event_<Start Date in YYYYMMDD[THHMM] format>
+# TheatricalEvent naming scheme used here: <(Shortened) name of work performed>_Event_<Start Date in YYYYMMDD[THHMM] format>
 drkr:HedwigAngryInch_Event_20241228
-    a                            drk:TheaterEvent ;
+    a                            drk:TheatricalEvent ;
     schema:name                  "The last performance of Hedwig and the Angry Inch at Staatstheater Augsburg"@en ;
-    schema:workPerformed         drk:DE_STAugsburg_HedwigAngryInch ;    # drk:PlayProduction
+    schema:workPerformed         drkr:DE_STAugsburg_HedwigAngryInch ;    # drk:TheatricalProduction
     schema:location              drkr:DE_Augsburg_STAugsburg_Place ;    # drk:PerformingArtsTheater
     schema:location              [ a           schema:VirtualLocation ;
                                    schema:name "Hedwig and the Angry Inch Live Streaming"@en ;
@@ -242,42 +255,42 @@ drkr:HedwigAngryInch_Event_20241228
     schema:duration              "PT1H30M"^^xsd:duration ;    # OR "P0Y0M0DT1H30M0S" # ISO 8601 duration format: P(n)Y(n)M(n)DT(n)H(n)M(n)S
     drk:intermissionCount        "0"^^xsd:nonNegativeInteger ;
     schema:url                   <https://staatstheater-augsburg.de/hedwig_and_the_angry_inch> ;
-    schema:inLanguage            lang:de ;
-    drk:subtitleLanguage         lang:de, lang:en ;
+    schema:inLanguage            language:DEU ;
+    drk:subtitleLanguage         language:DEU, language:ENG ;
     schema:offers                [ a                         schema:Offer ;
                                    schema:name               "Hedwig and the Angry Inch Early Bird Ticket Offer"@en ;
                                    schema:url                <https://webshop-tickets.staatstheater-augsburg.de/de/veranstaltung/a707d36b-76e7-47f0-a10a-33033a333c21/9172> ;
                                    schema:availability       schema:OnlineOnly, schema:LimitedAvailability,
                                                              schema:SoldOut ;
+                                   schema:validFrom          "2024-08-28T19:30:00"^^xsd:dateTime ;
+                                   schema:validThrough       "2024-10-28T19:30:00"^^xsd:dateTime ;
                                    schema:priceSpecification [ a                    schema:PriceSpecification ;
                                                                schema:name          "Early Bird Ticket Price"@en ;
                                                                schema:minPrice      9.0 ;
                                                                schema:maxPrice      25.0 ; # same as "25.0"^^xsd:decimal
-                                                               schema:validFrom     "2024-08-28T19:30:00"^^xsd:dateTime ;
-                                                               schema:validThrough  "2024-10-28T19:30:00"^^xsd:dateTime ;
-                                                               schema:priceCurrency fibo-fnd-acc-4217:EUR ] ] ;
+                                                               schema:priceCurrency "EUR" ] ] ;
     schema:offers                [ a                         schema:Offer ;
                                    schema:name               "Hedwig and the Angry Inch Standard Ticket Offer"@en ;
                                    schema:url                <https://webshop-tickets.staatstheater-augsburg.de/de/veranstaltung/a707d36b-76e7-47f0-a10a-33033a333c21/9172> ;
                                    schema:availability       schema:OnlineOnly, schema:InStock ;
+                                   schema:validFrom          "2024-10-28T19:31:00"^^xsd:dateTime ;
+                                   schema:validThrough       "2024-12-28T19:30:00"^^xsd:dateTime ;
                                    schema:priceSpecification [ a                    schema:PriceSpecification ;
                                                                schema:name          "Standard Ticket Price"@en ;
                                                                schema:minPrice      11.0 ;
                                                                schema:maxPrice      29.0 ;
-                                                               schema:validFrom     "2024-10-28T19:31:00"^^xsd:dateTime ;
-                                                               schema:validThrough  "2024-12-28T19:30:00"^^xsd:dateTime ;
-                                                               schema:priceCurrency fibo-fnd-acc-4217:EUR ] ] ;
+                                                               schema:priceCurrency "EUR" ] ] ;
     schema:offers                [ a                         schema:Offer ;
                                    schema:name               "Hedwig and the Angry Inch Ticket Offer with Germany Culture Card Gold"@en ;
                                    schema:url                <https://webshop-tickets.staatstheater-augsburg.de/de/veranstaltung/a707d36b-76e7-47f0-a10a-33033a333c21/9172> ;
                                    schema:availability       schema:InStoreOnly, schema:InStock ;
-                                   schema:validForMemberTier drkr:DE-Cultur-Card-Gold-Tier ;    # This offer is valid only for the subscribers of Germany Culture Card Gold
+                                   schema:validFrom          "2024-10-28T19:31:00"^^xsd:dateTime ;
+                                   schema:validThrough       "2024-12-28T19:30:00"^^xsd:dateTime ;
+                                   schema:validForMemberTier drkr:DE-Culture-Card-Gold-Tier ;    # This offer is valid only for the subscribers of Germany Culture Card Gold
                                    schema:priceSpecification [ a                    schema:PriceSpecification ;
                                                                schema:name          "Free Tickets with Germany Culture Card Gold"@en ;
                                                                schema:price         0 ;
-                                                               schema:validFrom     "2024-10-28T19:31:00"^^xsd:dateTime ;
-                                                               schema:validThrough  "2024-12-28T19:30:00"^^xsd:dateTime ;
-                                                               schema:priceCurrency fibo-fnd-acc-4217:EUR ] ] ;
+                                                               schema:priceCurrency "EUR" ] ] ;
     drk:characterPerformanceRole drkr:CharacterPerformanceRoleHedwig, drkr:CharacterPerformanceRoleYitzhak,
                                  drkr:CharacterPerformanceRoleTommy ;
     drk:eventRole                [ a               drk:ProductionRole ;
@@ -383,31 +396,75 @@ drkr:DE-Culture-Card
     a                          schema:MemberProgram ;
     schema:name                "Germany Culture Card"@en, "Deutschland Kultur Karte"@de ;
     schema:description         "The Germany Culture Card is an annual subscription pass. With this pass, subscribers can enjoy benefits including discounted tickets or free entry into member museums, free tickets to theater events organized by member theater organizations, and free introductory courses at member music and culinary schools." ;
-    schema:hasTiers            drkr:DE-Cultur-Card-Silver-Tier, drkr:DE-Cultur-Card-Gold-Tier ;
+    schema:hasTiers            drkr:DE-Culture-Card-Silver-Tier, drkr:DE-Culture-Card-Gold-Tier ;
     schema:hostingOrganization drkr:DE_Culture_Club ;
     schema:url                 <https://example.org/DE_Culture_Club/DE-Culture-Card> .
 
-drkr:DE-Cultur-Card-Silver-Tier
+drkr:DE-Culture-Card-Silver-Tier
     a                     schema:MemberProgramTier ;
     schema:name           "Germany Culture Card - Silver" ;
     schema:description    "With the Germany Culture Card Silver, subscribers can enjoy 50% off with member cultural organizations, including museums, theaters, and music and culinary schools." ;
     schema:hasTierBenefit schema:TierBenefitLoyaltyPrice ;
-    schema:isTierOf       drkr:DE-Cultur-Card
+    schema:isTierOf       drkr:DE-Culture-Card
 .
 
-drkr:DE-Cultur-Card-Gold-Tier
+drkr:DE-Culture-Card-Gold-Tier
     a                     schema:MemberProgramTier ;
     schema:name           "Germany Culture Card - Gold" ;
     schema:description    "With the Germany Culture Card Gold, subscribers can enjoy free tickets for events organized by member cultural organizations, including museums, theaters, and music and culinary schools." ;
     schema:hasTierBenefit schema:TierBenefitLoyaltyPrice ;
-    schema:isTierOf       drkr:DE-Cultur-Card
+    schema:isTierOf       drkr:DE-Culture-Card
 .
 
 drkr:DE_Culture_Club
-    a           schema:Organization ;
+    a           drk:CulturalOrganization, schema:Organization, foaf:Agent ;
     schema:name "Culture Club Germany"@en ;
     schema:description
                 "We are an organization headquartered in Berlin that seeks to inspire people about the richness and diversity of culture in Germany. Several cultural organizations in Germany are our members and offer discounted and free tickets to the subscribers of our Culture Cards."@en .
 
 #####################################################################
-# TODO: Add Theater Showtimes (Website and) API instance (e.g., https://staatstheater-augsburg.de/drk), and link it to the TheaterGroup / Organization instance
+# Theater showtimes dataset, distribution, and data service instances.
+# These demonstrate the data-service layer of TS-GAP and link the theater organization
+# to the dataset/service through drk:associatedDataService.
+
+drkr:DE_Augsburg_STAugsburg_ShowtimesDataset
+    a                  drk:TheaterShowtimesDataset ;
+    dct:title          "Staatstheater Augsburg Theater Showtimes Dataset"@en ;
+    dct:description    "A dataset containing machine-comprehensible theater showtimes records for Staatstheater Augsburg, including theatrical productions, theatrical events, venues, offers, and role information."@en ;
+    dcat:version       "1.0.0" ;
+    dcat:keyword       "theater showtimes"@en, "performing arts"@en, "Augsburg"@en ;
+    dcat:contactPoint  [ a              vcard:Kind ;
+                         vcard:fn       "Staatstheater Augsburg visitor service"@en ;
+                         vcard:hasEmail <mailto:besucherservice@staatstheater-augsburg.de> ] ;
+    dct:creator        drkr:DE_Augsburg_STAugsburg ;
+    dct:publisher      drkr:DE_Augsburg_STAugsburg ;
+    dct:license        <https://creativecommons.org/licenses/by/4.0/> ;
+    dct:accessRights   <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+    dct:language       language:DEU ;
+    dct:conformsTo     <https://fraunhofer-fit-dsai.github.io/drk-information-model/latest/application-profiles/theater-showtimes/> ;
+    dcat:theme         tgenres:Musical ;
+    dcat:distribution  drkr:DE_Augsburg_STAugsburg_ShowtimesDistribution ;
+    drk:containsTheaterShowtimesRecord
+                       drkr:DE_Augsburg_STAugsburg,
+                       drkr:DE_STAugsburg_HedwigAngryInch,
+                       drkr:DE_Augsburg_STAugsburg_Place,
+                       drkr:HedwigAngryInch_Event_20241228 .
+
+drkr:DE_Augsburg_STAugsburg_ShowtimesDistribution
+    a                  dcat:Distribution ;
+    dct:title          "Staatstheater Augsburg Theater Showtimes API distribution"@en ;
+    dct:description    "A distribution that provides access to Staatstheater Augsburg theater showtimes data through a data service."@en ;
+    dcat:accessService drkr:DE_Augsburg_STAugsburg_ShowtimesAPI ;
+    dcat:accessURL     <https://staatstheater-augsburg.de/drk> .
+
+drkr:DE_Augsburg_STAugsburg_ShowtimesAPI
+    a                        drk:DataService ;
+    dct:title                "Staatstheater Augsburg Theater Showtimes API"@en ;
+    dct:description          "A data service providing API access to machine-comprehensible theater showtimes data for Staatstheater Augsburg."@en ;
+    dcat:servesDataset       drkr:DE_Augsburg_STAugsburg_ShowtimesDataset ;
+    dcat:endpointURL         <https://staatstheater-augsburg.de/drk/api> ;
+    dcat:endpointDescription <https://staatstheater-augsburg.de/drk/openapi.json> ;
+    dcat:contactPoint        [ a              vcard:Kind ;
+                               vcard:fn       "Staatstheater Augsburg visitor service"@en ;
+                               vcard:hasEmail <mailto:besucherservice@staatstheater-augsburg.de> ] ;
+    dct:conformsTo           <https://fraunhofer-fit-dsai.github.io/drk-information-model/latest/application-profiles/theater-showtimes/> .
