@@ -1,4 +1,4 @@
-@prefix drk:          <http://w3id.org/drk/ontology/> .
+@prefix drk:          <https://w3id.org/drk/ontology/> .
 @prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:          <http://www.w3.org/2002/07/owl#> .
@@ -20,29 +20,29 @@
 drk:
     a                             owl:Ontology, voaf:Vocabulary ;
     # Add explicit imports of vocabularies
-    owl:imports                   <http://w3id.org/drk/vocabs/character-types> ;
-    owl:imports                   <http://w3id.org/drk/vocabs/performer-types> ;
-    owl:imports                   <http://w3id.org/drk/vocabs/theatrical-event-types> ;
-    owl:imports                   <http://w3id.org/drk/vocabs/theatrical-production-types> ;
-    owl:imports                   <http://w3id.org/drk/vocabs/personal-profile-for-accessibility> ;
-    owl:imports                   <http://w3id.org/drk/vocabs/languages-iso639-1> ;
-    owl:imports                   <http://w3id.org/drk/vocabs/theatrical-genres> ;
+    owl:imports                   <https://w3id.org/drk/vocabs/character-types> ;
+    owl:imports                   <https://w3id.org/drk/vocabs/performer-types> ;
+    owl:imports                   <https://w3id.org/drk/vocabs/theatrical-event-types> ;
+    owl:imports                   <https://w3id.org/drk/vocabs/theatrical-production-types> ;
+    owl:imports                   <https://w3id.org/drk/vocabs/personal-profile-for-accessibility> ;
+    owl:imports                   <https://w3id.org/drk/vocabs/languages-iso639-1> ;
+    owl:imports                   <https://w3id.org/drk/vocabs/theatrical-genres> ;
 
     # Basic Metadata
-    rdfs:label                    "Culture Dataspace (DRK) Ontology"@en, "Datenraum Kultur (DRK) Ontologie"@de ;
-    rdfs:comment                  "The DRK ontology is designed for the cultural dataspace, providing extensible semantic concepts, properties, and their interrelationships for modeling metadata related to theaters, theatrical productions, and their showtimes."@en ;
-    dcterms:title                 "Culture Dataspace (DRK) Ontology"@en, "Datenraum Kultur (DRK) Ontologie"@de ;
+    rdfs:label                    "Culture Ontology"@en, "Kultur Ontologie"@de ;
+    rdfs:comment                  "The Culture Ontology (aka Culture Dataspace (DRK) Ontology) is designed in the Datenraum Kultur (DRK) project for the Culture Dataspace, providing extensible semantic concepts, properties, and their interrelationships for modeling metadata related to theaters, theatrical productions, and their showtimes."@en ;
+    dcterms:title                 "Culture Ontology"@en, "Kultur Ontologie"@de ;
 
     # Version Information
     owl:versionInfo               "2.0.0"^^xsd:string ;
-    owl:versionIRI                <http://w3id.org/drk/ontology/2.0.0> ;
-    owl:priorVersion              <http://w3id.org/drk/ontology/1.0.1> ;
+    owl:versionIRI                <https://w3id.org/drk/ontology/2.0.0> ;
+    owl:priorVersion              <https://w3id.org/drk/ontology/1.0.1> ;
     dcterms:hasVersion            "2.0.0"^^xsd:string ;
     
     # Dates
     dcterms:created               "2024-10-22"^^xsd:date ;
-    dcterms:modified              "2026-05-20"^^xsd:date ;
-    dcterms:issued                "2026-06-10"^^xsd:date ;
+    dcterms:modified              "2026-06-16"^^xsd:date ;
+    dcterms:issued                "2026-06-16"^^xsd:date ;
     bibo:doi                      "10.5281/zenodo.15294907" ;
 
     # Simple author strings for better tool compatibility
@@ -81,7 +81,7 @@ drk:
 
     # Namespace Information
     vann:preferredNamespacePrefix "drk" ;
-    vann:preferredNamespaceUri    "http://w3id.org/drk/ontology/" ;
+    vann:preferredNamespaceUri    "https://w3id.org/drk/ontology/" ;
 
     # Documentation Links
     rdfs:seeAlso                  <https://github.com/Fraunhofer-FIT-DSAI/drk-information-model> ;
@@ -89,7 +89,7 @@ drk:
 
     # Extended Description
     dcterms:description           """
-        The DRK (Datenraum Kultur) ontology provides a comprehensive vocabulary for describing theatrical productions and cultural events.
+        The Culture Ontology (aka DRK (Datenraum Kultur) ontology) provides a comprehensive vocabulary for describing theatrical productions and cultural events.
         It includes concepts for:
         - Theatrical productions and events
         - Characters, roles and performances
@@ -101,7 +101,7 @@ drk:
 
     # Additional Metadata
     dcterms:language              lang:en, lang:de ;
-    dcterms:subject               "Theater"@en, "Play Production"@en, "Cultural Events"@en, "Performing Arts"@en ;
+    dcterms:subject               "Theater"@en, "Theatrical Production"@en, "Play Production"@en, "Cultural Events"@en, "Performing Arts"@en ;
     dcterms:audience              "Cultural institutions"@en, "Theater professionals"@en, "Researchers"@en ;
     dcterms:coverage              "Global"@en .
 
@@ -156,7 +156,7 @@ drk:animalPolicy
     rdfs:isDefinedBy drk: .
 
 # The drk:accessibleWith property is used to specify with what disability profile can a person access the given place.
-# The personal disability profile values should be URIs from a controlled vocabulary such as the DRK 'Personal Profile for Accessibility' vocabulary: `http://w3id.org/drk/vocabs/personal-profile-for-accessibility#`.
+# The personal disability profile values should be URIs from a controlled vocabulary such as the DRK 'Personal Profile for Accessibility' vocabulary: `https://w3id.org/drk/vocabs/personal-profile-for-accessibility#`.
 drk:accessibleWith
     a                rdf:Property, owl:ObjectProperty ;
     rdfs:domain      drk:PlaceAccessibilityFeature ;
@@ -179,7 +179,7 @@ drk:wheelchairPlaces
 # The drk:accessibilityDescription property can be used to provide a human-readable description of facilities at a place concerning accessibility.
 # For example, whether the given place is accessible with a wheelchair, or with a guide dog, does the place offer all the necessary facilities for access by a person who has a visual impairment, is the place equipped with 'accessible toilets', etc.
 drk:accessibilityDescription
-    a                rdf:Property, owl:ObjectProperty ;
+    a                rdf:Property, owl:DatatypeProperty ;
     rdfs:domain      drk:PlaceAccessibilityFeature ;
     rdfs:range       schema:Text ;
     rdfs:label       "Accessibility Description"@en ;
@@ -340,13 +340,6 @@ drk:hasTheatricalEvent
     rdfs:comment     "A property that links a theater organization to a theatrical event associated with that organization."@en ;
     rdfs:isDefinedBy drk: .
 
-drk:TheatricalProduction
-    a                owl:Class, rdfs:Class ;
-    rdfs:subClassOf  drk:PlayProduction ;
-    rdfs:label       "Theatrical Production"@en ;
-    rdfs:comment     "A class for theatrical creative works and production-related activities, such as plays or staged productions, excluding their individual presentations as events."@en ;
-    rdfs:isDefinedBy drk: .
-
 drk:theatricalGenre
     a                  rdf:Property, owl:ObjectProperty ;
     rdfs:subPropertyOf schema:genre ;
@@ -355,13 +348,6 @@ drk:theatricalGenre
     rdfs:label         "Theatrical Genre"@en ;
     rdfs:comment       "A property that specifies the theatrical genre of a theatrical production."@en ;
     rdfs:isDefinedBy   drk: .
-
-drk:TheatricalEvent
-    a                owl:Class, rdfs:Class ;
-    rdfs:subClassOf  drk:TheaterEvent ;
-    rdfs:label       "Theatrical Event"@en ;
-    rdfs:comment     "A class for an individual presentation or performance of a theatrical production at a particular time and physical, virtual, or hybrid location."@en ;
-    rdfs:isDefinedBy drk: .
 
 drk:TheaterShowtimesDataset
     a                owl:Class, rdfs:Class ;
@@ -395,7 +381,7 @@ drk:Character
 
 # The drk:characterType property specifies the type of a character in a creative work or during an event.
 # Examples of character types include person, animal, organization, puppet, robot, inanimate object, imaginary entity, etc.
-# Values should be URIs from a controlled vocabulary such as the DRK Character Types Vocabulary: `http://w3id.org/drk/vocabs/character-types#`.
+# Values should be URIs from a controlled vocabulary such as the DRK Character Types Vocabulary: `https://w3id.org/drk/vocabs/character-types#`.
 drk:characterType
     a                rdf:Property, owl:ObjectProperty ;
     rdfs:domain      drk:Character ;
@@ -407,13 +393,13 @@ drk:characterType
 # The drk:Performer class specifies the performer of a role in a creative work or event.
 drk:Performer
     a                owl:Class, rdfs:Class ;
-    rdfs:label       "Role"@en ;
+    rdfs:label       "Performer"@en ;
     rdfs:comment     "A class that specifies the performer of a role in a creative work or event. Performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI)."@en ;
     rdfs:isDefinedBy drk: .
 
 # The drk:performerType property specifies the type of performer that performs a role in a creative work or event.
 # Examples of performer types include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI).
-# Values should be URIs from a controlled vocabulary such as the DRK Performer Types Vocabulary: `http://w3id.org/drk/vocabs/performer-types#`.
+# Values should be URIs from a controlled vocabulary such as the DRK Performer Types Vocabulary: `https://w3id.org/drk/vocabs/performer-types#`.
 drk:performerType
     a                rdf:Property, owl:ObjectProperty ;
     rdfs:domain      drk:Performer ;
@@ -492,21 +478,21 @@ drk:Event
 ### Theater concepts ###
 ##########################################################################################################
 
-# The drk:PlayProduction class includes every stage of Play Production from writing, planning, and casting, to rehearsal, except for the presentation of work, i.e., Event.
-# Event is modelled using another class: drk:TheaterEvent.
+# The drk:TheatricalProduction class includes every stage of Theatrical Production (including Play Production) from writing, planning, and casting, to rehearsal, except for the presentation of work, i.e., Event.
+# Event is modelled using another class: drk:TheatricalEvent.
 # It extends schema:CreativeWork class.
-drk:PlayProduction
+drk:TheatricalProduction
     a                owl:Class, rdfs:Class ;
     rdfs:subClassOf  schema:CreativeWork ;
-    rdfs:label       "Play Production"@en ;
-    rdfs:comment     "A class that includes all stages of Play Production from writing, planning, casting, and staging to rehearsal, but excludes the final presentation or performance, which is modeled as an Event using the drk:TheaterEvent class."@en ;
+    rdfs:label       "Theatrical Production"@en ;
+    rdfs:comment     "A class that includes all stages of Theatrical Production (including Play Production) from writing, planning, casting, and staging to rehearsal, but excludes the final presentation or performance, which is modeled as an Event using the drk:TheatricalEvent class."@en ;
     rdfs:isDefinedBy drk: .
 
 # The drk:productionType property specifies the production type of a creative work, such as 'World Premiere', 'Language Premiere', etc.
-# Values should be URIs from a controlled vocabulary such as the DRK Theatrical Production Types Vocabulary: `http://w3id.org/drk/vocabs/theatrical-production-types#`.
+# Values should be URIs from a controlled vocabulary such as the DRK Theatrical Production Types Vocabulary: `https://w3id.org/drk/vocabs/theatrical-production-types#`.
 drk:productionType
     a                rdf:Property, owl:ObjectProperty ;
-    rdfs:domain      drk:PlayProduction ;
+    rdfs:domain      drk:TheatricalProduction ;
     rdfs:range       skos:Concept ;
     rdfs:label       "Production Type"@en ;
     rdfs:comment     "A property that specifies the production type of a creative work, such as 'World Premiere', 'Language Premiere', etc."@en ;
@@ -520,33 +506,33 @@ drk:productionType
 # Note: This property is comparable to schema:character, but it allows for specifying characters and their roles in greater detail than schema:character by incorporating character names, types, and role names.
 drk:characterRole
     a                rdf:Property, owl:ObjectProperty ;
-    rdfs:domain      drk:PlayProduction ;
+    rdfs:domain      drk:TheatricalProduction ;
     rdfs:range       drk:CharacterPerformanceRole ;
     rdfs:label       "Character Role"@en ;
     rdfs:comment     "A property that is used to specify the characters and the roles played by them in a theatrical play. For example, the role of 'Romeo' in 'Romeo and Juliet' by William Shakespeare is a character role."@en ;
     rdfs:isDefinedBy drk: .
 
-# The drk:creatorRole property specifies the names of creator roles involved in a play's production and the performers of these roles.
+# The drk:creatorRole property specifies the names of creator roles involved in a theatrical production and the performers of these roles.
 # roleName examples (corresponding to creator roles): creator, writer, playwright, makeup artist, understudy, funder, sponsor, etc.
 # performers can include persons, animals, organizations, puppets, robots, inanimate objects, or even computer-generated imagery (CGI).
 # Note: Use this property instead of schema:character
 drk:creatorRole
     a                rdf:Property, owl:ObjectProperty ;
-    rdfs:domain      drk:PlayProduction ;
+    rdfs:domain      drk:TheatricalProduction ;
     rdfs:range       drk:ProductionRole ;
     rdfs:label       "Creator Role"@en ;
-    rdfs:comment     "A property that is used to specify the names of creator roles involved in a play's production that are not characters in the play. For example, William Shakespeare performed the roles of playwright and creator in the production of his play 'Romeo and Juliet'."@en ;
+    rdfs:comment     "A property that is used to specify the names of creator roles involved in a theatrical production that are, for instance, not characters in the play. For example, William Shakespeare performed the roles of playwright and creator in the production of his play 'Romeo and Juliet'."@en ;
     rdfs:isDefinedBy drk: .
 
-# The drk:TheaterEvent describes the presentation of a theatrical creative work such as a play.
+# The drk:TheatricalEvent describes the presentation of a theatrical creative work such as a play.
 # For example, the premiere performance of the play 'Hedwig and the Angry Inch' on 15.9.2023 at Staatstheater Augsburg: https://staatstheater-augsburg.de/hedwig_and_the_angry_inch.
-# It extends drk:Event and schema:TheaterEvent classes.
-# drk:TheaterEvent can be linked to drk:PlayProduction using the property 'schema:workPerformed'.
-# Theater Events can be presented to an audience at a physical location, a virtual location, or in a hybrid manner.
-drk:TheaterEvent
+# It extends drk:Event and schema:TheatricalEvent classes.
+# drk:TheatricalEvent can be linked to drk:TheatricalProduction using the property 'schema:workPerformed'.
+# Theatrical Events or Theater Events can be presented to an audience at a physical location, a virtual location, or in a hybrid manner.
+drk:TheatricalEvent
     a                owl:Class, rdfs:Class ;
     rdfs:subClassOf  drk:Event, schema:TheaterEvent ;
-    rdfs:label       "Theater Event"@en ;
+    rdfs:label       "Theatrical Event or or Theater Event"@en ;
     rdfs:comment     "A class that describes the presentation of a theatrical creative work such as a play."@en ;
     rdfs:isDefinedBy drk: .
 
@@ -559,11 +545,11 @@ drk:intermissionCount
     rdfs:comment     "A property that specifies the number of intermissions or breaks during an Event."@en ;
     rdfs:isDefinedBy drk: .
 
-# The drk:subtitleLanguage specifies the languages in which subtitles or captions are available during a Theater Event.
+# The drk:subtitleLanguage specifies the languages in which subtitles or captions are available during a Theatrical Event.
 # Currently, schema.org (V28.0) has a property called 'schema:subtitleLanguage' which is not applicable on schema:Event (or schema:TheaterEvent), but only on some specific types such as BroadcastEvent, ScreeningEvent.
 drk:subtitleLanguage
     a                rdf:Property, owl:ObjectProperty ;
-    rdfs:domain      drk:TheaterEvent ;
+    rdfs:domain      drk:TheatricalEvent ;
     rdfs:range       schema:Language ;
     rdfs:label       "Subtitle Language"@en ;
     rdfs:comment     "A property that specifies the languages in which subtitles or captions are available during a Theatrical Event."@en ;
@@ -572,7 +558,7 @@ drk:subtitleLanguage
 # The drk:characterPerformanceRole property is used to specify and link the details of characters in a creative work such as a play to the respective performers and the roles played by them.
 drk:characterPerformanceRole
     a                rdf:Property, owl:ObjectProperty ;
-    rdfs:domain      drk:TheaterEvent ;
+    rdfs:domain      drk:TheatricalEvent ;
     rdfs:range       drk:CharacterPerformanceRole ;
     rdfs:label       "Character Performance Role Property"@en ;
     rdfs:comment     "A property that is used to specify and link the details of characters in a creative work such as a play to the respective performers and the roles played by them."@en ;
@@ -590,7 +576,7 @@ drk:eventRole
     rdfs:isDefinedBy drk: .
 
 # The drk:eventType property specifies event types such as Premiere, Last Performance, Guest Performance, etc.
-# Values should be URIs from a controlled vocabulary such as the DRK Theatrical Event Types Vocabulary: `http://w3id.org/drk/vocabs/theatrical-event-types#`.
+# Values should be URIs from a controlled vocabulary such as the DRK Theatrical Event Types Vocabulary: `https://w3id.org/drk/vocabs/theatrical-event-types#`.
 drk:eventType
     a                rdf:Property, owl:ObjectProperty ;
     rdfs:domain      drk:Event ;
