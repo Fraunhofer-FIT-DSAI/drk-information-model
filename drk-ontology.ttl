@@ -29,9 +29,9 @@ drk:
     owl:imports                   <https://w3id.org/drk/vocabs/theatrical-genres> ;
 
     # Basic Metadata
-    rdfs:label                    "Culture Dataspace (DRK) Ontology"@en, "Datenraum Kultur (DRK) Ontologie"@de ;
-    rdfs:comment                  "The DRK ontology is designed for the cultural dataspace, providing extensible semantic concepts, properties, and their interrelationships for modeling metadata related to theaters, theatrical productions, and their showtimes."@en ;
-    dcterms:title                 "Culture Dataspace (DRK) Ontology"@en, "Datenraum Kultur (DRK) Ontologie"@de ;
+    rdfs:label                    "Culture Ontology"@en, "Kultur Ontologie"@de ;
+    rdfs:comment                  "The Culture Ontology (aka Culture Dataspace (DRK) Ontology) is designed in the Datenraum Kultur (DRK) project for the Culture Dataspace, providing extensible semantic concepts, properties, and their interrelationships for modeling metadata related to theaters, theatrical productions, and their showtimes."@en ;
+    dcterms:title                 "Culture Ontology"@en, "Kultur Ontologie"@de ;
 
     # Version Information
     owl:versionInfo               "2.0.0"^^xsd:string ;
@@ -41,8 +41,8 @@ drk:
     
     # Dates
     dcterms:created               "2024-10-22"^^xsd:date ;
-    dcterms:modified              "2026-05-20"^^xsd:date ;
-    dcterms:issued                "2026-06-10"^^xsd:date ;
+    dcterms:modified              "2026-06-16"^^xsd:date ;
+    dcterms:issued                "2026-06-16"^^xsd:date ;
     bibo:doi                      "10.5281/zenodo.15294907" ;
 
     # Simple author strings for better tool compatibility
@@ -89,7 +89,7 @@ drk:
 
     # Extended Description
     dcterms:description           """
-        The DRK (Datenraum Kultur) ontology provides a comprehensive vocabulary for describing theatrical productions and cultural events.
+        The Culture Ontology (aka DRK (Datenraum Kultur) ontology) provides a comprehensive vocabulary for describing theatrical productions and cultural events.
         It includes concepts for:
         - Theatrical productions and events
         - Characters, roles and performances
