@@ -528,11 +528,11 @@ drk:creatorRole
 # For example, the premiere performance of the play 'Hedwig and the Angry Inch' on 15.9.2023 at Staatstheater Augsburg: https://staatstheater-augsburg.de/hedwig_and_the_angry_inch.
 # It extends drk:Event and schema:TheatricalEvent classes.
 # drk:TheatricalEvent can be linked to drk:TheatricalProduction using the property 'schema:workPerformed'.
-# Theater Events can be presented to an audience at a physical location, a virtual location, or in a hybrid manner.
+# Theatrical Events or Theater Events can be presented to an audience at a physical location, a virtual location, or in a hybrid manner.
 drk:TheatricalEvent
     a                owl:Class, rdfs:Class ;
     rdfs:subClassOf  drk:Event, schema:TheaterEvent ;
-    rdfs:label       "Theater Event"@en ;
+    rdfs:label       "Theatrical Event or or Theater Event"@en ;
     rdfs:comment     "A class that describes the presentation of a theatrical creative work such as a play."@en ;
     rdfs:isDefinedBy drk: .
 
@@ -545,7 +545,7 @@ drk:intermissionCount
     rdfs:comment     "A property that specifies the number of intermissions or breaks during an Event."@en ;
     rdfs:isDefinedBy drk: .
 
-# The drk:subtitleLanguage specifies the languages in which subtitles or captions are available during a Theater Event.
+# The drk:subtitleLanguage specifies the languages in which subtitles or captions are available during a Theatrical Event.
 # Currently, schema.org (V28.0) has a property called 'schema:subtitleLanguage' which is not applicable on schema:Event (or schema:TheaterEvent), but only on some specific types such as BroadcastEvent, ScreeningEvent.
 drk:subtitleLanguage
     a                rdf:Property, owl:ObjectProperty ;
