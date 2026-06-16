@@ -9,7 +9,7 @@
 @prefix wikidata:     <https://www.wikidata.org/entity/> .
 @prefix vann:         <http://purl.org/vocab/vann/> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
-@prefix tgenres:      <http://w3id.org/drk/vocabs/theatrical-genres#> .
+@prefix tgenres:      <https://w3id.org/drk/vocabs/theatrical-genres#> .
 
 tgenres:
     a                             voaf:Vocabulary, skos:ConceptScheme ;
@@ -20,7 +20,7 @@ tgenres:
     dcterms:hasVersion            "0.0.1"^^xsd:string ;
     rdfs:seeAlso                  wikidata:Q7777573, <https://en.wikipedia.org/wiki/Category:Theatrical_genres> ;
     vann:preferredNamespacePrefix "tgenres" ;
-    vann:preferredNamespaceUri    "http://w3id.org/drk/vocabs/theatrical-genres#" .
+    vann:preferredNamespaceUri    "https://w3id.org/drk/vocabs/theatrical-genres#" .
 
 tgenres:Audiowalk
     a             skos:Concept ;
