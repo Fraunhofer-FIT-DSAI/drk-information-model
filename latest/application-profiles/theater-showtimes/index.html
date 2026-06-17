@@ -4,9 +4,17 @@
 <head>
 <title>DRK Theater Showtimes General Application Profile v2.0.0</title>
 <meta charset="utf-8"/>
+<<<<<<< HEAD
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <script class="remove" defer="" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+=======
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<!-- ReSpec (live build). For a publication-ready static snapshot, open the ReSpec
+     menu (top-right) and choose "Export → HTML", or use the respec CLI. -->
+<script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <script class="remove">
 var respecConfig = {
   specStatus:       "unofficial",
@@ -67,7 +75,12 @@ var respecConfig = {
 </style>
 </head>
 <body>
+<<<<<<< HEAD
 <section class="introductory" id="abstract">
+=======
+<!-- =================================================================== -->
+<section id="abstract" class="introductory">
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <h2>Abstract</h2>
 <p>
   This document specifies the <strong>Theater Showtimes General Application Profile v2.0.0</strong> (<strong>TS-GAP</strong>),
@@ -86,18 +99,33 @@ var respecConfig = {
   cardinalities and can be operationalized using <a href="https://www.w3.org/TR/shacl/">SHACL</a> [[shacl]] shapes.
 </p>
 </section>
+<<<<<<< HEAD
 <section class="introductory" id="sotd">
+=======
+<!-- =================================================================== -->
+<section id="sotd" class="introductory">
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <p>
   This is an unofficial working draft of the Theater Showtimes General Application Profile, prepared as documentation for the
   DRK Information Model. It follows ReSpec-style editorial conventions and is intended to be maintained alongside the
   Culture (DRK) Ontology and related SHACL artifacts.
 </p>
+<<<<<<< HEAD
 <p class="note" title="Source alignment">
   This revision has been aligned with the uploaded Culture (DRK) Ontology v2.0.0 and the Theater Showtimes GAP v2.0.0
   draw.io/SVG model. The ontology metadata indicates modification/issue date .
 </p>
 </section>
 <nav id="toc"></nav>
+=======
+<p class="note" title="Cardinalities from SHACL">
+  The cardinality (<code>Card.</code>) and obligation values below have been populated from the <a href="#validation">SHACL shapes</a>. Properties with no corresponding shape constraint remain marked <span class="tbd">TBD</span>. Where the shapes omit an upper bound for a property that is conceptually single-valued, the value is shown faithfully as <code>0..n</code>.
+</p>
+</section>
+<!-- ReSpec injects the table of contents here -->
+<nav id="toc"></nav>
+<!-- =================================================================== -->
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <section id="introduction">
 <h2>Introduction</h2>
 <section id="context">
@@ -122,8 +150,13 @@ var respecConfig = {
   is supported by the wider Culture IM but is outside the scope of this profile.
 </p>
 </section>
+<<<<<<< HEAD
 </section>
 <section class="override" id="conformance">
+=======
+<!-- =================================================================== -->
+<section id="conformance" class="override">
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <h2>Conformance</h2>
 <p>
   An RDF graph conforms to TS-GAP if, for every entity typed with a class defined or reused by this profile, it satisfies
@@ -144,6 +177,11 @@ var respecConfig = {
   validation, these constraints should be translated into SHACL shapes.
 </p>
 </section>
+<<<<<<< HEAD
+=======
+</section>
+<!-- =================================================================== -->
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <section id="namespaces">
 <h2>Namespaces and prefixes</h2>
 <table class="simple" id="table-namespaces">
@@ -168,6 +206,10 @@ var respecConfig = {
 </tbody>
 </table>
 </section>
+<<<<<<< HEAD
+=======
+<!-- =================================================================== -->
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <section id="conceptual-model">
 <h2>Conceptual model</h2>
 <p>
@@ -188,6 +230,10 @@ var respecConfig = {
 <figcaption>Detailed visual model of the Theater Showtimes General Application Profile v2.0.0.</figcaption>
 </figure>
 </section>
+<<<<<<< HEAD
+=======
+<!-- =================================================================== -->
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <section id="overview">
 <h2>Overview of classes</h2>
 <table class="simple" id="table-overview-classes">
@@ -205,6 +251,7 @@ var respecConfig = {
 </tbody>
 </table>
 </section>
+<<<<<<< HEAD
 <section id="classes">
 <h2>Classes and properties</h2>
 <p>
@@ -215,6 +262,22 @@ var respecConfig = {
 <section id="class-theaterorganization">
 <h3>Theater Organization</h3>
 <table class="simple class-def" id="table-class-class-theaterorganization">
+=======
+<!-- =================================================================== -->
+<section id="classes">
+<h2>Classes and properties</h2>
+<p class="issue" title="Cardinalities from SHACL">
+  Cardinality values below are taken from the SHACL shapes (see <a href="#validation">Validation</a>). Two rows in the <a href="#class-performingartstheater">Performing Arts Theater</a> table (<code>drk:wheelchairPlaces</code>, <code>drk:accessibilityDescription</code>) have no shape on <code>drk:Place</code> and remain <span class="tbd">TBD</span>; in the shapes these properties are constrained on <code>drk:PlaceAccessibilityFeature</code> instead.
+</p>
+<p class="note">
+  In each properties table, the <code>Reuse</code> column indicates the origin of a reused term: <strong>S</strong> = Schema.org.
+  Properties prefixed with <code>drk:</code> are newly defined by this profile.
+</p>
+<!-- ----------------------- PlayProduction ----------------------- -->
+<section id="class-playproduction">
+<h3>Play Production</h3>
+<table class="simple" id="table-class-playproduction">
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <tbody>
 <tr><th scope="row">Definition</th><td>A theater organization, such as a theater group, company, or association, that provides information about theatrical productions and events.</td></tr>
 <tr><th scope="row">URI</th><td><code>drk:TheaterOrganization</code></td></tr>
@@ -250,6 +313,7 @@ var respecConfig = {
 <table class="simple properties" id="table-properties-class-theatricalproduction">
 <thead><tr><th>Property name and URI</th><th>Range</th><th>Card.</th><th>Definition</th><th>Usage note</th><th>Reuse</th></tr></thead>
 <tbody>
+<<<<<<< HEAD
 <tr class="property"><td>name<br/><code>schema:name</code></td><td><code>schema:Text</code></td><td class="mand"><code>1..*</code></td><td>Title/name of the theatrical production.</td><td>Language-tagged text is recommended.</td><td>S</td></tr>
 <tr class="property"><td>description<br/><code>schema:description</code></td><td><code>schema:Text</code></td><td class="mand"><code>1..*</code></td><td>Description of the production.</td><td>Language-tagged text is recommended.</td><td>S</td></tr>
 <tr class="property"><td>in language<br/><code>schema:inLanguage</code></td><td><code>schema:Language</code></td><td class=""><code>0..*</code></td><td>Primary language(s) of the production.</td><td>Use a URI from the <a href="http://publications.europa.eu/resource/authority/language">EU Language vocabulary for ISO 639-1</a>.</td><td>S</td></tr>
@@ -271,6 +335,27 @@ var respecConfig = {
 <section id="class-theatricalevent">
 <h3>Theatrical Event</h3>
 <table class="simple class-def" id="table-class-class-theatricalevent">
+=======
+<tr class="property"><td>name<br><code>schema:name</code></td><td><code>rdf:langString</code></td><td class="mand">1..n</td><td>The name / title of the play production.</td><td>Provide language-tagged values (e.g., <code>@en</code>, <code>@de</code>).</td><td>S</td></tr>
+<tr class="property"><td>description<br><code>schema:description</code></td><td><code>rdf:langString</code></td><td class="mand">1..n</td><td>A description of the play production.</td><td>Language-tagged free text.</td><td>S</td></tr>
+<tr class="property"><td>genre<br><code>schema:genre</code></td><td><code>tgenres:</code> concept</td><td>0..n</td><td>The theatrical genre(s) of the production.</td><td>MUST be an IRI from the <a href="#cv-genres">Theatrical Genres vocabulary</a>.</td><td>S</td></tr>
+<tr class="property"><td>alternative headline<br><code>schema:alternativeHeadline</code></td><td><code>rdf:langString</code></td><td>0..n</td><td>A secondary headline / subtitle.</td><td>E.g., the original author and composer credits.</td><td>S</td></tr>
+<tr class="property"><td>abstract<br><code>schema:abstract</code></td><td><code>rdf:langString</code></td><td>0..n</td><td>A short summary of the work.</td><td></td><td>S</td></tr>
+<tr class="property"><td>production type<br><code>drk:productionType</code></td><td><code>tprod:</code> concept</td><td>0..n</td><td>The production type, e.g., World Premiere, Language Premiere, Revival.</td><td>IRI from the <a href="#cv-production-types">Theatrical Production Types vocabulary</a>.</td><td>drk</td></tr>
+<tr class="property"><td>accessibility summary<br><code>schema:accessibilitySummary</code></td><td><code>rdf:langString</code></td><td>0..n</td><td>Human-readable accessibility notes for the production (e.g., strobe-lighting or content warnings).</td><td></td><td>S</td></tr>
+<tr class="property"><td>in language<br><code>schema:inLanguage</code></td><td><code>lang:</code> concept</td><td>0..n</td><td>The primary language(s) of the production.</td><td>IRI from the <a href="#cv-languages">Languages (ISO 639-1) vocabulary</a>.</td><td>S</td></tr>
+<tr class="property"><td>audience<br><code>schema:audience</code></td><td><a href="https://schema.org/PeopleAudience"><code>schema:PeopleAudience</code></a></td><td>0..n</td><td>The intended audience, e.g., a suggested minimum age.</td><td>Use <code>schema:suggestedMinAge</code> on the audience node.</td><td>S</td></tr>
+<tr class="property"><td>character role<br><code>drk:characterRole</code></td><td><a href="#class-role"><code>drk:CharacterPerformanceRole</code></a></td><td>0..n</td><td>The characters and the roles played by them in the production.</td><td>At production level the performer may be unknown; the cast per showtime is given on the event via <code>drk:characterPerformanceRole</code>.</td><td>drk</td></tr>
+<tr class="property"><td>creator role<br><code>drk:creatorRole</code></td><td><a href="#class-role"><code>drk:ProductionRole</code></a></td><td>0..n</td><td>Non-character creator roles in the production (author, director, designer, sponsor, …).</td><td></td><td>drk</td></tr>
+<tr class="property"><td>is based on<br><code>schema:isBasedOn</code></td><td><code>schema:CreativeWork</code> / IRI</td><td>0..n</td><td>A work the production is based on or derived from.</td><td>May reference external identifiers (Wikidata, GND, DBpedia).</td><td>S</td></tr>
+</tbody>
+</table>
+</section>
+<!-- ----------------------- TheaterEvent ----------------------- -->
+<section id="class-theaterevent">
+<h3>Theater Event (showtime)</h3>
+<table class="simple" id="table-class-theaterevent">
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <tbody>
 <tr><th scope="row">Definition</th><td>A class that describes the presentation of a theatrical creative work, such as a play, at a particular time and place; in this profile, it represents a showtime.</td></tr>
 <tr><th scope="row">URI</th><td><code>drk:TheatricalEvent</code></td></tr>
@@ -281,6 +366,7 @@ var respecConfig = {
 <table class="simple properties" id="table-properties-class-theatricalevent">
 <thead><tr><th>Property name and URI</th><th>Range</th><th>Card.</th><th>Definition</th><th>Usage note</th><th>Reuse</th></tr></thead>
 <tbody>
+<<<<<<< HEAD
 <tr class="property"><td>name<br/><code>schema:name</code></td><td><code>schema:Text</code></td><td class="mand"><code>1..*</code></td><td>Name/title of the event or showtime.</td><td>Language-tagged text is recommended.</td><td>S</td></tr>
 <tr class="property"><td>work performed<br/><code>schema:workPerformed</code></td><td><a href="#class-theatricalproduction"><code>drk:TheatricalProduction</code></a></td><td class="mand"><code>1..1</code></td><td>The theatrical production presented at this event.</td><td></td><td>S</td></tr>
 <tr class="property"><td>location<br/><code>schema:location</code></td><td><a href="#class-place"><code>schema:Place</code></a> or <a href="#class-virtuallocation"><code>schema:VirtualLocation</code></a></td><td class="mand"><code>1..*</code></td><td>The physical and/or virtual location of the event.</td><td>Use drk:PerformingArtsTheater for theater venues and schema:VirtualLocation for online events.</td><td>S</td></tr>
@@ -301,6 +387,28 @@ var respecConfig = {
 </tbody>
 </table>
 </section>
+=======
+<tr class="property"><td>name<br><code>schema:name</code></td><td><code>rdf:langString</code></td><td class="mand">1..n</td><td>The name of the event.</td><td></td><td>S</td></tr>
+<tr class="property"><td>work performed<br><code>schema:workPerformed</code></td><td><a href="#class-playproduction"><code>drk:PlayProduction</code></a></td><td class="mand">1..1</td><td>The play production presented at this event.</td><td></td><td>S</td></tr>
+<tr class="property"><td>location<br><code>schema:location</code></td><td><a href="#class-performingartstheater"><code>drk:PerformingArtsTheater</code></a> / <a href="https://schema.org/VirtualLocation"><code>schema:VirtualLocation</code></a></td><td class="mand">1..n</td><td>The physical and/or virtual location of the event.</td><td>Use a <code>schema:VirtualLocation</code> with a <code>schema:url</code> for live streaming.</td><td>S</td></tr>
+<tr class="property"><td>start date<br><code>schema:startDate</code></td><td><code>xsd:dateTime</code></td><td class="mand">1..1</td><td>The start date and time of the event.</td><td>ISO 8601 format.</td><td>S</td></tr>
+<tr class="property"><td>end date<br><code>schema:endDate</code></td><td><code>xsd:dateTime</code></td><td class="mand">1..1</td><td>The end date and time of the event.</td><td></td><td>S</td></tr>
+<tr class="property"><td>door time<br><code>schema:doorTime</code></td><td><code>xsd:dateTime</code></td><td class="mand">1..1</td><td>The time admission opens.</td><td></td><td>S</td></tr>
+<tr class="property"><td>duration<br><code>schema:duration</code></td><td><code>xsd:duration</code></td><td class="mand">1..1</td><td>The duration of the event.</td><td>ISO 8601 duration, e.g., <code>PT1H30M</code>.</td><td>S</td></tr>
+<tr class="property"><td>intermission count<br><code>drk:intermissionCount</code></td><td><code>xsd:nonNegativeInteger</code></td><td>0..1</td><td>The number of intermissions during the event.</td><td></td><td>drk</td></tr>
+<tr class="property"><td>url<br><code>schema:url</code></td><td><code>schema:URL</code></td><td>0..n</td><td>The event web page.</td><td></td><td>S</td></tr>
+<tr class="property"><td>in language<br><code>schema:inLanguage</code></td><td><code>lang:</code> concept</td><td>0..n</td><td>The spoken language(s) of this performance.</td><td>IRI from the <a href="#cv-languages">Languages vocabulary</a>.</td><td>S</td></tr>
+<tr class="property"><td>subtitle language<br><code>drk:subtitleLanguage</code></td><td><code>lang:</code> concept</td><td>0..n</td><td>The language(s) in which subtitles / captions are available.</td><td>IRI from the <a href="#cv-languages">Languages vocabulary</a>.</td><td>drk</td></tr>
+<tr class="property"><td>offers<br><code>schema:offers</code></td><td><a href="#class-offer"><code>schema:Offer</code></a></td><td>0..n</td><td>Ticket offers for the event.</td><td>See <a href="#class-offer">Offer</a> / <a href="#class-pricespecification">Price Specification</a>.</td><td>S</td></tr>
+<tr class="property"><td>character performance role<br><code>drk:characterPerformanceRole</code></td><td><a href="#class-role"><code>drk:CharacterPerformanceRole</code></a></td><td>0..n</td><td>The cast for this performance: characters and the performers playing them.</td><td></td><td>drk</td></tr>
+<tr class="property"><td>event role<br><code>drk:eventRole</code></td><td><a href="#class-role"><code>drk:ProductionRole</code></a></td><td>0..n</td><td>Production / off-stage roles performed during this event (director, band member, sponsor, …).</td><td></td><td>drk</td></tr>
+<tr class="property"><td>event type<br><code>drk:eventType</code></td><td><code>tevent:</code> concept</td><td>0..n</td><td>The event type, e.g., Premiere, Last Performance, Guest Performance.</td><td>IRI from the <a href="#cv-event-types">Theatrical Event Types vocabulary</a>.</td><td>drk</td></tr>
+<tr class="property"><td>event status<br><code>schema:eventStatus</code></td><td><code>schema:EventStatusType</code></td><td>0..n</td><td>The status of the event (scheduled, cancelled, postponed, …).</td><td>Use Schema.org enumeration values.</td><td>S</td></tr>
+</tbody>
+</table>
+</section>
+<!-- ----------------------- Event ----------------------- -->
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <section id="class-event">
 <h3>Event</h3>
 <table class="simple class-def" id="table-class-class-event">
@@ -321,6 +429,37 @@ var respecConfig = {
 </tbody>
 </table>
 </section>
+<<<<<<< HEAD
+=======
+<!-- ----------------------- PerformingArtsTheater ----------------------- -->
+<section id="class-performingartstheater">
+<h3>Performing Arts Theater (venue)</h3>
+<table class="simple" id="table-class-performingartstheater">
+<tbody>
+<tr><th scope="row">Definition</th><td>A place such as a building, a group of buildings, or an event site that is designated for organizing theatrical events such as plays.</td></tr>
+<tr><th scope="row">URI</th><td><code>drk:PerformingArtsTheater</code></td></tr>
+<tr><th scope="row">Subclass of</th><td><a href="https://schema.org/PerformingArtsTheater"><code>schema:PerformingArtsTheater</code></a>, <a href="#class-place"><code>drk:Place</code></a></td></tr>
+<tr><th scope="row">Usage note</th><td>Distinguish the <em>venue</em> (this class, a place) from the <em>theater company / organization</em> that operates it (<code>schema:TheaterGroup</code>, see <a href="#class-organization">Organization</a>).</td></tr>
+</tbody>
+</table>
+<table class="simple" id="table-properties-performingartstheater">
+<thead>
+<tr><th>Property name and URI</th><th>Range</th><th>Card.</th><th>Definition</th><th>Usage note</th><th>Reuse</th></tr>
+</thead>
+<tbody>
+<tr class="property"><td>name<br><code>schema:name</code></td><td><code>rdf:langString</code></td><td class="mand">1..n</td><td>The name of the venue.</td><td></td><td>S</td></tr>
+<tr class="property"><td>address<br><code>schema:address</code></td><td><a href="#class-postaladdress"><code>schema:PostalAddress</code></a></td><td class="mand">1..1</td><td>The postal address of the venue.</td><td></td><td>S</td></tr>
+<tr class="property"><td>has accessibility feature<br><code>drk:hasAccessibilityFeature</code></td><td><a href="#class-placeaccessibilityfeature"><code>drk:PlaceAccessibilityFeature</code></a></td><td>0..1</td><td>The accessibility features of the venue.</td><td></td><td>drk</td></tr>
+<tr class="property"><td>wheelchair places<br><code>drk:wheelchairPlaces</code></td><td><a href="#class-wheelchairplaces"><code>drk:WheelchairPlaces</code></a></td><td class="tbd">0..1</td><td>Reserved wheelchair spots at the venue.</td><td>May also be attached via the accessibility feature; see <a href="#class-placeaccessibilityfeature">Place Accessibility Feature</a>.</td><td>drk</td></tr>
+<tr class="property"><td>accessibility description<br><code>drk:accessibilityDescription</code></td><td><code>schema:Text</code></td><td class="tbd">0..n</td><td>A human-readable accessibility description of the venue.</td><td></td><td>drk</td></tr>
+<tr class="property"><td>navigation map URL<br><code>drk:navigationMapURL</code></td><td><code>schema:URL</code></td><td>0..n</td><td>A link to the venue's location on a digital map for navigation.</td><td>Inherited from <a href="#class-place">Place</a>; may also appear on a <code>schema:PostalAddress</code>.</td><td>drk</td></tr>
+<tr class="property"><td>latitude<br><code>schema:latitude</code></td><td><code>xsd:decimal</code></td><td>0..1</td><td>The latitude of the venue.</td><td></td><td>S</td></tr>
+<tr class="property"><td>longitude<br><code>schema:longitude</code></td><td><code>xsd:decimal</code></td><td>0..1</td><td>The longitude of the venue.</td><td></td><td>S</td></tr>
+</tbody>
+</table>
+</section>
+<!-- ----------------------- Place ----------------------- -->
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <section id="class-place">
 <h3>Place</h3>
 <table class="simple class-def" id="table-class-class-place">
@@ -375,6 +514,10 @@ var respecConfig = {
 </tbody>
 </table>
 </section>
+<<<<<<< HEAD
+=======
+<!-- ----------------------- PlaceAccessibilityFeature ----------------------- -->
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <section id="class-placeaccessibilityfeature">
 <h3>Place Accessibility Feature</h3>
 <table class="simple class-def" id="table-class-class-placeaccessibilityfeature">
@@ -387,6 +530,7 @@ var respecConfig = {
 <table class="simple properties" id="table-properties-class-placeaccessibilityfeature">
 <thead><tr><th>Property name and URI</th><th>Range</th><th>Card.</th><th>Definition</th><th>Usage note</th><th>Reuse</th></tr></thead>
 <tbody>
+<<<<<<< HEAD
 <tr class="property"><td>animal policy<br/><code>drk:animalPolicy</code></td><td><a href="#class-animalpolicy"><code>drk:AnimalPolicy</code></a></td><td class=""><code>0..1</code></td><td>Policy on bringing animals to the place.</td><td></td><td>DRK</td></tr>
 <tr class="property"><td>accessible with<br/><code>drk:accessibleWith</code></td><td><code>skos:Concept</code></td><td class=""><code>0..*</code></td><td>Personal accessibility/disability profiles with which the place can be accessed.</td><td>Use the controlled vocabulary: <a href="https://w3id.org/drk/vocabs/personal-profile-for-accessibility#">DRK Personal Profile for Accessibility</a>.</td><td>DRK</td></tr>
 <tr class="property"><td>wheelchair places<br/><code>drk:wheelchairPlaces</code></td><td><a href="#class-wheelchairplaces"><code>drk:WheelchairPlaces</code></a></td><td class=""><code>0..*</code></td><td>Reserved wheelchair spots or wheelchair capacity information.</td><td></td><td>DRK</td></tr>
@@ -394,6 +538,16 @@ var respecConfig = {
 </tbody>
 </table>
 </section>
+=======
+<tr class="property"><td>animal policy<br><code>drk:animalPolicy</code></td><td><a href="#class-animalpolicy"><code>drk:AnimalPolicy</code></a></td><td>0..1</td><td>The place's policy on bringing animals.</td><td></td><td>drk</td></tr>
+<tr class="property"><td>accessible with<br><code>drk:accessibleWith</code></td><td><code>ppfa:</code> concept</td><td>0..n</td><td>The personal (disability) profile(s) with which the place can be accessed.</td><td>IRI from the <a href="#cv-ppfa">Personal Profile for Accessibility vocabulary</a> (e.g., mobility impairment, blindness).</td><td>drk</td></tr>
+<tr class="property"><td>wheelchair places<br><code>drk:wheelchairPlaces</code></td><td><a href="#class-wheelchairplaces"><code>drk:WheelchairPlaces</code></a></td><td>0..n</td><td>Reserved wheelchair spots.</td><td></td><td>drk</td></tr>
+<tr class="property"><td>accessibility description<br><code>drk:accessibilityDescription</code></td><td><code>schema:Text</code></td><td>0..n</td><td>A human-readable description of accessibility facilities.</td><td></td><td>drk</td></tr>
+</tbody>
+</table>
+</section>
+<!-- ----------------------- AnimalPolicy ----------------------- -->
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <section id="class-animalpolicy">
 <h3>Animal Policy</h3>
 <table class="simple class-def" id="table-class-class-animalpolicy">
@@ -405,6 +559,7 @@ var respecConfig = {
 <table class="simple properties" id="table-properties-class-animalpolicy">
 <thead><tr><th>Property name and URI</th><th>Range</th><th>Card.</th><th>Definition</th><th>Usage note</th><th>Reuse</th></tr></thead>
 <tbody>
+<<<<<<< HEAD
 <tr class="property"><td>allows dogs<br/><code>drk:allowsDogs</code></td><td><code>xsd:boolean</code></td><td class=""><code>0..1</code></td><td>Whether visitors are allowed to bring dogs in general.</td><td></td><td>DRK</td></tr>
 <tr class="property"><td>allows service animals<br/><code>drk:allowsServiceAnimals</code></td><td><code>xsd:boolean</code></td><td class=""><code>0..1</code></td><td>Whether visitors are allowed to bring service animals.</td><td></td><td>DRK</td></tr>
 <tr class="property"><td>allows assistance dogs<br/><code>drk:allowsAssistanceDogs</code></td><td><code>xsd:boolean</code></td><td class=""><code>0..1</code></td><td>Whether visitors are allowed to bring assistance/service dogs.</td><td>Subproperty of drk:allowsDogs and drk:allowsServiceAnimals in the ontology.</td><td>DRK</td></tr>
@@ -412,6 +567,16 @@ var respecConfig = {
 </tbody>
 </table>
 </section>
+=======
+<tr class="property"><td>allows dogs<br><code>drk:allowsDogs</code></td><td><code>xsd:boolean</code></td><td>0..1</td><td>Whether the place allows visitors to bring dogs in general.</td><td></td><td>drk</td></tr>
+<tr class="property"><td>allows service animals<br><code>drk:allowsServiceAnimals</code></td><td><code>xsd:boolean</code></td><td>0..1</td><td>Whether the place allows service animals.</td><td></td><td>drk</td></tr>
+<tr class="property"><td>allows assistance dogs<br><code>drk:allowsAssistanceDogs</code></td><td><code>xsd:boolean</code></td><td>0..1</td><td>Whether the place allows assistance / service dogs.</td><td></td><td>drk</td></tr>
+<tr class="property"><td>allows guide dogs<br><code>drk:allowsGuideDogs</code></td><td><code>xsd:boolean</code></td><td>0..1</td><td>Whether the place allows guide dogs.</td><td></td><td>drk</td></tr>
+</tbody>
+</table>
+</section>
+<!-- ----------------------- WheelchairPlaces ----------------------- -->
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <section id="class-wheelchairplaces">
 <h3>Wheelchair Places</h3>
 <table class="simple class-def" id="table-class-class-wheelchairplaces">
@@ -423,6 +588,7 @@ var respecConfig = {
 <table class="simple properties" id="table-properties-class-wheelchairplaces">
 <thead><tr><th>Property name and URI</th><th>Range</th><th>Card.</th><th>Definition</th><th>Usage note</th><th>Reuse</th></tr></thead>
 <tbody>
+<<<<<<< HEAD
 <tr class="property"><td>wheelchair places count<br/><code>drk:wheelchairPlacesCount</code></td><td><code>xsd:nonNegativeInteger</code></td><td class=""><code>0..1</code></td><td>Number of designated wheelchair places.</td><td></td><td>DRK</td></tr>
 <tr class="property"><td>has space for assistant<br/><code>drk:hasSpaceForAssistant</code></td><td><code>xsd:boolean</code></td><td class=""><code>0..1</code></td><td>Whether there is additional space for a wheelchair assistant.</td><td></td><td>DRK</td></tr>
 <tr class="property"><td>wheelchair user capacity<br/><code>drk:wheelchairUserCapacity</code></td><td><code>xsd:nonNegativeInteger</code></td><td class=""><code>0..1</code></td><td>Number of wheelchair users that can be accommodated at the same time.</td><td>Use when there is no designated wheelchair place but capacity is known.</td><td>DRK</td></tr>
@@ -527,6 +693,15 @@ var respecConfig = {
 </tbody>
 </table>
 </section>
+=======
+<tr class="property"><td>wheelchair places count<br><code>drk:wheelchairPlacesCount</code></td><td><code>xsd:nonNegativeInteger</code></td><td>0..1</td><td>The number of designated wheelchair places.</td><td></td><td>drk</td></tr>
+<tr class="property"><td>has space for assistant<br><code>drk:hasSpaceForAssistant</code></td><td><code>xsd:boolean</code></td><td>0..1</td><td>Whether there is additional space for a wheelchair assistant.</td><td></td><td>drk</td></tr>
+<tr class="property"><td>wheelchair user capacity<br><code>drk:wheelchairUserCapacity</code></td><td><code>xsd:nonNegativeInteger</code></td><td>0..1</td><td>The number of wheelchair users that can be accommodated at the same time.</td><td>Use when there is no designated space but the number is known.</td><td>drk</td></tr>
+</tbody>
+</table>
+</section>
+<!-- ----------------------- Role / CPR / ProductionRole ----------------------- -->
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <section id="class-role">
 <h3>Role</h3>
 <table class="simple class-def" id="table-class-class-role">
@@ -539,6 +714,7 @@ var respecConfig = {
 <table class="simple properties" id="table-properties-class-role">
 <thead><tr><th>Property name and URI</th><th>Range</th><th>Card.</th><th>Definition</th><th>Usage note</th><th>Reuse</th></tr></thead>
 <tbody>
+<<<<<<< HEAD
 <tr class="property"><td>role name<br/><code>schema:roleName</code></td><td><code>schema:Text</code> or <code>schema:URL</code></td><td class="mand"><code>1..*</code></td><td>Name or controlled identifier of the role, such as actor, director, puppeteer, writer, funder, or sponsor.</td><td>Examples: actor, protagonist, puppeteer, writer, makeup artist, understudy, funder, sponsor, etc.</td><td>S</td></tr>
 <tr class="property"><td>performer<br/><code>drk:performer</code></td><td><a href="#class-performer"><code>drk:Performer</code></a></td><td class=""><code>0..*</code></td><td>Performer of the role.</td><td>At production level the performer may be unknown; per-showtime casting can be represented on the event.</td><td>DRK</td></tr>
 </tbody>
@@ -568,9 +744,18 @@ var respecConfig = {
 <tr><th scope="row">URI</th><td><code>drk:ProductionRole</code></td></tr>
 <tr><th scope="row">Subclass of</th><td><a href="#class-role"><code>drk:Role</code></a></td></tr>
 <tr><th scope="row">Usage note</th><td>Use for creator, event, off-stage, or behind-the-scenes roles. It inherits schema:roleName and drk:performer from drk:Role.</td></tr>
+=======
+<tr class="property"><td>role name<br><code>schema:roleName</code></td><td><code>rdf:langString</code></td><td class="mand">1..n</td><td>The name of the role (e.g., Actor, Director, Band Member).</td><td></td><td>S</td></tr>
+<tr class="property"><td>performer<br><code>drk:performer</code></td><td><a href="#class-performer"><code>drk:Performer</code></a></td><td>0..n</td><td>The performer of the role.</td><td>At production level the performer may be omitted; per-showtime casting is given on the event.</td><td>drk</td></tr>
+<tr class="property"><td>character<br><code>drk:character</code></td><td><a href="#class-character"><code>drk:Character</code></a></td><td>0..n</td><td>The character associated with a character performance role.</td><td>Applies to <code>drk:CharacterPerformanceRole</code> only.</td><td>drk</td></tr>
+>>>>>>> f82feaa (Update theater showtimes documentation)
 </tbody>
 </table>
 </section>
+<<<<<<< HEAD
+=======
+<!-- ----------------------- Character ----------------------- -->
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <section id="class-character">
 <h3>Character</h3>
 <table class="simple class-def" id="table-class-class-character">
@@ -582,12 +767,21 @@ var respecConfig = {
 <table class="simple properties" id="table-properties-class-character">
 <thead><tr><th>Property name and URI</th><th>Range</th><th>Card.</th><th>Definition</th><th>Usage note</th><th>Reuse</th></tr></thead>
 <tbody>
+<<<<<<< HEAD
 <tr class="property"><td>name<br/><code>schema:name</code></td><td><code>schema:Text</code></td><td class="mand"><code>1..*</code></td><td>Name of the character.</td><td>character name.</td><td>S</td></tr>
 <tr class="property"><td>character type<br/><code>drk:characterType</code></td><td><code>skos:Concept</code></td><td class=""><code>0..*</code></td><td>Type of the character, such as person, animal, puppet, robot, inanimate object, or imaginary entity.</td><td>Use DRK controlled vocabulary: <a href="https://w3id.org/drk/vocabs/character-types#">character types</a>.</td><td>DRK</td></tr>
 <tr class="property"><td>same as<br/><code>schema:sameAs</code></td><td><code>schema:URL</code></td><td class=""><code>0..*</code></td><td>External identity link for the character.</td><td></td><td>S</td></tr>
 </tbody>
 </table>
 </section>
+=======
+<tr class="property"><td>name<br><code>schema:name</code></td><td><code>rdf:langString</code></td><td class="mand">1..n</td><td>The name of the character.</td><td></td><td>S</td></tr>
+<tr class="property"><td>character type<br><code>drk:characterType</code></td><td><code>tchar:</code> concept</td><td>0..n</td><td>The type of character (person, animal, puppet, robot, …).</td><td>IRI from the <a href="#cv-character-types">Character Types vocabulary</a>.</td><td>drk</td></tr>
+</tbody>
+</table>
+</section>
+<!-- ----------------------- Performer ----------------------- -->
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <section id="class-performer">
 <h3>Performer</h3>
 <table class="simple class-def" id="table-class-class-performer">
@@ -599,6 +793,7 @@ var respecConfig = {
 <table class="simple properties" id="table-properties-class-performer">
 <thead><tr><th>Property name and URI</th><th>Range</th><th>Card.</th><th>Definition</th><th>Usage note</th><th>Reuse</th></tr></thead>
 <tbody>
+<<<<<<< HEAD
 <tr class="property"><td>name<br/><code>schema:name</code></td><td><code>schema:Text</code></td><td class="mand"><code>1..*</code></td><td>Name of the performer.</td><td>Language-tagged text is recommended.</td><td>S</td></tr>
 <tr class="property"><td>performer type<br/><code>drk:performerType</code></td><td><code>skos:Concept</code></td><td class=""><code>0..*</code></td><td>Type of performer, such as person, organization, animal, puppet, robot, inanimate object, or CGI.</td><td>Use DRK controlled vocabulary: <a href="https://w3id.org/drk/vocabs/performer-types#">performer types</a>.</td><td>DRK</td></tr>
 <tr class="property"><td>same as<br/><code>schema:sameAs</code></td><td><code>schema:URL</code></td><td class=""><code>0..*</code></td><td>External identity link for the performer, e.g., GND or Wikidata.</td><td></td><td>S</td></tr>
@@ -608,6 +803,25 @@ var respecConfig = {
 <section id="class-virtuallocation">
 <h3>Virtual Location</h3>
 <table class="simple class-def" id="table-class-class-virtuallocation">
+=======
+<tr class="property"><td>name<br><code>schema:name</code></td><td><code>rdf:langString</code></td><td class="mand">1..n</td><td>The name of the performer.</td><td></td><td>S</td></tr>
+<tr class="property"><td>performer type<br><code>drk:performerType</code></td><td><code>tperf:</code> concept</td><td>0..n</td><td>The type of performer (person, organization, …).</td><td>IRI from the <a href="#cv-performer-types">Performer Types vocabulary</a>.</td><td>drk</td></tr>
+<tr class="property"><td>same as<br><code>schema:sameAs</code></td><td>IRI</td><td>0..n</td><td>A link to an authoritative reference (e.g., Wikidata, GND).</td><td></td><td>S</td></tr>
+</tbody>
+</table>
+</section>
+<!-- ----------------------- Reused classes ----------------------- -->
+<section id="class-organization">
+<h3>Reused Schema.org classes</h3>
+<p>
+  The following Schema.org classes are reused by the profile without modification. They are documented briefly here;
+  for the authoritative definitions and full property lists see [[SCHEMA-ORG]].
+</p>
+<table class="simple" id="table-reused-classes">
+<thead>
+<tr><th>Class</th><th>URI</th><th>Used for</th><th>Key properties used in this profile</th></tr>
+</thead>
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <tbody>
 <tr><th scope="row">Definition</th><td>A Schema.org virtual location used for online or live-streamed events.</td></tr>
 <tr><th scope="row">URI</th><td><code>schema:VirtualLocation</code></td></tr>
@@ -748,6 +962,10 @@ var respecConfig = {
 </table>
 </section>
 </section>
+<<<<<<< HEAD
+=======
+<!-- =================================================================== -->
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <section id="controlled-vocabularies">
 <h2>Controlled vocabularies</h2>
 <p>
@@ -767,12 +985,17 @@ var respecConfig = {
 <tr><td><a href="http://publications.europa.eu/resource/authority/language">EU Language vocabulary for ISO 639-1</a></td><td><code>http://publications.europa.eu/resource/authority/language</code></td><td><code>schema:inLanguage</code>, <code>drk:subtitleLanguage</code></td></tr><tr><td><a href="https://www.geonames.org/">GeoNames</a></td><td><code>https://www.geonames.org/</code></td><td><code>schema:addressLocality</code>, <code>schema:addressCountry</code>, <code>schema:addressRegion</code></td></tr><tr><td><a href="http://publications.europa.eu/resource/authority/currency">EU Controlled Vocabulary of Currency Codes ISO 4217-1</a></td><td><code>http://publications.europa.eu/resource/authority/currency</code></td><td><code>schema:priceCurrency</code></td></tr><tr><td><a href="http://purl.org/cld/freq/">Dublin Core Collection Description Frequency Vocabulary</a></td><td><code>http://purl.org/cld/freq/</code></td><td><code>dcterms:accrualPeriodicity</code></td></tr></tbody>
 </table>
 </section>
+<<<<<<< HEAD
+=======
+<!-- =================================================================== -->
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <section id="validation">
 <h2>Validation</h2>
 <p>
   The cardinalities and controlled-vocabulary requirements in this document can be represented as SHACL node shapes.
   The excerpt below illustrates the updated production-level constraints using the current class and property names.
 </p>
+<<<<<<< HEAD
 <pre class="example" title="SHACL: TheatricalProduction shape (illustrative excerpt)">@prefix drk: &lt;https://w3id.org/drk/ontology/&gt; .
 @prefix schema: &lt;https://schema.org/&gt; .
 @prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
@@ -783,11 +1006,31 @@ var respecConfig = {
    sh:property [ sh:path schema:description ; sh:minCount 1 ] ;
    sh:property [ sh:path drk:theatricalGenre ; sh:nodeKind sh:IRI ] .</pre>
 </section>
+=======
+<pre class="example" title="SHACL: PlayProduction shape (excerpt)">
+drk:PlayProductionShape
+    a              sh:NodeShape ;
+    sh:targetClass drk:PlayProduction ;
+    sh:property    [ sh:path schema:name ;        sh:minCount 1 ] ;
+    sh:property    [ sh:path schema:description ; sh:minCount 1 ] ;
+    sh:property    [ sh:path     schema:genre ;
+                     sh:minCount 1 ;
+                     sh:nodeKind sh:IRI ;
+                     sh:in       ( tgenres: ) ] .
+</pre>
+<p class="note">
+  The full shape graph covering the remaining classes and the cardinalities tabulated above is in preparation and
+  will be linked from the <a href="#sotd">alternate formats</a> when complete.
+</p>
+</section>
+<!-- =================================================================== -->
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <section id="example">
 <h2>Example</h2>
 <p>
   The following abbreviated example uses the updated class names and the TS-GAP-aligned properties.
 </p>
+<<<<<<< HEAD
 <pre class="example" title="Theater Showtimes instance excerpt (Turtle)">@prefix drk: &lt;https://w3id.org/drk/ontology/&gt; .
 @prefix drkr: &lt;https://w3id.org/drk/resources/&gt; .
 @prefix schema: &lt;https://schema.org/&gt; .
@@ -839,13 +1082,69 @@ var respecConfig = {
 <li>Corrected diagram-derived typos such as <code>drk:PlaceA ccessibilityFeature</code> and the circular wording for <code>schema:MediaObject</code>.</li>
 </ul>
 </section>
+=======
+<pre class="example" title="Theater Showtimes instance (excerpt, Turtle)">
+drkr:DE_STAugsburg_HedwigAngryInch
+    a                  drk:PlayProduction ;
+    schema:name        "Hedwig and the Angry Inch"@en ;
+    schema:description "Songs in English with German dialogues …"@en ;
+    schema:genre       tgenres:Musical ;
+    drk:productionType tprod:Revival ;
+    schema:inLanguage  lang:de ;
+    drk:creatorRole    [ a               drk:ProductionRole ;
+                         schema:roleName "Director"@en ;
+                         drk:performer   [ a                 drk:Performer ;
+                                           schema:name       "Cornelia Maschner"@en ;
+                                           drk:performerType tperf:Person ] ] .
+drkr:HedwigAngryInch_Event_20241228
+    a                    drk:TheaterEvent ;
+    schema:name          "The last performance of Hedwig and the Angry Inch …"@en ;
+    schema:workPerformed drkr:DE_STAugsburg_HedwigAngryInch ;
+    schema:location      drkr:DE_Augsburg_STAugsburg_Place ;
+    schema:startDate     "2024-12-28T19:30:00"^^xsd:dateTime ;
+    schema:endDate       "2024-12-28T21:00:00"^^xsd:dateTime ;
+    schema:duration      "PT1H30M"^^xsd:duration ;
+    drk:intermissionCount "0"^^xsd:nonNegativeInteger ;
+    drk:subtitleLanguage lang:de, lang:en ;
+    drk:eventType        tevent:LastPerformance ;
+    schema:eventStatus   schema:EventScheduled ;
+    schema:offers        [ a                   schema:Offer ;
+                           schema:name         "Standard Ticket Offer"@en ;
+                           schema:availability schema:InStock ;
+                           schema:priceSpecification
+                             [ a                    schema:PriceSpecification ;
+                               schema:minPrice      11.0 ;
+                               schema:maxPrice      29.0 ;
+                               schema:priceCurrency fibo-fnd-acc-4217:EUR ] ] .
+drkr:DE_Augsburg_STAugsburg_Place
+    a                           drk:PerformingArtsTheater ;
+    schema:name                 "Staatstheater Augsburg – brecht stage im Gaswerk"@en ;
+    drk:hasAccessibilityFeature [ a                  drk:PlaceAccessibilityFeature ;
+                                  drk:accessibleWith ppfa:MobilityImpairment, ppfa:Blindness ;
+                                  drk:animalPolicy   [ a                        drk:AnimalPolicy ;
+                                                       drk:allowsGuideDogs      true ;
+                                                       drk:allowsAssistanceDogs true ] ] ;
+    drk:wheelchairPlaces        [ a                         drk:WheelchairPlaces ;
+                                  drk:wheelchairPlacesCount "11"^^xsd:nonNegativeInteger ;
+                                  drk:hasSpaceForAssistant  true ] ;
+    schema:latitude             48.3874688 ;
+    schema:longitude            10.8597226 .
+</pre>
+</section>
+<!-- =================================================================== -->
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <section id="references-section">
 <h2>Conventions for references</h2>
 <p class="note">
   Normative and informative references are generated automatically by ReSpec from the citation keys used above.
 </p>
 </section>
+<<<<<<< HEAD
 <section class="appendix" id="acknowledgements">
+=======
+<!-- =================================================================== -->
+<section id="acknowledgements" class="appendix">
+>>>>>>> f82feaa (Update theater showtimes documentation)
 <h2>Acknowledgements</h2>
 <p>
   This work is carried out within the <em>Datenraum Kultur</em> (DRK) project. The authors thank Peter Retzlaff
